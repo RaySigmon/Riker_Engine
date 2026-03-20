@@ -1,0 +1,2 @@
+[console_scripts]
+riker = riker.cli:main

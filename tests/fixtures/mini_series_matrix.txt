@@ -1,0 +1,15 @@
+!Series_title	"Mini Test Dataset"
+!Series_geo_accession	"GSE99999"
+!Series_platform_id	"GPL99999"
+!Sample_geo_accession	"GSM100001"	"GSM100002"	"GSM100003"	"GSM100004"	"GSM100005"	"GSM100006"
+!Sample_title	"ASD_sample_1"	"ASD_sample_2"	"ASD_sample_3"	"CTL_sample_1"	"CTL_sample_2"	"CTL_sample_3"
+!Sample_characteristics_ch1	"disease status: autism"	"disease status: autism"	"disease status: autism"	"disease status: control"	"disease status: control"	"disease status: control"
+!Sample_source_name_ch1	"brain cortex"	"brain cortex"	"brain cortex"	"brain cortex"	"brain cortex"	"brain cortex"
+!series_matrix_table_begin
+"ID_REF"	"GSM100001"	"GSM100002"	"GSM100003"	"GSM100004"	"GSM100005"	"GSM100006"
+"PROBE_001"	8.5	8.2	8.8	9.1	9.3	9.0
+"PROBE_002"	6.1	6.3	5.9	6.0	6.2	6.1
+"PROBE_003"	10.2	10.5	10.1	10.8	10.6	10.9
+"PROBE_004"	7.3	7.1	7.5	7.2	7.4	7.3
+"PROBE_005"	4.5	4.8	4.2	5.1	5.3	4.9
+!series_matrix_table_end

@@ -1,0 +1,9 @@
+hgnc_id	symbol	name	prev_symbol	alias_symbol
+HGNC:1	A1BG	alpha-1-B glycoprotein		
+HGNC:100	ATP2B2	ATPase plasma membrane Ca2+ transporting 2	PMCA2	ATP2B2A
+HGNC:200	SEZ6L2	seizure related 6 homolog like 2		BSRP-A
+HGNC:300	KANK1	KN motif and ankyrin repeat domains 1	ANKRD15|CPSQ2	KANK
+HGNC:400	BRCA1	BRCA1 DNA repair associated	BRCC1	RNF53|FANCS
+HGNC:500	TP53	tumor protein p53		LFS1|TRP53
+HGNC:600	MRE11	MRE11 homologous recombination 11	MRE11A	HNGS1
+HGNC:700	PTEN	phosphatase and tensin homolog	MMAC1	TEP1|MMAC1
