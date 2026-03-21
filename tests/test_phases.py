@@ -72,7 +72,7 @@ from riker.phases.phase6_meta import (
 )
 from riker.config import load_config, PipelineConfig, DatasetConfig
 from riker.qc.checks import QCReport, QCCheckResult, check_phase1
-from riker.io.outputs import write_phase1_summary, write_qc_report
+from riker.io.outputs import write_phase1_summary, write_phase4_all_levels, write_qc_report
 
 
 def _make_expression_df(genes, n_cases=3, n_controls=3, seed=42,
@@ -827,3 +827,63 @@ class TestOutputWriters:
         p1 = Phase1Result({"G1": GeneResult("G1", [], 1, 1, True, -0.5, True)})
         path = write_phase1_summary(p1, tmp_path)
         assert path.exists()
+
+
+class TestAllLevelsOutput:
+    def test_write_all_levels(self, tmp_path):
+        """All study genes should appear with level data."""
+        sg, ci, ds = _make_robust_test_data()
+        sens = sensitivity_analysis(ci, sg, 100, min_datasets=1)
+        core = identify_core_genes(sens, sg, min_genes_per_cluster=1)
+
+        phase1 = Phase1Result(study_genes=sg, n_study_genes=len(sg))
+
+        # Phase3Result.cluster_labels is a dict: gene -> cluster_id
+        cluster_labels = {}
+        for cid, info in ci.items():
+            for gene in info.gene_symbols:
+                cluster_labels[gene] = cid
+        phase3 = Phase3Result(cluster_labels=cluster_labels, gene_order=list(sg.keys()))
+
+        phase4 = Phase4Result(
+            core_genes=core,
+            sensitivity=sens,
+            n_core_genes=len(core),
+        )
+
+        path = write_phase4_all_levels(phase1, phase3, phase4, tmp_path)
+        assert path.exists()
+
+        df = pd.read_csv(path)
+        assert len(df) == len(sg)
+        assert "max_level" in df.columns
+        assert "is_core" in df.columns
+        assert df["max_level"].max() >= 1
+
+    def test_levels_are_progressive(self, tmp_path):
+        """Level 4 survivors must also be Level 1-3 survivors."""
+        sg, ci, ds = _make_robust_test_data()
+        sens = sensitivity_analysis(ci, sg, 100, min_datasets=1)
+        core = identify_core_genes(sens, sg, min_genes_per_cluster=1)
+
+        phase1 = Phase1Result(study_genes=sg, n_study_genes=len(sg))
+        cluster_labels = {}
+        for cid, info in ci.items():
+            for gene in info.gene_symbols:
+                cluster_labels[gene] = cid
+        phase3 = Phase3Result(cluster_labels=cluster_labels, gene_order=list(sg.keys()))
+        phase4 = Phase4Result(
+            core_genes=core,
+            sensitivity=sens,
+            n_core_genes=len(core),
+        )
+
+        path = write_phase4_all_levels(phase1, phase3, phase4, tmp_path)
+        df = pd.read_csv(path)
+
+        # Any gene at level 4 must also be at levels 1, 2, 3
+        l4 = df[df["level_4"] == True]
+        for _, row in l4.iterrows():
+            assert row["level_1"] == True
+            assert row["level_2"] == True
+            assert row["level_3"] == True

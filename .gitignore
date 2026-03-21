@@ -1,0 +1,18 @@
+
+# Build artifacts
+*.egg-info/
+riker_engine.egg-info/
+__pycache__/
+*.pyc
+.pytest_cache/
+dist/
+build/
+
+# Data files (too large for git)
+*.h5ad
+*.mtx
+*.gz
+
+# IDE
+.vscode/
+.idea/

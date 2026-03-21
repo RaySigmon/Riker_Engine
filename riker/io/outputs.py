@@ -56,6 +56,73 @@ def write_phase4_core_genes(phase4_result, output_dir: Path) -> Path:
     return path
 
 
+def write_phase4_all_levels(
+    phase1_result,
+    phase3_result,
+    phase4_result,
+    output_dir: Path,
+) -> Path:
+    """Write progressive confidence levels for all study genes.
+
+    Shows every gene from Phase 1, its cluster assignment, and
+    which sensitivity levels it survived. Gives researchers a
+    ranked confidence list beyond the binary core/not-core output.
+    """
+    rows = []
+
+    # Collect all genes that survived each level across all clusters
+    level_genes = {1: set(), 2: set(), 3: set(), 4: set()}
+    for cluster_id, cluster_sens in phase4_result.sensitivity.items():
+        for level, survivors in cluster_sens.level_survivors.items():
+            level_genes[level].update(survivors)
+
+    # Get core gene set
+    core_set = set(phase4_result.core_genes.keys())
+
+    # Build rows for ALL study genes
+    for gene, gene_result in phase1_result.study_genes.items():
+        cluster_id = phase3_result.cluster_labels.get(gene, -1)
+        l1 = gene in level_genes[1]
+        l2 = gene in level_genes[2]
+        l3 = gene in level_genes[3]
+        l4 = gene in level_genes[4]
+
+        if l4:
+            max_level = 4
+        elif l3:
+            max_level = 3
+        elif l2:
+            max_level = 2
+        elif l1:
+            max_level = 1
+        else:
+            max_level = 0
+
+        rows.append({
+            "gene": gene,
+            "cluster_id": cluster_id,
+            "level_1": l1,
+            "level_2": l2,
+            "level_3": l3,
+            "level_4": l4,
+            "max_level": max_level,
+            "is_core": gene in core_set,
+            "mean_log2fc": gene_result.mean_log2fc,
+            "direction": "down" if gene_result.mean_log2fc < 0 else "up",
+        })
+
+    df = pd.DataFrame(rows)
+    df = df.sort_values(
+        ["max_level", "is_core"],
+        ascending=[False, False],
+    )
+
+    path = output_dir / "phase4_all_levels.csv"
+    df.to_csv(path, index=False)
+    logger.info(f"Phase 4 all levels: {path} ({len(df)} genes)")
+    return path
+
+
 def write_phase5_verdicts(phase5_result, output_dir: Path) -> Path:
     """Write Phase 5 replication verdicts to CSV."""
     rows = []

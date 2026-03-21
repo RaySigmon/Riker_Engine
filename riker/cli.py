@@ -229,8 +229,9 @@ def cmd_run(args) -> int:
             write_qc_report(qc, output_dir)
             return 1
 
-        from riker.io.outputs import write_phase4_core_genes
+        from riker.io.outputs import write_phase4_core_genes, write_phase4_all_levels
         write_phase4_core_genes(phase4_result, output_dir)
+        write_phase4_all_levels(phase1_result, phase3_result, phase4_result, output_dir)
 
     except Exception as e:
         logger.error(f"Phase 4 failed: {e}", exc_info=True)

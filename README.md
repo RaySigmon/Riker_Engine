@@ -80,8 +80,8 @@ Seed Genes + GEO Datasets
 ### Install from Source
 
 ```bash
-git clone https://github.com/RaySigmon/Project-Riker.git
-cd Project-Riker
+git clone https://github.com/RaySigmon/Riker_Engine.git
+cd Riker_Engine
 
 # Core install (Phases 1-2, 4-6, all stats)
 pip install -e .
@@ -573,7 +573,7 @@ The engine handles everything else — normalization, symbol resolution, phenoty
 
 If you use the Riker Engine in your research, please cite:
 
-> Sigmon, R. (2026). Riker Engine: A condition-agnostic transcriptomics pipeline for discovering replicated gene modules. GitHub: https://github.com/RaySigmon/Project-Riker
+> Sigmon, R. (2026). Riker Engine: A condition-agnostic transcriptomics pipeline for discovering replicated gene modules. GitHub: https://github.com/RaySigmon/Riker_Engine
 
 ---
 
