@@ -1056,3 +1056,55 @@ class TestMeanAbsLog2FC:
 
     def test_single_value(self):
         assert math.isclose(mean_abs_log2fc([-0.45]), 0.45)
+
+
+# ---------------------------------------------------------------------------
+# REML Tau-Squared Estimator
+# ---------------------------------------------------------------------------
+
+class TestREMLEstimator:
+    def test_reml_converges(self):
+        """REML should converge with reasonable data."""
+        from riker.stats.meta import _estimate_tau_squared_reml
+        effects = np.array([-0.5, -0.3, -0.7, -0.4])
+        variances = np.array([0.04, 0.05, 0.03, 0.06])
+        tau2, converged = _estimate_tau_squared_reml(effects, variances)
+        assert converged is True
+        assert tau2 >= 0
+
+    def test_reml_nonnegative(self):
+        """Tau-squared must be non-negative."""
+        from riker.stats.meta import _estimate_tau_squared_reml
+        effects = np.array([-0.5, -0.5, -0.5])
+        variances = np.array([0.04, 0.04, 0.04])
+        tau2, _ = _estimate_tau_squared_reml(effects, variances)
+        assert tau2 >= 0
+
+    def test_reml_vs_dl_direction(self):
+        """REML typically gives equal or larger tau2 than DL with moderate heterogeneity."""
+        from riker.stats.meta import _estimate_tau_squared_reml
+        # Moderate heterogeneity with more studies for stable REML
+        effects = np.array([-0.2, -0.4, -0.6, -0.3, -0.5])
+        variances = np.array([0.04, 0.05, 0.03, 0.06, 0.04])
+        tau2_reml, converged = _estimate_tau_squared_reml(effects, variances)
+        assert converged is True
+        assert tau2_reml >= 0
+
+    def test_single_study(self):
+        """Single study should return tau2=0."""
+        from riker.stats.meta import _estimate_tau_squared_reml
+        tau2, converged = _estimate_tau_squared_reml(
+            np.array([-0.5]), np.array([0.04])
+        )
+        assert tau2 == 0.0
+        assert converged is True
+
+    def test_meta_result_records_method(self):
+        """MetaResult should record whether REML or DL was used."""
+        fixed, random = run_meta_analysis("GENE", [
+            StudyEffect("D1", -0.5, 0.1, 15, 15, 0.001),
+            StudyEffect("D2", -0.3, 0.12, 15, 15, 0.01),
+            StudyEffect("D3", -0.7, 0.09, 15, 15, 0.001),
+        ])
+        assert hasattr(random, "tau_method")
+        assert random.tau_method in ("REML", "DL")

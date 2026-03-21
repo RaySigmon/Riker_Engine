@@ -99,18 +99,27 @@ def detect_log2_status(expression_values) -> tuple[bool, str]:
         return False, "Empty data — no transformation applied."
 
     median_val = float(np.nanmedian(vals))
-    has_negatives = bool(np.any(vals < 0))
-
-    if has_negatives:
-        return False, (
-            f"Data contains negative values — already log-transformed. "
-            f"Median: {median_val:.2f}."
-        )
+    n_negative = int(np.sum(vals < 0))
+    pct_negative = n_negative / len(vals) if len(vals) > 0 else 0.0
 
     if median_val >= LOG2_DETECTION_MEDIAN_THRESHOLD:
+        # Raw intensity scale — even if a few negatives from background subtraction
+        if n_negative > 0:
+            return True, (
+                f"Median ({median_val:.2f}) >= {LOG2_DETECTION_MEDIAN_THRESHOLD}. "
+                f"Raw intensities with {n_negative} negative values ({pct_negative:.1%}) "
+                f"from background subtraction. Will clamp to 0 and apply log2(x+1)."
+            )
         return True, (
             f"Median ({median_val:.2f}) >= {LOG2_DETECTION_MEDIAN_THRESHOLD}. "
             f"Data appears to be raw intensities — log2(x+1) recommended."
+        )
+
+    if n_negative > 0:
+        # Low median + negatives = already log-transformed
+        return False, (
+            f"Data contains {n_negative} negative values with median {median_val:.2f} "
+            f"— already log-transformed."
         )
 
     return False, (
@@ -142,9 +151,13 @@ def normalize_expression(
     if isinstance(expression_data, pd.DataFrame):
         vals = expression_data.values.astype(np.float64)
         is_dataframe = True
+        df_index = expression_data.index
+        df_columns = expression_data.columns
     else:
         vals = np.asarray(expression_data, dtype=np.float64)
         is_dataframe = False
+        df_index = None
+        df_columns = None
 
     original_median = float(np.nanmedian(vals))
     n_negative = int(np.sum(vals < 0))
@@ -160,7 +173,21 @@ def normalize_expression(
         reason = "Log2 transformation skipped by user."
 
     if needs_log2:
-        if n_negative > 0:
+        if n_negative > 0 and original_median >= LOG2_DETECTION_MEDIAN_THRESHOLD:
+            # Background-subtracted raw intensities — clamp negatives, then log2
+            logger.warning(
+                f"Clamping {n_negative} negative values to 0 "
+                f"(background subtraction artifacts in raw intensity data)."
+            )
+            vals = np.maximum(vals, 0)
+            transformed = np.log2(vals + 1)
+            was_transformed = True
+            reason += f" Clamped {n_negative} negatives to 0."
+            logger.info(
+                f"Applied log2(x+1) transformation (after clamping). "
+                f"Median: {original_median:.2f} -> {float(np.nanmedian(transformed)):.2f}"
+            )
+        elif n_negative > 0:
             warnings.warn(
                 f"Cannot apply log2(x+1): {n_negative} negative values found. "
                 f"Negative values would produce NaN. Skipping transformation.",
@@ -183,6 +210,10 @@ def normalize_expression(
         was_transformed = False
 
     transformed_median = float(np.nanmedian(transformed))
+
+    # Preserve DataFrame type if input was DataFrame
+    if is_dataframe:
+        transformed = pd.DataFrame(transformed, index=df_index, columns=df_columns)
 
     return NormalizationResult(
         data=transformed,

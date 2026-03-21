@@ -270,6 +270,7 @@ def run_consensus_clustering(
     min_samples: int = DEFAULT_MIN_SAMPLES,
     final_min_cluster_size: int | None = None,
     final_min_samples: int | None = None,
+    embedding_methods: list[str] | None = None,
 ) -> Phase3Result:
     """Run Phase 3 consensus clustering.
 
@@ -301,6 +302,8 @@ def run_consensus_clustering(
         n_neighbors_list = DEFAULT_N_NEIGHBORS
     if seeds is None:
         seeds = DEFAULT_SEEDS
+    if embedding_methods is None:
+        embedding_methods = ["umap"]
 
     gene_order = list(feature_matrix.index)
     n_genes = len(gene_order)
@@ -317,40 +320,90 @@ def run_consensus_clustering(
     # Run all configurations
     all_labels = []
     per_config_labels = []
-    n_configs = len(n_neighbors_list) * len(seeds)
 
-    logger.info(
-        f"Running {n_configs} UMAP+HDBSCAN configurations "
-        f"({len(n_neighbors_list)} n_neighbors × {len(seeds)} seeds)..."
-    )
+    # UMAP configurations
+    if "umap" in embedding_methods:
+        n_configs = len(n_neighbors_list) * len(seeds)
+        logger.info(
+            f"Running {n_configs} UMAP+HDBSCAN configurations "
+            f"({len(n_neighbors_list)} n_neighbors × {len(seeds)} seeds)..."
+        )
 
-    for nn in n_neighbors_list:
-        # Cap n_neighbors at n_genes - 1
-        effective_nn = min(nn, n_genes - 1)
-        if effective_nn < 2:
-            effective_nn = 2
+        for nn in n_neighbors_list:
+            effective_nn = min(nn, n_genes - 1)
+            if effective_nn < 2:
+                effective_nn = 2
 
-        for seed in seeds:
+            for seed in seeds:
+                try:
+                    labels = _run_single_config(
+                        X, effective_nn, seed, min_cluster_size, min_samples
+                    )
+                except Exception as e:
+                    logger.warning(
+                        f"Config n_neighbors={nn}, seed={seed} failed: {e}. Skipping."
+                    )
+                    continue
+
+                all_labels.append(labels)
+                config_dict = {
+                    gene: int(labels[i]) for i, gene in enumerate(gene_order)
+                }
+                per_config_labels.append({
+                    "method": "umap",
+                    "n_neighbors": nn,
+                    "seed": seed,
+                    "labels": config_dict,
+                    "n_clusters": len(set(labels)) - (1 if -1 in labels else 0),
+                })
+
+    # PCA configurations (deterministic — no seeds needed)
+    if "pca" in embedding_methods:
+        from sklearn.decomposition import PCA
+
+        n_components = min(2, X.shape[1], X.shape[0])
+        logger.info(
+            f"Running {len(n_neighbors_list)} PCA+HDBSCAN configurations "
+            f"({len(n_neighbors_list)} n_neighbors, deterministic)..."
+        )
+
+        pca = PCA(n_components=n_components)
+        pca_embedding = pca.fit_transform(X)
+
+        for nn in n_neighbors_list:
             try:
-                labels = _run_single_config(
-                    X, effective_nn, seed, min_cluster_size, min_samples
-                )
-            except Exception as e:
-                logger.warning(
-                    f"Config n_neighbors={nn}, seed={seed} failed: {e}. Skipping."
-                )
-                continue
+                effective_nn = min(nn, n_genes - 1)
+                if effective_nn < 2:
+                    effective_nn = 2
 
-            all_labels.append(labels)
-            config_dict = {
-                gene: int(labels[i]) for i, gene in enumerate(gene_order)
-            }
-            per_config_labels.append({
-                "n_neighbors": nn,
-                "seed": seed,
-                "labels": config_dict,
-                "n_clusters": len(set(labels)) - (1 if -1 in labels else 0),
-            })
+                if _HDBSCAN_SOURCE == "sklearn":
+                    clusterer = _HDBSCAN(
+                        min_cluster_size=min_cluster_size,
+                        min_samples=min_samples,
+                    )
+                    labels = clusterer.fit_predict(pca_embedding)
+                else:
+                    clusterer = _HDBSCAN(
+                        min_cluster_size=min_cluster_size,
+                        min_samples=min_samples,
+                    )
+                    clusterer.fit(pca_embedding)
+                    labels = clusterer.labels_
+
+                all_labels.append(labels)
+                config_dict = {
+                    gene: int(labels[i]) for i, gene in enumerate(gene_order)
+                }
+                per_config_labels.append({
+                    "method": "pca",
+                    "n_neighbors": nn,
+                    "seed": None,
+                    "labels": config_dict,
+                    "n_clusters": len(set(labels)) - (1 if -1 in labels else 0),
+                })
+            except Exception as e:
+                logger.warning(f"PCA config n_neighbors={nn} failed: {e}. Skipping.")
+                continue
 
     if not all_labels:
         warnings.warn(

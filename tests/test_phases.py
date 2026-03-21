@@ -887,3 +887,56 @@ class TestAllLevelsOutput:
             assert row["level_1"] == True
             assert row["level_2"] == True
             assert row["level_3"] == True
+
+
+# ---------------------------------------------------------------------------
+# v0.2.0 Tests: PCA embedding option for consensus clustering
+# ---------------------------------------------------------------------------
+
+def _make_clusterable_features(n_genes=30, n_features=3):
+    """Create a feature matrix with clear cluster structure."""
+    import numpy as np
+    np.random.seed(42)
+    # Split genes evenly across 3 clusters
+    n_per = n_genes // 3
+    remainder = n_genes - 3 * n_per
+    cluster1 = np.random.normal(0, 0.3, (n_per, n_features))
+    cluster2 = np.random.normal(3, 0.3, (n_per, n_features))
+    cluster3 = np.random.normal(6, 0.3, (n_per + remainder, n_features))
+    data = np.vstack([cluster1, cluster2, cluster3])
+    genes = [f"G_{i}" for i in range(n_genes)]
+    return pd.DataFrame(data, index=genes)
+
+
+class TestPCAEmbeddingOption:
+    def test_pca_embedding_produces_clusters(self):
+        """PCA embedding should produce valid clusters."""
+        features = _make_clusterable_features(30, 3)
+        result = run_consensus_clustering(
+            features, n_neighbors_list=[5], seeds=[42],
+            min_cluster_size=3, min_samples=2,
+            embedding_methods=["pca"],
+        )
+        assert result.n_clusters >= 1
+
+    def test_combined_umap_pca(self):
+        """Combined UMAP+PCA should produce more configs than UMAP alone."""
+        features = _make_clusterable_features(30, 3)
+        result = run_consensus_clustering(
+            features, n_neighbors_list=[5], seeds=[42],
+            min_cluster_size=3, min_samples=2,
+            embedding_methods=["umap", "pca"],
+        )
+        # Should have UMAP configs + PCA configs
+        assert len(result.per_config_labels) >= 2
+
+    def test_default_is_umap_only(self):
+        """Default embedding should be UMAP only."""
+        features = _make_clusterable_features(30, 3)
+        result = run_consensus_clustering(
+            features, n_neighbors_list=[5], seeds=[42],
+            min_cluster_size=3, min_samples=2,
+        )
+        # All configs should be UMAP
+        for config in result.per_config_labels:
+            assert config.get("method", "umap") == "umap"

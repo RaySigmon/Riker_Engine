@@ -535,17 +535,34 @@ class ProbeGeneMapper:
         self._load(gene_column, probe_column)
 
     def _load(self, gene_column: str | None, probe_column: str | None) -> None:
-        """Load and parse the platform annotation file."""
+        """Load and parse the platform annotation file.
+
+        Handles GEO-style .annot files with ^, !, and # header lines
+        by stripping them before parsing. This avoids the need for
+        manual preprocessing of platform annotation files.
+        """
+        import io
+
+        # Read file, skip GEO metadata headers (^, !, #)
+        with open(self.annotation_path, "r", encoding="utf-8", errors="replace") as f:
+            lines = []
+            for line in f:
+                if line.startswith("^") or line.startswith("!") or line.startswith("#"):
+                    continue
+                lines.append(line)
+
+        content = "".join(lines)
+
         # Try tab-separated first, then comma
         try:
             df = pd.read_csv(
-                self.annotation_path, sep="\t", dtype=str,
-                low_memory=False, comment="#",
+                io.StringIO(content), sep="\t", dtype=str,
+                low_memory=False,
             )
         except Exception:
             df = pd.read_csv(
-                self.annotation_path, sep=",", dtype=str,
-                low_memory=False, comment="#",
+                io.StringIO(content), sep=",", dtype=str,
+                low_memory=False,
             )
 
         # Find probe ID column
@@ -695,9 +712,19 @@ class ProbeGeneMapper:
         gene_expr.index.name = "gene"
 
         n_unmapped = len(expression) - len(mapped_probes)
+        n_total = len(expression)
+        map_rate = len(mapped_probes) / n_total if n_total > 0 else 0
+
         logger.info(
             f"Probe-to-gene mapping: {len(mapped_probes)} mapped, "
             f"{n_unmapped} unmapped, {len(gene_expr)} unique genes."
         )
+
+        if map_rate < 0.10:
+            logger.warning(
+                f"Low probe mapping rate: {len(mapped_probes)}/{n_total} ({map_rate:.1%}). "
+                f"The annotation file may not match this dataset's platform. "
+                f"Check that the correct GPL annotation is being used."
+            )
 
         return gene_expr

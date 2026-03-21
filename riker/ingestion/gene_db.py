@@ -22,11 +22,11 @@ import pandas as pd
 
 logger = logging.getLogger(__name__)
 
-# HGNC complete set download URL
-HGNC_URL = (
-    "https://ftp.ebi.ac.uk/pub/databases/genenames/hgnc/tsv/"
-    "hgnc_complete_set.txt"
-)
+# HGNC complete set download URLs (try in order)
+HGNC_URLS = [
+    "https://storage.googleapis.com/public-download-files/hgnc/tsv/tsv/hgnc_complete_set.txt",
+    "https://ftp.ebi.ac.uk/pub/databases/genenames/hgnc/tsv/hgnc_complete_set.txt",
+]
 
 # Default cache directory
 DEFAULT_CACHE_DIR = Path.home() / ".riker"
@@ -92,25 +92,33 @@ class HGNCResolver:
                 self._download_and_cache(cache_dir, cached_file)
 
     def _download_and_cache(self, cache_dir: Path, cached_file: Path) -> None:
-        """Download HGNC complete set and cache locally."""
+        """Download HGNC complete set and cache locally.
+
+        Tries multiple mirror URLs in order. Falls back gracefully
+        if the primary mirror is unavailable.
+        """
         import requests
 
         cache_dir.mkdir(parents=True, exist_ok=True)
-        logger.info(f"Downloading HGNC complete set from {HGNC_URL}...")
 
-        try:
-            resp = requests.get(HGNC_URL, timeout=120)
-            resp.raise_for_status()
-        except Exception as e:
-            raise RuntimeError(
-                f"Failed to download HGNC complete set: {e}. "
-                f"You can manually download from {HGNC_URL} and pass "
-                f"the path via hgnc_path parameter."
-            ) from e
+        for url in HGNC_URLS:
+            try:
+                logger.info(f"Downloading HGNC complete set from {url}...")
+                resp = requests.get(url, timeout=120)
+                resp.raise_for_status()
+                cached_file.write_text(resp.text, encoding="utf-8")
+                logger.info(f"HGNC complete set cached at {cached_file}")
+                self._load_from_file(cached_file)
+                return
+            except Exception as e:
+                logger.warning(f"HGNC download failed from {url}: {e}")
+                continue
 
-        cached_file.write_text(resp.text, encoding="utf-8")
-        logger.info(f"HGNC complete set cached at {cached_file}")
-        self._load_from_file(cached_file)
+        raise RuntimeError(
+            "Could not download HGNC data from any mirror. "
+            "Download manually from https://www.genenames.org/download/archive/ "
+            "and set hgnc_path in your config."
+        )
 
     def _load_from_file(self, path: Path) -> None:
         """Parse HGNC TSV and build the lookup table."""

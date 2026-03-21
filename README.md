@@ -2,7 +2,7 @@
 
 **A condition-agnostic transcriptomics pipeline for discovering replicated gene modules from public expression data.**
 
-[![Tests](https://img.shields.io/badge/tests-260%20passing-brightgreen)]()
+[![Tests](https://img.shields.io/badge/tests-280%2B%20passing-brightgreen)]()
 [![Python](https://img.shields.io/badge/python-3.11%2B-blue)]()
 [![License](https://img.shields.io/badge/license-MIT-green)]()
 
@@ -555,6 +555,34 @@ riker/
 4. Run `riker validate config.yaml` then `riker run config.yaml`
 
 The engine handles everything else — normalization, symbol resolution, phenotype detection, statistical testing, clustering, and output generation.
+
+---
+
+## Statistical Methods
+
+### Meta-Analysis
+Phase 6 uses inverse-variance weighted (IVW) meta-analysis with both fixed-effects and random-effects models. The random-effects model is primary and uses **REML (Restricted Maximum Likelihood)** for tau-squared estimation, with DerSimonian-Laird as fallback when REML does not converge. REML produces more accurate confidence intervals than DL when the number of studies is small (<10), which is typical for transcriptomic meta-analysis.
+
+### Differential Expression
+Phase 1 uses Welch's t-test on log2-transformed expression values. This is a conservative choice — limma or DESeq2 may provide better power for RNA-seq count data by modeling mean-variance relationships. However, Welch's on log2 data is well-established for microarray analysis and produces valid (if conservative) p-values for RNA-seq when applied to normalized data.
+
+### FDR Correction
+Benjamini-Hochberg FDR uses the **full seed gene count** as denominator, not just the study gene set. This prevents significance inflation that occurs when FDR is computed only over genes that passed an initial filter.
+
+### Consensus Clustering
+Phase 3 sweeps 15 UMAP+HDBSCAN configurations (3 n_neighbors x 5 seeds) and builds a consensus co-association matrix. Optional PCA embedding (`embedding_methods=["pca"]` or `["umap", "pca"]`) validates that discovered clusters are not artifacts of the UMAP embedding.
+
+---
+
+## Known Limitations
+
+1. **Welch's t-test for RNA-seq**: For raw RNA-seq count data, variance-stabilizing methods (limma-voom, DESeq2) are generally preferred over Welch's t-test. The engine mitigates this by requiring log2 transformation and cross-dataset replication, but users working primarily with RNA-seq count data should consider this limitation.
+
+2. **Single embedding method by default**: The default consensus clustering uses only UMAP embeddings. While the 15-configuration sweep reduces stochastic artifacts, PCA validation (opt-in via `embedding_methods=["umap", "pca"]`) provides additional confidence.
+
+3. **No built-in pathway database download**: Pathway databases (KEGG, Reactome, MSigDB Hallmarks) must be provided manually. Automatic download is planned for a future version.
+
+4. **Platform annotation preprocessing**: GEO platform annotation files (.annot) now handle standard header formats natively. Non-standard formats may still require manual preprocessing.
 
 ---
 

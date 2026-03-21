@@ -1,9 +1,11 @@
 """
 Riker Engine - Inverse-variance weighted meta-analysis.
 
-Implements fixed-effects and DerSimonian-Laird random-effects meta-analysis
-for pooling gene-level effect sizes across multiple transcriptomic datasets.
-The random-effects model is the primary result (Blueprint Section 10).
+Implements fixed-effects and random-effects meta-analysis for pooling
+gene-level effect sizes across multiple transcriptomic datasets. The
+random-effects model uses REML (Restricted Maximum Likelihood) for
+tau-squared estimation with DerSimonian-Laird as fallback. REML is
+more accurate when the number of studies is small (<10).
 
 Standard errors are recovered from log2FC, p-values, and sample sizes using
 the exact t-distribution, consistent with the Welch's t-test implementation.
@@ -80,6 +82,7 @@ class MetaResult:
     n_studies: int
     study_weights: list
     study_ids: list
+    tau_method: str = "DL"
 
 
 @dataclass(frozen=True)
@@ -355,8 +358,28 @@ def random_effects_meta(
     q_df = k - 1
     q_p_value = float(1.0 - _chi2_cdf(cochran_q, q_df)) if q_df > 0 else 1.0
 
-    # Step 3: Tau-squared (DerSimonian-Laird estimator)
-    tau_sq = _estimate_tau_squared(cochran_q, fe_weights, k)
+    # Step 3: Tau-squared — try REML first, fall back to DL
+    tau_sq_dl = _estimate_tau_squared(cochran_q, fe_weights, k)
+    within_variances = ses ** 2
+
+    if k >= 3:
+        # REML is reliable with k >= 3
+        tau_sq_reml, converged = _estimate_tau_squared_reml(effects, within_variances)
+        if converged and tau_sq_reml > 0:
+            tau_sq = tau_sq_reml
+            tau_method = "REML"
+        elif converged and tau_sq_reml == 0.0 and tau_sq_dl == 0.0:
+            # Both agree: no heterogeneity
+            tau_sq = 0.0
+            tau_method = "REML"
+        else:
+            # REML failed or gave 0 when DL didn't — use DL
+            tau_sq = tau_sq_dl
+            tau_method = "DL"
+    else:
+        # k < 3: REML unreliable, use DL directly
+        tau_sq = tau_sq_dl
+        tau_method = "DL"
 
     # Step 4: Random-effects weights
     re_weights = 1.0 / (ses ** 2 + tau_sq)
@@ -396,7 +419,76 @@ def random_effects_meta(
         n_studies=k,
         study_weights=norm_weights,
         study_ids=[s.dataset_id for s in studies],
+        tau_method=tau_method,
     )
+
+
+def _estimate_tau_squared_reml(
+    effects: np.ndarray,
+    variances: np.ndarray,
+    max_iter: int = 100,
+    tol: float = 1e-6,
+) -> tuple[float, bool]:
+    """Estimate tau-squared using REML (Restricted Maximum Likelihood).
+
+    More accurate than DerSimonian-Laird when number of studies is small.
+    Falls back gracefully if convergence fails.
+
+    Parameters
+    ----------
+    effects : array-like
+        Study-level effect sizes (log2FC values).
+    variances : array-like
+        Within-study variances (SE^2 values).
+    max_iter : int
+        Maximum iterations for convergence.
+    tol : float
+        Convergence tolerance.
+
+    Returns
+    -------
+    tuple of (tau_squared: float, converged: bool)
+    """
+    k = len(effects)
+    if k < 2:
+        return 0.0, True
+
+    effects = np.array(effects, dtype=float)
+    variances = np.array(variances, dtype=float)
+
+    # Initialize with DL estimate
+    weights = 1.0 / variances
+    weighted_mean = np.sum(weights * effects) / np.sum(weights)
+    Q = np.sum(weights * (effects - weighted_mean) ** 2)
+    C = np.sum(weights) - np.sum(weights ** 2) / np.sum(weights)
+    tau2 = max(0.0, (Q - (k - 1)) / C) if C > 0 else 0.0
+
+    # REML iteration (Fisher scoring)
+    for iteration in range(max_iter):
+        w = 1.0 / (variances + tau2)
+        mu = np.sum(w * effects) / np.sum(w)
+
+        # REML log-likelihood derivative
+        resid = effects - mu
+        dl_dtau2 = -0.5 * np.sum(w ** 2) + 0.5 * np.sum((w ** 2) * (resid ** 2))
+
+        # Fisher information (expected information)
+        fisher = 0.5 * np.sum(w ** 2)
+
+        if fisher == 0:
+            return tau2, False
+
+        # Update
+        tau2_new = tau2 + dl_dtau2 / fisher
+        tau2_new = max(0.0, tau2_new)  # tau2 must be non-negative
+
+        if abs(tau2_new - tau2) < tol:
+            return tau2_new, True
+
+        tau2 = tau2_new
+
+    # Did not converge — return last estimate with flag
+    return tau2, False
 
 
 def _estimate_tau_squared(

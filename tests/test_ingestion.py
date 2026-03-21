@@ -339,15 +339,12 @@ class TestNormalization:
         result = normalize_expression(data, force_log2=False)
         assert result.was_transformed is False
 
-    def test_negative_values_prevent_transform(self):
-        """Negative values should prevent log2 even if median is high."""
+    def test_negative_background_subtracted_clamp_and_transform(self):
+        """Raw intensities with negatives should clamp to 0 and log2-transform."""
         data = np.array([100.0, 200.0, -5.0, 300.0])
-        with warnings.catch_warnings(record=True) as w:
-            warnings.simplefilter("always")
-            result = normalize_expression(data, force_log2=True)
-            assert len(w) >= 1
-            assert "negative" in str(w[0].message).lower()
-        assert result.was_transformed is False
+        result = normalize_expression(data)
+        assert result.was_transformed is True
+        assert result.data.min() >= 0  # negatives clamped
 
     def test_zeros_handled(self):
         """Zeros should be handled by log2(0+1) = 0."""
@@ -357,11 +354,17 @@ class TestNormalization:
         assert result.data[1] == 0.0
 
     def test_dataframe_input(self):
-        """Should accept and return numpy array from DataFrame."""
-        df = pd.DataFrame(np.random.uniform(100, 5000, size=(5, 3)))
+        """Should accept DataFrame and return DataFrame with preserved index/columns."""
+        df = pd.DataFrame(
+            np.random.uniform(100, 5000, size=(5, 3)),
+            index=[f"GENE_{i}" for i in range(5)],
+            columns=[f"GSM{i}" for i in range(3)],
+        )
         result = normalize_expression(df)
         assert result.was_transformed is True
-        assert isinstance(result.data, np.ndarray)
+        assert isinstance(result.data, pd.DataFrame)
+        assert list(result.data.index) == list(df.index)
+        assert list(result.data.columns) == list(df.columns)
 
     def test_metadata_populated(self):
         data = np.array([100.0, 200.0, 300.0])
@@ -794,3 +797,47 @@ class TestPseudoBulkFromCounts:
 
         assert gene_result.n_datasets_detected == 1
         assert len(gene_result.de_results) == 1
+
+
+# ---------------------------------------------------------------------------
+# v0.2.0 Tests: Normalizer negative handling, probe validation, HGNC URL
+# ---------------------------------------------------------------------------
+
+class TestNormalizerNegativeValues:
+    def test_background_subtracted_raw(self):
+        """Raw intensities with a few negative values should be log2-transformed."""
+        data = np.random.normal(200, 50, (100, 10))
+        data[0, 0] = -5.0
+        data[1, 1] = -22.0
+        result = normalize_expression(data)
+        assert result.was_transformed is True
+        assert result.data.max() < 20
+        assert result.data.min() >= 0
+
+    def test_genuine_log2_with_negatives(self):
+        """Already log2 data with negative fold changes should NOT be transformed."""
+        data = np.random.normal(8.0, 2.0, (100, 10))
+        data[0, 0] = -1.5
+        result = normalize_expression(data)
+        assert result.was_transformed is False
+
+    def test_normalize_preserves_dataframe(self):
+        """Normalization should preserve DataFrame index and columns."""
+        data = pd.DataFrame(
+            np.random.uniform(100, 50000, (10, 5)),
+            index=[f"GENE_{i}" for i in range(10)],
+            columns=[f"GSM{i}" for i in range(5)],
+        )
+        result = normalize_expression(data)
+        assert result.was_transformed is True
+        assert isinstance(result.data, pd.DataFrame)
+        assert list(result.data.index) == list(data.index)
+        assert list(result.data.columns) == list(data.columns)
+
+
+class TestHGNCURLFallback:
+    def test_hgnc_urls_has_multiple(self):
+        """HGNC_URLS should contain multiple mirror URLs."""
+        from riker.ingestion.gene_db import HGNC_URLS
+        assert len(HGNC_URLS) >= 2
+        assert "storage.googleapis.com" in HGNC_URLS[0]
