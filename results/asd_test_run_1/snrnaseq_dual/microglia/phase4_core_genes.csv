@@ -1,0 +1,4 @@
+gene,cluster_id,max_level_survived,mean_log2fc,direction
+CHD4,1,4,0.4009040869966096,up
+HEPACAM,1,4,-1.5419640741721616,down
+SETD1A,1,4,-1.8987428967679674,down

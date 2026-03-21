@@ -1,0 +1,22 @@
+{
+  "condition": "ASD",
+  "cell_type": "AST-PP",
+  "datasets": [
+    "Velmeshev2019",
+    "Wamsley2024"
+  ],
+  "wamsley_clusters": [
+    "ASTRO_1",
+    "ASTRO_2",
+    "ASTRO_3"
+  ],
+  "n_donors_velmeshev": 30,
+  "n_nuclei_velmeshev": 7646,
+  "seed_genes": 1267,
+  "phase1_study_genes": 43,
+  "phase3_clusters": 4,
+  "phase4_core_genes": 0,
+  "phase4_core_gene_list": [],
+  "phase6_significant": 0,
+  "qc_status": "FAILED"
+}

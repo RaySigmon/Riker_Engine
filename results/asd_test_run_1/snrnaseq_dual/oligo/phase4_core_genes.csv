@@ -1,0 +1,4 @@
+gene,cluster_id,max_level_survived,mean_log2fc,direction
+CD276,0,4,-1.2863201693056512,down
+GRIK4,0,4,-0.41458638939444253,down
+MAGEC3,0,2,1.2852605200502505,up

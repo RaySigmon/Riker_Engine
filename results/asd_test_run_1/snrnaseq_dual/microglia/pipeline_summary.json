@@ -1,0 +1,25 @@
+{
+  "condition": "ASD",
+  "cell_type": "Microglia",
+  "datasets": [
+    "Velmeshev2019",
+    "Wamsley2024"
+  ],
+  "wamsley_clusters": [
+    "MG1",
+    "MG2"
+  ],
+  "n_donors_velmeshev": 24,
+  "n_nuclei_velmeshev": 3299,
+  "seed_genes": 1267,
+  "phase1_study_genes": 22,
+  "phase3_clusters": 2,
+  "phase4_core_genes": 3,
+  "phase4_core_gene_list": [
+    "CHD4",
+    "HEPACAM",
+    "SETD1A"
+  ],
+  "phase6_significant": 0,
+  "qc_status": "PASSED"
+}

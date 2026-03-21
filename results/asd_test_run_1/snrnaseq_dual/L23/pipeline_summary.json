@@ -1,0 +1,21 @@
+{
+  "condition": "ASD",
+  "cell_type": "L2/3",
+  "datasets": [
+    "Velmeshev2019",
+    "Wamsley2024"
+  ],
+  "wamsley_clusters": [
+    "EXT_6_L23",
+    "EXT_3_L23"
+  ],
+  "n_donors_velmeshev": 31,
+  "n_nuclei_velmeshev": 13324,
+  "seed_genes": 1267,
+  "phase1_study_genes": 45,
+  "phase3_clusters": 4,
+  "phase4_core_genes": 0,
+  "phase4_core_gene_list": [],
+  "phase6_significant": 0,
+  "qc_status": "FAILED"
+}

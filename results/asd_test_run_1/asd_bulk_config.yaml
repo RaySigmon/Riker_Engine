@@ -1,0 +1,105 @@
+condition: ASD
+seed_genes: /home/kai001/asd_full_run/data/seed_genes/sfari_asd_genes_clean.csv
+hgnc_path: /home/kai001/.riker/hgnc_complete_set.txt
+output_dir: /home/kai001/asd_full_run/output/bulk
+
+datasets:
+  # ========== DISCOVERY — Brain ==========
+
+  # GSE28521 — Voineagu et al., brain cortex microarray (primary discovery)
+  # characteristics: "disease status: autism | tissue (brain region): ..."
+  - id: GSE28521
+    series_matrix: /home/kai001/asd_full_run/data/bulk_geo/GSE28521_series_matrix.txt.gz
+    platform: /home/kai001/asd_full_run/data/bulk_geo/GPL6883_clean.annot
+    role: discovery
+    tissue: brain
+    phenotype_field: "Sample_characteristics_ch1"
+    case_values: ["disease status: autism"]
+    control_values: ["disease status: control"]
+
+  # GSE28475 — brain cortex microarray (GPL6883 subset, frozen tissue)
+  # characteristics: "diagnosis: Autism" / "diagnosis: Control"
+  - id: GSE28475
+    series_matrix: /home/kai001/asd_full_run/data/bulk_geo/GSE28475-GPL6883_fixed_series_matrix.txt.gz
+    platform: /home/kai001/asd_full_run/data/bulk_geo/GPL6883_clean.annot
+    role: discovery
+    tissue: brain
+    phenotype_field: "Sample_characteristics_ch1"
+    case_values: ["diagnosis: autism"]
+    control_values: ["diagnosis: control"]
+
+  # GSE64018 — Gupta et al., brain cortex RNA-seq (reconstructed from FPKM)
+  # characteristics: "diagnosis: ASD" / "diagnosis: CTL" (in title, not characteristics)
+  # But title has "ASD_..." vs "CTL_..."
+  - id: GSE64018
+    series_matrix: /home/kai001/asd_full_run/data/bulk_geo/GSE64018_reconstructed_series_matrix.txt.gz
+    platform: /home/kai001/asd_full_run/data/bulk_geo/GPL11154_ensembl.annot
+    role: discovery
+    tissue: brain
+    phenotype_field: "Sample_characteristics_ch1"
+    case_values: ["diagnosis: asd"]
+    control_values: ["diagnosis: ctl"]
+
+  # ========== REPLICATION — Brain ==========
+
+  # GSE102741 — brain cortex RNA-seq (replication, reconstructed from log2RPKM)
+  # characteristics: "disease status: Autism spectrum disorder (ASD)" / "disease status: Healthy control"
+  - id: GSE102741
+    series_matrix: /home/kai001/asd_full_run/data/bulk_geo/GSE102741_reconstructed_series_matrix.txt.gz
+    platform: /home/kai001/asd_full_run/data/bulk_geo/GPL11154_ensembl.annot
+    role: replication
+    tissue: brain
+    phenotype_field: "Sample_characteristics_ch1"
+    case_values: ["disease status: autism spectrum disorder"]
+    control_values: ["disease status: healthy control"]
+
+  # ========== REPLICATION — Blood/LCL ==========
+
+  # GSE18123 — LCL, large cohort (GPL6244 sub-matrix, 186 samples)
+  # characteristics: "diagnosis: AUTISM" / "diagnosis: CONTROL" / "diagnosis: PDD-NOS" / "diagnosis: ASPERGER'S DISORDER"
+  - id: GSE18123
+    series_matrix: /home/kai001/asd_full_run/data/bulk_geo/GSE18123-GPL6244_series_matrix.txt.gz
+    platform: /home/kai001/asd_full_run/data/bulk_geo/GPL6244_clean.annot
+    role: replication
+    tissue: blood
+    phenotype_field: "Sample_characteristics_ch1"
+    case_values: ["diagnosis: autism", "diagnosis: pdd-nos", "diagnosis: asperger"]
+    control_values: ["diagnosis: control"]
+
+  # GSE26415 — peripheral blood
+  # characteristics: "sample type: ASD" / "sample type: control" / "sample type: ... asdMO" / "sample type: control (ctrlMO)"
+  # Use "sample type: asd" vs "sample type: control" — substring match handles both "control" and "control (ctrlMO)"
+  # But we want ONLY ASD patients and plain controls, not mothers
+  - id: GSE26415
+    series_matrix: /home/kai001/asd_full_run/data/bulk_geo/GSE26415_series_matrix.txt.gz
+    platform: /home/kai001/asd_full_run/data/bulk_geo/GPL6480_clean.annot
+    role: replication
+    tissue: blood
+    phenotype_field: "Sample_characteristics_ch1"
+    case_values: ["disease: autism spectrum disorder"]
+    control_values: ["disease: nonaustistic control"]
+
+  # GSE42133 — blood microarray
+  # characteristics: "dx (diagnosis): ASD" / "dx (diagnosis): Control"
+  - id: GSE42133
+    series_matrix: /home/kai001/asd_full_run/data/bulk_geo/GSE42133_series_matrix.txt.gz
+    platform: /home/kai001/asd_full_run/data/bulk_geo/GPL10558_clean.annot
+    role: replication
+    tissue: blood
+    phenotype_field: "Sample_characteristics_ch1"
+    case_values: ["dx (diagnosis): asd"]
+    control_values: ["dx (diagnosis): control"]
+
+phase1:
+  p_threshold: 0.05
+  min_datasets: 2
+
+phase3:
+  n_neighbors: [10, 15, 30]
+  seeds: [42, 123, 456, 789, 1024]
+  min_cluster_size: 5
+  min_samples: 3
+
+phase4:
+  n_permutations: 10000
+  seed: 42
