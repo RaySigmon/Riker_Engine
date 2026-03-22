@@ -586,6 +586,22 @@ Phase 3 sweeps 15 UMAP+HDBSCAN configurations (3 n_neighbors x 5 seeds) and buil
 
 ---
 
+## Validation Results
+
+The engine has been validated across three diseases with zero code modifications:
+
+| Condition | Tissue | Core Genes | Replication Survival | All-Genes Recovery |
+|-----------|--------|------------|---------------------|-------------------|
+| **ASD** | Brain cortex | 35 | 35/35 (100%) | 27/35 (77.1%) |
+| **T2D** | Pancreatic islets | 8 | 8/8 (100%) | 5/8 (62.5%) |
+| **IBD** | Intestinal mucosa | 304 | 302/304 (99.3%) | 297/304 (97.7%) |
+
+Each condition was run twice: once with curated disease-specific seed genes, and once with every expressed gene as seeds (hypothesis-free). Every curated core gene passes Phase 1 in the blind run across all three diseases.
+
+Full results, configs, and methodology: [`results/`](results/)
+
+---
+
 ## Roadmap
 
 - [x] snRNA-seq pseudo-bulking module (`riker/ingestion/snrnaseq.py`) for single-nucleus data
