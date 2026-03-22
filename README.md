@@ -2,7 +2,7 @@
 
 **A condition-agnostic transcriptomics pipeline for discovering replicated gene modules from public expression data.**
 
-[![Tests](https://img.shields.io/badge/tests-280%2B%20passing-brightgreen)]()
+[![Tests](https://img.shields.io/badge/tests-274%20passing-brightgreen)]()
 [![Python](https://img.shields.io/badge/python-3.11%2B-blue)]()
 [![License](https://img.shields.io/badge/license-MIT-green)]()
 
@@ -12,7 +12,7 @@
 
 The Riker Engine takes a list of candidate genes for any condition (autism, Alzheimer's, Parkinson's — anything with public transcriptomic data) and systematically determines which genes form reproducible, statistically defensible modules across multiple independent datasets.
 
-It was born from [Project Riker](https://github.com/RaySigmon/Project-Riker), a proof-of-concept study that discovered replicated gene modules in autism spectrum disorder using a d20-based narrative framework. The engine generalizes that methodology into a reusable tool.
+It was born from [Project Riker](https://github.com/RaySigmon/Project-Riker), a proof-of-concept study that discovered replicated gene modules in autism spectrum disorder. The engine generalizes that methodology into a reusable tool.
 
 ### The Problem It Solves
 
