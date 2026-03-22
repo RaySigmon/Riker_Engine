@@ -1,0 +1,62 @@
+condition: T2D
+seed_genes: /home/kai001/t2d_validation/data/seed_genes/t2d_seed_genes.csv
+symbol_column: symbol
+hgnc_path: /home/kai001/.riker/hgnc_complete_set.txt
+output_dir: /home/kai001/t2d_validation/output
+
+datasets:
+  # === Discovery datasets (pancreatic islets) ===
+
+  # Rosengren et al. — pancreatic islets, Affymetrix HuGene-1.0-ST
+  # 20 T2D + 43 non-diabetic (14 unlabeled excluded by engine)
+  # Already log2 scale (1.93-9.39)
+  - id: GSE41762
+    series_matrix: /home/kai001/t2d_validation/data/bulk_geo/GSE41762_series_matrix.txt.gz
+    platform: /home/kai001/t2d_validation/data/bulk_geo/GPL6244.annot
+    role: discovery
+    tissue: islet
+    phenotype_field: Sample_characteristics_ch1
+    case_values: ["status: diabetic donor"]
+    control_values: ["status: non-diabetic donor"]
+
+  # Taneera et al. — pancreatic islets, Affymetrix HG-U133A
+  # T2D + non-diabetic, 13 samples
+  # Already log2 scale (3.00-9.37)
+  - id: GSE25724
+    series_matrix: /home/kai001/t2d_validation/data/bulk_geo/GSE25724_series_matrix.txt.gz
+    platform: /home/kai001/t2d_validation/data/bulk_geo/GPL96.annot
+    role: discovery
+    tissue: islet
+    phenotype_field: Sample_characteristics_ch1
+    case_values: ["disease state: type 2 diabetes"]
+    control_values: ["disease state: non-diabetic"]
+
+  # Marselli et al. — pancreatic beta cells (LCM), Affymetrix
+  # T2D + non-diabetic, 20 samples
+  # Appears raw-ish (0.35-79.37), engine will auto-log2
+  - id: GSE20966
+    series_matrix: /home/kai001/t2d_validation/data/bulk_geo/GSE20966_series_matrix.txt.gz
+    platform: /home/kai001/t2d_validation/data/bulk_geo/GPL1352.annot
+    role: discovery
+    tissue: islet
+    phenotype_field: Sample_characteristics_ch1
+    case_values: ["disease: type 2 diabetes"]
+    control_values: ["disease: non-diabetic control"]
+
+  # === Replication dataset (pancreatic islets) ===
+
+  # Lawlor et al. — pancreatic islets, RNA-seq (Baseline samples only)
+  # 3 T2D + 5 non-diabetic, reconstructed from supplementary counts
+  # log2(counts+1) applied
+  - id: GSE86468
+    series_matrix: /home/kai001/t2d_validation/data/bulk_geo/GSE86468_reconstructed_series_matrix.txt.gz
+    platform: /home/kai001/t2d_validation/data/bulk_geo/ensembl_to_symbol.txt
+    role: replication
+    tissue: islet
+    phenotype_field: Sample_characteristics_ch1
+    case_values: ["disease: type 2 diabetic"]
+    control_values: ["disease: non-diabetic"]
+
+phase1:
+  p_threshold: 0.05
+  min_datasets: 2

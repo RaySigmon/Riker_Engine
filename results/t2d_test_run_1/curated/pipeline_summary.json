@@ -1,0 +1,24 @@
+{
+  "condition": "T2D",
+  "seed_genes": "/home/kai001/t2d_validation/data/seed_genes/t2d_seed_genes.csv",
+  "n_datasets_discovery": 3,
+  "n_datasets_replication": 1,
+  "phase1_study_genes": 56,
+  "phase4_core_genes": 8,
+  "phase4_significant_clusters": 1,
+  "phase5_survived": 8,
+  "phase5_eliminated": 0,
+  "phase6_genes_analyzed": 8,
+  "phase6_significant_random": 8,
+  "qc_status": "PASSED",
+  "locked_core_genes": [
+    "ABCC8",
+    "CACNA1D",
+    "CASR",
+    "LRFN2",
+    "OTULINL",
+    "RASGRP1",
+    "RNF6",
+    "SLC2A2"
+  ]
+}

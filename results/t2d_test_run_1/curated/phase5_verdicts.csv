@@ -1,0 +1,9 @@
+gene,cluster_id,status,discovery_direction,n_brain_concordant,n_brain_discordant,n_blood_concordant,reason
+ABCC8,0,survived,down,0,0,0,No brain replication datasets; retained by default.
+CACNA1D,0,survived,down,0,0,0,No brain replication datasets; retained by default.
+CASR,0,survived,down,0,0,0,No brain replication datasets; retained by default.
+LRFN2,0,survived,down,0,0,0,No brain replication datasets; retained by default.
+OTULINL,0,survived,down,0,0,0,No brain replication datasets; retained by default.
+RASGRP1,0,survived,down,0,0,0,No brain replication datasets; retained by default.
+RNF6,0,survived,down,0,0,0,No brain replication datasets; retained by default.
+SLC2A2,0,survived,down,0,0,0,No brain replication datasets; retained by default.
