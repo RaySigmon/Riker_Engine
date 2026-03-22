@@ -4,7 +4,7 @@
 
 [![Tests](https://img.shields.io/badge/tests-274%20passing-brightgreen)]()
 [![Python](https://img.shields.io/badge/python-3.11%2B-blue)]()
-[![License](https://img.shields.io/badge/license-MIT-green)]()
+[![License](https://img.shields.io/badge/license-AGPL--3.0-blue)]()
 
 ---
 
@@ -623,7 +623,7 @@ If you use the Riker Engine in your research, please cite:
 
 ## License
 
-MIT License. See [LICENSE](LICENSE) for details.
+Licensed under [AGPL-3.0](LICENSE). Free to use for research and academic purposes. Commercial use as a hosted service requires release of source code under AGPL-3.0. See [LICENSE](LICENSE) for details.
 
 ---
 
