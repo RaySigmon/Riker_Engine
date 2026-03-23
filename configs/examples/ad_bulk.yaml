@@ -1,0 +1,85 @@
+condition: alzheimers_disease
+seed_genes: /home/kai001/ad_validation/data/seed_genes/ad_genes.csv
+hgnc_path: /home/kai001/.riker/hgnc_complete_set.txt
+output_dir: /home/kai001/ad_validation/results/curated
+
+datasets:
+  # ========== DISCOVERY — Brain Cortex ==========
+
+  # GSE33000 — Prefrontal cortex, Rosetta/Merck log-ratio array
+  # 310 AD + 157 non-demented (HD samples pre-filtered out)
+  # NOTE: Log-ratio values centered near zero, NOT log2-intensities
+  # Phenotype is in ch2: "disease status: Alzheimer's disease" / "disease status: non-demented"
+  - id: GSE33000
+    series_matrix: /home/kai001/ad_validation/data/bulk_geo/GSE33000_AD_only_series_matrix.txt.gz
+    platform: /home/kai001/ad_validation/data/bulk_geo/GPL4372_clean.annot
+    role: discovery
+    tissue: brain
+    phenotype_field: "Sample_characteristics_ch2"
+    case_values: ["disease status: alzheimer"]
+    control_values: ["disease status: non-demented"]
+
+  # GSE44770 — Prefrontal cortex, same Rosetta/Merck platform
+  # 129 AD + 101 non-demented, no sample overlap with GSE33000
+  # Phenotype in ch2: "disease: A" / "disease: N"
+  - id: GSE44770
+    series_matrix: /home/kai001/ad_validation/data/bulk_geo/GSE44770_series_matrix.txt.gz
+    platform: /home/kai001/ad_validation/data/bulk_geo/GPL4372_clean.annot
+    role: discovery
+    tissue: brain
+    phenotype_field: "Sample_characteristics_ch2"
+    case_values: ["disease: a"]
+    control_values: ["disease: n"]
+
+  # GSE118553 — Temporal cortex, Illumina HumanHT-12 V4
+  # 52 AD + 31 control (pre-filtered to temporal cortex, AsymAD excluded)
+  # Already log2-normalized
+  - id: GSE118553
+    series_matrix: /home/kai001/ad_validation/data/bulk_geo/GSE118553_TC_series_matrix.txt.gz
+    platform: /home/kai001/ad_validation/data/bulk_geo/GPL10558_clean.annot
+    role: discovery
+    tissue: brain
+    phenotype_field: "Sample_characteristics_ch1"
+    case_values: ["disease state: ad"]
+    control_values: ["disease state: control"]
+
+  # ========== REPLICATION — Brain Cortex ==========
+
+  # GSE5281 — Superior frontal gyrus, Affymetrix HG-U133 Plus 2
+  # 23 AD + 11 control (pre-filtered to SFG)
+  # Raw intensities — engine will auto-detect and log2-transform
+  - id: GSE5281
+    series_matrix: /home/kai001/ad_validation/data/bulk_geo/GSE5281_SFG_series_matrix.txt.gz
+    platform: /home/kai001/ad_validation/data/bulk_geo/GPL570_clean.annot
+    role: replication
+    tissue: brain
+    phenotype_field: "Sample_characteristics_ch1"
+    case_values: ["disease state: alzheimer"]
+    control_values: ["disease state: normal"]
+
+  # GSE15222 — Cortical tissue, Sentrix HumanRef-8
+  # 176 AD + 187 control
+  # Background-subtracted intensities (may have negatives)
+  # Phenotype in Sample_source_name_ch1: "Alzheimer's Disease" / "normal"
+  - id: GSE15222
+    series_matrix: /home/kai001/ad_validation/data/bulk_geo/GSE15222_series_matrix.txt.gz
+    platform: /home/kai001/ad_validation/data/bulk_geo/GPL2700_clean.annot
+    role: replication
+    tissue: brain
+    phenotype_field: "Sample_source_name_ch1"
+    case_values: ["alzheimer"]
+    control_values: ["normal"]
+
+phase1:
+  p_threshold: 0.05
+  min_datasets: 2
+
+phase3:
+  n_neighbors: [10, 15, 30]
+  seeds: [42, 123, 456, 789, 1024]
+  min_cluster_size: 5
+  min_samples: 3
+
+phase4:
+  n_permutations: 10000
+  seed: 42

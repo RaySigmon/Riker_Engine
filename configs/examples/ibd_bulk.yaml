@@ -1,0 +1,80 @@
+condition: IBD
+seed_genes: /home/kai001/ibd_validation/data/seed_genes/ibd_seed_genes.csv
+symbol_column: symbol
+hgnc_path: /home/kai001/.riker/hgnc_complete_set.txt
+output_dir: /home/kai001/ibd_validation/output
+
+datasets:
+  # === Discovery datasets (intestinal mucosa) ===
+
+  # GSE75214 — Colonic + ileal mucosa, CD + UC + controls
+  # 194 samples, Affymetrix HuGene-1.0-ST, already log2
+  - id: GSE75214
+    series_matrix: /home/kai001/ibd_validation/data/bulk_geo/GSE75214_series_matrix.txt.gz
+    platform: /home/kai001/ibd_validation/data/bulk_geo/GPL6244.annot
+    role: discovery
+    tissue: colon
+    phenotype_field: Sample_characteristics_ch1
+    case_values: ["disease: cd", "disease: crohn", "disease: ulcerative colitis"]
+    control_values: ["disease: control"]
+
+  # GSE16879 — Colonic mucosa, CD + UC + controls, before/after infliximab
+  # 133 samples, Affymetrix GPL570, raw intensities
+  - id: GSE16879
+    series_matrix: /home/kai001/ibd_validation/data/bulk_geo/GSE16879_series_matrix.txt.gz
+    platform: /home/kai001/ibd_validation/data/bulk_geo/GPL570.annot
+    role: discovery
+    tissue: colon
+    phenotype_field: Sample_characteristics_ch1
+    case_values: ["disease: cd", "disease: uc"]
+    control_values: ["disease: control"]
+
+  # GSE59071 — Colonic mucosa, CD + UC + controls
+  # 116 samples, Affymetrix HuGene-1.0-ST, already log2
+  - id: GSE59071
+    series_matrix: /home/kai001/ibd_validation/data/bulk_geo/GSE59071_series_matrix.txt.gz
+    platform: /home/kai001/ibd_validation/data/bulk_geo/GPL6244.annot
+    role: discovery
+    tissue: colon
+    phenotype_field: Sample_characteristics_ch1
+    case_values: ["disease: crohn", "disease: ulcerative colitis"]
+    control_values: ["disease: control"]
+
+  # === Replication datasets ===
+
+  # GSE87466 — Colonic mucosa, UC + normal
+  # 108 samples, Illumina HumanHT-12 v4
+  - id: GSE87466
+    series_matrix: /home/kai001/ibd_validation/data/bulk_geo/GSE87466_series_matrix.txt.gz
+    platform: /home/kai001/ibd_validation/data/bulk_geo/GPL13158.annot
+    role: replication
+    tissue: colon
+    phenotype_field: Sample_characteristics_ch1
+    case_values: ["disease: ulcerative colitis"]
+    control_values: ["disease: normal"]
+
+  # GSE38713 — Colonic mucosa, UC + non-inflammatory controls
+  # 43 samples, Affymetrix GPL570
+  - id: GSE38713
+    series_matrix: /home/kai001/ibd_validation/data/bulk_geo/GSE38713_series_matrix.txt.gz
+    platform: /home/kai001/ibd_validation/data/bulk_geo/GPL570.annot
+    role: replication
+    tissue: colon
+    phenotype_field: Sample_source_name_ch1
+    case_values: ["uc patient"]
+    control_values: ["non-inflammatory control"]
+
+  # GSE36807 — Colonic tissue, CD + UC + healthy controls
+  # 35 samples, Affymetrix GPL570
+  - id: GSE36807
+    series_matrix: /home/kai001/ibd_validation/data/bulk_geo/GSE36807_series_matrix.txt.gz
+    platform: /home/kai001/ibd_validation/data/bulk_geo/GPL570.annot
+    role: replication
+    tissue: colon
+    phenotype_field: Sample_characteristics_ch1
+    case_values: ["diagnosis: crohn", "diagnosis: ulcerative colitis"]
+    control_values: ["diagnosis: healthy control"]
+
+phase1:
+  p_threshold: 0.05
+  min_datasets: 2

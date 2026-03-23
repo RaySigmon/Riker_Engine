@@ -1,5 +1,30 @@
 # Changelog
 
+## v0.3.0 — Public release preparation (2026-03-22)
+
+### Documentation
+- Rewrote README for public-facing clarity: validation table (4 diseases), WGCNA benchmark summary, streamlined quick start
+- Added `docs/PIPELINE.md` — detailed six-phase methodology reference
+- Added `docs/CONFIGURATION.md` — full YAML config reference with examples
+- Added `CONTRIBUTING.md`
+- Added AD validation report (`docs/ad_validation_report.md`)
+- Example configs for all four validated diseases (`configs/examples/`)
+
+### Benchmarks
+- WGCNA head-to-head comparison on ASD brain cortex data
+- Runtime, memory, specificity, and cross-dataset consistency analysis
+- Full results in `benchmarks/`
+
+### Validation
+- Alzheimer's Disease validation: 801 seeds, 394 core genes, 340 survived replication, 100% blind Phase 1 recovery
+- Cross-disease table now covers ASD, T2D, IBD, and AD
+
+## v0.2.1 — Relicensed to AGPL-3.0 (2026-03-22)
+
+- Relicensed from MIT to AGPL-3.0
+- Added AGPL-3.0 header to all source files
+- Copyright: 2024-2026 Ray Sigmon
+
 ## v0.2.0 — Steel-manned for publication (2026-03-21)
 
 ### Statistical Improvements
