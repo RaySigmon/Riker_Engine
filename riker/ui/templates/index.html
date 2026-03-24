@@ -1043,13 +1043,7 @@ function addDatasetCard() {
       </div>
       <div class="form-row">
         <label>Tissue</label>
-        <select id="tissue_${id}" onchange="updateDatasetField('${id}','tissue',this.value)">
-          <option value="brain">Brain</option>
-          <option value="blood">Blood</option>
-          <option value="islet">Islet</option>
-          <option value="intestinal">Intestinal</option>
-          <option value="other">Other</option>
-        </select>
+        <input type="text" id="tissue_${id}" value="brain" placeholder="e.g. brain, blood, colon, breast, islet" oninput="updateDatasetField('${id}','tissue',this.value)" style="width:100%;padding:6px 10px;border:1px solid var(--border);border-radius:4px;font-size:14px;">
       </div>
     </div>
     <div id="inspectArea_${id}" style="display:none;">
@@ -1224,7 +1218,7 @@ function populatePhenoDropdown(id, fields) {
   sel.innerHTML = '<option value="">-- Select phenotype field --</option>';
   fields.forEach((f, i) => {
     const opt = document.createElement('option');
-    opt.value = f.field;
+    opt.value = String(i);  // Use index as unique key
     const label = f.label || f.field;
     const preview = f.values.slice(0, 3).join(', ');
     opt.textContent = label + ' (' + preview + (f.values.length > 3 ? '...' : '') + ')';
@@ -1253,16 +1247,23 @@ function showManualPheno(id) {
   document.getElementById('phenoArea_' + id).style.display = 'block';
 }
 
-function onPhenoFieldChange(id, fieldName) {
+function onPhenoFieldChange(id, selectedIdx) {
   const ds = state.datasets.find(d => d.id === id);
   if (!ds) return;
-  ds.phenoField = fieldName;
   ds.caseValues = [];
   ds.controlValues = [];
-  const field = ds.phenoFields.find(f => f.field === fieldName);
-  const values = field ? field.values : [];
-  renderCheckboxes(id, 'caseVals', values, 'case');
-  renderCheckboxes(id, 'controlVals', values, 'control');
+  if (selectedIdx === '' || selectedIdx == null) {
+    ds.phenoField = '';
+    renderCheckboxes(id, 'caseVals', [], 'case');
+    renderCheckboxes(id, 'controlVals', [], 'control');
+    return;
+  }
+  const idx = parseInt(selectedIdx);
+  const field = ds.phenoFields[idx];
+  if (!field) return;
+  ds.phenoField = field.field;
+  renderCheckboxes(id, 'caseVals', field.values, 'case');
+  renderCheckboxes(id, 'controlVals', field.values, 'control');
 }
 
 function renderCheckboxes(dsId, containerId, values, type) {
