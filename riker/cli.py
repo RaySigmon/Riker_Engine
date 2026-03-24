@@ -359,6 +359,33 @@ def cmd_run(args) -> int:
     return 0
 
 
+def cmd_ui(args) -> int:
+    """Launch the web UI."""
+    try:
+        import uvicorn
+        from riker.ui.server import app
+    except ImportError:
+        print(
+            "UI dependencies not installed.\n"
+            "Run: pip install riker-engine[ui]\n"
+            "  or: pip install fastapi uvicorn jinja2 python-multipart",
+            file=sys.stderr,
+        )
+        return 1
+
+    host = args.host
+    port = args.port
+
+    if not args.no_browser:
+        import webbrowser
+        import threading
+        threading.Timer(1.5, lambda: webbrowser.open(f"http://{host}:{port}")).start()
+
+    print(f"Starting Riker Engine UI at http://{host}:{port}")
+    uvicorn.run(app, host=host, port=port, log_level="warning")
+    return 0
+
+
 def main() -> int:
     """CLI entry point."""
     parser = argparse.ArgumentParser(
@@ -377,6 +404,13 @@ def main() -> int:
     val_parser = subparsers.add_parser("validate", help="Validate config file")
     val_parser.add_argument("config", help="Path to YAML config file")
 
+    # ui command
+    ui_parser = subparsers.add_parser("ui", help="Launch the web interface")
+    ui_parser.add_argument("--host", default="127.0.0.1", help="Host to bind to")
+    ui_parser.add_argument("--port", type=int, default=8000, help="Port to bind to")
+    ui_parser.add_argument("--no-browser", action="store_true",
+                           help="Do not auto-open browser")
+
     args = parser.parse_args()
 
     if args.command is None:
@@ -389,6 +423,8 @@ def main() -> int:
         return cmd_validate(args)
     elif args.command == "run":
         return cmd_run(args)
+    elif args.command == "ui":
+        return cmd_ui(args)
 
     return 1
 

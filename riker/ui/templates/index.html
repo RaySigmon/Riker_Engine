@@ -1,0 +1,1573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Riker Engine</title>
+<style>
+:root {
+  --teal: #0f766e;
+  --teal-light: #14b8a6;
+  --teal-dark: #0d5f58;
+  --bg: #ffffff;
+  --bg-alt: #f8fafa;
+  --bg-dark: #1e1e2e;
+  --text: #1a1a2e;
+  --text-muted: #64748b;
+  --text-light: #e0e0e0;
+  --border: #e2e8f0;
+  --border-focus: #0f766e;
+  --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.06);
+  --radius: 8px;
+  --red: #dc2626;
+  --red-light: #fef2f2;
+  --blue: #2563eb;
+  --blue-light: #eff6ff;
+  --green: #16a34a;
+  --green-light: #f0fdf4;
+  --yellow: #ca8a04;
+  --yellow-light: #fefce8;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", Menlo, Courier, monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-sans);
+  color: var(--text);
+  background: var(--bg-alt);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 24px 64px;
+}
+
+/* Header */
+header {
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding: 0 24px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.header-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+}
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.header-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+.header-badge {
+  font-size: 11px;
+  font-weight: 600;
+  background: var(--teal);
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 12px;
+  letter-spacing: 0.02em;
+}
+.header-right a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.15s;
+}
+.header-right a:hover { color: var(--teal); }
+.header-right a svg {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  margin-right: 4px;
+}
+
+/* Wizard Steps */
+.wizard-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin: 32px 0 24px;
+}
+.wizard-step {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: background 0.15s;
+  user-select: none;
+}
+.wizard-step:hover { background: #f1f5f9; }
+.wizard-step.active .wizard-circle { background: var(--teal); color: #fff; }
+.wizard-step.completed .wizard-circle { background: var(--teal-light); color: #fff; }
+.wizard-circle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--border);
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  flex-shrink: 0;
+  transition: background 0.2s, color 0.2s;
+}
+.wizard-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+.wizard-step.active .wizard-label { color: var(--text); }
+.wizard-connector {
+  width: 32px;
+  height: 2px;
+  background: var(--border);
+  flex-shrink: 0;
+}
+.wizard-connector.done { background: var(--teal-light); }
+
+/* Sections */
+.section {
+  display: none;
+  animation: fadeIn 0.2s ease;
+}
+.section.visible { display: block; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+.section-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: var(--text);
+}
+.section-desc {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+/* Cards */
+.card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 24px;
+  margin-bottom: 16px;
+}
+
+/* Drop Zones */
+.drop-zone {
+  border: 2px dashed var(--border);
+  border-radius: var(--radius);
+  padding: 32px 24px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  position: relative;
+}
+.drop-zone:hover, .drop-zone.dragover {
+  border-color: var(--teal);
+  background: rgba(15, 118, 110, 0.03);
+}
+.drop-zone-label {
+  font-size: 14px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+.drop-zone-label strong { color: var(--teal); cursor: pointer; }
+.drop-zone-hint {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 6px;
+}
+.drop-zone input[type="file"] {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+.drop-zone.has-file {
+  border-style: solid;
+  border-color: var(--teal);
+  background: rgba(15, 118, 110, 0.04);
+}
+.drop-zone.has-file .drop-zone-label { color: var(--teal); font-weight: 600; }
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 8px 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s, opacity 0.15s;
+  text-decoration: none;
+}
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn-primary { background: var(--teal); color: #fff; }
+.btn-primary:hover:not(:disabled) { background: var(--teal-dark); }
+.btn-secondary { background: #f1f5f9; color: var(--text); }
+.btn-secondary:hover:not(:disabled) { background: #e2e8f0; }
+.btn-danger { background: var(--red); color: #fff; }
+.btn-danger:hover:not(:disabled) { background: #b91c1c; }
+.btn-success { background: var(--green); color: #fff; }
+.btn-success:hover:not(:disabled) { background: #15803d; }
+.btn-outline {
+  background: transparent;
+  color: var(--teal);
+  border: 1px solid var(--teal);
+}
+.btn-outline:hover:not(:disabled) { background: rgba(15,118,110,0.06); }
+.btn-sm { font-size: 12px; padding: 5px 12px; }
+.btn-lg { font-size: 15px; padding: 10px 24px; }
+
+.btn-group { display: flex; gap: 8px; flex-wrap: wrap; }
+
+/* Forms */
+label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  display: block;
+  margin-bottom: 4px;
+}
+input[type="text"], input[type="number"], select, textarea {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  width: 100%;
+  color: var(--text);
+  background: var(--bg);
+  transition: border-color 0.15s;
+}
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(15,118,110,0.1);
+}
+textarea { resize: vertical; font-family: var(--font-mono); font-size: 13px; }
+.form-row { margin-bottom: 16px; }
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.form-hint { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+
+/* Divider */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 16px 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.divider::before, .divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* Tags / Preview */
+.tag-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.tag {
+  font-size: 12px;
+  font-weight: 500;
+  background: #f1f5f9;
+  color: var(--text);
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+}
+.tag-more { color: var(--text-muted); font-style: italic; background: transparent; }
+
+/* Preview box */
+.preview-box {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin-top: 12px;
+  font-size: 13px;
+}
+.preview-box .stat {
+  font-weight: 700;
+  color: var(--teal);
+}
+
+/* Dataset Card */
+.dataset-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px;
+  margin-bottom: 12px;
+  position: relative;
+}
+.dataset-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.dataset-card-title {
+  font-size: 15px;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  color: var(--teal);
+}
+.dataset-remove {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, color 0.15s;
+}
+.dataset-remove:hover { background: var(--red-light); color: var(--red); }
+.dataset-dropzones {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.dataset-dropzones .drop-zone { padding: 20px 16px; }
+
+/* Checkboxes */
+.checkbox-group { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  cursor: pointer;
+}
+.checkbox-item input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--teal);
+  cursor: pointer;
+}
+
+/* Warning */
+.warning-box {
+  background: var(--yellow-light);
+  border: 1px solid #fde68a;
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: #92400e;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+/* Collapsible */
+.collapsible-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 8px 0;
+  transition: color 0.15s;
+}
+.collapsible-toggle:hover { color: var(--text); }
+.collapsible-toggle .arrow {
+  display: inline-block;
+  transition: transform 0.2s;
+  font-size: 10px;
+}
+.collapsible-toggle.open .arrow { transform: rotate(90deg); }
+.collapsible-body {
+  display: none;
+  padding: 12px 0 4px;
+}
+.collapsible-body.open { display: block; }
+
+/* Phase Indicator */
+.phase-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: 20px;
+}
+.phase-dot-group {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 4px;
+}
+.phase-dot {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-muted);
+  transition: background 0.3s, color 0.3s;
+}
+.phase-dot.active { background: var(--teal); color: #fff; animation: pulse 1.5s infinite; }
+.phase-dot.complete { background: var(--teal-light); color: #fff; }
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(15,118,110,0.3); }
+  50% { box-shadow: 0 0 0 8px rgba(15,118,110,0); }
+}
+.phase-dot-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-align: center;
+  max-width: 70px;
+  white-space: nowrap;
+}
+.phase-line {
+  width: 40px;
+  height: 2px;
+  background: var(--border);
+  margin-bottom: 18px;
+}
+.phase-line.done { background: var(--teal-light); }
+
+/* Log Panel */
+.log-panel {
+  background: var(--bg-dark);
+  border-radius: var(--radius);
+  padding: 16px;
+  max-height: 360px;
+  overflow-y: auto;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--text-light);
+  scroll-behavior: smooth;
+}
+.log-panel::-webkit-scrollbar { width: 6px; }
+.log-panel::-webkit-scrollbar-track { background: transparent; }
+.log-panel::-webkit-scrollbar-thumb { background: #4a4a5e; border-radius: 3px; }
+.log-line { white-space: pre-wrap; word-break: break-all; }
+.log-line.error { color: #f87171; }
+.log-line.phase-log { color: var(--teal-light); font-weight: 600; }
+
+.timer-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.timer { font-size: 14px; font-weight: 600; font-family: var(--font-mono); color: var(--text-muted); }
+
+/* Results */
+.funnel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+.funnel-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+.funnel-count {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--teal);
+}
+.funnel-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.funnel-arrow {
+  font-size: 20px;
+  color: var(--border);
+  margin: 0 12px;
+  padding-bottom: 16px;
+}
+
+.qc-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.qc-PASSED { background: var(--green-light); color: var(--green); }
+.qc-WARNING { background: var(--yellow-light); color: var(--yellow); }
+.qc-CRITICAL { background: var(--red-light); color: var(--red); }
+
+/* Results Table */
+.table-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  gap: 12px;
+}
+.table-search {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  width: 240px;
+  color: var(--text);
+}
+.table-search:focus { outline: none; border-color: var(--border-focus); }
+
+.results-table-wrap {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: auto;
+  max-height: 480px;
+}
+.results-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.results-table thead { position: sticky; top: 0; z-index: 2; }
+.results-table th {
+  background: var(--bg-alt);
+  padding: 10px 14px;
+  text-align: left;
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  border-bottom: 2px solid var(--border);
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+.results-table th:hover { color: var(--text); }
+.results-table th .sort-arrow { margin-left: 4px; font-size: 10px; }
+.results-table td {
+  padding: 8px 14px;
+  border-bottom: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+.results-table tbody tr:nth-child(even) { background: var(--bg-alt); }
+.results-table tbody tr:hover { background: rgba(15,118,110,0.04); }
+.dir-up { color: var(--red); font-weight: 600; }
+.dir-down { color: var(--blue); font-weight: 600; }
+
+/* Downloads */
+.download-section {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+.download-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+/* Notifications */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: var(--text);
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: var(--shadow-md);
+  z-index: 1000;
+  transform: translateY(80px);
+  opacity: 0;
+  transition: transform 0.3s, opacity 0.3s;
+}
+.toast.show { transform: translateY(0); opacity: 1; }
+.toast.error { background: var(--red); }
+
+/* Responsive */
+@media (max-width: 640px) {
+  .container { padding: 0 12px 48px; }
+  .wizard-label { display: none; }
+  .wizard-step { padding: 8px 8px; }
+  .dataset-dropzones { grid-template-columns: 1fr; }
+  .form-grid { grid-template-columns: 1fr; }
+  .funnel-arrow { margin: 0 6px; }
+  .funnel-count { font-size: 22px; }
+  .table-controls { flex-direction: column; align-items: stretch; }
+  .table-search { width: 100%; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="header-left">
+      <span class="header-title">Riker Engine</span>
+      <span class="header-badge">v0.3.0</span>
+    </div>
+    <div class="header-right">
+      <a href="https://github.com/kai001/riker-engine" target="_blank" rel="noopener">
+        <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        GitHub
+      </a>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <!-- Wizard Navigation -->
+  <nav class="wizard-nav" id="wizardNav">
+    <div class="wizard-step active" data-step="1" onclick="goToStep(1)">
+      <div class="wizard-circle">1</div>
+      <span class="wizard-label">Seed Genes</span>
+    </div>
+    <div class="wizard-connector" id="conn1"></div>
+    <div class="wizard-step" data-step="2" onclick="goToStep(2)">
+      <div class="wizard-circle">2</div>
+      <span class="wizard-label">Datasets</span>
+    </div>
+    <div class="wizard-connector" id="conn2"></div>
+    <div class="wizard-step" data-step="3" onclick="goToStep(3)">
+      <div class="wizard-circle">3</div>
+      <span class="wizard-label">Config</span>
+    </div>
+    <div class="wizard-connector" id="conn3"></div>
+    <div class="wizard-step" data-step="4" onclick="goToStep(4)">
+      <div class="wizard-circle">4</div>
+      <span class="wizard-label">Run</span>
+    </div>
+    <div class="wizard-connector" id="conn4"></div>
+    <div class="wizard-step" data-step="5" onclick="goToStep(5)">
+      <div class="wizard-circle">5</div>
+      <span class="wizard-label">Results</span>
+    </div>
+  </nav>
+
+  <!-- Section 1: Seed Genes -->
+  <div class="section visible" id="section1">
+    <h2 class="section-title">Seed Genes</h2>
+    <p class="section-desc">Upload a CSV of known disease-associated genes, or paste gene symbols directly.</p>
+    <div class="card">
+      <div class="drop-zone" id="seedDropZone">
+        <input type="file" accept=".csv,.txt,.tsv" id="seedFileInput">
+        <div class="drop-zone-label"><strong>Click to browse</strong> or drag and drop</div>
+        <div class="drop-zone-hint">CSV file with gene symbols (one column)</div>
+      </div>
+      <div class="divider">or</div>
+      <div class="form-row">
+        <label for="seedTextarea">Paste gene symbols (one per line)</label>
+        <textarea id="seedTextarea" rows="5" placeholder="SHANK3&#10;CHD8&#10;NRXN1&#10;SCN2A&#10;DYRK1A"></textarea>
+      </div>
+      <div class="btn-group">
+        <button class="btn btn-primary" id="btnUploadSeeds" onclick="uploadSeeds()">Upload CSV</button>
+        <button class="btn btn-secondary" id="btnPasteSeeds" onclick="usePastedSeeds()">Use Pasted Genes</button>
+      </div>
+      <div id="seedPreview" class="preview-box" style="display:none;"></div>
+    </div>
+    <div style="text-align:right;margin-top:12px;">
+      <button class="btn btn-primary" onclick="goToStep(2)" id="btnNext1" disabled>Next: Datasets</button>
+    </div>
+  </div>
+
+  <!-- Section 2: Datasets -->
+  <div class="section" id="section2">
+    <h2 class="section-title">Datasets</h2>
+    <p class="section-desc">Add GEO series matrix files and platform annotations. At least 2 discovery datasets recommended.</p>
+    <div id="datasetWarning" class="warning-box" style="display:none;">Fewer than 2 discovery datasets selected. Pipeline requires at least 2 for convergent evidence.</div>
+    <div id="datasetList"></div>
+    <button class="btn btn-outline" onclick="addDatasetCard()">+ Add Dataset</button>
+    <div style="display:flex;justify-content:space-between;margin-top:20px;">
+      <button class="btn btn-secondary" onclick="goToStep(1)">Back</button>
+      <button class="btn btn-primary" onclick="goToStep(3)" id="btnNext2" disabled>Next: Configuration</button>
+    </div>
+  </div>
+
+  <!-- Section 3: Configuration -->
+  <div class="section" id="section3">
+    <h2 class="section-title">Configuration</h2>
+    <p class="section-desc">Set the condition name and optionally tune pipeline parameters.</p>
+    <div class="card">
+      <div class="form-row">
+        <label for="conditionName">Condition Name <span style="color:var(--red)">*</span></label>
+        <input type="text" id="conditionName" placeholder="e.g., Autism Spectrum Disorder" oninput="checkConfigReady()">
+      </div>
+      <button class="collapsible-toggle" onclick="toggleCollapsible(this)">
+        <span class="arrow">&#9654;</span> Advanced Settings
+      </button>
+      <div class="collapsible-body">
+        <div class="form-grid">
+          <div class="form-row">
+            <label for="p1Threshold">Phase 1 p-value threshold</label>
+            <input type="number" id="p1Threshold" value="0.05" step="0.01" min="0" max="1">
+            <div class="form-hint">Significance cutoff for differential expression</div>
+          </div>
+          <div class="form-row">
+            <label for="p1MinDatasets">Phase 1 min datasets</label>
+            <input type="number" id="p1MinDatasets" value="2" step="1" min="1" max="20">
+            <div class="form-hint">Gene must be DE in at least this many datasets</div>
+          </div>
+          <div class="form-row">
+            <label for="p4Perms">Phase 4 permutations</label>
+            <input type="number" id="p4Perms" value="10000" step="1000" min="100">
+            <div class="form-hint">Number of permutations for convergence testing</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:space-between;margin-top:12px;">
+      <button class="btn btn-secondary" onclick="goToStep(2)">Back</button>
+      <button class="btn btn-primary" onclick="goToStep(4)" id="btnNext3" disabled>Next: Run</button>
+    </div>
+  </div>
+
+  <!-- Section 4: Run -->
+  <div class="section" id="section4">
+    <h2 class="section-title">Run Pipeline</h2>
+    <p class="section-desc">Validate your configuration and launch the analysis.</p>
+    <div class="card">
+      <div class="btn-group" id="runControls">
+        <button class="btn btn-outline" onclick="validateConfig()">Validate Config</button>
+        <button class="btn btn-success btn-lg" id="btnRun" onclick="runPipeline()" disabled>Run Pipeline</button>
+        <button class="btn btn-danger" id="btnCancel" onclick="cancelRun()" style="display:none;">Cancel</button>
+      </div>
+      <div id="validationResult" style="margin-top:12px;"></div>
+    </div>
+
+    <div id="progressPanel" style="display:none;margin-top:16px;">
+      <div class="card">
+        <div class="timer-bar">
+          <span class="timer" id="elapsedTime">00:00:00</span>
+          <span style="font-size:13px;color:var(--text-muted);" id="runStatus">Running...</span>
+        </div>
+        <div class="phase-bar" id="phaseBar">
+          <div class="phase-dot-group"><div class="phase-dot" id="pd1">1</div><div class="phase-dot-label">DE Analysis</div></div>
+          <div class="phase-line" id="pl1"></div>
+          <div class="phase-dot-group"><div class="phase-dot" id="pd2">2</div><div class="phase-dot-label">Network</div></div>
+          <div class="phase-line" id="pl2"></div>
+          <div class="phase-dot-group"><div class="phase-dot" id="pd3">3</div><div class="phase-dot-label">Clustering</div></div>
+          <div class="phase-line" id="pl3"></div>
+          <div class="phase-dot-group"><div class="phase-dot" id="pd4">4</div><div class="phase-dot-label">Convergence</div></div>
+          <div class="phase-line" id="pl4"></div>
+          <div class="phase-dot-group"><div class="phase-dot" id="pd5">5</div><div class="phase-dot-label">Replication</div></div>
+          <div class="phase-line" id="pl5"></div>
+          <div class="phase-dot-group"><div class="phase-dot" id="pd6">6</div><div class="phase-dot-label">Meta</div></div>
+        </div>
+        <div class="log-panel" id="logPanel"></div>
+      </div>
+    </div>
+    <div style="text-align:left;margin-top:12px;">
+      <button class="btn btn-secondary" onclick="goToStep(3)">Back</button>
+    </div>
+  </div>
+
+  <!-- Section 5: Results -->
+  <div class="section" id="section5">
+    <h2 class="section-title">Results</h2>
+    <p class="section-desc">Pipeline output summary and core gene table.</p>
+
+    <div class="card">
+      <div class="funnel" id="resultsFunnel"></div>
+      <div id="qcBadge"></div>
+    </div>
+
+    <div class="card" style="margin-top:12px;">
+      <div class="table-controls">
+        <label style="margin:0;font-size:15px;font-weight:700;">Core Genes</label>
+        <input type="text" class="table-search" id="geneSearch" placeholder="Filter genes..." oninput="filterGeneTable()">
+      </div>
+      <div class="results-table-wrap">
+        <table class="results-table" id="geneTable">
+          <thead>
+            <tr>
+              <th onclick="sortTable(0)">Gene <span class="sort-arrow"></span></th>
+              <th onclick="sortTable(1)">Cluster <span class="sort-arrow"></span></th>
+              <th onclick="sortTable(2)">Level <span class="sort-arrow"></span></th>
+              <th onclick="sortTable(3)">log2FC <span class="sort-arrow"></span></th>
+              <th onclick="sortTable(4)">Direction <span class="sort-arrow"></span></th>
+            </tr>
+          </thead>
+          <tbody id="geneTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card download-section" style="margin-top:12px;">
+      <label style="margin-bottom:8px;font-size:15px;font-weight:700;">Downloads</label>
+      <div class="download-grid" id="downloadGrid"></div>
+    </div>
+
+    <div style="text-align:left;margin-top:12px;">
+      <button class="btn btn-secondary" onclick="goToStep(4)">Back to Run</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script>
+/* ===== Global State ===== */
+const state = {
+  seedPath: null,
+  seedGeneCount: 0,
+  datasets: [],
+  runId: null,
+  ws: null,
+  timerInterval: null,
+  timerStart: null,
+  wsRetries: 0,
+  currentStep: 1,
+  completedSteps: new Set(),
+  coreGenes: [],
+  sortCol: -1,
+  sortAsc: true
+};
+
+let datasetCounter = 0;
+
+/* ===== Navigation ===== */
+function goToStep(n) {
+  state.currentStep = n;
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('visible'));
+  document.getElementById('section' + n).classList.add('visible');
+  document.querySelectorAll('.wizard-step').forEach(s => {
+    const step = parseInt(s.dataset.step);
+    s.classList.remove('active');
+    if (step === n) s.classList.add('active');
+    if (state.completedSteps.has(step)) {
+      s.classList.add('completed');
+    } else {
+      s.classList.remove('completed');
+    }
+  });
+  for (let i = 1; i <= 4; i++) {
+    const conn = document.getElementById('conn' + i);
+    conn.classList.toggle('done', state.completedSteps.has(i));
+  }
+}
+
+/* ===== Toast ===== */
+function showToast(msg, isError) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = 'toast' + (isError ? ' error' : '');
+  requestAnimationFrame(() => t.classList.add('show'));
+  setTimeout(() => t.classList.remove('show'), 3500);
+}
+
+/* ===== Drag and Drop Helpers ===== */
+function setupDropZone(el, fileInput, onFile) {
+  ['dragenter','dragover'].forEach(evt => {
+    el.addEventListener(evt, e => { e.preventDefault(); el.classList.add('dragover'); });
+  });
+  ['dragleave','drop'].forEach(evt => {
+    el.addEventListener(evt, e => { e.preventDefault(); el.classList.remove('dragover'); });
+  });
+  el.addEventListener('drop', e => {
+    const file = e.dataTransfer.files[0];
+    if (file) onFile(file, el);
+  });
+  if (fileInput) {
+    fileInput.addEventListener('change', e => {
+      const file = e.target.files[0];
+      if (file) onFile(file, el);
+    });
+  }
+}
+
+/* ===== Section 1: Seed Genes ===== */
+function setupSeedDropZone() {
+  const zone = document.getElementById('seedDropZone');
+  const input = document.getElementById('seedFileInput');
+  setupDropZone(zone, input, (file) => {
+    uploadSeedFile(file);
+  });
+}
+
+async function uploadSeedFile(file) {
+  const fd = new FormData();
+  fd.append('file', file);
+  try {
+    const res = await fetch('/api/upload/seeds', { method: 'POST', body: fd });
+    if (!res.ok) throw new Error(await res.text());
+    const data = await res.json();
+    state.seedPath = data.path;
+    state.seedGeneCount = data.gene_count;
+    showSeedPreview(data.gene_count, data.preview);
+    const zone = document.getElementById('seedDropZone');
+    zone.classList.add('has-file');
+    zone.querySelector('.drop-zone-label').innerHTML = '<strong>' + file.name + '</strong> uploaded';
+    showToast('Seed genes uploaded');
+  } catch (e) {
+    showToast('Upload failed: ' + e.message, true);
+  }
+}
+
+function uploadSeeds() {
+  document.getElementById('seedFileInput').click();
+}
+
+async function usePastedSeeds() {
+  const text = document.getElementById('seedTextarea').value.trim();
+  if (!text) { showToast('Paste some gene symbols first', true); return; }
+  const blob = new Blob([text], { type: 'text/csv' });
+  const file = new File([blob], 'pasted_seeds.csv', { type: 'text/csv' });
+  const fd = new FormData();
+  fd.append('file', file);
+  try {
+    const res = await fetch('/api/upload/seeds', { method: 'POST', body: fd });
+    if (!res.ok) throw new Error(await res.text());
+    const data = await res.json();
+    state.seedPath = data.path;
+    state.seedGeneCount = data.gene_count;
+    showSeedPreview(data.gene_count, data.preview);
+    showToast('Seed genes accepted');
+  } catch (e) {
+    showToast('Failed: ' + e.message, true);
+  }
+}
+
+function showSeedPreview(count, preview) {
+  const el = document.getElementById('seedPreview');
+  const genes = preview || [];
+  const more = count > genes.length ? ' <span class="tag tag-more">+' + (count - genes.length) + ' more</span>' : '';
+  el.innerHTML = '<span class="stat">' + count + '</span> genes loaded' +
+    '<div class="tag-list">' + genes.map(g => '<span class="tag">' + escHtml(g) + '</span>').join('') + more + '</div>';
+  el.style.display = 'block';
+  document.getElementById('btnNext1').disabled = false;
+  state.completedSteps.add(1);
+}
+
+/* ===== Section 2: Datasets ===== */
+function addDatasetCard() {
+  datasetCounter++;
+  const id = 'ds_' + datasetCounter;
+  const ds = { id, matrixPath: null, platformPath: null, role: 'discovery', tissue: 'brain', datasetId: 'Dataset_' + datasetCounter, phenoFields: [], caseValues: [], controlValues: [], phenoField: '', sampleCount: null };
+  state.datasets.push(ds);
+
+  const card = document.createElement('div');
+  card.className = 'dataset-card';
+  card.id = 'card_' + id;
+  card.innerHTML = `
+    <div class="dataset-card-header">
+      <span class="dataset-card-title" id="title_${id}">${ds.datasetId}</span>
+      <button class="dataset-remove" onclick="removeDataset('${id}')" title="Remove dataset">&times;</button>
+    </div>
+    <div class="dataset-dropzones">
+      <div class="drop-zone" id="matrixZone_${id}">
+        <input type="file" accept=".txt.gz,.gz,.txt" id="matrixInput_${id}">
+        <div class="drop-zone-label"><strong>Series matrix</strong></div>
+        <div class="drop-zone-hint">.txt.gz file</div>
+      </div>
+      <div class="drop-zone" id="platformZone_${id}">
+        <input type="file" accept=".annot,.annot.gz" id="platformInput_${id}">
+        <div class="drop-zone-label"><strong>Platform annotation</strong></div>
+        <div class="drop-zone-hint">.annot file</div>
+      </div>
+    </div>
+    <div class="form-grid">
+      <div class="form-row">
+        <label>Role</label>
+        <select id="role_${id}" onchange="updateDatasetField('${id}','role',this.value); checkDatasetWarning();">
+          <option value="discovery">Discovery</option>
+          <option value="replication">Replication</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label>Tissue</label>
+        <select id="tissue_${id}" onchange="updateDatasetField('${id}','tissue',this.value)">
+          <option value="brain">Brain</option>
+          <option value="blood">Blood</option>
+          <option value="islet">Islet</option>
+          <option value="intestinal">Intestinal</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+    </div>
+    <div id="inspectArea_${id}" style="display:none;">
+      <button class="btn btn-sm btn-secondary" onclick="inspectDataset('${id}')">Inspect Dataset</button>
+    </div>
+    <div id="phenoArea_${id}" style="display:none;margin-top:12px;">
+      <div class="form-row">
+        <label>Phenotype field</label>
+        <select id="phenoField_${id}" onchange="onPhenoFieldChange('${id}', this.value)"></select>
+      </div>
+      <div class="form-grid">
+        <div class="form-row">
+          <label>Case values</label>
+          <div class="checkbox-group" id="caseVals_${id}"></div>
+        </div>
+        <div class="form-row">
+          <label>Control values</label>
+          <div class="checkbox-group" id="controlVals_${id}"></div>
+        </div>
+      </div>
+    </div>
+    <div id="inspectPreview_${id}" class="preview-box" style="display:none;"></div>
+  `;
+  document.getElementById('datasetList').appendChild(card);
+
+  // Setup drop zones
+  setupDropZone(
+    document.getElementById('matrixZone_' + id),
+    document.getElementById('matrixInput_' + id),
+    (file) => uploadMatrix(id, file)
+  );
+  setupDropZone(
+    document.getElementById('platformZone_' + id),
+    document.getElementById('platformInput_' + id),
+    (file) => uploadPlatform(id, file)
+  );
+
+  checkDatasetWarning();
+  checkDatasetsReady();
+}
+
+function removeDataset(id) {
+  state.datasets = state.datasets.filter(d => d.id !== id);
+  const card = document.getElementById('card_' + id);
+  if (card) card.remove();
+  checkDatasetWarning();
+  checkDatasetsReady();
+}
+
+function updateDatasetField(id, field, value) {
+  const ds = state.datasets.find(d => d.id === id);
+  if (ds) ds[field] = value;
+}
+
+function extractDatasetId(filename) {
+  const m = filename.match(/(GSE\d+)/i);
+  return m ? m[1] : filename.replace(/[._-]series.*$/i, '').replace(/\.[^.]+$/, '');
+}
+
+async function uploadMatrix(id, file) {
+  const ds = state.datasets.find(d => d.id === id);
+  if (!ds) return;
+  const fd = new FormData();
+  fd.append('file', file);
+  try {
+    const res = await fetch('/api/upload/dataset', { method: 'POST', body: fd });
+    if (!res.ok) throw new Error(await res.text());
+    const data = await res.json();
+    ds.matrixPath = data.path;
+    ds.sampleCount = data.sample_count;
+    ds.datasetId = extractDatasetId(file.name);
+    document.getElementById('title_' + id).textContent = ds.datasetId;
+    const zone = document.getElementById('matrixZone_' + id);
+    zone.classList.add('has-file');
+    zone.querySelector('.drop-zone-label').innerHTML = '<strong>' + escHtml(file.name) + '</strong>';
+    document.getElementById('inspectArea_' + id).style.display = 'block';
+    if (data.phenotype_fields && data.phenotype_fields.length > 0) {
+      ds.phenoFields = data.phenotype_fields;
+    }
+    showToast(ds.datasetId + ' uploaded (' + (data.sample_count || '?') + ' samples)');
+    checkDatasetsReady();
+  } catch (e) {
+    showToast('Upload failed: ' + e.message, true);
+  }
+}
+
+async function uploadPlatform(id, file) {
+  const ds = state.datasets.find(d => d.id === id);
+  if (!ds) return;
+  const fd = new FormData();
+  fd.append('file', file);
+  try {
+    const res = await fetch('/api/upload/platform', { method: 'POST', body: fd });
+    if (!res.ok) throw new Error(await res.text());
+    const data = await res.json();
+    ds.platformPath = data.path;
+    const zone = document.getElementById('platformZone_' + id);
+    zone.classList.add('has-file');
+    zone.querySelector('.drop-zone-label').innerHTML = '<strong>' + escHtml(file.name) + '</strong>';
+    showToast('Platform annotation uploaded');
+    checkDatasetsReady();
+  } catch (e) {
+    showToast('Upload failed: ' + e.message, true);
+  }
+}
+
+async function inspectDataset(id) {
+  const ds = state.datasets.find(d => d.id === id);
+  if (!ds || !ds.matrixPath) return;
+  try {
+    const res = await fetch('/api/inspect-dataset', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ path: ds.matrixPath })
+    });
+    if (!res.ok) throw new Error(await res.text());
+    const data = await res.json();
+    ds.sampleCount = data.sample_count;
+    const preview = document.getElementById('inspectPreview_' + id);
+    preview.innerHTML = '<span class="stat">' + data.sample_count + '</span> samples &middot; Probe format: ' +
+      escHtml(data.probe_format || 'unknown') + ' &middot; Value range: ' + (data.value_range || 'N/A');
+    preview.style.display = 'block';
+
+    if (data.phenotype_fields && data.phenotype_fields.length > 0) {
+      ds.phenoFields = data.phenotype_fields;
+      populatePhenoDropdown(id, data.phenotype_fields);
+      document.getElementById('phenoArea_' + id).style.display = 'block';
+    }
+  } catch (e) {
+    showToast('Inspect failed: ' + e.message, true);
+  }
+}
+
+function populatePhenoDropdown(id, fields) {
+  const sel = document.getElementById('phenoField_' + id);
+  sel.innerHTML = '<option value="">-- Select phenotype field --</option>';
+  fields.forEach(f => {
+    const opt = document.createElement('option');
+    opt.value = f.field;
+    opt.textContent = f.field;
+    sel.appendChild(opt);
+  });
+}
+
+function onPhenoFieldChange(id, fieldName) {
+  const ds = state.datasets.find(d => d.id === id);
+  if (!ds) return;
+  ds.phenoField = fieldName;
+  ds.caseValues = [];
+  ds.controlValues = [];
+  const field = ds.phenoFields.find(f => f.field === fieldName);
+  const values = field ? field.values : [];
+  renderCheckboxes(id, 'caseVals', values, 'case');
+  renderCheckboxes(id, 'controlVals', values, 'control');
+}
+
+function renderCheckboxes(dsId, containerId, values, type) {
+  const container = document.getElementById(containerId + '_' + dsId);
+  container.innerHTML = '';
+  values.forEach(v => {
+    const label = document.createElement('label');
+    label.className = 'checkbox-item';
+    const cb = document.createElement('input');
+    cb.type = 'checkbox';
+    cb.value = v;
+    cb.addEventListener('change', () => {
+      const ds = state.datasets.find(d => d.id === dsId);
+      if (!ds) return;
+      const arr = type === 'case' ? 'caseValues' : 'controlValues';
+      if (cb.checked) {
+        ds[arr].push(v);
+      } else {
+        ds[arr] = ds[arr].filter(x => x !== v);
+      }
+      checkDatasetsReady();
+    });
+    label.appendChild(cb);
+    label.appendChild(document.createTextNode(v));
+    container.appendChild(label);
+  });
+}
+
+function checkDatasetWarning() {
+  const disc = state.datasets.filter(d => d.role === 'discovery').length;
+  document.getElementById('datasetWarning').style.display = disc < 2 ? 'block' : 'none';
+}
+
+function checkDatasetsReady() {
+  const ready = state.datasets.length > 0 && state.datasets.every(d => d.matrixPath && d.platformPath);
+  document.getElementById('btnNext2').disabled = !ready;
+  if (ready) state.completedSteps.add(2);
+}
+
+/* ===== Section 3: Configuration ===== */
+function toggleCollapsible(btn) {
+  btn.classList.toggle('open');
+  const body = btn.nextElementSibling;
+  body.classList.toggle('open');
+}
+
+function checkConfigReady() {
+  const name = document.getElementById('conditionName').value.trim();
+  document.getElementById('btnNext3').disabled = !name;
+  if (name) state.completedSteps.add(3);
+}
+
+/* ===== Build Config ===== */
+function buildConfig() {
+  return {
+    condition: document.getElementById('conditionName').value.trim(),
+    seed_genes_path: state.seedPath,
+    datasets: state.datasets.map(d => ({
+      id: d.datasetId,
+      matrix_path: d.matrixPath,
+      platform_path: d.platformPath,
+      role: d.role,
+      tissue: d.tissue,
+      phenotype_field: d.phenoField,
+      case_values: d.caseValues,
+      control_values: d.controlValues
+    })),
+    parameters: {
+      phase1_p_threshold: parseFloat(document.getElementById('p1Threshold').value) || 0.05,
+      phase1_min_datasets: parseInt(document.getElementById('p1MinDatasets').value) || 2,
+      phase4_n_permutations: parseInt(document.getElementById('p4Perms').value) || 10000
+    }
+  };
+}
+
+/* ===== Section 4: Run ===== */
+async function validateConfig() {
+  const config = buildConfig();
+  const el = document.getElementById('validationResult');
+  try {
+    const res = await fetch('/api/validate', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(config)
+    });
+    const data = await res.json();
+    if (res.ok) {
+      el.innerHTML = '<div style="color:var(--green);font-weight:600;font-size:14px;">Configuration valid. Ready to run.</div>';
+      document.getElementById('btnRun').disabled = false;
+    } else {
+      el.innerHTML = '<div style="color:var(--red);font-weight:600;font-size:14px;">Validation failed: ' + escHtml(data.detail || data.message || JSON.stringify(data)) + '</div>';
+      document.getElementById('btnRun').disabled = true;
+    }
+  } catch (e) {
+    el.innerHTML = '<div style="color:var(--red);font-size:14px;">Could not reach server: ' + escHtml(e.message) + '</div>';
+  }
+}
+
+async function runPipeline() {
+  const config = buildConfig();
+  document.getElementById('btnRun').disabled = true;
+  document.getElementById('btnCancel').style.display = 'inline-flex';
+  document.getElementById('progressPanel').style.display = 'block';
+  document.getElementById('logPanel').innerHTML = '';
+  document.getElementById('runStatus').textContent = 'Starting...';
+  resetPhaseIndicators();
+  startTimer();
+
+  try {
+    const res = await fetch('/api/run', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(config)
+    });
+    if (!res.ok) throw new Error(await res.text());
+    const data = await res.json();
+    state.runId = data.run_id;
+    document.getElementById('runStatus').textContent = 'Running...';
+    connectWebSocket(data.run_id);
+  } catch (e) {
+    showToast('Failed to start: ' + e.message, true);
+    stopTimer();
+    document.getElementById('btnRun').disabled = false;
+    document.getElementById('btnCancel').style.display = 'none';
+    document.getElementById('runStatus').textContent = 'Error';
+  }
+}
+
+function cancelRun() {
+  if (state.ws) { state.ws.close(); state.ws = null; }
+  stopTimer();
+  appendLog('Pipeline cancelled by user.', 'error');
+  document.getElementById('btnRun').disabled = false;
+  document.getElementById('btnCancel').style.display = 'none';
+  document.getElementById('runStatus').textContent = 'Cancelled';
+}
+
+/* ===== WebSocket ===== */
+const WARN_FILTERS = [/FutureWarning/, /n_jobs/, /UserWarning.*UMAP/, /UserWarning.*sklearn/];
+
+function connectWebSocket(runId) {
+  const proto = location.protocol === 'https:' ? 'wss:' : 'ws:';
+  const url = proto + '//' + location.host + '/ws/progress/' + runId;
+  state.ws = new WebSocket(url);
+  state.wsRetries = 0;
+
+  state.ws.onopen = () => {
+    appendLog('Connected to pipeline.', 'phase-log');
+  };
+
+  state.ws.onmessage = (event) => {
+    let msg;
+    try { msg = JSON.parse(event.data); } catch { appendLog(event.data); return; }
+
+    if (msg.type === 'log') {
+      if (WARN_FILTERS.some(rx => rx.test(msg.message))) return;
+      appendLog(msg.message);
+    } else if (msg.type === 'phase') {
+      setPhaseActive(msg.phase);
+      appendLog('Phase ' + msg.phase + ': ' + (msg.name || ''), 'phase-log');
+    } else if (msg.type === 'complete') {
+      onPipelineComplete(msg.summary);
+    } else if (msg.type === 'error') {
+      appendLog('ERROR: ' + msg.message, 'error');
+      onPipelineError(msg.message);
+    }
+  };
+
+  state.ws.onclose = () => {
+    if (state.wsRetries < 3 && document.getElementById('runStatus').textContent === 'Running...') {
+      state.wsRetries++;
+      appendLog('Connection lost. Reconnecting (' + state.wsRetries + '/3)...', 'error');
+      setTimeout(() => connectWebSocket(runId), 2000);
+    }
+  };
+
+  state.ws.onerror = () => {};
+}
+
+function appendLog(text, cls) {
+  const panel = document.getElementById('logPanel');
+  const line = document.createElement('div');
+  line.className = 'log-line' + (cls ? ' ' + cls : '');
+  line.textContent = text;
+  panel.appendChild(line);
+  panel.scrollTop = panel.scrollHeight;
+}
+
+/* ===== Phase Indicators ===== */
+function resetPhaseIndicators() {
+  for (let i = 1; i <= 6; i++) {
+    document.getElementById('pd' + i).className = 'phase-dot';
+    if (i < 6) document.getElementById('pl' + i).className = 'phase-line';
+  }
+}
+
+function setPhaseActive(n) {
+  for (let i = 1; i <= 6; i++) {
+    const dot = document.getElementById('pd' + i);
+    if (i < n) {
+      dot.className = 'phase-dot complete';
+      if (i < 6) document.getElementById('pl' + i).className = 'phase-line done';
+    } else if (i === n) {
+      dot.className = 'phase-dot active';
+    } else {
+      dot.className = 'phase-dot';
+    }
+  }
+}
+
+/* ===== Timer ===== */
+function startTimer() {
+  state.timerStart = Date.now();
+  state.timerInterval = setInterval(updateTimer, 1000);
+  updateTimer();
+}
+
+function stopTimer() {
+  if (state.timerInterval) { clearInterval(state.timerInterval); state.timerInterval = null; }
+}
+
+function updateTimer() {
+  const elapsed = Math.floor((Date.now() - state.timerStart) / 1000);
+  const h = String(Math.floor(elapsed / 3600)).padStart(2, '0');
+  const m = String(Math.floor((elapsed % 3600) / 60)).padStart(2, '0');
+  const s = String(elapsed % 60).padStart(2, '0');
+  document.getElementById('elapsedTime').textContent = h + ':' + m + ':' + s;
+}
+
+/* ===== Pipeline Complete / Error ===== */
+function onPipelineComplete(summary) {
+  stopTimer();
+  for (let i = 1; i <= 6; i++) {
+    document.getElementById('pd' + i).className = 'phase-dot complete';
+    if (i < 6) document.getElementById('pl' + i).className = 'phase-line done';
+  }
+  document.getElementById('runStatus').textContent = 'Complete';
+  document.getElementById('btnCancel').style.display = 'none';
+  document.getElementById('btnRun').disabled = false;
+  state.completedSteps.add(4);
+  appendLog('Pipeline complete.', 'phase-log');
+
+  if (summary) {
+    renderResults(summary);
+    showToast('Pipeline finished successfully');
+    setTimeout(() => goToStep(5), 600);
+  }
+}
+
+function onPipelineError(msg) {
+  stopTimer();
+  document.getElementById('runStatus').textContent = 'Error';
+  document.getElementById('btnCancel').style.display = 'none';
+  document.getElementById('btnRun').disabled = false;
+  showToast('Pipeline error: ' + msg, true);
+}
+
+/* ===== Section 5: Results ===== */
+function renderResults(summary) {
+  // Funnel
+  const funnelData = [
+    { label: 'Seed', count: summary.seed_count || 0 },
+    { label: 'Study', count: summary.study_count || summary.de_genes || 0 },
+    { label: 'Core', count: summary.core_count || 0 },
+    { label: 'Replicated', count: summary.replicated_count || 0 },
+    { label: 'Meta-sig', count: summary.meta_significant || 0 }
+  ];
+  const funnelEl = document.getElementById('resultsFunnel');
+  funnelEl.innerHTML = funnelData.map((f, i) =>
+    (i > 0 ? '<div class="funnel-arrow">&#9654;</div>' : '') +
+    '<div class="funnel-step"><div class="funnel-count">' + f.count + '</div><div class="funnel-label">' + f.label + '</div></div>'
+  ).join('');
+
+  // QC Badge
+  const qc = summary.qc_status || 'PASSED';
+  document.getElementById('qcBadge').innerHTML = '<span class="qc-badge qc-' + qc + '">' + qc + '</span>';
+
+  // Core genes table
+  state.coreGenes = summary.core_genes || [];
+  renderGeneTable(state.coreGenes);
+
+  // Downloads
+  const dlGrid = document.getElementById('downloadGrid');
+  dlGrid.innerHTML = '';
+  const runId = state.runId;
+  const dlBtn = (label, url) => {
+    const a = document.createElement('a');
+    a.className = 'btn btn-sm btn-secondary';
+    a.href = url;
+    a.download = '';
+    a.textContent = label;
+    dlGrid.appendChild(a);
+  };
+  dlBtn('Download All (ZIP)', '/api/results/' + runId + '/download-all');
+  dlBtn('pipeline_summary.json', '/api/results/' + runId + '/pipeline_summary.json');
+  dlBtn('phase4_core_genes.csv', '/api/results/' + runId + '/phase4_core_genes.csv');
+  dlBtn('phase5_verdicts.csv', '/api/results/' + runId + '/phase5_verdicts.csv');
+  dlBtn('phase6_meta_analysis.csv', '/api/results/' + runId + '/phase6_meta_analysis.csv');
+
+  state.completedSteps.add(5);
+}
+
+function renderGeneTable(genes) {
+  const tbody = document.getElementById('geneTableBody');
+  tbody.innerHTML = '';
+  genes.forEach(g => {
+    const tr = document.createElement('tr');
+    const dirClass = (g.direction || '').toLowerCase() === 'up' ? 'dir-up' : 'dir-down';
+    tr.innerHTML =
+      '<td>' + escHtml(g.gene || g.Gene || '') + '</td>' +
+      '<td>' + escHtml(String(g.cluster != null ? g.cluster : (g.Cluster || ''))) + '</td>' +
+      '<td>' + escHtml(g.level || g.Level || '') + '</td>' +
+      '<td>' + (g.log2FC != null ? Number(g.log2FC).toFixed(3) : (g.log2fc != null ? Number(g.log2fc).toFixed(3) : '')) + '</td>' +
+      '<td class="' + dirClass + '">' + escHtml(g.direction || g.Direction || '') + '</td>';
+    tbody.appendChild(tr);
+  });
+}
+
+function filterGeneTable() {
+  const q = document.getElementById('geneSearch').value.trim().toLowerCase();
+  const filtered = state.coreGenes.filter(g => {
+    const gene = (g.gene || g.Gene || '').toLowerCase();
+    return gene.includes(q);
+  });
+  renderGeneTable(filtered);
+}
+
+function sortTable(colIdx) {
+  if (state.sortCol === colIdx) {
+    state.sortAsc = !state.sortAsc;
+  } else {
+    state.sortCol = colIdx;
+    state.sortAsc = true;
+  }
+  const keys = [
+    g => (g.gene || g.Gene || '').toLowerCase(),
+    g => g.cluster != null ? g.cluster : (g.Cluster || 0),
+    g => (g.level || g.Level || ''),
+    g => g.log2FC != null ? g.log2FC : (g.log2fc || 0),
+    g => (g.direction || g.Direction || '')
+  ];
+  const key = keys[colIdx];
+  state.coreGenes.sort((a, b) => {
+    let va = key(a), vb = key(b);
+    if (typeof va === 'string') {
+      return state.sortAsc ? va.localeCompare(vb) : vb.localeCompare(va);
+    }
+    return state.sortAsc ? va - vb : vb - va;
+  });
+  renderGeneTable(state.coreGenes);
+}
+
+/* ===== Utilities ===== */
+function escHtml(s) {
+  const d = document.createElement('div');
+  d.textContent = s;
+  return d.innerHTML;
+}
+
+/* ===== Init ===== */
+document.addEventListener('DOMContentLoaded', () => {
+  setupSeedDropZone();
+  goToStep(1);
+});
+</script>
+</body>
+</html>
