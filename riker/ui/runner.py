@@ -227,15 +227,26 @@ def _run_pipeline(run_id: str) -> None:
 
 def get_results(run_id: str) -> dict:
     """Load all result files for a completed run."""
-    state = _runs.get(run_id)
-    if not state or state.status != "complete":
-        return {}
-
-    results = {"summary": state.summary}
-    output_dir = state.output_dir
-
-    # Load CSV files as lists of dicts
     import csv
+
+    # Try in-memory state first
+    state = _runs.get(run_id)
+    if state and state.status == "complete":
+        output_dir = state.output_dir
+        summary = state.summary
+    else:
+        # Fall back to on-disk data
+        output_dir = RUNS_DIR / run_id / "output"
+        if not output_dir.exists():
+            return {}
+        summary_path = output_dir / "pipeline_summary.json"
+        if not summary_path.exists():
+            return {}
+        with open(summary_path) as f:
+            summary = json.load(f)
+
+    results = {"summary": summary}
+
     for name in ["phase1_study_genes", "phase4_core_genes", "phase4_all_levels",
                   "phase5_verdicts", "phase6_meta_analysis"]:
         path = output_dir / f"{name}.csv"
@@ -252,20 +263,29 @@ def get_results(run_id: str) -> dict:
     return results
 
 
+def _get_output_dir(run_id: str) -> Path | None:
+    """Resolve the output dir for a run (in-memory or on-disk)."""
+    state = _runs.get(run_id)
+    if state:
+        return state.output_dir
+    candidate = RUNS_DIR / run_id / "output"
+    return candidate if candidate.exists() else None
+
+
 def list_result_files(run_id: str) -> list[str]:
     """List downloadable result files."""
-    state = _runs.get(run_id)
-    if not state:
+    output_dir = _get_output_dir(run_id)
+    if not output_dir:
         return []
-    return [f.name for f in state.output_dir.iterdir() if f.is_file()]
+    return [f.name for f in output_dir.iterdir() if f.is_file()]
 
 
 def get_result_file_path(run_id: str, filename: str) -> Path | None:
     """Get the full path to a result file."""
-    state = _runs.get(run_id)
-    if not state:
+    output_dir = _get_output_dir(run_id)
+    if not output_dir:
         return None
-    path = state.output_dir / filename
+    path = output_dir / filename
     if path.exists() and path.is_file():
         return path
     return None
@@ -273,11 +293,11 @@ def get_result_file_path(run_id: str, filename: str) -> Path | None:
 
 def create_results_zip(run_id: str) -> Path | None:
     """Create a ZIP of all results and return the path."""
-    state = _runs.get(run_id)
-    if not state:
+    output_dir = _get_output_dir(run_id)
+    if not output_dir:
         return None
     zip_path = RUNS_DIR / run_id / "results"
-    shutil.make_archive(str(zip_path), "zip", str(state.output_dir))
+    shutil.make_archive(str(zip_path), "zip", str(output_dir))
     return Path(f"{zip_path}.zip")
 
 

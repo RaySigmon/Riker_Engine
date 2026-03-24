@@ -1525,14 +1525,15 @@ function onPipelineError(msg) {
 }
 
 /* ===== Section 5: Results ===== */
-function renderResults(summary) {
-  // Funnel
+async function renderResults(summary) {
+  // Funnel — map engine summary keys to display
+  const nSeeds = (summary.locked_core_genes || []).length > 0 ? '—' : 0;
   const funnelData = [
-    { label: 'Seed', count: summary.seed_count || 0 },
-    { label: 'Study', count: summary.study_count || summary.de_genes || 0 },
-    { label: 'Core', count: summary.core_count || 0 },
-    { label: 'Replicated', count: summary.replicated_count || 0 },
-    { label: 'Meta-sig', count: summary.meta_significant || 0 }
+    { label: 'Study', count: summary.phase1_study_genes || 0 },
+    { label: 'Core', count: summary.phase4_core_genes || 0 },
+    { label: 'Survived', count: summary.phase5_survived || 0 },
+    { label: 'Eliminated', count: summary.phase5_eliminated || 0 },
+    { label: 'Meta-sig', count: summary.phase6_significant_random || 0 }
   ];
   const funnelEl = document.getElementById('resultsFunnel');
   funnelEl.innerHTML = funnelData.map((f, i) =>
@@ -1542,11 +1543,7 @@ function renderResults(summary) {
 
   // QC Badge
   const qc = summary.qc_status || 'PASSED';
-  document.getElementById('qcBadge').innerHTML = '<span class="qc-badge qc-' + qc + '">' + qc + '</span>';
-
-  // Core genes table
-  state.coreGenes = summary.core_genes || [];
-  renderGeneTable(state.coreGenes);
+  document.getElementById('qcBadge').innerHTML = '<span class="qc-badge qc-' + qc.toLowerCase() + '">' + qc + '</span>';
 
   // Downloads
   const dlGrid = document.getElementById('downloadGrid');
@@ -1561,10 +1558,32 @@ function renderResults(summary) {
     dlGrid.appendChild(a);
   };
   dlBtn('Download All (ZIP)', '/api/results/' + runId + '/download-all');
-  dlBtn('pipeline_summary.json', '/api/results/' + runId + '/pipeline_summary.json');
-  dlBtn('phase4_core_genes.csv', '/api/results/' + runId + '/phase4_core_genes.csv');
-  dlBtn('phase5_verdicts.csv', '/api/results/' + runId + '/phase5_verdicts.csv');
-  dlBtn('phase6_meta_analysis.csv', '/api/results/' + runId + '/phase6_meta_analysis.csv');
+  dlBtn('pipeline_summary.json', '/api/results/' + runId + '/download/pipeline_summary.json');
+  dlBtn('phase4_core_genes.csv', '/api/results/' + runId + '/download/phase4_core_genes.csv');
+  dlBtn('phase5_verdicts.csv', '/api/results/' + runId + '/download/phase5_verdicts.csv');
+  dlBtn('phase6_meta_analysis.csv', '/api/results/' + runId + '/download/phase6_meta_analysis.csv');
+
+  // Fetch full results from API to get core genes with cluster/direction data
+  try {
+    const res = await fetch('/api/results/' + runId);
+    if (res.ok) {
+      const data = await res.json();
+      state.coreGenes = (data.phase4_core_genes || []).map(g => ({
+        gene: g.gene,
+        cluster: g.cluster_id,
+        level: g.max_level_survived,
+        log2fc: parseFloat(g.mean_log2fc) || 0,
+        direction: g.direction
+      }));
+      renderGeneTable(state.coreGenes);
+    }
+  } catch (e) {
+    // Fallback: show gene names from summary
+    state.coreGenes = (summary.locked_core_genes || []).map(g => ({
+      gene: g, cluster: '—', level: '—', log2fc: 0, direction: '—'
+    }));
+    renderGeneTable(state.coreGenes);
+  }
 
   state.completedSteps.add(5);
 }
