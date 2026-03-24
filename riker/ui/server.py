@@ -138,8 +138,20 @@ async def inspect_dataset(request: Request):
     return info
 
 
+# Keywords that suggest a case/control phenotype field
+_CASE_KEYWORDS = [
+    "tumor", "cancer", "carcinoma", "malignant", "disease", "affected",
+    "case", "asd", "autism", "alzheimer", "diabetic", "ibd", "crohn",
+    "patient", "ad ", "t2d",
+]
+_CTRL_KEYWORDS = [
+    "normal", "control", "healthy", "non-", "unaffected", "adjacent",
+    "benign", "non-demented", "ctl", "nondiseased",
+]
+
+
 def _inspect_series_matrix(path: Path) -> dict:
-    """Parse a series matrix for metadata."""
+    """Parse a series matrix for metadata with auto-detection of case/control."""
     try:
         opener = gzip.open if str(path).endswith(".gz") else open
         with opener(path, "rt", errors="replace") as f:
@@ -148,12 +160,12 @@ def _inspect_series_matrix(path: Path) -> dict:
         return {"error": str(e)}
 
     sample_count = 0
-    phenotype_fields = []
     probe_format = ""
     value_range = ""
 
-    # Collect unique characteristic rows
-    char_data: dict[str, list[str]] = {}
+    # Collect per-sample values for each metadata row
+    # Key: "field_name | label", Value: list of ALL per-sample values (not unique)
+    char_rows: list[dict] = []  # [{field, label, all_vals, unique_vals}]
 
     for line in lines:
         if line.startswith("!Sample_geo_accession"):
@@ -161,68 +173,101 @@ def _inspect_series_matrix(path: Path) -> dict:
 
         if line.startswith("!Sample_characteristics_ch"):
             parts = line.strip().split("\t")
-            field_name = parts[0].strip()
-            vals = [p.strip('"') for p in parts[1:]]
-            unique_vals = sorted(set(vals))
-            # Determine the key (e.g., "disease status" from "disease status: AD")
+            field_name = parts[0].lstrip("!").strip()  # Strip the "!" prefix
+            all_vals = [p.strip('"') for p in parts[1:]]
+            unique_vals = sorted(set(all_vals))
             if unique_vals:
-                sample_key = unique_vals[0].split(":")[0].strip() if ":" in unique_vals[0] else field_name
-                entry_key = f"{field_name} | {sample_key}"
-                if entry_key not in char_data:
-                    char_data[entry_key] = unique_vals
+                label = unique_vals[0].split(":")[0].strip() if ":" in unique_vals[0] else field_name
+                char_rows.append({
+                    "field": field_name,
+                    "label": label,
+                    "all_vals": all_vals,
+                    "unique_vals": unique_vals,
+                })
 
         if line.startswith("!Sample_source_name_ch1"):
             parts = line.strip().split("\t")
-            vals = [p.strip('"') for p in parts[1:]]
-            unique_vals = sorted(set(vals))
-            char_data["Sample_source_name_ch1 | source"] = unique_vals
+            all_vals = [p.strip('"') for p in parts[1:]]
+            unique_vals = sorted(set(all_vals))
+            char_rows.append({
+                "field": "Sample_source_name_ch1",
+                "label": "source",
+                "all_vals": all_vals,
+                "unique_vals": unique_vals,
+            })
 
-        if line.startswith("!Sample_title"):
+        if not probe_format and not line.startswith("!") and "\t" in line:
             parts = line.strip().split("\t")
-            vals = [p.strip('"') for p in parts[1:6]]
-            unique_vals = sorted(set(vals))
-            char_data["Sample_title | title"] = unique_vals[:10]
+            probe_id = parts[0].strip('"')
+            if probe_id and probe_id != "ID_REF":
+                if probe_id.startswith("ILMN_"):
+                    probe_format = "Illumina (ILMN_*)"
+                elif probe_id.startswith("ENSG"):
+                    probe_format = "Ensembl (ENSG*)"
+                elif "_at" in probe_id or "_s_at" in probe_id:
+                    probe_format = "Affymetrix (*_at)"
+                elif probe_id.startswith("GI_"):
+                    probe_format = "GenInfo (GI_*)"
+                elif probe_id.replace(".", "").isdigit():
+                    probe_format = "Numeric"
+                else:
+                    probe_format = f"Other ({probe_id[:15]})"
+                try:
+                    vals_num = [float(v) for v in parts[1:6] if v.strip()]
+                    if vals_num:
+                        mn, mx = min(vals_num), max(vals_num)
+                        if mx < 5:
+                            value_range = f"Log-ratio ({mn:.2f} to {mx:.2f})"
+                        elif mx < 20:
+                            value_range = f"Log2-intensity ({mn:.1f} to {mx:.1f})"
+                        elif mx > 100:
+                            value_range = f"Raw intensity ({mn:.0f} to {mx:.0f})"
+                        else:
+                            value_range = f"{mn:.2f} to {mx:.2f}"
+                except (ValueError, IndexError):
+                    pass
 
-        if line.startswith('"ID_REF"') or (not line.startswith("!") and "\t" in line and not line.startswith('"ID_REF"')):
-            if not probe_format and not line.startswith("!"):
-                parts = line.strip().split("\t")
-                probe_id = parts[0].strip('"')
-                if probe_id and probe_id != "ID_REF":
-                    if probe_id.startswith("ILMN_"):
-                        probe_format = "Illumina (ILMN_*)"
-                    elif probe_id.startswith("ENSG"):
-                        probe_format = "Ensembl (ENSG*)"
-                    elif "_at" in probe_id or "_s_at" in probe_id:
-                        probe_format = "Affymetrix (*_at)"
-                    elif probe_id.startswith("GI_"):
-                        probe_format = "GenInfo (GI_*)"
-                    elif probe_id.replace(".", "").isdigit():
-                        probe_format = "Numeric"
-                    else:
-                        probe_format = f"Other ({probe_id[:15]})"
-                    # Check value range
-                    try:
-                        vals_num = [float(v) for v in parts[1:6] if v.strip()]
-                        if vals_num:
-                            mn, mx = min(vals_num), max(vals_num)
-                            if mx < 5:
-                                value_range = f"Log-ratio ({mn:.2f} to {mx:.2f})"
-                            elif mx < 20:
-                                value_range = f"Log2-intensity ({mn:.1f} to {mx:.1f})"
-                            elif mx > 100:
-                                value_range = f"Raw intensity ({mn:.0f} to {mx:.0f})"
-                            else:
-                                value_range = f"{mn:.2f} to {mx:.2f}"
-                    except (ValueError, IndexError):
-                        pass
+    # Filter to fields with 2-10 unique values (likely phenotype, not batch/age/contact)
+    phenotype_candidates = [r for r in char_rows if 2 <= len(r["unique_vals"]) <= 10]
 
-    # Build phenotype fields list
-    for key, vals in char_data.items():
-        parts = key.split(" | ")
+    # Auto-detect: find the best case/control field
+    auto_detect = None
+    for row in phenotype_candidates:
+        case_vals = []
+        ctrl_vals = []
+        for v in row["unique_vals"]:
+            # For "key: value" format, match keywords against the value part only
+            check = v.split(":")[-1].strip().lower() if ":" in v else v.lower()
+            is_case = any(kw in check for kw in _CASE_KEYWORDS)
+            is_ctrl = any(kw in check for kw in _CTRL_KEYWORDS)
+            # A value can't be both case and control
+            if is_case and not is_ctrl:
+                case_vals.append(v)
+            elif is_ctrl and not is_case:
+                ctrl_vals.append(v)
+        if case_vals and ctrl_vals:
+            from collections import Counter
+            counts = Counter(row["all_vals"])
+            n_case = sum(counts[v] for v in case_vals)
+            n_ctrl = sum(counts[v] for v in ctrl_vals)
+            if n_case > 0 and n_ctrl > 0:
+                auto_detect = {
+                    "field": row["field"],
+                    "label": row["label"],
+                    "case_values": case_vals,
+                    "control_values": ctrl_vals,
+                    "n_case": n_case,
+                    "n_control": n_ctrl,
+                }
+                break
+
+    # Build phenotype fields list (filtered)
+    phenotype_fields = []
+    for row in phenotype_candidates:
         phenotype_fields.append({
-            "field": parts[0],
-            "label": parts[1] if len(parts) > 1 else parts[0],
-            "values": vals[:30],  # cap at 30 unique values
+            "field": row["field"],
+            "label": row["label"],
+            "values": row["unique_vals"][:30],
         })
 
     return {
@@ -230,6 +275,7 @@ def _inspect_series_matrix(path: Path) -> dict:
         "probe_format": probe_format,
         "value_range": value_range,
         "phenotype_fields": phenotype_fields,
+        "auto_detect": auto_detect,
     }
 
 

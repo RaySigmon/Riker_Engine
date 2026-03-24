@@ -1055,6 +1055,13 @@ function addDatasetCard() {
     <div id="inspectArea_${id}" style="display:none;">
       <button class="btn btn-sm btn-secondary" onclick="inspectDataset('${id}')">Inspect Dataset</button>
     </div>
+    <div id="autoDetectArea_${id}" style="display:none;margin-top:12px;padding:10px;background:var(--bg-secondary);border-radius:6px;border:1px solid var(--border);">
+      <div id="autoDetectMsg_${id}" style="font-size:14px;"></div>
+      <div style="margin-top:8px;">
+        <button class="btn btn-sm" style="background:var(--green);color:#fff;" onclick="confirmAutoDetect('${id}')">Confirm</button>
+        <button class="btn btn-sm btn-secondary" onclick="showManualPheno('${id}')">Change manually</button>
+      </div>
+    </div>
     <div id="phenoArea_${id}" style="display:none;margin-top:12px;">
       <div class="form-row">
         <label>Phenotype field</label>
@@ -1129,8 +1136,22 @@ async function uploadMatrix(id, file) {
     if (data.phenotype_fields && data.phenotype_fields.length > 0) {
       ds.phenoFields = data.phenotype_fields;
       ds.sampleCount = data.sample_count;
+      ds.autoDetect = data.auto_detect || null;
       populatePhenoDropdown(id, data.phenotype_fields);
-      document.getElementById('phenoArea_' + id).style.display = 'block';
+      if (ds.autoDetect) {
+        // Show auto-detect confirmation
+        const ad = ds.autoDetect;
+        const msg = document.getElementById('autoDetectMsg_' + id);
+        msg.innerHTML = '<strong>Detected:</strong> ' + ad.n_case + ' case samples, ' +
+          ad.n_control + ' control samples from <em>' + escHtml(ad.label) + '</em>' +
+          '<br><span style="font-size:12px;color:var(--text-secondary);">Case: ' +
+          ad.case_values.map(escHtml).join(', ') + ' | Control: ' +
+          ad.control_values.map(escHtml).join(', ') + '</span>';
+        document.getElementById('autoDetectArea_' + id).style.display = 'block';
+      } else {
+        // No auto-detect — show manual dropdown
+        document.getElementById('phenoArea_' + id).style.display = 'block';
+      }
     }
     showToast(ds.datasetId + ' uploaded (' + (data.sample_count || '?') + ' samples)');
     checkDatasetsReady();
@@ -1178,8 +1199,20 @@ async function inspectDataset(id) {
 
     if (data.phenotype_fields && data.phenotype_fields.length > 0) {
       ds.phenoFields = data.phenotype_fields;
+      ds.autoDetect = data.auto_detect || null;
       populatePhenoDropdown(id, data.phenotype_fields);
-      document.getElementById('phenoArea_' + id).style.display = 'block';
+      if (ds.autoDetect && !ds.phenoField) {
+        const ad = ds.autoDetect;
+        const msg = document.getElementById('autoDetectMsg_' + id);
+        msg.innerHTML = '<strong>Detected:</strong> ' + ad.n_case + ' case samples, ' +
+          ad.n_control + ' control samples from <em>' + escHtml(ad.label) + '</em>' +
+          '<br><span style="font-size:12px;color:var(--text-secondary);">Case: ' +
+          ad.case_values.map(escHtml).join(', ') + ' | Control: ' +
+          ad.control_values.map(escHtml).join(', ') + '</span>';
+        document.getElementById('autoDetectArea_' + id).style.display = 'block';
+      } else if (!ds.phenoField) {
+        document.getElementById('phenoArea_' + id).style.display = 'block';
+      }
     }
   } catch (e) {
     showToast('Inspect failed: ' + e.message, true);
@@ -1197,6 +1230,27 @@ function populatePhenoDropdown(id, fields) {
     opt.textContent = label + ' (' + preview + (f.values.length > 3 ? '...' : '') + ')';
     sel.appendChild(opt);
   });
+}
+
+function confirmAutoDetect(id) {
+  const ds = state.datasets.find(d => d.id === id);
+  if (!ds || !ds.autoDetect) return;
+  const ad = ds.autoDetect;
+  ds.phenoField = ad.field;
+  ds.caseValues = ad.case_values;
+  ds.controlValues = ad.control_values;
+  document.getElementById('autoDetectArea_' + id).style.display = 'none';
+  // Show a confirmation badge
+  const preview = document.getElementById('inspectPreview_' + id);
+  preview.innerHTML = '<span class="stat">' + (ds.sampleCount || '?') + '</span> samples &middot; ' +
+    ad.n_case + ' case / ' + ad.n_control + ' control &middot; Field: <em>' + escHtml(ad.label) + '</em>';
+  preview.style.display = 'block';
+  checkDatasetsReady();
+}
+
+function showManualPheno(id) {
+  document.getElementById('autoDetectArea_' + id).style.display = 'none';
+  document.getElementById('phenoArea_' + id).style.display = 'block';
 }
 
 function onPhenoFieldChange(id, fieldName) {

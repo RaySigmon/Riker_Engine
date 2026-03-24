@@ -103,9 +103,9 @@ def _normalize_config(config_dict: dict, output_dir: str) -> dict:
             "role": ds.get("role", "discovery"),
             "tissue": ds.get("tissue", "brain"),
         }
-        pf = ds.get("phenotype_field")
+        pf = ds.get("phenotype_field", "")
         if pf:
-            entry["phenotype_field"] = pf
+            entry["phenotype_field"] = pf.lstrip("!")
         cv = ds.get("case_values")
         if cv:
             entry["case_values"] = cv if isinstance(cv, list) else [cv]
