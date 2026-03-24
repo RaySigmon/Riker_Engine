@@ -390,8 +390,15 @@ def main() -> int:
     """CLI entry point."""
     parser = argparse.ArgumentParser(
         prog="riker",
-        description="Riker Engine — Condition-agnostic transcriptomics pipeline",
+        description="Riker Engine — Condition-agnostic transcriptomics pipeline. "
+                    "Run with no arguments to launch the web UI.",
     )
+    parser.add_argument("--no-browser", action="store_true",
+                        help="(UI mode) Do not auto-open browser")
+    parser.add_argument("--host", default="127.0.0.1",
+                        help="(UI mode) Host to bind to")
+    parser.add_argument("--port", type=int, default=8000,
+                        help="(UI mode) Port to bind to")
     subparsers = parser.add_subparsers(dest="command")
 
     # run command
@@ -413,9 +420,12 @@ def main() -> int:
 
     args = parser.parse_args()
 
+    # No subcommand = launch the UI (the default experience)
     if args.command is None:
-        parser.print_help()
-        return 1
+        args.host = "127.0.0.1"
+        args.port = 8000
+        args.no_browser = False
+        return cmd_ui(args)
 
     setup_logging(verbose=getattr(args, "verbose", False))
 
