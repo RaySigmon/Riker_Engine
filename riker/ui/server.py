@@ -242,10 +242,11 @@ async def validate_config(request: Request):
     """Validate a pipeline config."""
     body = await request.json()
     try:
-        # Write temp YAML
+        # Normalize UI keys to engine format, then write temp YAML
+        normalized = runner._normalize_config(body, str(_UPLOAD_DIR / "validate_output"))
         tmp = _UPLOAD_DIR / "validate_config.yaml"
         with open(tmp, "w") as f:
-            yaml.dump(body, f, default_flow_style=False)
+            yaml.dump(normalized, f, default_flow_style=False)
 
         from riker.config import load_config
         config = load_config(str(tmp))

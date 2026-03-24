@@ -1128,6 +1128,9 @@ async function uploadMatrix(id, file) {
     document.getElementById('inspectArea_' + id).style.display = 'block';
     if (data.phenotype_fields && data.phenotype_fields.length > 0) {
       ds.phenoFields = data.phenotype_fields;
+      ds.sampleCount = data.sample_count;
+      populatePhenoDropdown(id, data.phenotype_fields);
+      document.getElementById('phenoArea_' + id).style.display = 'block';
     }
     showToast(ds.datasetId + ' uploaded (' + (data.sample_count || '?') + ' samples)');
     checkDatasetsReady();
@@ -1186,10 +1189,12 @@ async function inspectDataset(id) {
 function populatePhenoDropdown(id, fields) {
   const sel = document.getElementById('phenoField_' + id);
   sel.innerHTML = '<option value="">-- Select phenotype field --</option>';
-  fields.forEach(f => {
+  fields.forEach((f, i) => {
     const opt = document.createElement('option');
     opt.value = f.field;
-    opt.textContent = f.field;
+    const label = f.label || f.field;
+    const preview = f.values.slice(0, 3).join(', ');
+    opt.textContent = label + ' (' + preview + (f.values.length > 3 ? '...' : '') + ')';
     sel.appendChild(opt);
   });
 }
