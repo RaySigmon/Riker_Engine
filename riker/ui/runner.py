@@ -84,6 +84,56 @@ class QueueLogHandler(logging.Handler):
         self.queue.put(json.dumps({"type": "log", "message": msg}))
 
 
+def _normalize_config(config_dict: dict, output_dir: str) -> dict:
+    """Translate UI JSON config into the engine's expected YAML format."""
+    normalized = {
+        "condition": config_dict.get("condition", ""),
+        "seed_genes": config_dict.get("seed_genes", config_dict.get("seed_genes_path", "")),
+        "hgnc_path": config_dict.get("hgnc_path", "auto"),
+        "output_dir": output_dir,
+    }
+
+    # Datasets — translate UI keys to engine keys
+    datasets = []
+    for ds in config_dict.get("datasets", []):
+        entry = {
+            "id": ds.get("id", ds.get("datasetId", "")),
+            "series_matrix": ds.get("series_matrix", ds.get("matrix_path", "")),
+            "platform": ds.get("platform", ds.get("platform_path", "")),
+            "role": ds.get("role", "discovery"),
+            "tissue": ds.get("tissue", "brain"),
+        }
+        pf = ds.get("phenotype_field")
+        if pf:
+            entry["phenotype_field"] = pf
+        cv = ds.get("case_values")
+        if cv:
+            entry["case_values"] = cv if isinstance(cv, list) else [cv]
+        ctrl = ds.get("control_values")
+        if ctrl:
+            entry["control_values"] = ctrl if isinstance(ctrl, list) else [ctrl]
+        datasets.append(entry)
+    normalized["datasets"] = datasets
+
+    # Phase parameters — accept both nested and flat formats
+    params = config_dict.get("parameters", {})
+    phase1 = config_dict.get("phase1", {})
+    normalized["phase1"] = {
+        "p_threshold": params.get("phase1_p_threshold", phase1.get("p_threshold", 0.05)),
+        "min_datasets": params.get("phase1_min_datasets", phase1.get("min_datasets", 2)),
+    }
+    phase3 = config_dict.get("phase3", {})
+    if phase3:
+        normalized["phase3"] = phase3
+    phase4 = config_dict.get("phase4", {})
+    normalized["phase4"] = {
+        "n_permutations": params.get("phase4_n_permutations", phase4.get("n_permutations", 10000)),
+        "seed": phase4.get("seed", 42),
+    }
+
+    return normalized
+
+
 def create_run(config_dict: dict) -> str:
     """Create a new run, write config, return run_id."""
     run_id = uuid.uuid4().hex[:12]
@@ -93,11 +143,11 @@ def create_run(config_dict: dict) -> str:
     output_dir = run_dir / "output"
     output_dir.mkdir(exist_ok=True)
 
-    # Write YAML config
-    config_dict["output_dir"] = str(output_dir)
+    # Normalize UI config to engine format and write YAML
+    normalized = _normalize_config(config_dict, str(output_dir))
     config_path = run_dir / "config.yaml"
     with open(config_path, "w") as f:
-        yaml.dump(config_dict, f, default_flow_style=False)
+        yaml.dump(normalized, f, default_flow_style=False)
 
     state = RunState(run_id=run_id, output_dir=output_dir)
     _runs[run_id] = state

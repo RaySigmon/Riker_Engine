@@ -1349,6 +1349,7 @@ function connectWebSocket(runId) {
   const url = proto + '//' + location.host + '/ws/progress/' + runId;
   state.ws = new WebSocket(url);
   state.wsRetries = 0;
+  state.wsFinished = false;
 
   state.ws.onopen = () => {
     appendLog('Connected to pipeline.', 'phase-log');
@@ -1365,15 +1366,18 @@ function connectWebSocket(runId) {
       setPhaseActive(msg.phase);
       appendLog('Phase ' + msg.phase + ': ' + (msg.name || ''), 'phase-log');
     } else if (msg.type === 'complete') {
+      state.wsFinished = true;
       onPipelineComplete(msg.summary);
     } else if (msg.type === 'error') {
+      state.wsFinished = true;
       appendLog('ERROR: ' + msg.message, 'error');
       onPipelineError(msg.message);
     }
   };
 
   state.ws.onclose = () => {
-    if (state.wsRetries < 3 && document.getElementById('runStatus').textContent === 'Running...') {
+    if (state.wsFinished) return;
+    if (state.wsRetries < 3) {
       state.wsRetries++;
       appendLog('Connection lost. Reconnecting (' + state.wsRetries + '/3)...', 'error');
       setTimeout(() => connectWebSocket(runId), 2000);
