@@ -148,9 +148,9 @@ def write_phase5_verdicts(phase5_result, output_dir: Path) -> Path:
             "cluster_id": gv.cluster_id,
             "status": gv.status,
             "discovery_direction": gv.discovery_direction,
-            "n_brain_concordant": gv.n_brain_concordant,
-            "n_brain_discordant": gv.n_brain_discordant,
-            "n_blood_concordant": gv.n_blood_concordant,
+            "n_same_tissue_concordant": gv.n_same_tissue_concordant,
+            "n_same_tissue_discordant": gv.n_same_tissue_discordant,
+            "n_cross_tissue_concordant": gv.n_cross_tissue_concordant,
             "reason": gv.reason,
         })
 

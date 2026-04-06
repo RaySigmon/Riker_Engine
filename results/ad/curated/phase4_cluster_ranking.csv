@@ -1,0 +1,13 @@
+cluster_id,n_genes,n_core_genes,bonferroni_survived,dissolution_level,loo_stability_score,direction_uniformity,robustness_score,top_pathway,rank
+4,23,23,True,4,1.0,1.0,0.75,Salmonella infection - Homo sapiens (human),1
+6,14,14,True,4,1.0,1.0,0.75,Hepatocellular carcinoma - Homo sapiens (human),2
+13,13,13,True,4,1.0,1.0,0.75,Neuroactive ligand-receptor interaction - Homo sapiens (human),3
+16,13,13,True,4,1.0,1.0,0.75,Neuroactive ligand-receptor interaction - Homo sapiens (human),4
+25,19,19,True,4,1.0,1.0,0.75,Axon guidance - Homo sapiens (human),5
+11,22,15,True,4,0.25,0.9545454545454546,0.5511363636363636,cAMP signaling pathway - Homo sapiens (human),6
+8,8,8,False,4,1.0,1.0,0.5,Parkinson disease - Homo sapiens (human),7
+10,12,8,True,4,0.0,1.0,0.5,Lysosome biogenesis - Homo sapiens (human),8
+14,6,6,False,4,1.0,1.0,0.5,Aerobic respiration and respiratory electron transport,9
+24,6,5,False,4,1.0,1.0,0.5,Transmission across Chemical Synapses,10
+26,9,7,False,4,0.25,1.0,0.3125,Neutrophil degranulation,11
+12,9,5,False,4,0.0,1.0,0.25,B cell receptor signaling pathway - Homo sapiens (human),12

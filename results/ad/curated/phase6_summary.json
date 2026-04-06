@@ -1,0 +1,15 @@
+{
+  "creation_date": "2026-03-19",
+  "validated_genes_input": 119,
+  "brain_datasets_meta": 6,
+  "genes_meta_sig_re_05": 99,
+  "genes_meta_sig_re_01": 88,
+  "median_I2": 89.01475553492435,
+  "mean_pooled_log2fc": -0.1123329073866921,
+  "top_gene": "ARMH3",
+  "top_gene_re_p": 0.0,
+  "fdr_800_survivors": 0,
+  "fdr_420_exploratory_note": "Post-hoc only",
+  "cell_type_caveat": "Bulk tissue; composition artifacts possible",
+  "pipeline_verdict": "strong_signal"
+}

@@ -1,0 +1,61 @@
+# Breast Cancer Validation — Curated Run Config
+# Paths shown are relative; adjust to your data directory after downloading.
+# See data/DATA_MANIFEST.md for download instructions.
+
+condition: breast_cancer
+seed_genes: data/breast_cancer/seed_genes.csv
+hgnc_path: auto
+output_dir: results/breast_cancer/curated
+
+phase1:
+  min_datasets: 2
+  p_threshold: 0.05
+phase4:
+  n_permutations: 10000
+  seed: 42
+
+datasets:
+  - id: GSE10810
+    series_matrix: data/breast_cancer/GSE10810_series_matrix.txt.gz
+    platform: data/platforms/GPL570_clean.annot
+    phenotype_field: Sample_characteristics_ch1
+    case_values: ["tumor (t) vs healthy (s): t"]
+    control_values: ["tumor (t) vs healthy (s): s"]
+    role: discovery
+    tissue: breast
+
+  - id: GSE42568
+    series_matrix: data/breast_cancer/GSE42568_series_matrix.txt.gz
+    platform: data/platforms/GPL570_clean.annot
+    phenotype_field: Sample_characteristics_ch1
+    case_values: ["tissue: breast cancer"]
+    control_values: ["tissue: normal breast"]
+    role: discovery
+    tissue: breast
+
+  - id: GSE15852
+    series_matrix: data/breast_cancer/GSE15852_series_matrix.txt.gz
+    platform: data/platforms/GPL96_clean.annot
+    phenotype_field: Sample_source_name_ch1
+    case_values: ["breast tumor tissue"]
+    control_values: ["normal breast tissue"]
+    role: discovery
+    tissue: breast
+
+  - id: GSE45827
+    series_matrix: data/breast_cancer/GSE45827_series_matrix.txt.gz
+    platform: data/platforms/GPL570_clean.annot
+    phenotype_field: Sample_characteristics_ch1
+    case_values: ["diagnosis: breast cancer"]
+    control_values: ["diagnosis: none"]
+    role: replication
+    tissue: breast
+
+  - id: GSE65194
+    series_matrix: data/breast_cancer/GSE65194_series_matrix.txt.gz
+    platform: data/platforms/GPL570_clean.annot
+    phenotype_field: Sample_characteristics_ch1
+    case_values: ["sample_group: tnbc", "sample_group: her2", "sample_group: luminal"]
+    control_values: ["sample_group: healthy"]
+    role: replication
+    tissue: breast

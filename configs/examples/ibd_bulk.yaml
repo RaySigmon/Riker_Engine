@@ -1,39 +1,40 @@
+# IBD Curated Validation Config
+# 6 intestinal mucosa datasets, Open Targets gene seeds
+# To download data: python scripts/download_data.py ibd
+
 condition: IBD
-seed_genes: /home/kai001/ibd_validation/data/seed_genes/ibd_seed_genes.csv
+seed_genes: data/seeds/ibd_open_targets_genes.csv
 symbol_column: symbol
-hgnc_path: /home/kai001/.riker/hgnc_complete_set.txt
-output_dir: /home/kai001/ibd_validation/output
+hgnc_path: data/hgnc/hgnc_complete_set.txt
+output_dir: output/ibd_curated
 
 datasets:
   # === Discovery datasets (intestinal mucosa) ===
 
-  # GSE75214 — Colonic + ileal mucosa, CD + UC + controls
-  # 194 samples, Affymetrix HuGene-1.0-ST, already log2
+  # Colonic + ileal mucosa, CD + UC + controls
   - id: GSE75214
-    series_matrix: /home/kai001/ibd_validation/data/bulk_geo/GSE75214_series_matrix.txt.gz
-    platform: /home/kai001/ibd_validation/data/bulk_geo/GPL6244.annot
+    series_matrix: data/geo/ibd/GSE75214_series_matrix.txt.gz
+    platform: data/platforms/GPL6244.annot
     role: discovery
     tissue: colon
     phenotype_field: Sample_characteristics_ch1
     case_values: ["disease: cd", "disease: crohn", "disease: ulcerative colitis"]
     control_values: ["disease: control"]
 
-  # GSE16879 — Colonic mucosa, CD + UC + controls, before/after infliximab
-  # 133 samples, Affymetrix GPL570, raw intensities
+  # Colonic mucosa, CD + UC, before/after infliximab
   - id: GSE16879
-    series_matrix: /home/kai001/ibd_validation/data/bulk_geo/GSE16879_series_matrix.txt.gz
-    platform: /home/kai001/ibd_validation/data/bulk_geo/GPL570.annot
+    series_matrix: data/geo/ibd/GSE16879_series_matrix.txt.gz
+    platform: data/platforms/GPL570.annot
     role: discovery
     tissue: colon
     phenotype_field: Sample_characteristics_ch1
     case_values: ["disease: cd", "disease: uc"]
     control_values: ["disease: control"]
 
-  # GSE59071 — Colonic mucosa, CD + UC + controls
-  # 116 samples, Affymetrix HuGene-1.0-ST, already log2
+  # Colonic mucosa, CD + UC + controls
   - id: GSE59071
-    series_matrix: /home/kai001/ibd_validation/data/bulk_geo/GSE59071_series_matrix.txt.gz
-    platform: /home/kai001/ibd_validation/data/bulk_geo/GPL6244.annot
+    series_matrix: data/geo/ibd/GSE59071_series_matrix.txt.gz
+    platform: data/platforms/GPL6244.annot
     role: discovery
     tissue: colon
     phenotype_field: Sample_characteristics_ch1
@@ -42,33 +43,30 @@ datasets:
 
   # === Replication datasets ===
 
-  # GSE87466 — Colonic mucosa, UC + normal
-  # 108 samples, Illumina HumanHT-12 v4
+  # Colonic mucosa, UC + normal
   - id: GSE87466
-    series_matrix: /home/kai001/ibd_validation/data/bulk_geo/GSE87466_series_matrix.txt.gz
-    platform: /home/kai001/ibd_validation/data/bulk_geo/GPL13158.annot
+    series_matrix: data/geo/ibd/GSE87466_series_matrix.txt.gz
+    platform: data/platforms/GPL13158.annot
     role: replication
     tissue: colon
     phenotype_field: Sample_characteristics_ch1
     case_values: ["disease: ulcerative colitis"]
     control_values: ["disease: normal"]
 
-  # GSE38713 — Colonic mucosa, UC + non-inflammatory controls
-  # 43 samples, Affymetrix GPL570
+  # Colonic mucosa, UC + non-inflammatory controls
   - id: GSE38713
-    series_matrix: /home/kai001/ibd_validation/data/bulk_geo/GSE38713_series_matrix.txt.gz
-    platform: /home/kai001/ibd_validation/data/bulk_geo/GPL570.annot
+    series_matrix: data/geo/ibd/GSE38713_series_matrix.txt.gz
+    platform: data/platforms/GPL570.annot
     role: replication
     tissue: colon
     phenotype_field: Sample_source_name_ch1
     case_values: ["uc patient"]
     control_values: ["non-inflammatory control"]
 
-  # GSE36807 — Colonic tissue, CD + UC + healthy controls
-  # 35 samples, Affymetrix GPL570
+  # Colonic tissue, CD + UC + healthy controls
   - id: GSE36807
-    series_matrix: /home/kai001/ibd_validation/data/bulk_geo/GSE36807_series_matrix.txt.gz
-    platform: /home/kai001/ibd_validation/data/bulk_geo/GPL570.annot
+    series_matrix: data/geo/ibd/GSE36807_series_matrix.txt.gz
+    platform: data/platforms/GPL570.annot
     role: replication
     tissue: colon
     phenotype_field: Sample_characteristics_ch1

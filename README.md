@@ -2,7 +2,7 @@
 
 A condition-agnostic transcriptomics pipeline for discovering replicated gene modules across multiple independent datasets.
 
-![Tests](https://img.shields.io/badge/tests-274%20passing-brightgreen) ![Python](https://img.shields.io/badge/python-3.11%2B-blue) ![License](https://img.shields.io/badge/license-AGPL--3.0-blue) ![Version](https://img.shields.io/badge/version-0.3.0-orange)
+[![Tests](https://github.com/RaySigmon/Riker_Engine/actions/workflows/test.yml/badge.svg)](https://github.com/RaySigmon/Riker_Engine/actions/workflows/test.yml) ![Python](https://img.shields.io/badge/python-3.11%2B-blue) ![License](https://img.shields.io/badge/license-AGPL--3.0-blue) ![Version](https://img.shields.io/badge/version-0.3.0-orange)
 
 ## What It Does
 
@@ -57,7 +57,7 @@ Head-to-head comparison on the same ASD brain cortex data, same hardware (Raspbe
 | Scale-free fit | N/A (not required) | Failed on GSE28475 (R² = 0.35 at power 20) |
 | Gene overlap | N/A | 34/35 Riker core genes appear in WGCNA modules |
 
-WGCNA is not wrong — 34 of 35 core genes appear within its significant modules. But WGCNA modules contain thousands of genes and cannot isolate a minimal replicating subset without extensive manual post-processing. The engine automates what currently requires a skilled bioinformatician weeks of manual work: running WGCNA per dataset, comparing module preservation across studies, filtering for replication, and performing meta-analysis.
+WGCNA is not wrong — 34 of 35 core genes appear within its significant modules. This comparison demonstrates the workflow advantage of integrated multi-dataset analysis over manual single-dataset analysis followed by cross-study comparison. WGCNA excels at comprehensive single-dataset co-expression network analysis; the Riker Engine is designed to extract minimal, replicated gene sets across multiple independent datasets. The output size difference (35 vs. 1,427–9,995 genes) reflects different design goals, not a quality difference in the underlying methods. The engine automates what currently requires a skilled bioinformatician weeks of manual work: running WGCNA per dataset, comparing module preservation across studies, filtering for replication, and performing meta-analysis.
 
 Full benchmark: `benchmarks/benchmark_report.md`
 
@@ -67,8 +67,17 @@ Full benchmark: `benchmarks/benchmark_report.md`
 git clone https://github.com/RaySigmon/Riker_Engine.git
 cd Riker_Engine
 pip install -e ".[clustering]"
-riker run your_config.yaml
+
+# Download data for a disease (e.g., IBD — all datasets auto-download)
+python scripts/download_data.py ibd
+
+# Run the pipeline
+riker run configs/examples/ibd_bulk.yaml
 ```
+
+To see all available diseases and data dependencies: `python scripts/download_data.py --list`
+
+Seed gene files are included in the repo (`data/seeds/`). Some RNA-seq datasets require manual reconstruction — see `docs/DATA_RECONSTRUCTION.md`.
 
 See `docs/CONFIGURATION.md` for how to write a config file, or use an example from `configs/examples/`.
 
@@ -157,7 +166,7 @@ pip install -e ".[ui]"
 ### Verify Installation
 
 ```bash
-python -m pytest tests/ -q   # 274 tests
+python -m pytest tests/ -q   # 300 tests
 riker --help
 ```
 
@@ -259,10 +268,10 @@ riker/
 
 1. **Welch's t-test for RNA-seq**: Variance-stabilizing methods (limma-voom, DESeq2) are generally preferred for raw count data. The engine mitigates this by requiring log2 transformation and cross-dataset replication. Conservative behavior (fewer false positives) is accepted as a tradeoff for cross-platform uniformity.
 2. **Memory for genome-wide runs**: Blind runs with >10K study genes require >8GB RAM for the consensus clustering matrix (scales O(n²)). AD blind run (14,442 study genes) exceeded 8GB. 16GB+ recommended.
-3. **No built-in pathway database download**: KEGG, Reactome, and MSigDB databases must be provided manually. Automatic download planned for future versions.
+3. **Pathway databases require manual setup**: KEGG and Reactome can be downloaded programmatically, but MSigDB Hallmark gene sets require registration at [gsea-msigdb.org](https://www.gsea-msigdb.org). See `docs/DATA_RECONSTRUCTION.md`.
 4. **Single embedding default**: Default consensus clustering uses UMAP only. PCA validation is opt-in via `embedding_methods` configuration.
-5. **Phase 5 tissue handling**: The elimination protocol currently handles brain/blood tissue distinctions. Generalization to arbitrary tissue types is planned.
-6. **Single developer**: Bus-factor risk. The codebase is well-tested (274 tests) and reproducible (cold-start proven), but institutional adoption would benefit from independent code review.
+5. **Phase 5 tissue handling**: The elimination protocol uses same-tissue vs. cross-tissue logic. Pass `discovery_tissues` in the config to specify which tissue types were used in discovery; replication datasets matching those tissues can trigger elimination, while cross-tissue non-replication is tolerated.
+6. **Single developer**: Bus-factor risk. The codebase is well-tested (300 tests) and reproducible (cold-start proven), but institutional adoption would benefit from independent code review.
 
 ## Citation
 

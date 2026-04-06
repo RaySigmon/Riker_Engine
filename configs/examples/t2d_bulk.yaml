@@ -1,18 +1,21 @@
+# T2D Curated Validation Config
+# 4 pancreatic islet datasets, Open Targets gene seeds
+# To download data: python scripts/download_data.py t2d
+
 condition: T2D
-seed_genes: /home/kai001/t2d_validation/data/seed_genes/t2d_seed_genes.csv
+seed_genes: data/seeds/t2d_open_targets_genes.csv
 symbol_column: symbol
-hgnc_path: /home/kai001/.riker/hgnc_complete_set.txt
-output_dir: /home/kai001/t2d_validation/output
+hgnc_path: data/hgnc/hgnc_complete_set.txt
+output_dir: output/t2d_curated
 
 datasets:
   # === Discovery datasets (pancreatic islets) ===
 
   # Rosengren et al. — pancreatic islets, Affymetrix HuGene-1.0-ST
   # 20 T2D + 43 non-diabetic (14 unlabeled excluded by engine)
-  # Already log2 scale (1.93-9.39)
   - id: GSE41762
-    series_matrix: /home/kai001/t2d_validation/data/bulk_geo/GSE41762_series_matrix.txt.gz
-    platform: /home/kai001/t2d_validation/data/bulk_geo/GPL6244.annot
+    series_matrix: data/geo/t2d/GSE41762_series_matrix.txt.gz
+    platform: data/platforms/GPL6244.annot
     role: discovery
     tissue: islet
     phenotype_field: Sample_characteristics_ch1
@@ -20,37 +23,31 @@ datasets:
     control_values: ["status: non-diabetic donor"]
 
   # Taneera et al. — pancreatic islets, Affymetrix HG-U133A
-  # T2D + non-diabetic, 13 samples
-  # Already log2 scale (3.00-9.37)
   - id: GSE25724
-    series_matrix: /home/kai001/t2d_validation/data/bulk_geo/GSE25724_series_matrix.txt.gz
-    platform: /home/kai001/t2d_validation/data/bulk_geo/GPL96.annot
+    series_matrix: data/geo/t2d/GSE25724_series_matrix.txt.gz
+    platform: data/platforms/GPL96.annot
     role: discovery
     tissue: islet
     phenotype_field: Sample_characteristics_ch1
     case_values: ["disease state: type 2 diabetes"]
     control_values: ["disease state: non-diabetic"]
 
-  # Marselli et al. — pancreatic beta cells (LCM), Affymetrix
-  # T2D + non-diabetic, 20 samples
-  # Appears raw-ish (0.35-79.37), engine will auto-log2
+  # Marselli et al. — pancreatic beta cells (LCM)
   - id: GSE20966
-    series_matrix: /home/kai001/t2d_validation/data/bulk_geo/GSE20966_series_matrix.txt.gz
-    platform: /home/kai001/t2d_validation/data/bulk_geo/GPL1352.annot
+    series_matrix: data/geo/t2d/GSE20966_series_matrix.txt.gz
+    platform: data/platforms/GPL1352.annot
     role: discovery
     tissue: islet
     phenotype_field: Sample_characteristics_ch1
     case_values: ["disease: type 2 diabetes"]
     control_values: ["disease: non-diabetic control"]
 
-  # === Replication dataset (pancreatic islets) ===
+  # === Replication dataset ===
 
-  # Lawlor et al. — pancreatic islets, RNA-seq (Baseline samples only)
-  # 3 T2D + 5 non-diabetic, reconstructed from supplementary counts
-  # log2(counts+1) applied
+  # Lawlor et al. — islet RNA-seq (reconstructed, see docs/DATA_RECONSTRUCTION.md)
   - id: GSE86468
-    series_matrix: /home/kai001/t2d_validation/data/bulk_geo/GSE86468_reconstructed_series_matrix.txt.gz
-    platform: /home/kai001/t2d_validation/data/bulk_geo/ensembl_to_symbol.txt
+    series_matrix: data/geo/t2d/GSE86468_reconstructed_series_matrix.txt.gz
+    platform: data/mappings/ensembl_to_symbol.txt
     role: replication
     tissue: islet
     phenotype_field: Sample_characteristics_ch1

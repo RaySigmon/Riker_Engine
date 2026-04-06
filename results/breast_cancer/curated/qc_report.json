@@ -1,0 +1,37 @@
+{
+  "summary": "QC Report: 4 passed, 0 warnings, 0 critical. Pipeline OK.",
+  "n_passed": 4,
+  "n_warnings": 0,
+  "n_critical": 0,
+  "pipeline_ok": true,
+  "checks": [
+    {
+      "check_name": "study_gene_yield",
+      "phase": "phase1",
+      "passed": true,
+      "severity": "info",
+      "message": "227/653 seed genes passed (34.8%). Minimum recommended: 5%."
+    },
+    {
+      "check_name": "cluster_count",
+      "phase": "phase3",
+      "passed": true,
+      "severity": "info",
+      "message": "30 clusters found, 5 noise genes."
+    },
+    {
+      "check_name": "core_gene_count",
+      "phase": "phase4",
+      "passed": true,
+      "severity": "info",
+      "message": "152 core genes identified. 2 significant clusters."
+    },
+    {
+      "check_name": "replication_survival",
+      "phase": "phase5",
+      "passed": true,
+      "severity": "info",
+      "message": "152 survived, 0 eliminated, 0 insufficient data (of 152 total)."
+    }
+  ]
+}

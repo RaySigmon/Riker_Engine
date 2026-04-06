@@ -656,13 +656,26 @@ class TestEliminationProtocol:
         verdicts = run_elimination_protocol(core, ds, ph, ti)
         assert verdicts["G1"].status == "eliminated"
 
-    def test_blood_does_not_eliminate(self):
+    def test_cross_tissue_does_not_eliminate(self):
         core, ds, ph, ti = _make_replication_data()
         ti["R1"] = "blood"
-        # Discordant in blood should NOT eliminate
+        # Discordant in cross-tissue (blood vs brain discovery) should NOT eliminate
         ds["R1"].iloc[0, :10] = 12.0 + np.random.normal(0, 0.1, 10)
-        verdicts = run_elimination_protocol(core, ds, ph, ti)
+        verdicts = run_elimination_protocol(
+            core, ds, ph, ti, discovery_tissues={"brain"}
+        )
         assert verdicts["G1"].status == "survived"
+
+    def test_same_tissue_non_brain_eliminates(self):
+        """Elimination works for non-brain tissues (e.g., colon for IBD)."""
+        core, ds, ph, ti = _make_replication_data()
+        ti["R1"] = "colon"
+        # Discordant in same tissue (colon) should eliminate
+        ds["R1"].iloc[0, :10] = 12.0 + np.random.normal(0, 0.1, 10)
+        verdicts = run_elimination_protocol(
+            core, ds, ph, ti, discovery_tissues={"colon"}
+        )
+        assert verdicts["G1"].status == "eliminated"
 
     def test_verdict_fields(self):
         core, ds, ph, ti = _make_replication_data()

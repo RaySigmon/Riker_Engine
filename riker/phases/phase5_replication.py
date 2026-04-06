@@ -22,8 +22,9 @@ The core gene list is PRE-SPECIFIED and LOCKED before replication
 data is accessed. No genes may be added or removed based on results.
 
 The elimination protocol removes genes showing significant opposite
-direction in brain replication datasets. Blood non-replication is
-expected for brain-specific signals and does not trigger elimination.
+direction in same-tissue replication datasets. Cross-tissue non-replication
+(e.g., brain signal absent in blood) is expected and does not trigger
+elimination.
 
 References:
     Blueprint Section 9 (Phase 5: Independent Replication)
@@ -82,10 +83,10 @@ class GeneVerdict:
         status: 'survived', 'eliminated', or 'insufficient_data'.
         reason: Human-readable explanation.
         replication_results: List of ReplicationResult across all datasets.
-        n_brain_concordant: Brain datasets with concordant direction.
-        n_brain_discordant: Brain datasets with significant opposite direction.
-        n_blood_tested: Blood datasets tested.
-        n_blood_concordant: Blood datasets with concordant direction.
+        n_same_tissue_concordant: Same-tissue datasets with concordant direction.
+        n_same_tissue_discordant: Same-tissue datasets with significant opposite direction.
+        n_cross_tissue_tested: Cross-tissue datasets tested.
+        n_cross_tissue_concordant: Cross-tissue datasets with concordant direction.
         discovery_direction: Direction from discovery.
     """
     gene: str
@@ -93,10 +94,10 @@ class GeneVerdict:
     status: str
     reason: str
     replication_results: list
-    n_brain_concordant: int
-    n_brain_discordant: int
-    n_blood_tested: int
-    n_blood_concordant: int
+    n_same_tissue_concordant: int
+    n_same_tissue_discordant: int
+    n_cross_tissue_tested: int
+    n_cross_tissue_concordant: int
     discovery_direction: str
 
 
@@ -220,9 +221,14 @@ def run_elimination_protocol(
     replication_datasets: dict[str, pd.DataFrame],
     replication_phenotypes: dict[str, dict[str, str]],
     dataset_tissues: dict[str, str],
+    discovery_tissues: set[str] | None = None,
     p_threshold: float = 0.05,
 ) -> dict[str, GeneVerdict]:
     """Apply elimination protocol to all core genes.
+
+    Genes are eliminated when they show significant opposite-direction
+    effects in same-tissue replication datasets. Cross-tissue
+    non-replication is tolerated (e.g., brain signal absent in blood).
 
     Parameters
     ----------
@@ -233,7 +239,11 @@ def run_elimination_protocol(
     replication_phenotypes : dict
         Dataset_id -> {sample_id: 'case' or 'control'}.
     dataset_tissues : dict
-        Dataset_id -> 'brain' or 'blood'.
+        Dataset_id -> tissue type string (e.g., 'brain', 'colon', 'islet').
+    discovery_tissues : set of str, optional
+        Tissue types used in discovery datasets. When provided, replication
+        datasets with matching tissue are considered same-tissue. When None,
+        all replication tissues are treated as same-tissue (conservative).
     p_threshold : float
         Significance threshold for elimination (default 0.05).
 
@@ -250,7 +260,7 @@ def run_elimination_protocol(
 
         # Test in each replication dataset
         for ds_id, expr_df in replication_datasets.items():
-            tissue = dataset_tissues.get(ds_id, "brain")
+            tissue = dataset_tissues.get(ds_id, "other")
             pheno = replication_phenotypes.get(ds_id, {})
 
             rep = replicate_gene(
@@ -259,47 +269,60 @@ def run_elimination_protocol(
             if rep is not None:
                 rep_results.append(rep)
 
-        # Apply elimination rules
-        brain_results = [r for r in rep_results if r.tissue == "brain"]
-        blood_results = [r for r in rep_results if r.tissue == "blood"]
+        # Split results into same-tissue and cross-tissue
+        if discovery_tissues is not None:
+            same_tissue_results = [
+                r for r in rep_results if r.tissue in discovery_tissues
+            ]
+            cross_tissue_results = [
+                r for r in rep_results if r.tissue not in discovery_tissues
+            ]
+        else:
+            # No discovery tissue info: treat all as same-tissue (conservative)
+            same_tissue_results = rep_results
+            cross_tissue_results = []
 
-        n_brain_concordant = sum(
-            1 for r in brain_results if r.is_concordant
+        n_same_concordant = sum(
+            1 for r in same_tissue_results if r.is_concordant
         )
-        n_brain_discordant_sig = sum(
-            1 for r in brain_results
+        n_same_discordant_sig = sum(
+            1 for r in same_tissue_results
             if not r.is_concordant and r.is_significant
         )
-        n_blood_concordant = sum(
-            1 for r in blood_results if r.is_concordant
+        n_cross_concordant = sum(
+            1 for r in cross_tissue_results if r.is_concordant
         )
 
         # Elimination decision
         if not rep_results:
             status = "insufficient_data"
             reason = "No replication data available for this gene."
-        elif n_brain_discordant_sig > 0:
-            # ELIMINATE: significant opposite direction in brain
+        elif n_same_discordant_sig > 0:
+            # ELIMINATE: significant opposite direction in same tissue
             discordant_ds = [
-                r.dataset_id for r in brain_results
+                r.dataset_id for r in same_tissue_results
                 if not r.is_concordant and r.is_significant
             ]
             status = "eliminated"
             reason = (
-                f"Significant opposite direction in brain dataset(s): "
-                f"{discordant_ds}. Discovery direction: {discovery_dir}. "
-                f"See Blueprint Section 9.3."
+                f"Significant opposite direction in same-tissue dataset(s): "
+                f"{discordant_ds}. Discovery direction: {discovery_dir}."
             )
         else:
             status = "survived"
-            if brain_results:
+            if same_tissue_results:
                 reason = (
-                    f"Brain replication: {n_brain_concordant}/{len(brain_results)} "
-                    f"concordant. Blood: {n_blood_concordant}/{len(blood_results)} "
-                    f"concordant."
+                    f"Same-tissue replication: {n_same_concordant}/"
+                    f"{len(same_tissue_results)} concordant. "
+                    f"Cross-tissue: {n_cross_concordant}/"
+                    f"{len(cross_tissue_results)} concordant."
                 )
             else:
-                reason = "No brain replication datasets; retained by default."
+                reason = (
+                    "No same-tissue replication datasets; retained by default. "
+                    f"Cross-tissue: {n_cross_concordant}/"
+                    f"{len(cross_tissue_results)} concordant."
+                )
 
         verdicts[gene] = GeneVerdict(
             gene=gene,
@@ -307,10 +330,10 @@ def run_elimination_protocol(
             status=status,
             reason=reason,
             replication_results=rep_results,
-            n_brain_concordant=n_brain_concordant,
-            n_brain_discordant=n_brain_discordant_sig,
-            n_blood_tested=len(blood_results),
-            n_blood_concordant=n_blood_concordant,
+            n_same_tissue_concordant=n_same_concordant,
+            n_same_tissue_discordant=n_same_discordant_sig,
+            n_cross_tissue_tested=len(cross_tissue_results),
+            n_cross_tissue_concordant=n_cross_concordant,
             discovery_direction=discovery_dir,
         )
 
@@ -372,7 +395,7 @@ def assign_cluster_verdicts(
             has_blood_fail = False
             for gene in survived:
                 gv = gene_verdicts[gene]
-                if gv.n_blood_tested > 0 and gv.n_blood_concordant == 0:
+                if gv.n_cross_tissue_tested > 0 and gv.n_cross_tissue_concordant == 0:
                     has_blood_fail = True
                     break
             verdict = "brain_specific" if has_blood_fail else "replicated"
@@ -404,6 +427,7 @@ def run_phase5(
     replication_datasets: dict[str, pd.DataFrame],
     replication_phenotypes: dict[str, dict[str, str]],
     dataset_tissues: dict[str, str],
+    discovery_tissues: set[str] | None = None,
 ) -> Phase5Result:
     """Run Phase 5: Independent Replication.
 
@@ -417,7 +441,10 @@ def run_phase5(
     replication_phenotypes : dict
         Dataset_id -> {sample_id: 'case' or 'control'}.
     dataset_tissues : dict
-        Dataset_id -> 'brain' or 'blood'.
+        Dataset_id -> tissue type string (e.g., 'brain', 'colon', 'islet').
+    discovery_tissues : set of str, optional
+        Tissue types from discovery datasets. Same-tissue replication
+        datasets can trigger elimination; cross-tissue cannot.
 
     Returns
     -------
@@ -435,6 +462,7 @@ def run_phase5(
     gene_verdicts = run_elimination_protocol(
         core_genes, replication_datasets,
         replication_phenotypes, dataset_tissues,
+        discovery_tissues=discovery_tissues,
     )
 
     # Assign cluster verdicts

@@ -1,0 +1,25 @@
+# Riker Engine — Pinned Dependencies
+# Generated from the validation environment (Raspberry Pi 5, Python 3.13)
+# Date: 2026-04-06
+#
+# These are the exact versions used for all five-disease validation runs.
+# Install with: pip install -r requirements-lock.txt
+# Or use pyproject.toml for flexible installs: pip install -e ".[clustering]"
+
+# Core
+numpy==2.2.4
+pandas==2.3.3
+scipy==1.17.1
+scikit-learn==1.8.0
+PyYAML==6.0.2
+matplotlib==3.10.8
+requests==2.32.3
+
+# Clustering (Phase 3)
+umap-learn==0.5.11
+hdbscan==0.8.41
+
+# UI (optional)
+fastapi==0.135.2
+uvicorn==0.42.0
+Jinja2==3.1.6

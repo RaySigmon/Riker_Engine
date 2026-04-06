@@ -201,4 +201,24 @@ Do genes that Riker groups into the same cluster also land in the same WGCNA mod
 3. **Cluster cohesion**: See per-dataset analysis above for whether Riker's gene groupings are preserved or scattered by WGCNA.
 
 ---
+
+### Methodological note
+
+This comparison demonstrates the **workflow advantage** of integrated multi-dataset
+analysis over manual single-dataset analysis followed by cross-study comparison. It
+is not a claim that the Riker Engine's clustering method is superior to WGCNA's
+network construction — the tools answer different questions at different scales.
+
+WGCNA is designed for comprehensive single-dataset network analysis and excels at
+identifying the full co-expression structure within a cohort. The Riker Engine is
+designed to extract a minimal, replicated gene set across multiple independent
+datasets. Comparing output sizes (35 vs. 1,427–9,995 genes) reflects this
+difference in design goals, not a quality difference in the underlying methods.
+
+A fair assessment: WGCNA correctly identifies the disease biology (34/35 Riker core
+genes appear in WGCNA significant modules) but embeds it within much larger modules
+that require manual curation to extract actionable targets. The Riker Engine
+automates this extraction by design.
+
+---
 *Benchmark run on Raspberry Pi 5 (Ghost)*

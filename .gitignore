@@ -12,7 +12,14 @@ build/
 *.h5ad
 *.mtx
 *.annot
-data/
+data/geo/
+data/platforms/
+data/hgnc/
+
+# Keep these data subdirectories tracked (small files)
+!data/seeds/
+!data/mappings/
+!data/DATA_MANIFEST.md
 
 # IDE
 .vscode/

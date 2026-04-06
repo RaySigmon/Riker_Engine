@@ -1,0 +1,15 @@
+{
+  "creation_date": "2026-03-19",
+  "core_genes_input": 136,
+  "replication_datasets": 4,
+  "brain_datasets": 3,
+  "blood_datasets": 1,
+  "genes_eliminated": 17,
+  "genes_surviving": 119,
+  "clusters_replicated": 0,
+  "clusters_partially_replicated": 0,
+  "clusters_failed": 0,
+  "clusters_brain_specific": 12,
+  "fdr_800_note": "FDR correction over full 800-gene seed set yielded 0 survivors at q<0.10. Core genes defined at p<0.01 (Level 2). Replication is the primary validation.",
+  "exploratory_420_fdr_note": "Post-hoc FDR over 420 study genes showed inflated survival. Reported as exploratory only."
+}
