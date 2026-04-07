@@ -1,0 +1,51 @@
+condition: IPF
+datasets:
+- case_values:
+  - 'final diagnosis: ipf/uip'
+  control_values:
+  - 'final diagnosis: control'
+  id: GSE32537
+  phenotype_field: Sample_characteristics_ch1
+  platform: data/platforms/GPL6244.annot
+  role: discovery
+  series_matrix: data/geo/ipf/GSE32537_series_matrix.txt.gz
+  tissue: lung
+- case_values:
+  - 'disease state: idiopathic pulmonary fibrosis'
+  control_values:
+  - 'disease state: control'
+  id: GSE53845
+  phenotype_field: Sample_characteristics_ch1
+  platform: data/platforms/GPL6480.annot
+  role: discovery
+  series_matrix: data/geo/ipf/GSE53845_series_matrix.txt.gz
+  tissue: lung
+- case_values:
+  - 'phenotype: early idiopathic pulmonary fibrosis'
+  - 'phenotype: advanced idiopathic pulmonary fibrosis'
+  control_values:
+  - 'phenotype: healthy'
+  id: GSE24206
+  phenotype_field: Sample_characteristics_ch1
+  platform: data/platforms/GPL570.annot
+  role: discovery
+  series_matrix: data/geo/ipf/GSE24206_series_matrix.txt.gz
+  tissue: lung
+- case_values:
+  - usual interstitial pneumonia
+  - acute exacerbation
+  control_values:
+  - normal lung tissues
+  id: GSE10667
+  phenotype_field: Sample_source_name_ch1
+  platform: data/platforms/GPL4133.annot
+  role: replication
+  series_matrix: data/geo/ipf/GSE10667_series_matrix.txt.gz
+  tissue: lung
+hgnc_path: /home/kai001/.riker/hgnc_complete_set.txt
+output_dir: results/ipf/loo_stability/drop_GSE110147
+phase1:
+  min_datasets: 2
+  p_threshold: 0.05
+seed_genes: data/seeds/ipf_curated_genes.csv
+symbol_column: symbol

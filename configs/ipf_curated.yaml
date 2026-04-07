@@ -1,0 +1,73 @@
+# IPF Curated Validation Config
+# 5 lung tissue datasets, multi-source curated gene seeds (354 genes)
+# 3 discovery + 2 replication, all lung tissue microarray
+
+condition: IPF
+seed_genes: data/seeds/ipf_curated_genes.csv
+symbol_column: symbol
+hgnc_path: /home/kai001/.riker/hgnc_complete_set.txt
+output_dir: results/ipf/curated
+
+datasets:
+  # === Discovery datasets (lung tissue, microarray) ===
+
+  # Boon et al. / IIP molecular phenotyping — Affymetrix HuGene-1.0-ST
+  # ~119 IPF/UIP + 50 controls from 217 total IIP cohort
+  # Clean phenotype labels: "final diagnosis" field
+  - id: GSE32537
+    series_matrix: data/geo/ipf/GSE32537_series_matrix.txt.gz
+    platform: data/platforms/GPL6244.annot
+    role: discovery
+    tissue: lung
+    phenotype_field: Sample_characteristics_ch1
+    case_values: ["final diagnosis: ipf/uip"]
+    control_values: ["final diagnosis: control"]
+
+  # DePianto et al. 2015 — Agilent 4x44K, 40 IPF vs 8 controls
+  - id: GSE53845
+    series_matrix: data/geo/ipf/GSE53845_series_matrix.txt.gz
+    platform: data/platforms/GPL6480.annot
+    role: discovery
+    tissue: lung
+    phenotype_field: Sample_characteristics_ch1
+    case_values: ["disease state: idiopathic pulmonary fibrosis"]
+    control_values: ["disease state: control"]
+
+  # Meltzer & Noble 2008 — Affymetrix HG-U133 Plus 2.0
+  # 17 IPF (early + advanced) vs 6 healthy donors
+  - id: GSE24206
+    series_matrix: data/geo/ipf/GSE24206_series_matrix.txt.gz
+    platform: data/platforms/GPL570.annot
+    role: discovery
+    tissue: lung
+    phenotype_field: Sample_characteristics_ch1
+    case_values: ["phenotype: early idiopathic pulmonary fibrosis", "phenotype: advanced idiopathic pulmonary fibrosis"]
+    control_values: ["phenotype: healthy"]
+
+  # === Replication datasets ===
+
+  # Cecchini et al. 2018 — Affymetrix HuGene-1.0-ST
+  # 22 IPF vs 11 normal controls
+  - id: GSE110147
+    series_matrix: data/geo/ipf/GSE110147_series_matrix.txt.gz
+    platform: data/platforms/GPL6244.annot
+    role: replication
+    tissue: lung
+    phenotype_field: Sample_characteristics_ch1
+    case_values: ["disease state: idiopathic pulmonary fibrosis"]
+    control_values: ["disease state: normal control"]
+
+  # Konishi et al. 2009 — Agilent 4x44K
+  # 23 UIP + 8 AEx vs 15 controls
+  - id: GSE10667
+    series_matrix: data/geo/ipf/GSE10667_series_matrix.txt.gz
+    platform: data/platforms/GPL4133.annot
+    role: replication
+    tissue: lung
+    phenotype_field: Sample_source_name_ch1
+    case_values: ["usual interstitial pneumonia", "acute exacerbation"]
+    control_values: ["normal lung tissues"]
+
+phase1:
+  p_threshold: 0.05
+  min_datasets: 2
