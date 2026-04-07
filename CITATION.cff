@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+type: software
+title: "Riker Engine"
+abstract: "A condition-agnostic transcriptomics pipeline for discovering replicated gene modules across multiple independent datasets."
+authors:
+  - family-names: "Sigmon"
+    given-names: "Ray"
+    affiliation: "Independent Computational Researcher"
+repository-code: "https://github.com/RaySigmon/Riker_Engine"
+license: AGPL-3.0
+version: "0.3.1"
+date-released: "2026-04-06"
+keywords:
+  - transcriptomics
+  - gene modules
+  - precision medicine
+  - meta-analysis
+  - differential expression
+  - UMAP
+  - HDBSCAN
+  - consensus clustering
