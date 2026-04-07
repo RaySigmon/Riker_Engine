@@ -39,7 +39,11 @@ GEO_SERIES_FTP = "https://ftp.ncbi.nlm.nih.gov/geo/series"
 GEO_PLATFORM_FTP = "https://ftp.ncbi.nlm.nih.gov/geo/platforms"
 
 # HGNC download URL
-HGNC_URL = "https://ftp.ebi.ac.uk/pub/databases/genenames/hgnc/tsv/hgnc_complete_set.txt"
+# Primary: Google Cloud mirror (more reliable). Fallback: EBI FTP.
+HGNC_URLS = [
+    "https://storage.googleapis.com/public-download-files/hgnc/tsv/tsv/hgnc_complete_set.txt",
+    "https://ftp.ebi.ac.uk/pub/databases/genenames/hgnc/tsv/hgnc_complete_set.txt",
+]
 
 
 # ---------------------------------------------------------------------------
@@ -163,6 +167,26 @@ DATASETS = {
              "tissue": "breast", "note": "Breast cancer diagnosis"},
             {"id": "GSE65194", "platform": "GPL570", "role": "replication",
              "tissue": "breast", "note": "TNBC + HER2 + luminal vs. healthy"},
+        ],
+    },
+    "ipf": {
+        "description": "Idiopathic Pulmonary Fibrosis — 5 lung tissue datasets",
+        "seed_file": "data/seeds/ipf_curated_genes.csv",
+        "symbol_column": "symbol",
+        "tissue": "lung",
+        "geo_datasets": [
+            # Discovery
+            {"id": "GSE32537", "platform": "GPL6244", "role": "discovery",
+             "tissue": "lung", "note": "Boon et al. — IIP cohort, IPF/UIP subset"},
+            {"id": "GSE53845", "platform": "GPL6480", "role": "discovery",
+             "tissue": "lung", "note": "DePianto et al. — 40 IPF vs 8 controls"},
+            {"id": "GSE24206", "platform": "GPL570", "role": "discovery",
+             "tissue": "lung", "note": "Meltzer & Noble — early + advanced IPF"},
+            # Replication
+            {"id": "GSE110147", "platform": "GPL6244", "role": "replication",
+             "tissue": "lung", "note": "Cecchini et al. — 22 IPF vs 11 controls"},
+            {"id": "GSE10667", "platform": "GPL4133", "role": "replication",
+             "tissue": "lung", "note": "Konishi et al. — UIP + acute exacerbation"},
         ],
     },
 }
@@ -298,7 +322,10 @@ def download_hgnc() -> bool:
     print("Downloading HGNC complete gene set")
     print(f"{'='*60}")
 
-    return download_file(HGNC_URL, dest, "HGNC complete set (~17 MB)")
+    for url in HGNC_URLS:
+        if download_file(url, dest, "HGNC complete set (~17 MB)"):
+            return True
+    return False
 
 
 def download_disease(disease: str) -> dict:

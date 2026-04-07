@@ -1,22 +1,17 @@
-# Negative Control — Random genes on ASD brain cortex datasets
-# Tests whether the pipeline correctly returns empty/near-empty results
-# when given genes with no expected association to ASD.
-#
-# 500 randomly selected protein-coding genes (seed 42), excluding all
-# SFARI ASD genes, run against the same ASD brain cortex datasets.
-#
-# NOTE: Uses only the 5 auto-downloadable microarray datasets (not the
-# 2 RNA-seq datasets that require reconstruction). This is sufficient
-# for the negative control — the question is whether random genes produce
-# signal, not whether all 7 ASD datasets are present.
-#
+# ASD Microarray-Only Config
+# Uses 5 auto-downloadable microarray datasets (no RNA-seq reconstruction needed)
 # To download data: python scripts/download_data.py asd
+#
+# NOTE: The full 7-dataset ASD validation (which produced 35 core genes)
+# includes 2 RNA-seq datasets (GSE64018, GSE102741) that require manual
+# reconstruction. See docs/DATA_RECONSTRUCTION.md for instructions.
+# This config uses only the 5 microarray datasets for immediate reproducibility.
 
-condition: negative_control_random
-seed_genes: data/seeds/negative_control_random_500.csv
+condition: ASD
+seed_genes: data/seeds/asd_sfari_genes.csv
 symbol_column: symbol
 hgnc_path: data/hgnc/hgnc_complete_set.txt
-output_dir: results/negative_control
+output_dir: output/asd_microarray_only
 
 datasets:
   # Discovery (brain, microarray)
@@ -45,7 +40,7 @@ datasets:
     role: replication
     tissue: blood
     phenotype_field: Sample_characteristics_ch1
-    case_values: ["diagnosis: autism"]
+    case_values: ["diagnosis: autism", "diagnosis: pdd-nos", "diagnosis: asperger"]
     control_values: ["diagnosis: control"]
 
   - id: GSE26415
@@ -55,7 +50,7 @@ datasets:
     tissue: blood
     phenotype_field: Sample_characteristics_ch1
     case_values: ["disease: autism spectrum disorder"]
-    control_values: ["disease: nonaustistic"]
+    control_values: ["disease: nonaustistic control"]
 
   - id: GSE42133
     series_matrix: data/geo/asd/GSE42133_series_matrix.txt.gz
@@ -69,3 +64,13 @@ datasets:
 phase1:
   p_threshold: 0.05
   min_datasets: 2
+
+phase3:
+  n_neighbors: [10, 15, 30]
+  seeds: [42, 123, 456, 789, 1024]
+  min_cluster_size: 5
+  min_samples: 3
+
+phase4:
+  n_permutations: 10000
+  seed: 42
