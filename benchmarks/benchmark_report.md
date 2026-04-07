@@ -194,10 +194,27 @@ Do genes that Riker groups into the same cluster also land in the same WGCNA mod
 - GSE28475: WGCNA significant module genes = **5** (vs Riker's 35 core genes)
 - GSE64018: WGCNA significant module genes = **7108** (vs Riker's 35 core genes)
 
+### Why multi-dataset analysis matters
+
+A supplementary single-dataset WGCNA run on GSE28521 alone (5,000 most variable
+genes, `benchmarks/results/wgcna_GSE28521_gene_modules_v2.csv`) found **21/35**
+Riker core genes in non-grey modules. The full 3-dataset analysis found **34/35**.
+
+| Scope | Core genes recovered |
+|-------|---------------------|
+| GSE28521 alone (single-dataset WGCNA) | 21/35 (60%) |
+| GSE28521 + GSE28475 + GSE64018 (union across 3 datasets) | 34/35 (97%) |
+
+No single dataset captures the full signal. This directly demonstrates the value
+of multi-dataset integration — the core thesis of the Riker Engine. The engine
+achieves this integration automatically in one run; with WGCNA, a researcher must
+run each dataset separately, compare module preservation manually, and compile
+results across studies.
+
 ### Key takeaways
 
 1. **Specificity**: Riker Engine identifies 35 core genes through progressive filtering. WGCNA's significant modules contain orders of magnitude more genes, making biological interpretation harder.
-2. **Cross-dataset consistency**: Riker requires genes to survive across multiple datasets by design. WGCNA runs independently per dataset with no built-in cross-dataset validation.
+2. **Cross-dataset consistency**: Riker requires genes to survive across multiple datasets by design. WGCNA runs independently per dataset with no built-in cross-dataset validation. The single-dataset vs. 3-dataset comparison (21/35 vs. 34/35) quantifies exactly how much signal is missed without integration.
 3. **Cluster cohesion**: See per-dataset analysis above for whether Riker's gene groupings are preserved or scattered by WGCNA.
 
 ---
