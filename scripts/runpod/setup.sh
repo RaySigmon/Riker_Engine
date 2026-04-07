@@ -49,12 +49,21 @@ pip install -e ".[clustering,dev]"
 echo "[2/6] Downloading GEO data..."
 python scripts/download_data.py all
 
-# 3. Handle reconstructed datasets
-echo "[3/6] Checking for reconstructed datasets..."
-echo "  NOTE: AD datasets requiring filtering (GSE33000, GSE118553, GSE5281)"
-echo "  and RNA-seq reconstructions (GSE64018, GSE102741, GSE86468)"
-echo "  must be prepared manually. See docs/DATA_RECONSTRUCTION.md"
-echo "  If these were prepared locally and committed, they should be in the repo."
+# 3. Download filtered AD datasets from GitHub Release
+echo "[3/6] Downloading filtered AD datasets from release assets..."
+mkdir -p data/geo/ad
+RELEASE_URL="https://github.com/RaySigmon/Riker_Engine/releases/download/v0.3.1-data"
+for f in GSE33000_AD_only_series_matrix.txt.gz GSE118553_TC_series_matrix.txt.gz GSE5281_SFG_series_matrix.txt.gz; do
+    if [ -f "data/geo/ad/$f" ]; then
+        echo "  [skip] $f already exists"
+    else
+        echo "  [downloading] $f"
+        curl -sL "$RELEASE_URL/$f" -o "data/geo/ad/$f"
+        echo "  [ok] $(du -h "data/geo/ad/$f" | cut -f1) $f"
+    fi
+done
+echo "  NOTE: RNA-seq reconstructions (GSE64018, GSE102741, GSE86468)"
+echo "  must still be prepared manually. See docs/DATA_RECONSTRUCTION.md"
 
 # 4. Install R packages for benchmarks
 echo "[4/6] Installing R packages (this takes 15-30 minutes)..."
