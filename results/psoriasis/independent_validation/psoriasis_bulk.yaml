@@ -1,0 +1,63 @@
+# Psoriasis Validation Config
+# 5 skin tissue datasets (GPL570)
+# 3 discovery + 2 replication
+
+condition: Psoriasis
+seed_genes: data/seeds/psoriasis_seeds.csv
+symbol_column: symbol
+hgnc_path: data/hgnc/hgnc_complete_set.txt
+output_dir: output/psoriasis
+
+datasets:
+  # === Discovery datasets ===
+
+  - id: GSE13355
+    series_matrix: data/geo/psoriasis/GSE13355_series_matrix.txt.gz
+    platform: data/platforms/GPL570.annot
+    role: discovery
+    tissue: skin
+    phenotype_field: Sample_characteristics_ch1
+    case_values: ["involved skin"]
+    control_values: ["normal skin"]
+
+  - id: GSE30999
+    series_matrix: data/geo/psoriasis/GSE30999_series_matrix.txt.gz
+    platform: data/platforms/GPL570.annot
+    role: discovery
+    tissue: skin
+    phenotype_field: Sample_characteristics_ch1
+    case_values: ["lesion (LS)"]
+    control_values: ["non-lesion (NL)"]
+
+  - id: GSE41662
+    series_matrix: data/geo/psoriasis/GSE41662_series_matrix.txt.gz
+    platform: data/platforms/GPL570.annot
+    role: discovery
+    tissue: skin
+    phenotype_field: Sample_characteristics_ch1
+    case_values: ["Lesional skin"]
+    control_values: ["Non-lesional skin"]
+
+  # === Replication datasets ===
+
+  - id: GSE50790
+    series_matrix: data/geo/psoriasis/GSE50790_series_matrix.txt.gz
+    platform: data/platforms/GPL570.annot
+    role: replication
+    tissue: skin
+    phenotype_field: Sample_characteristics_ch1
+    case_values: ["phenotype: lesional"]
+    control_values: ["phenotype: uninvolved"]
+
+  - id: GSE54456
+    series_matrix: data/geo/psoriasis/GSE54456_series_matrix.txt.gz
+    platform: data/platforms/GPL570.annot
+    role: replication
+    tissue: skin
+    phenotype_field: Sample_characteristics_ch1
+    case_values: ["lesional psoriatic skin"]
+    control_values: ["normal skin"]
+
+phase1:
+  p_threshold: 0.05
+  min_datasets: 2
