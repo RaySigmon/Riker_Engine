@@ -14,6 +14,28 @@ Existing tools like WGCNA analyze one dataset at a time and produce large gene m
 
 Across all five validated diseases, known drug targets emerge naturally without the engine being directed to seek them: ABCC8 (sulfonylureas) in T2D, JAK2 (tofacitinib) in IBD, TOP2A (doxorubicin), ERBB2 (trastuzumab), and ESR1 (tamoxifen) in breast cancer. GWAS-identified risk genes (TCF7L2, PSEN1, IL23R, PIK3CA) behave differently — genetic variants don't necessarily change transcript abundance. The engine finds functional consequences at the expression level, not genetic causes.
 
+### What This Tool Is (and Isn't)
+
+The Riker Engine is a **cross-dataset validation and filtering pipeline** for disease gene candidates. Given a set of candidate genes and multiple independent expression datasets, it identifies which candidates show consistent, replicated differential expression across studies — with proper statistical controls, pre-specification, and independent replication.
+
+**Use it when you have:**
+- A list of candidate genes from a GWAS, screen, collaborator's paper, or pathway database
+- A question: "Which of these genes hold up across independent datasets?"
+- Access to 3+ GEO expression datasets for your disease
+
+**What it produces:**
+- A filtered core gene set that survives consensus clustering and cross-dataset replication
+- Meta-analysis effect sizes and p-values for each surviving gene
+- Novel candidates that co-cluster with your seeds but weren't in your original list
+
+**What it does NOT do:**
+- De novo gene discovery without any prior candidates (blind mode is experimental)
+- Causal inference (it identifies consistently DE genes, not drivers vs. passengers)
+- Cell-type deconvolution (operates at bulk tissue level)
+- Clinical outcome prediction (no survival or drug response integration)
+
+The alternative to this tool is weeks of manual GEO mining with ad hoc scripts. The engine does it in under 5 minutes with reproducible statistics.
+
 ## Validation Results
 
 Validated across six diseases spanning five tissue types with zero code changes:
@@ -140,7 +162,7 @@ Seed Genes + GEO Datasets
 ```
 
 1. **Phase 1 — Cross-Referencing**: Welch's t-test (exact t-distribution) per gene per dataset. Genes significant at p < 0.05 in 2+ datasets advance. Intentionally lenient — this is dimensionality reduction, not discovery.
-2. **Phase 2 — Pathway Mapping**: Builds a feature matrix combining KEGG, Reactome, and MSigDB Hallmark pathway memberships with five expression statistics. Anti-circularity rule: individual pathway IDs are features; pre-assigned category labels are never used.
+2. **Phase 2 — Pathway Mapping**: Builds a feature matrix combining expression statistics with optional KEGG, Reactome, and MSigDB Hallmark pathway memberships. Anti-circularity rule: individual pathway IDs are features; pre-assigned category labels are never used. **Note:** All validation results in this repository were produced using expression-based features only (the default). Pathway integration is available as an optional enhancement — see `docs/CONFIGURATION.md`. The log message "No pathway data configured" is informational, not an error.
 3. **Phase 3 — Consensus Clustering**: Sweeps 15 UMAP + HDBSCAN configurations (3 n_neighbors × 5 random seeds), builds a co-association consensus matrix. Genes must cluster together across multiple parameter settings. Converts a parameter-sensitive method into a parameter-robust one.
 4. **Phase 4 — Robustness Testing**: Bonferroni-corrected permutation tests (10,000 permutations), four progressive stringency levels (including full-seed-set FDR using the entire seed set as the denominator), and leave-one-dataset-out stability. Core genes are locked before replication.
 5. **Phase 5 — Replication**: Tests core genes in held-out datasets for directional concordance. Genes with significant opposite-direction effects in same-tissue datasets are eliminated. Cross-tissue non-replication (e.g., brain signal absent in blood) is tolerated — tissue mismatch is not evidence against.
