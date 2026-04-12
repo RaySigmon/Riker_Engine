@@ -46,6 +46,8 @@ datasets:
 | `phenotype_field` | no | auto-detect | Metadata field that encodes case/control status. See the Phenotype Override Guide below. |
 | `case_values` | no | auto-detect | List of values in `phenotype_field` that identify **case** samples. |
 | `control_values` | no | auto-detect | List of values in `phenotype_field` that identify **control** samples. |
+| `gene_column` | no | auto-detect | Column name in the platform annotation file containing gene symbols. Use when auto-detection picks the wrong column. |
+| `probe_column` | no | auto-detect | Column name in the platform annotation file containing probe IDs. Use when auto-detection picks the wrong column. |
 
 ---
 

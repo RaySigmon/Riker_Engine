@@ -56,6 +56,8 @@ class DatasetConfig:
     phenotype_field: str | None = None
     case_values: list | None = None
     control_values: list | None = None
+    gene_column: str | None = None
+    probe_column: str | None = None
 
 
 @dataclass
@@ -157,6 +159,8 @@ def load_config(path: str | Path) -> PipelineConfig:
             phenotype_field=ds_raw.get("phenotype_field"),
             case_values=ds_raw.get("case_values"),
             control_values=ds_raw.get("control_values"),
+            gene_column=ds_raw.get("gene_column"),
+            probe_column=ds_raw.get("probe_column"),
         )
         if not ds.dataset_id:
             raise ValueError("Each dataset must have an 'id' field.")

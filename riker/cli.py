@@ -134,7 +134,11 @@ def cmd_run(args) -> int:
             discovery_phenotypes[ds_id] = pheno.groups
 
             # Map probes to genes
-            mapper = ProbeGeneMapper(ds_config.platform_path, resolver=resolver)
+            mapper = ProbeGeneMapper(
+                ds_config.platform_path, resolver=resolver,
+                gene_column=ds_config.gene_column,
+                probe_column=ds_config.probe_column,
+            )
             gene_expr = mapper.map_expression(geo_result.expression)
 
             # Normalize
@@ -289,7 +293,11 @@ def cmd_run(args) -> int:
                 geo_result.sample_metadata, geo_result.sample_ids
             )
 
-            mapper = ProbeGeneMapper(ds_config.platform_path, resolver=resolver)
+            mapper = ProbeGeneMapper(
+                ds_config.platform_path, resolver=resolver,
+                gene_column=ds_config.gene_column,
+                probe_column=ds_config.probe_column,
+            )
             gene_expr = mapper.map_expression(geo_result.expression)
 
             replication_datasets[ds_id] = gene_expr
