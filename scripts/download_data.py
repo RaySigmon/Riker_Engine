@@ -212,7 +212,7 @@ def geo_series_url(gse_id: str, subseries: str | None = None) -> str:
 def geo_platform_url(gpl_id: str) -> str:
     """Build the NCBI FTP URL for a GEO platform annotation file."""
     numeric = gpl_id.replace("GPL", "")
-    bucket = f"GPL{numeric[:-3]}nnn" if len(numeric) > 3 else f"GPL{numeric}nnn"
+    bucket = f"GPL{numeric[:-3]}nnn" if len(numeric) > 3 else "GPLnnn"
     return f"{GEO_PLATFORM_FTP}/{bucket}/{gpl_id}/annot/{gpl_id}.annot.gz"
 
 
