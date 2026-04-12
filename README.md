@@ -2,7 +2,7 @@
 
 A condition-agnostic transcriptomics pipeline for discovering replicated gene modules across multiple independent datasets.
 
-[![Tests](https://github.com/RaySigmon/Riker_Engine/actions/workflows/test.yml/badge.svg)](https://github.com/RaySigmon/Riker_Engine/actions/workflows/test.yml) ![Python](https://img.shields.io/badge/python-3.11%2B-blue) ![License](https://img.shields.io/badge/license-AGPL--3.0-blue) ![Version](https://img.shields.io/badge/version-0.3.1-orange)
+[![Tests](https://github.com/RaySigmon/Riker_Engine/actions/workflows/test.yml/badge.svg)](https://github.com/RaySigmon/Riker_Engine/actions/workflows/test.yml) ![Python](https://img.shields.io/badge/python-3.11%2B-blue) ![License](https://img.shields.io/badge/license-AGPL--3.0-blue) ![Version](https://img.shields.io/badge/version-0.3.2-orange)
 
 ## What It Does
 
