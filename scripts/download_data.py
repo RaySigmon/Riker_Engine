@@ -170,7 +170,7 @@ DATASETS = {
         ],
     },
     "ipf": {
-        "description": "Idiopathic Pulmonary Fibrosis — 5 lung tissue datasets",
+        "description": "Idiopathic Pulmonary Fibrosis — 5 lung tissue datasets + 1 held-out",
         "seed_file": "data/seeds/ipf_curated_genes.csv",
         "symbol_column": "symbol",
         "tissue": "lung",
@@ -187,6 +187,11 @@ DATASETS = {
              "tissue": "lung", "note": "Cecchini et al. — 22 IPF vs 11 controls"},
             {"id": "GSE10667", "platform": "GPL4133", "role": "replication",
              "tissue": "lung", "note": "Konishi et al. — UIP + acute exacerbation"},
+            # Cold replication held-out dataset (not used by the pipeline —
+            # used by scripts/cold_replication_ipf.py for independent validation)
+            {"id": "GSE47460", "platform": "GPL6480", "role": "held_out",
+             "tissue": "lung", "subseries": "GSE47460-GPL6480",
+             "note": "LGRC cohort — 122 IPF/UIP + controls, held out for cold replication"},
         ],
     },
 }
