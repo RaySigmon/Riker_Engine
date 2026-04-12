@@ -31,6 +31,10 @@ Validated across six diseases spanning five tissue types with zero code changes:
 
 Each condition was run with curated disease-specific seeds. The first five diseases were also run hypothesis-free (all expressed genes as seeds); every curated core gene passes Phase 1 in the blind run across all tested diseases.
 
+### Reproducing Results
+
+Phase 3 consensus clustering has stochastic elements (UMAP initialization, HDBSCAN tie-breaking), so reproduced gene counts may vary by approximately ±5–8% from the numbers above. Different numpy/scipy versions may also contribute to minor variance. The core gene lists should overlap substantially (>90%) even when counts differ slightly. This is expected behavior — the pipeline is designed to produce stable, reproducible *biology*, not identical counts across environments.
+
 ### IPF: Cold Replication and Stability Testing
 
 The IPF validation includes the most rigorous evidence in this project. The 190 core genes were tested in **GSE47460** — a 122-patient IPF cohort the engine never saw. **132 of 153 testable genes (86.3%) were significantly differentially expressed in the same direction** (96.7% directional concordance). Leave-one-out stability testing identified **52 iron-clad genes** that survive every dataset combination AND cold replication.
