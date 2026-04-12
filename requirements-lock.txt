@@ -4,10 +4,13 @@
 #
 # These are the exact versions used for all five-disease validation runs.
 # Install with: pip install -r requirements-lock.txt
-# Or use pyproject.toml for flexible installs: pip install -e ".[clustering]"
+# Or use pyproject.toml for flexible installs: pip install ".[clustering]"
+#
+# NOTE: numpy is pinned to 1.x because hdbscan's piwheels binary on ARM
+# is compiled against numpy 1.x. numpy 2.x causes an ABI crash on import.
 
 # Core
-numpy==2.2.4
+numpy==1.26.4
 pandas==2.3.3
 scipy==1.17.1
 scikit-learn==1.8.0
