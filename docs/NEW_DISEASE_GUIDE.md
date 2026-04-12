@@ -10,6 +10,26 @@ This guide walks through the full process of configuring the Riker Engine for a 
 
 ---
 
+## Seed List Guidelines
+
+The seed gene list is your starting hypothesis — the candidates the engine will validate across datasets. Seed list size affects pipeline behavior:
+
+- **200–500 genes** is the sweet spot for most diseases. This gives consensus clustering enough signal to find meaningful modules while keeping the analysis focused.
+- **50–100 genes** works but may produce fewer clusters and less granular pathway separation. Use this range when your candidate list is naturally small (e.g., a single GWAS locus).
+- **500+ genes** works well. More seeds give the pipeline more signal for cross-referencing. The engine filters aggressively — it's better to be inclusive and let the pipeline do the filtering than to be too conservative upfront.
+
+**Where to get seed genes:**
+- [Open Targets](https://platform.opentargets.org/) — broad disease-gene associations (recommended starting point)
+- GWAS Catalog — genetic associations
+- [DisGeNET](https://www.disgenet.org/) — curated disease-gene databases
+- COSMIC — for cancer-specific genes
+- Published differential expression gene lists from individual studies
+- KEGG pathway members relevant to your disease biology
+
+The validated diseases in this repository used seed lists ranging from 354 (IPF) to 1,267 (ASD), all producing robust results.
+
+---
+
 ## Step 1: Find GEO Datasets
 
 Search [GEO DataSets](https://www.ncbi.nlm.nih.gov/gds/) for your disease. Look for:
