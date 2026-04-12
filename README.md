@@ -38,18 +38,20 @@ The alternative to this tool is weeks of manual GEO mining with ad hoc scripts. 
 
 ## Validation Results
 
-Validated across six diseases spanning five tissue types with zero code changes:
+Validated across eight diseases spanning six tissue types with zero code changes:
 
-| Metric | ASD | T2D | IBD | AD | Breast Ca. | **IPF** |
-|---|---|---|---|---|---|---|
-| Tissue | Brain cortex | Pancreatic islets | Intestinal mucosa | Brain cortex | Breast tumor | **Lung** |
-| Seed genes | 1,267 (SFARI) | 443 (Open Targets) | 762 (Open Targets) | 801 (Open Targets) | 653 (Open Targets) | **354 (curated)** |
-| Datasets | 7 | 4 | 6 | 5 | 5 | **5** |
-| Phase 1 yield | 11.1% | 12.6% | 53.5% | 54.7% | 34.8% | **68.1%** |
-| Core genes | 35 | 8 | 304 | 394 | 152 | **190** |
-| Survived replication | 35 (100%) | 8 (100%) | 302 (99.3%) | 340 (86.3%) | 152 (100%) | **170 (89.5%)** |
-| Meta-significant | 13 | 8 | 296 | 312 | 121 | **157** |
-| Cold replication | — | — | — | — | — | **86.3%** |
+| Metric | ASD | T2D | IBD | AD | Breast Ca. | **IPF** | Psoriasis* | CRC* |
+|---|---|---|---|---|---|---|---|---|
+| Tissue | Brain cortex | Pancreatic islets | Intestinal mucosa | Brain cortex | Breast tumor | **Lung** | Skin | Colon |
+| Seed genes | 1,267 (SFARI) | 443 (Open Targets) | 762 (Open Targets) | 801 (Open Targets) | 653 (Open Targets) | **354 (curated)** | 96 (curated) | 515 (curated) |
+| Datasets | 7 | 4 | 6 | 5 | 5 | **5** | 5 | 6 |
+| Phase 1 yield | 11.1% | 12.6% | 53.5% | 54.7% | 34.8% | **68.1%** | 62.5% | 64.3% |
+| Core genes | 35 | 8 | 304 | 394 | 152 | **190** | 50 | 263 |
+| Survived replication | 35 (100%) | 8 (100%) | 302 (99.3%) | 340 (86.3%) | 152 (100%) | **170 (89.5%)** | 50 (100%) | 244 (92.8%) |
+| Meta-significant | 13 | 8 | 296 | 312 | 121 | **157** | 28 | 218 |
+| Cold replication | — | — | — | — | — | **86.3%** | — | — |
+
+\*Psoriasis and CRC were validated by independent AI agents with no author involvement in disease selection, seed gene curation, or dataset choice. See `results/INDEPENDENT_VALIDATION.md`.
 
 Each condition was run with curated disease-specific seeds. The first five diseases were also run hypothesis-free (all expressed genes as seeds); every curated core gene passes Phase 1 in the blind run across all tested diseases.
 
