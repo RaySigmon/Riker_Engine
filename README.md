@@ -75,7 +75,7 @@ Full benchmark: `benchmarks/benchmark_report.md`
 ```bash
 git clone https://github.com/RaySigmon/Riker_Engine.git
 cd Riker_Engine
-pip install -e ".[clustering]"
+pip install ".[clustering]"
 
 # Download data for a disease (e.g., IBD — all datasets auto-download)
 python scripts/download_data.py ibd
@@ -88,7 +88,7 @@ To see all available diseases and data dependencies: `python scripts/download_da
 
 Seed gene files are included in the repo (`data/seeds/`). Some RNA-seq datasets require manual reconstruction — see `docs/DATA_RECONSTRUCTION.md`.
 
-See `docs/CONFIGURATION.md` for how to write a config file, or use an example from `configs/examples/`.
+See `docs/CONFIGURATION.md` for how to write a config file, or use an example from `configs/examples/`. To run the engine on a disease not included in the validation set, see `docs/NEW_DISEASE_GUIDE.md`.
 
 ### Web UI
 
@@ -96,7 +96,7 @@ See `docs/CONFIGURATION.md` for how to write a config file, or use an example fr
 riker ui
 ```
 
-Opens a browser-based interface for running and exploring pipeline results. Requires optional UI dependencies (`pip install -e ".[ui]"`).
+Opens a browser-based interface for running and exploring pipeline results. Requires optional UI dependencies (`pip install ".[ui]"`).
 
 ## The Six-Phase Pipeline
 
@@ -163,22 +163,32 @@ git clone https://github.com/RaySigmon/Riker_Engine.git
 cd Riker_Engine
 
 # Core install (Phases 1-2, 4-6, all stats)
-pip install -e .
+pip install .
 
 # Full install with clustering dependencies (Phase 3)
-pip install -e ".[clustering]"
+pip install ".[clustering]"
 
 # Web UI
-pip install -e ".[ui]"
+pip install ".[ui]"
 ```
 
 ### Verify Installation
 
 ```bash
-pip install -e ".[dev]"      # adds pytest (already included if you installed [clustering])
+pip install ".[dev]"         # adds pytest (already included if you installed [clustering])
 python -m pytest tests/ -q   # 300 tests
 riker --help
 ```
+
+### Developer Setup
+
+For contributors or anyone modifying the source code:
+
+```bash
+pip install -e ".[clustering,dev]"
+```
+
+Editable mode (`-e`) links the installed package to your local source files so changes take effect immediately. Do **not** use `-e` for replication or validation — use the standard install above to ensure you're running the committed code, not a modified copy.
 
 ### Dependencies
 
