@@ -133,6 +133,11 @@ def load_config(path: str | Path) -> PipelineConfig:
     if "seed_genes" not in raw:
         raise ValueError("Config missing required field: 'seed_genes'")
     config.seed_genes_path = raw["seed_genes"]
+    if not config.seed_genes_path:
+        raise ValueError(
+            "seed_genes must be a path to a seed gene CSV file (got null/empty). "
+            "Blind discovery mode (no seed genes) is not yet supported."
+        )
 
     config.hgnc_path = raw.get("hgnc_path", "auto")
     config.output_dir = raw.get("output_dir", "riker_output")
