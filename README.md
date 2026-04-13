@@ -49,6 +49,7 @@ Validated across eight diseases spanning six tissue types with zero code changes
 | Core genes | 35 | 8 | 304 | 394 | 152 | **190** | 50 | 263 |
 | Survived replication | 20 (57.1%) | 8 (100%) | 302 (99.3%) | 340 (86.3%) | 152 (100%) | **170 (89.5%)** | 50 (100%) | 244 (92.8%) |
 | Meta-significant | 9 | 8 | 296 | 312 | 121 | **157** | 28 | 218 |
+| Blind recovery | 77.1% | 62.5% | 97.7% | 98.2% | 99.3% | — | 94.0% | 97.7% |
 | Cold replication | — | — | — | — | — | **86.3%** | — | — |
 
 \*Psoriasis and CRC were validated by independent AI agents with no author involvement in disease selection, seed gene curation, or dataset choice. See `results/INDEPENDENT_VALIDATION.md`.

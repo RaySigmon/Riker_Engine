@@ -105,8 +105,8 @@ The engine was validated on six diseases with zero code modifications between ru
 | AD | Brain cortex | 801 | 5 | 54.7% | 394 | 86.3% | 312 | 98.2% |
 | Breast Cancer | Breast tumor | 653 | 5 | 34.8% | 152 | 100% | 121 | 99.3% |
 | IPF | Lung tissue | 354 | 5 | 68.1% | 190 | 89.5% | 157 | N/A |
-| Psoriasis* | Skin | 96 | 5 | 62.5% | 50 | 100% | 28 | N/A |
-| CRC* | Colon | 515 | 6 | 64.3% | 263 | 92.8% | 218 | N/A |
+| Psoriasis* | Skin | 96 | 5 | 62.5% | 50 | 100% | 28 | 94.0% |
+| CRC* | Colon | 515 | 6 | 64.3% | 263 | 92.8% | 218 | 97.7% |
 
 \*Psoriasis and CRC were validated by independent AI agents with no author involvement in disease selection, seed gene curation, or dataset choice.
 

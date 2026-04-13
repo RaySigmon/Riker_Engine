@@ -584,8 +584,8 @@ Eight diseases. Three independent validators. Zero code modifications between di
 | AD | Brain | 801 | 5 | 54.7% | 394 | 86.3% | 312 | Author (98.2% blind) |
 | Breast Ca. | Tumor | 653 | 5 | 34.8% | 152 | 100% | 121 | Author (99.3% blind) |
 | IPF | Lung | 354 | 5 | 68.1% | 190 | 89.5% | 157 | Author + Gemini + Claude |
-| Psoriasis | Skin | 96 | 5 | 62.5% | 50 | 100% | 28 | Gemini (independent) |
-| CRC | Colon | 515 | 6 | 64.3% | 263 | 92.8% | 218 | Claude (independent) |
+| Psoriasis | Skin | 96 | 5 | 62.5% | 50 | 100% | 28 | Gemini (94.0% blind) |
+| CRC | Colon | 515 | 6 | 64.3% | 263 | 92.8% | 218 | Claude (97.7% blind) |
 
 ## Appendix B: Cold-Start Replication Data
 
