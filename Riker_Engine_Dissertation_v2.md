@@ -579,13 +579,13 @@ Eight diseases. Three independent validators. Zero code modifications between di
 | Disease | Tissue | Seeds | Datasets | Ph1 Yield | Core Genes | Ph5 Survival | Meta-Sig | Validated By |
 |---------|--------|-------|----------|-----------|------------|-------------|----------|-------------|
 | ASD | Brain | 1,267 | 7 | 11.1% | 35 | 57.1% | 9 | Author (77.1% blind) |
-| T2D | Islets | 443 | 4 | 12.6% | 8 | 100% | 8 | Author |
-| IBD | Mucosa | 762 | 6 | 53.5% | 304 | 99.3% | 296 | Author |
+| T2D | Islets | 443 | 4 | 12.6% | 8 | 100% | 8 | Author (62.5% blind) |
+| IBD | Mucosa | 762 | 6 | 53.5% | 304 | 99.3% | 296 | Author (97.7% blind) |
 | AD | Brain | 801 | 5 | 54.7% | 394 | 86.3% | 312 | Author (98.2% blind) |
 | Breast Ca. | Tumor | 653 | 5 | 34.8% | 152 | 100% | 121 | Author (99.3% blind) |
 | IPF | Lung | 354 | 5 | 68.1% | 190 | 89.5% | 157 | Author + Gemini + Claude |
 | Psoriasis | Skin | 96 | 5 | 62.5% | 50 | 100% | 28 | Gemini (independent) |
-| CRC | Colon | 515 | 6 | 64.3% | 244 | 92.8% | 218 | Claude (independent) |
+| CRC | Colon | 515 | 6 | 64.3% | 263 | 92.8% | 218 | Claude (independent) |
 
 ## Appendix B: Cold-Start Replication Data
 
