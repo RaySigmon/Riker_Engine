@@ -175,7 +175,7 @@ Including independent tests, the Riker Engine has now been validated on **8 dise
 | Breast Cancer | 152 | 99.3% | 100% | Author |
 | IPF | 190 | — | 89.5% (86.3% cold replication) | Author + Independent Agent |
 | **Psoriasis** | **50** | **94.0%** | **100%** | **Independent Agent (Gemini)** |
-| **CRC** | **264** | **97.7%** | **92.8%** | **Independent Agent (Claude)** |
+| **CRC** | **264** | **97.7%** | **92.8% (245/264)** | **Independent Agent (Claude)** |
 
 Psoriasis and CRC are the first diseases validated entirely by independent parties with no author involvement in dataset selection, seed gene curation, or configuration.
 

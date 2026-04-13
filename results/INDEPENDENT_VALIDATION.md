@@ -20,11 +20,11 @@ Results: `psoriasis/independent_validation/`
 - **Agent:** Claude Code CLI, zero prior context
 - **Seed genes:** 515 (agent-curated from COSMIC, Open Targets, KEGG, literature)
 - **Datasets:** 6 colon tissue datasets, all GPL570 (3 discovery + 3 replication)
-- **Core genes:** 263
-- **Replication:** 244/263 survived (92.8%)
-- **Meta-significant:** 218 (random effects)
+- **Core genes:** 264
+- **Replication:** 245/264 survived (92.8%)
+- **Meta-significant:** 219 (random effects)
 - **Biology:** APC, TP53, AXIN1, AURKA, TOP2A, ERBB2, MYC, CDH1, MMP7, VEGFA
-- **Blind recovery:** 258/264 (97.7%) — 6 missing (BAK1, CCL20, CXCL2, DKK3, EPHB2, UGT1A1)
+- **Blind recovery:** 258/264 (97.7%) — 6 missing (BAK1, CCL20, CXCL2, DKK3, EPHB2, UGT1A1) — 6 missing (BAK1, CCL20, CXCL2, DKK3, EPHB2, UGT1A1)
 
 Results: `crc/independent_validation/`
 

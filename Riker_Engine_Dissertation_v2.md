@@ -324,7 +324,7 @@ Agent's uncoached verdict: "I recommend we adopt it for our lab's transcriptomic
 **Disease selection:** Agent's independent choice
 **Seeds:** 515 genes curated from COSMIC, Open Targets, KEGG, published CRC signatures
 **Datasets:** 6 GPL570 datasets spanning 5 countries (781 tumors, 144 normals)
-**Results:** 263 core genes → 244 survived replication (92.8%) → 218 meta-significant
+**Results:** 264 core genes → 245 survived replication (92.8%) → 219 meta-significant
 **QC:** 4 passed, 0 warnings, 0 critical
 
 Pathway coverage was near-complete:
@@ -585,7 +585,7 @@ Eight diseases. Three independent validators. Zero code modifications between di
 | Breast Ca. | Tumor | 653 | 5 | 34.8% | 152 | 100% | 121 | Author (99.3% blind) |
 | IPF | Lung | 354 | 5 | 68.1% | 190 | 89.5% | 157 | Author + Gemini + Claude |
 | Psoriasis | Skin | 96 | 5 | 62.5% | 50 | 100% | 28 | Gemini (94.0% blind) |
-| CRC | Colon | 515 | 6 | 64.3% | 263 | 92.8% | 218 | Claude (97.7% blind) |
+| CRC | Colon | 515 | 6 | 64.3% | 264 | 92.8% | 219 | Claude (97.7% blind) |
 
 ## Appendix B: Cold-Start Replication Data
 

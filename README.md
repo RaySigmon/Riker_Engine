@@ -12,7 +12,7 @@ The Riker Engine takes a list of candidate genes for any disease and determines 
 
 Existing tools like WGCNA analyze one dataset at a time and produce large gene modules (hundreds to thousands of genes) with no built-in cross-dataset replication. Riker Engine automates multi-dataset analysis, replication filtering, and meta-analysis in a single pipeline. Switching diseases requires changing only the seed gene list and dataset configuration — zero code modifications.
 
-Across all five validated diseases, known drug targets emerge naturally without the engine being directed to seek them: ABCC8 (sulfonylureas) in T2D, JAK2 (tofacitinib) in IBD, TOP2A (doxorubicin), ERBB2 (trastuzumab), and ESR1 (tamoxifen) in breast cancer. GWAS-identified risk genes (TCF7L2, PSEN1, IL23R, PIK3CA) behave differently — genetic variants don't necessarily change transcript abundance. The engine finds functional consequences at the expression level, not genetic causes.
+Across all validated diseases, known drug targets emerge naturally without the engine being directed to seek them: ABCC8 (sulfonylureas) in T2D, JAK2 (tofacitinib) in IBD, TOP2A (doxorubicin), ERBB2 (trastuzumab), and ESR1 (tamoxifen) in breast cancer. GWAS-identified risk genes (TCF7L2, PSEN1, IL23R, PIK3CA) behave differently — genetic variants don't necessarily change transcript abundance. The engine finds functional consequences at the expression level, not genetic causes.
 
 ### What This Tool Is (and Isn't)
 
@@ -46,9 +46,9 @@ Validated across eight diseases spanning six tissue types with zero code changes
 | Seed genes | 1,267 (SFARI) | 443 (Open Targets) | 762 (Open Targets) | 801 (Open Targets) | 653 (Open Targets) | **354 (curated)** | 96 (curated) | 515 (curated) |
 | Datasets | 7 | 4 | 6 | 5 | 5 | **5** | 5 | 6 |
 | Phase 1 yield | 11.1% | 12.6% | 53.5% | 54.7% | 34.8% | **68.1%** | 62.5% | 64.3% |
-| Core genes | 35 | 8 | 304 | 394 | 152 | **190** | 50 | 263 |
-| Survived replication | 20 (57.1%) | 8 (100%) | 302 (99.3%) | 340 (86.3%) | 152 (100%) | **170 (89.5%)** | 50 (100%) | 244 (92.8%) |
-| Meta-significant | 9 | 8 | 296 | 312 | 121 | **157** | 28 | 218 |
+| Core genes | 35 | 8 | 304 | 394 | 152 | **190** | 50 | 264 |
+| Survived replication | 20 (57.1%) | 8 (100%) | 302 (99.3%) | 340 (86.3%) | 152 (100%) | **170 (89.5%)** | 50 (100%) | 245 (92.8%) |
+| Meta-significant | 9 | 8 | 296 | 312 | 121 | **157** | 28 | 219 |
 | Blind recovery | 77.1% | 62.5% | 97.7% | 98.2% | 99.3% | — | 94.0% | 97.7% |
 | Cold replication | — | — | — | — | — | **86.3%** | — | — |
 
@@ -253,7 +253,7 @@ datasets:
     tissue: brain
 ```
 
-Example configs for all five validated diseases: `configs/examples/`
+Example configs for all validated diseases: `configs/examples/`
 
 ## Output Files
 

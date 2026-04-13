@@ -106,7 +106,7 @@ The engine was validated on six diseases with zero code modifications between ru
 | Breast Cancer | Breast tumor | 653 | 5 | 34.8% | 152 | 100% | 121 | 99.3% |
 | IPF | Lung tissue | 354 | 5 | 68.1% | 190 | 89.5% | 157 | N/A |
 | Psoriasis* | Skin | 96 | 5 | 62.5% | 50 | 100% | 28 | 94.0% |
-| CRC* | Colon | 515 | 6 | 64.3% | 263 | 92.8% | 218 | 97.7% |
+| CRC* | Colon | 515 | 6 | 64.3% | 264 | 92.8% | 219 | 97.7% |
 
 \*Psoriasis and CRC were validated by independent AI agents with no author involvement in disease selection, seed gene curation, or dataset choice.
 
@@ -138,7 +138,7 @@ The engine recovered textbook psoriasis biology: S100A12 (p ≈ 6×10⁻³¹⁰)
 
 An independent Claude Code agent selected Colorectal Cancer, curated 515 seed genes from COSMIC, Open Targets, KEGG, and published CRC transcriptomic signatures, independently chose 6 GPL570 datasets spanning 5 countries (781 tumors, 144 normals), and ran the pipeline.
 
-Results: 331 study genes → 43 clusters → 263 core genes → 244 survived replication (92.8%) → 218 meta-significant. QC: 4 passed, 0 critical.
+Results: 331 study genes → 43 clusters → 264 core genes → 245 survived replication (92.8%) → 219 meta-significant. QC: 4 passed, 0 critical.
 
 Pathway recovery was near-complete: 100% coverage on cell cycle, p53, TGF-beta, PI3K/AKT, RAS/MAPK, immune/inflammation, ECM/invasion, epigenetics, drug targets, angiogenesis, and mismatch repair pathways. The Wnt/APC pathway was recovered at 96%, with APC itself identified as downregulated (p = 1.1×10⁻⁴⁵).
 
