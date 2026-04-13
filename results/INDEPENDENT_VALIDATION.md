@@ -11,6 +11,7 @@ These results were produced by independent AI agents with **no author involvemen
 - **Replication:** 50/50 survived (100%)
 - **Meta-significant:** 28 (random effects)
 - **Biology:** Textbook psoriasis — S100A7/A9/A12, DEFB4B, IL36G, CCL20, KRT16/17, BCL2
+- **Blind recovery:** 47/50 (94.0%) — 3 missing (KYNU, PI3, TGM1)
 
 Results: `psoriasis/independent_validation/`
 
@@ -23,6 +24,7 @@ Results: `psoriasis/independent_validation/`
 - **Replication:** 244/263 survived (92.8%)
 - **Meta-significant:** 218 (random effects)
 - **Biology:** APC, TP53, AXIN1, AURKA, TOP2A, ERBB2, MYC, CDH1, MMP7, VEGFA
+- **Blind recovery:** 258/264 (97.7%) — 6 missing (BAK1, CCL20, CXCL2, DKK3, EPHB2, UGT1A1)
 
 Results: `crc/independent_validation/`
 

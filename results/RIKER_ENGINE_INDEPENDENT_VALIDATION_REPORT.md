@@ -107,7 +107,7 @@ The agent was also pointed to `docs/NEW_DISEASE_GUIDE.md`.
 | Phase 3 Clusters | 9 |
 | Phase 4 Core Genes | 50 |
 | Phase 5 Survived Replication | 50 (100% in GSE50790) |
-| Phase 6 Meta-Significant | 50 |
+| Phase 6 Meta-Significant | 28 (random effects) |
 | QC Report | 4 passed, 0 warnings, 0 critical |
 
 ### Top Replicated Genes (Biological Validation)
@@ -164,19 +164,20 @@ The same novel disease test was attempted in an earlier session (pre-fixes). The
 
 ## Cumulative Validation Summary
 
-Including this independent test, the Riker Engine has now been validated on **7 diseases**:
+Including independent tests, the Riker Engine has now been validated on **8 diseases**:
 
-| Disease | Core Genes | Replication Rate | Validated By |
-|---------|-----------|-----------------|-------------|
-| ASD | 35 | 77.1% blind recovery | Author |
-| T2D | 8 | 62.5% | Author |
-| IBD | 304 | 97.7% | Author + Independent Agent |
-| Alzheimer's Disease | 394 | 100% Phase 1 blind | Author |
-| Breast Cancer | 152 | ER+/HER2+ subtype separation | Author + Independent Agent |
-| IPF | 190 | 86.3% cold replication (GSE47460) | Author + Independent Agent (99.47% overlap) |
-| **Psoriasis** | **50** | **100% (GSE50790)** | **Independent Agent Only** |
+| Disease | Core Genes | Blind Recovery | Replication Rate | Validated By |
+|---------|-----------|---------------|-----------------|-------------|
+| ASD | 35 | 77.1% | 57.1% (15 eliminated, brain-specific) | Author |
+| T2D | 8 | 62.5% | 100% | Author |
+| IBD | 304 | 97.7% | 99.3% | Author + Independent Agent |
+| Alzheimer's Disease | 394 | 98.2% | 86.3% | Author |
+| Breast Cancer | 152 | 99.3% | 100% | Author |
+| IPF | 190 | — | 89.5% (86.3% cold replication) | Author + Independent Agent |
+| **Psoriasis** | **50** | **94.0%** | **100%** | **Independent Agent (Gemini)** |
+| **CRC** | **264** | **97.7%** | **92.8%** | **Independent Agent (Claude)** |
 
-Psoriasis is the first disease validated entirely by an independent party with no author involvement in dataset selection, seed gene curation, or configuration.
+Psoriasis and CRC are the first diseases validated entirely by independent parties with no author involvement in dataset selection, seed gene curation, or configuration.
 
 ---
 
