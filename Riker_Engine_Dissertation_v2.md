@@ -259,7 +259,7 @@ These checks were developed during Project Riker after catching errors that woul
 
 **Tissue:** Brain cortex | **Seeds:** 1,267 (SFARI) | **Datasets:** 7 | **Phase 1 yield:** 11.1%
 
-The weakest transcriptomic signal. 35 core genes identified through consensus clustering. 15 eliminated for significant opposite-direction effects in blood replication datasets — confirming brain specificity and demonstrating the pipeline's ability to distinguish tissue-specific signals from noise. 20 survived replication, including ATP2B2, SEZ6L2, SNAP25, GABRG2, TBR1. 9 meta-significant under random effects. Blind recovery: 35/35 (100%).
+The weakest transcriptomic signal. 35 core genes identified through consensus clustering. 15 eliminated for significant opposite-direction effects in blood replication datasets — confirming brain specificity and demonstrating the pipeline's ability to distinguish tissue-specific signals from noise. 20 survived replication, including ATP2B2, SEZ6L2, SNAP25, GABRG2, TBR1. 9 meta-significant under random effects. Blind recovery: 27/35 (77.1%).
 
 Key finding: ATP2B2 and SEZ6L2 showed significant brain-specific downregulation across four independent postmortem cohorts (random-effects p = 0.037 and 0.046). The 15 eliminated genes (including EFR3A, FBXO33, PPP3CA, SPTAN1, APBA2, ATP1A1, ITPR1, NAV2, ZFHX3, and others) all showed significant upregulation in blood datasets — the opposite direction from their brain discovery signal. This is the engine correctly identifying brain-specific biology that does not generalize to peripheral tissue.
 
@@ -578,7 +578,7 @@ Eight diseases. Three independent validators. Zero code modifications between di
 
 | Disease | Tissue | Seeds | Datasets | Ph1 Yield | Core Genes | Ph5 Survival | Meta-Sig | Validated By |
 |---------|--------|-------|----------|-----------|------------|-------------|----------|-------------|
-| ASD | Brain | 1,267 | 7 | 11.1% | 35 | 57.1% | 9 | Author (100% blind) |
+| ASD | Brain | 1,267 | 7 | 11.1% | 35 | 57.1% | 9 | Author (77.1% blind) |
 | T2D | Islets | 443 | 4 | 12.6% | 8 | 100% | 8 | Author |
 | IBD | Mucosa | 762 | 6 | 53.5% | 304 | 99.3% | 296 | Author |
 | AD | Brain | 801 | 5 | 54.7% | 394 | 86.3% | 312 | Author (98.2% blind) |
