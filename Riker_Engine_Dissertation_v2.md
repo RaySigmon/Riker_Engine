@@ -281,13 +281,13 @@ The strongest transcriptomic signal. 304 core genes including drug targets NOD2,
 
 **Tissue:** Brain cortex | **Seeds:** 801 | **Datasets:** 5 | **Phase 1 yield:** 54.7%
 
-394 core genes including TREM2, APOE, APP, MAPT, CLU, BIN1, CD33. PSEN1 absent from core — confers risk through protein-level variants, not transcript changes. Highest elimination rate (13.5%, 54 genes). Blind run reached Phase 1 with 100% recovery but exceeded 8 GB RAM at Phase 3 with 14,442 study genes.
+394 core genes including TREM2, APOE, APP, MAPT, CLU, BIN1, CD33. PSEN1 absent from core — confers risk through protein-level variants, not transcript changes. Highest elimination rate (13.5%, 54 genes). Blind recovery: 120/136 core genes (88.2%) recovered when run with all 19,296 protein-coding genes as seeds (RunPod, 64 GB RAM). 16 genes not recovered, likely due to dissolution into larger blind-mode clusters.
 
 ### 11.5 Breast Cancer
 
 **Tissue:** Breast tumor | **Seeds:** 653 | **Datasets:** 5 | **Phase 1 yield:** 34.8%
 
-152 core genes across 28 clusters. The engine independently separated estrogen receptor biology (ESR1, Cluster 18, random-effects p = 0.019), HER2 biology (ERBB2, Cluster 28, p = 0.007), and proliferation biology (TOP2A, AURKA; Cluster 2, p = 0.009) into distinct modules — recapitulating the clinical molecular subtype framework from raw expression data.
+152 core genes across 28 clusters. The engine independently separated estrogen receptor biology (ESR1, Cluster 18, random-effects p = 0.019), HER2 biology (ERBB2, Cluster 28, p = 0.007), and proliferation biology (TOP2A, AURKA; Cluster 2, p = 0.009) into distinct modules — recapitulating the clinical molecular subtype framework from raw expression data. Blind recovery: 151/152 (99.3%) — only SIAH2 not recovered.
 
 ### 11.6 Idiopathic Pulmonary Fibrosis
 
@@ -581,8 +581,8 @@ Eight diseases. Three independent validators. Zero code modifications between di
 | ASD | Brain | 1,267 | 7 | 11.1% | 35 | 100% | 13 | Author |
 | T2D | Islets | 443 | 4 | 12.6% | 8 | 100% | 8 | Author |
 | IBD | Mucosa | 762 | 6 | 53.5% | 304 | 99.3% | 296 | Author |
-| AD | Brain | 801 | 5 | 54.7% | 394 | 86.3% | 312 | Author |
-| Breast Ca. | Tumor | 653 | 5 | 34.8% | 152 | 100% | 121 | Author |
+| AD | Brain | 801 | 5 | 54.7% | 394 | 86.3% | 312 | Author (88.2% blind) |
+| Breast Ca. | Tumor | 653 | 5 | 34.8% | 152 | 100% | 121 | Author (99.3% blind) |
 | IPF | Lung | 354 | 5 | 68.1% | 190 | 89.5% | 157 | Author + Gemini + Claude |
 | Psoriasis | Skin | 96 | 5 | 62.5% | 50 | 100% | 28 | Gemini (independent) |
 | CRC | Colon | 515 | 6 | 64.3% | 244 | 92.8% | 218 | Claude (independent) |
