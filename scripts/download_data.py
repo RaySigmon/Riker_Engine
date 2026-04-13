@@ -126,7 +126,7 @@ DATASETS = {
     "ad": {
         "description": "Alzheimer's Disease — 5 brain cortex datasets",
         "seed_file": "data/seeds/ad_curated_genes.csv",
-        "symbol_column": "hgnc_symbol",
+        "symbol_column": "symbol",
         "tissue": "brain",
         "geo_datasets": [
             # Discovery
