@@ -47,8 +47,8 @@ Validated across eight diseases spanning six tissue types with zero code changes
 | Datasets | 7 | 4 | 6 | 5 | 5 | **5** | 5 | 6 |
 | Phase 1 yield | 11.1% | 12.6% | 53.5% | 54.7% | 34.8% | **68.1%** | 62.5% | 64.3% |
 | Core genes | 35 | 8 | 304 | 394 | 152 | **190** | 50 | 263 |
-| Survived replication | 35 (100%) | 8 (100%) | 302 (99.3%) | 340 (86.3%) | 152 (100%) | **170 (89.5%)** | 50 (100%) | 244 (92.8%) |
-| Meta-significant | 13 | 8 | 296 | 312 | 121 | **157** | 28 | 218 |
+| Survived replication | 20 (57.1%) | 8 (100%) | 302 (99.3%) | 340 (86.3%) | 152 (100%) | **170 (89.5%)** | 50 (100%) | 244 (92.8%) |
+| Meta-significant | 9 | 8 | 296 | 312 | 121 | **157** | 28 | 218 |
 | Cold replication | — | — | — | — | — | **86.3%** | — | — |
 
 \*Psoriasis and CRC were validated by independent AI agents with no author involvement in disease selection, seed gene curation, or dataset choice. See `results/INDEPENDENT_VALIDATION.md`.
