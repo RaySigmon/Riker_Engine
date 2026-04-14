@@ -2,7 +2,7 @@
 # Generated from the validation environment (Raspberry Pi 5, Python 3.13)
 # Date: 2026-04-06
 #
-# These are the exact versions used for all five-disease validation runs.
+# These are the exact versions used for all eight-disease validation runs.
 # Install with: pip install -r requirements-lock.txt
 # Or use pyproject.toml for flexible installs: pip install ".[clustering]"
 #

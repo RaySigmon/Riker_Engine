@@ -1,5 +1,62 @@
 # Changelog
 
+## v0.3.2 — Independent validation & PI outreach (2026-04-12)
+
+### Independent Validation
+- Psoriasis validated by Gemini CLI agent: 50 core genes, 50/50 survived, 100% replication, 94.0% blind recovery
+- CRC validated by Claude Code CLI agent: 264 core genes, 245/264 survived (92.8%), 97.7% blind recovery
+- Both validations performed on a separate Pi 5 with zero author involvement
+- Validation table now covers 8 diseases across 6 tissue types
+
+### Blind Recovery
+- Added blind recovery rates for all diseases: ASD 77.1%, T2D 62.5%, IBD 97.7%, AD 88.2% (curated scope), Breast Ca 99.3%, Psoriasis 94.0%, CRC 97.7%
+- Re-ran ASD and T2D with locked engine to confirm numbers
+- Re-ran AD curated with locked engine, standardized seed column
+
+### Documentation
+- Added Psoriasis/CRC to preprint and dissertation validation tables
+- Aligned all CRC numbers to committed results (264/245/219)
+- Updated validation docs with blind recovery and corrected numbers
+
+## v0.3.1 — Cold-start reproducibility (2026-04-06)
+
+### New Disease: IPF
+- 6th validated disease: 354 seeds → 190 core → 170 survived → 157 meta-significant
+- Cold replication in held-out GSE47460: 86.3% concordant+significant
+- Stability profiling: 52 iron-clad genes across leave-one-out runs
+
+### Cold-Start Bug Fixes (9 total)
+- GPL URL bucket calculation for 3-digit platform IDs
+- Seed_genes null guard — clear error when config is missing seeds
+- Reproducibility variance note added to README
+- IPF config and negative control config moved to examples/
+- GSE47460 held-out dataset added to IPF download script
+- Non-editable install as default, developer setup separated
+- Gene_column and probe_column exposed in YAML dataset config
+- NEW_DISEASE_GUIDE.md for configuring novel diseases
+- Tool framing section ("What This Tool Does") and Phase 2 pathway docs
+
+### Compatibility
+- Pinned numpy<2 and hdbscan<0.9 for ARM/piwheels ABI compatibility
+- Seed list size guidance added to NEW_DISEASE_GUIDE.md
+
+### Web UI
+- Local web UI: `riker ui` command launches browser-based interface
+- Phenotype auto-detection, field sanitization, dropdown filtering
+- WebSocket reconnect, config key mapping, results display fixes
+- Automated 5-disease UI backend test script
+
+### Benchmarks & Evidence
+- WGCNA benchmark outputs committed (34/35 multi-dataset vs 21/35 single)
+- Blind run results for breast cancer and AD committed
+- CITATION.cff added
+- Breast cancer validation added to README
+- RunPod setup downloads filtered AD datasets from GitHub Release
+
+### Reproducibility
+- Results, data scripts, CI, Phase 5 fix overhaul
+- 300 tests passing
+
 ## v0.3.0 — Public release preparation (2026-03-22)
 
 ### Documentation
