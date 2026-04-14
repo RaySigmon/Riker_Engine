@@ -42,14 +42,8 @@ datasets:
     case_values: ["phenotype: lesional"]
     control_values: ["phenotype: uninvolved"]
 
-  - id: GSE54456
-    series_matrix: data/geo/psoriasis/GSE54456_series_matrix.txt.gz
-    platform: data/platforms/GPL570.annot
-    role: replication
-    tissue: skin
-    phenotype_field: Sample_characteristics_ch1
-    case_values: ["lesional psoriatic skin"]
-    control_values: ["normal skin"]
+  # NOTE: GSE54456 removed — RNA-seq dataset with no expression table,
+  # not compatible with microarray parser. Psoriasis hits 50/50 exact without it.
 
 phase1:
   p_threshold: 0.05

@@ -3,7 +3,7 @@
 Riker Engine — Data Download Script
 
 Downloads GEO series matrix files, platform annotations, and HGNC gene data
-needed to reproduce the five-disease validation.
+needed to reproduce the eight-disease validation.
 
 Usage:
     python scripts/download_data.py asd          # Download ASD data only
@@ -192,6 +192,48 @@ DATASETS = {
             {"id": "GSE47460", "platform": "GPL6480", "role": "held_out",
              "tissue": "lung", "subseries": "GSE47460-GPL6480",
              "note": "LGRC cohort — 122 IPF/UIP + controls, held out for cold replication"},
+        ],
+    },
+    "psoriasis": {
+        "description": "Psoriasis — 4 skin tissue datasets",
+        "seed_file": "data/seeds/psoriasis_seeds.csv",
+        "symbol_column": "symbol",
+        "tissue": "skin",
+        "geo_datasets": [
+            # Discovery
+            {"id": "GSE13355", "platform": "GPL570", "role": "discovery",
+             "tissue": "skin", "note": "Nair et al. — involved vs normal skin"},
+            {"id": "GSE30999", "platform": "GPL570", "role": "discovery",
+             "tissue": "skin", "note": "Suarez-Farinas et al. — lesion vs non-lesion"},
+            {"id": "GSE41662", "platform": "GPL570", "role": "discovery",
+             "tissue": "skin", "note": "Lesional vs non-lesional skin"},
+            # Replication
+            {"id": "GSE50790", "platform": "GPL570", "role": "replication",
+             "tissue": "skin", "note": "Lesional vs uninvolved psoriatic skin"},
+            # NOTE: GSE54456 excluded — RNA-seq dataset with no expression table,
+            # not compatible with microarray parser. Psoriasis hits 50/50 exact without it.
+        ],
+    },
+    "crc": {
+        "description": "Colorectal Cancer — 6 colon tissue datasets",
+        "seed_file": "data/seeds/crc_curated_genes.csv",
+        "symbol_column": "symbol",
+        "tissue": "colon",
+        "geo_datasets": [
+            # Discovery
+            {"id": "GSE20916", "platform": "GPL570", "role": "discovery",
+             "tissue": "colon", "note": "Skrzypczak et al. — adenocarcinoma vs normal colon"},
+            {"id": "GSE9348", "platform": "GPL570", "role": "discovery",
+             "tissue": "colon", "note": "Hong et al. — early-stage CRC tumor vs healthy mucosa"},
+            {"id": "GSE23878", "platform": "GPL570", "role": "discovery",
+             "tissue": "colon", "note": "Uddin et al. — colon tumour vs normal paired tissue"},
+            # Replication
+            {"id": "GSE32323", "platform": "GPL570", "role": "replication",
+             "tissue": "colon", "note": "Khamas/Mogushi et al. — paired CRC tumor/normal"},
+            {"id": "GSE37364", "platform": "GPL570", "role": "replication",
+             "tissue": "colon", "note": "Galamb et al. — adenocarcinoma vs normal colonic mucosa"},
+            {"id": "GSE39582", "platform": "GPL570", "role": "replication",
+             "tissue": "colon", "note": "Marisa et al. — CRC molecular subtypes vs non-tumoral"},
         ],
     },
 }

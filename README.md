@@ -58,7 +58,17 @@ Each condition was run with curated disease-specific seeds. The first five disea
 
 ### Reproducing Results
 
-Phase 3 consensus clustering has stochastic elements (UMAP initialization, HDBSCAN tie-breaking), so reproduced gene counts may vary by approximately ±5–8% from the numbers above. Different numpy/scipy versions may also contribute to minor variance. The core gene lists should overlap substantially (>90%) even when counts differ slightly. This is expected behavior — the pipeline is designed to produce stable, reproducible *biology*, not identical counts across environments.
+Phase 3 consensus clustering has stochastic elements (UMAP initialization, HDBSCAN tie-breaking), so reproduced gene counts may vary from the numbers above. Three independent cold-start replications show the following per-disease variance:
+
+| Disease | Observed Variance | Notes |
+|---|---|---|
+| Psoriasis | Exact (0%) | 50/50 core, 50/50 survived — identical across runs |
+| CRC | ±0.5% | 263–264 core genes |
+| IPF | ±0.5% | 189–190 core genes |
+| IBD | ±2–3% | 304–307 core, 294–302 survived |
+| Breast Cancer | ±5–7% | 152–157 core, 142–152 survived |
+
+Different numpy/scipy versions may also contribute to minor variance. The core gene lists should overlap substantially (>90%) even when counts differ slightly. This is expected behavior — the pipeline is designed to produce stable, reproducible *biology*, not identical counts across environments.
 
 ### IPF: Cold Replication and Stability Testing
 
