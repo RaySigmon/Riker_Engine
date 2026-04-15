@@ -32,12 +32,30 @@ from pathlib import Path
 import yaml
 
 
-def modify_config_output(config_path: str, new_output_dir: str) -> str:
-    """Create a temporary config file with a modified output_dir."""
+def modify_config_for_run(config_path: str, new_output_dir: str,
+                          run_num: int, master_seed: int = 42) -> str:
+    """Create a temporary config with modified output_dir and unique random seeds.
+
+    Each run gets a unique base random_seed derived from the master seed and
+    run number. The Phase 3 UMAP seeds are also regenerated per run so that
+    consensus clustering explores different stochastic initializations.
+    """
+    import random
+
     with open(config_path) as f:
         config = yaml.safe_load(f)
 
     config["output_dir"] = new_output_dir
+
+    # Derive a unique base seed for this run from the master seed
+    rng = random.Random(master_seed + run_num)
+    run_seed = rng.randint(0, 2**31 - 1)
+    config["random_seed"] = run_seed
+
+    # Generate 5 unique UMAP seeds for Phase 3 consensus clustering
+    phase3 = config.get("phase3", {})
+    phase3["seeds"] = [rng.randint(0, 2**31 - 1) for _ in range(5)]
+    config["phase3"] = phase3
 
     tmp = tempfile.NamedTemporaryFile(
         mode="w", suffix=".yaml", delete=False, prefix="riker_stability_"
@@ -49,7 +67,7 @@ def modify_config_output(config_path: str, new_output_dir: str) -> str:
 
 def run_pipeline(config_path: str, run_dir: str, run_num: int, total: int) -> dict:
     """Run the Riker pipeline once and return results summary."""
-    tmp_config = modify_config_output(config_path, run_dir)
+    tmp_config = modify_config_for_run(config_path, run_dir, run_num)
 
     try:
         print(f"\n{'='*60}")
@@ -253,6 +271,13 @@ def main():
         "--keep-runs",
         action="store_true",
         help="Keep individual run outputs in runs/ subdirectory (default: delete to save space)",
+    )
+    parser.add_argument(
+        "--master-seed",
+        type=int,
+        default=42,
+        help="Master seed for deriving per-run random seeds (default: 42). "
+             "Each run gets a unique seed derived from master_seed + run_number.",
     )
     parser.add_argument(
         "--seed-list",
