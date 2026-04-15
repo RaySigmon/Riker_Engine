@@ -287,7 +287,7 @@ The strongest transcriptomic signal. 304 core genes including drug targets NOD2,
 
 **Tissue:** Breast tumor | **Seeds:** 653 | **Datasets:** 5 | **Phase 1 yield:** 34.8%
 
-152 core genes across 28 clusters. The engine independently separated estrogen receptor biology (ESR1, Cluster 18, random-effects p = 0.019), HER2 biology (ERBB2, Cluster 28, p = 0.007), and proliferation biology (TOP2A, AURKA; Cluster 2, p = 0.009) into distinct modules — recapitulating the clinical molecular subtype framework from raw expression data. Blind recovery: 151/152 (99.3%) — only SIAH2 not recovered.
+152 core genes across 28 clusters, 139 survived Phase 5 replication (91.4%), 112 meta-significant. Phase 5 eliminated 13 genes including ESR1 (subtype-dependent directionality — upregulated in ER+ datasets, downregulated in ER- datasets) and PIK3CA (mutation-driven, not expression-driven). The ESR1 elimination independently confirms the engine's ability to detect molecular subtype heterogeneity. The engine independently separated HER2 biology (ERBB2, Cluster 28, p = 0.007) and proliferation biology (TOP2A, AURKA; Cluster 2, p = 0.009) into distinct modules — recapitulating the clinical molecular subtype framework from raw expression data. Blind recovery: 151/152 (99.3%†) — only SIAH2 not recovered. †Blind recovery rate pending re-verification on current engine version.
 
 ### 11.6 Idiopathic Pulmonary Fibrosis
 
@@ -582,7 +582,7 @@ Eight diseases. Three independent validators. Zero code modifications between di
 | T2D | Islets | 443 | 4 | 12.6% | 8 | 100% | 8 | Author (62.5% blind) |
 | IBD | Mucosa | 762 | 6 | 53.5% | 304 | 99.3% | 296 | Author (97.7% blind) |
 | AD | Brain | 801 | 5 | 54.7% | 394 | 86.3% | 312 | Author (98.2% blind) |
-| Breast Ca. | Tumor | 653 | 5 | 34.8% | 152 | 100% | 121 | Author (99.3% blind) |
+| Breast Ca. | Tumor | 653 | 5 | 34.8% | 152 | 91.4% | 112 | Author (99.3%† blind) |
 | IPF | Lung | 354 | 5 | 68.1% | 190 | 89.5% | 157 | Author + Gemini + Claude |
 | Psoriasis | Skin | 96 | 5 | 62.5% | 50 | 100% | 28 | Gemini (94.0% blind) |
 | CRC | Colon | 515 | 6 | 64.3% | 264 | 92.8% | 219 | Claude (97.7% blind) |

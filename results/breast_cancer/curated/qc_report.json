@@ -31,7 +31,7 @@
       "phase": "phase5",
       "passed": true,
       "severity": "info",
-      "message": "152 survived, 0 eliminated, 0 insufficient data (of 152 total)."
+      "message": "139 survived, 13 eliminated, 0 insufficient data (of 152 total)."
     }
   ]
 }

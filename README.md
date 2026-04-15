@@ -47,8 +47,8 @@ Validated across eight diseases spanning six tissue types with zero code changes
 | Datasets | 7 | 4 | 6 | 5 | 5 | **5** | 5 | 6 |
 | Phase 1 yield | 11.1% | 12.6% | 53.5% | 54.7% | 34.8% | **68.1%** | 62.5% | 64.3% |
 | Core genes | 35 | 8 | 304 | 394 | 152 | **190** | 50 | 264 |
-| Survived replication | 20 (57.1%) | 8 (100%) | 302 (99.3%) | 340 (86.3%) | 152 (100%) | **170 (89.5%)** | 50 (100%) | 245 (92.8%) |
-| Meta-significant | 9 | 8 | 296 | 312 | 121 | **157** | 28 | 219 |
+| Survived replication | 20 (57.1%) | 8 (100%) | 302 (99.3%) | 340 (86.3%) | 139 (91.4%) | **170 (89.5%)** | 50 (100%) | 245 (92.8%) |
+| Meta-significant | 9 | 8 | 296 | 312 | 112 | **157** | 28 | 219 |
 | Blind recovery | 77.1% | 62.5% | 97.7% | 98.2% | 99.3% | — | 94.0% | 97.7% |
 | Cold replication | — | — | — | — | — | **86.3%** | — | — |
 
@@ -66,7 +66,7 @@ Phase 3 consensus clustering has stochastic elements (UMAP initialization, HDBSC
 | CRC | ±0.5% | 263–264 core genes |
 | IPF | ±0.5% | 189–190 core genes |
 | IBD | ±2–3% | 304–307 core, 294–302 survived |
-| Breast Cancer | ±5–7% | 152–157 core, 142–152 survived |
+| Breast Cancer | ±5–7% | 152–157 core, 139–142 survived |
 
 Different numpy/scipy versions may also contribute to minor variance. The core gene lists should overlap substantially (>90%) even when counts differ slightly. This is expected behavior — the pipeline is designed to produce stable, reproducible *biology*, not identical counts across environments.
 
