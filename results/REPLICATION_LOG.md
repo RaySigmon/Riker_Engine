@@ -16,9 +16,9 @@ The Riker Engine is **highly reproducible**. I successfully ran the pipeline acr
 | **IBD** | Core Genes | 304 | 307 | +1.0% |
 | | Survived | 302 | 294 | -2.6% |
 | | Meta-Sig | 296 | 290 | -2.0% |
-| **Breast Ca.** | Core Genes | 152 | 157 | +3.2% |
-| | Survived | 152 | 142 | -6.5% |
-| | Meta-Sig | 121 | 115 | -4.9% |
+| **Breast Ca.**† | Core Genes | 152 | 157 | +3.2% |
+| | Survived | 139† | 142 | +2.2% |
+| | Meta-Sig | 112† | 115 | +2.7% |
 | **CRC** | Core Genes | 264 | 263 | -0.4% |
 | | Survived | 245 | 244 | -0.4% |
 | | Meta-Sig | 219 | 218 | -0.5% |
@@ -27,6 +27,8 @@ The Riker Engine is **highly reproducible**. I successfully ran the pipeline acr
 | | Meta-Sig | 28 | 28 | 0.0% |
 
 *Note: Psoriasis replication used 1 fewer replication dataset due to GSE54456 being RNA-seq data incompatible with the microarray parser.*
+
+*†Breast cancer "Author's Claim" column updated post-replication: original committed results showed 152/152/121 due to a Phase 5 tissue-matching bug (breast tissue treated as brain, bypassing replication filtering). Corrected numbers are 152/139/112. The replicator's results (157/142/115) are now closer to the corrected author numbers than to the original claim.*
 
 ## 3. Critical Findings & Technical Notes
 

@@ -14,7 +14,7 @@ Thank you for your interest in contributing to the Riker Engine.
 git clone https://github.com/RaySigmon/Riker_Engine.git
 cd Riker_Engine
 pip install -e ".[clustering]"
-python -m pytest tests/ -q  # 274 tests must pass
+python -m pytest tests/ -q  # 300 tests must pass
 ```
 
 ## Running Tests
