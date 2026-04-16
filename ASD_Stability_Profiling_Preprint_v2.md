@@ -25,7 +25,7 @@ We applied the Riker Engine, a condition-agnostic pipeline validated on eight di
 
 ### 1.1 Connection to the Cell Danger Response
 
-The Cell Danger Response (CDR) hypothesis, proposed by Naviaux (2014), elaborated as a cell biology framework (Naviaux, 2020), and formalized in a three-hit metabolic signaling model (Naviaux, 2026), posits that ASD arises from persistent activation of an evolutionarily conserved mitochondrial stress response. When the CDR becomes chronic, mitochondria shift from normal energy production to a defensive metabolic state, disrupting oxidative phosphorylation and releasing extracellular ATP as a danger signal. Naviaux's metabolomic work identifies this dysfunction from the systemic side — abnormal metabolite levels in blood reflecting mitochondrial impairment. The present study approaches from the complementary direction: which specific mitochondrial genes are consistently dysregulated in ASD brain tissue across multiple postmortem cohorts?
+The Cell Danger Response (CDR) hypothesis, proposed by Naviaux (2014), elaborated as a cell biology framework (Naviaux, 2020), and formalized in a three-hit metabolic signaling model (Naviaux, 2025), posits that ASD arises from persistent activation of an evolutionarily conserved mitochondrial stress response. When the CDR becomes chronic, mitochondria shift from normal energy production to a defensive metabolic state, disrupting oxidative phosphorylation and releasing extracellular ATP as a danger signal. Naviaux's metabolomic work identifies this dysfunction from the systemic side — abnormal metabolite levels in blood reflecting mitochondrial impairment. The present study approaches from the complementary direction: which specific mitochondrial genes are consistently dysregulated in ASD brain tissue across multiple postmortem cohorts?
 
 ## 2. Methods
 
@@ -35,13 +35,13 @@ The Riker Engine (v0.3.2, AGPL-3.0) implements a six-phase progressive filtering
 
 ### 2.2 ASD Datasets
 
-Seven ASD datasets from the Gene Expression Omnibus were used: three brain cortex discovery datasets, one brain cortex replication dataset, and three blood replication datasets. The core gene identification (Phases 1–4) is driven entirely by the three brain discovery datasets. Blood datasets enter only at Phase 5 for cross-tissue replication testing.
+Seven ASD datasets from the Gene Expression Omnibus were used: three brain cortex discovery datasets, one brain cortex replication dataset, and three blood replication datasets. The core gene identification (Phases 1–4) is driven entirely by the three brain discovery datasets. Blood datasets enter only at Phase 5 for cross-tissue replication testing. SFARI Gene database candidate genes (accessed March 2026, 1,267 genes) were used for blind recovery cross-referencing but were not used as pipeline inputs in blind mode.
 
 **Table 4. Cohort demographics.**
 
 | Dataset | Role | Tissue | ASD | Controls | Total | Ages | Reference |
 |---------|------|--------|-----|----------|-------|------|-----------|
-| GSE28521 | Discovery | Brain cortex (frontal, temporal, cerebellum) | 39 | 40 | 79 | 2–56 yrs | Voineagu et al., Nature 2011 |
+| GSE28521 | Discovery | Brain (frontal cortex, temporal cortex, cerebellum) | 39 samples (19 donors) | 40 samples (17 donors) | 79 | 2–56 yrs | Voineagu et al., Nature 2011 |
 | GSE28475 | Discovery | Prefrontal cortex | 52 | 61 | 113 | 2–56 yrs (young 2–14, adult 15–56), all male | Chow et al., PLoS Genet 2012 |
 | GSE64018 | Discovery | Temporal cortex (BA41/42) | 12 | 12 | 24 | ASD 15–60, controls 16–56, age/sex-matched | Irimia et al., Cell 2014 |
 | GSE102741 | Replication | Prefrontal cortex (DLPFC) | 13 | 39 | 52 | ASD 4–67, controls 2–69, mean 22, matched ±6 yrs | Wright et al., Transl Psychiatry 2017 |
@@ -50,7 +50,7 @@ Seven ASD datasets from the Gene Expression Omnibus were used: three brain corte
 | GSE42133 | Replication | Blood (leukocytes) | 91 | 56 | 147 | 1–4 yrs (toddlers) | Kong et al., PLoS ONE 2012 |
 | **Total** | | | **332** | **332** | **664** | | |
 
-Discovery (brain): 103 ASD, 113 controls across 3 cohorts. Replication (brain): 13 ASD, 39 controls. Replication (blood): 216 ASD, 180 controls across 3 cohorts. †GSE26415 controls include 21 ASD-matched subjects and 21 healthy mothers of ASD children (ctrlMO); both groups are labeled "nonaustistic control" in GEO metadata (Kuwano et al., 2011). Note: GSE28521 and GSE28475 share overlapping donors from the Autism Tissue Program and Harvard Brain Bank.
+Discovery (brain): 103 ASD samples, 113 control samples across 3 cohorts. GSE28521 includes multiple brain regions per donor (32 frontal cortex, 26 temporal cortex, 21 cerebellum); the ASD transcriptomic signal in the original study was primarily cortical (Voineagu et al., 2011). Replication (brain): 13 ASD, 39 controls. Replication (blood): 216 ASD, 180 controls across 3 cohorts. †GSE26415 controls include 21 ASD-matched subjects and 21 healthy mothers of ASD children (ctrlMO); both groups are labeled "nonaustistic control" in GEO metadata (Kuwano et al., 2011). Note: GSE28521 and GSE28475 share overlapping donors from the Autism Tissue Program and Harvard Brain Bank.
 
 ### 2.3 Blind Genome-Wide Mode
 
@@ -188,7 +188,16 @@ Genome-wide stability profiling across 50 independent pipeline runs identifies 3
 
 ## 7. Data and Code Availability
 
-All source code, configurations, stability reports (per-gene scores, run summaries), seed gene lists, and validation results are publicly available at https://github.com/RaySigmon/Riker_Engine. All GEO datasets used are publicly accessible through the NCBI Gene Expression Omnibus. The stability profiling script (scripts/stability_profiling.py) and the ASD blind configuration (configs/examples/asd_blind.yaml) are included in the repository. Results are reproducible using master seed 42.
+All source code, configurations, stability reports, seed gene lists, and validation results are publicly available at https://github.com/RaySigmon/Riker_Engine. Key files for reproducing this analysis:
+
+- **Stability profiling script:** `scripts/stability_profiling.py`
+- **ASD blind configuration:** `configs/examples/asd_blind.yaml`
+- **Per-gene stability scores:** `stability_ASD_blind/stability_scores.csv`
+- **Per-run core gene counts:** `stability_ASD_blind/run_summary.csv`
+- **Independent validation reports:** `results/INDEPENDENT_VALIDATION.md`, `results/REPLICATION_LOG.md`
+- **SFARI seed gene list:** `data/seeds/asd_sfari_genes.csv`
+
+All GEO datasets used are publicly accessible through the NCBI Gene Expression Omnibus. Results are reproducible using master seed 42.
 
 ## 8. Acknowledgments
 
@@ -218,7 +227,7 @@ Naviaux RK (2014). Metabolic features of the cell danger response. Mitochondrion
 
 Naviaux RK (2020). Perspective: Cell danger response Biology. Mitochondrion, 51, 40–45.
 
-Naviaux RK (2026). A 3-hit metabolic signaling model for the core symptoms of autism spectrum disorder. Mitochondrion, 87, 102096.
+Naviaux RK (2025). A 3-hit metabolic signaling model for the core symptoms of autism spectrum disorder. Mitochondrion, 87, 102096. ePub 2025 Nov 14.
 
 Naviaux RK et al. (2017). Low-dose suramin in autism spectrum disorder: a small, phase I/II, randomized clinical trial. Ann Clin Transl Neurol.
 
