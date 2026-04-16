@@ -72,6 +72,8 @@ datasets:
     phenotype_field: Sample_characteristics_ch1
     case_values: ["disease: autism spectrum disorder"]
     control_values: ["disease: nonaustistic control"]
+    # NOTE: Matches 21 ASD vs 42 controls (21 ASD-matched + 21 mother controls).
+    # Both control groups are labeled "nonaustistic control" in GEO metadata.
 
   # Blood microarray
   - id: GSE42133

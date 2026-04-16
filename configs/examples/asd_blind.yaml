@@ -66,6 +66,12 @@ datasets:
     phenotype_field: Sample_characteristics_ch1
     case_values: ["disease: autism spectrum disorder"]
     control_values: ["disease: nonaustistic control"]
+    # NOTE: This dataset has 4 groups of 21. The engine matches 21 ASD cases
+    # and 42 controls (21 ASD-matched + 21 mother controls). Both control
+    # groups are labeled "disease: nonaustistic control" in the GEO metadata.
+    # Both are healthy non-autistic adults. The mother controls share genetics
+    # with ASD children but do not have ASD. Using 42 controls is conservative
+    # (increases statistical power for replication testing in Phase 5).
 
   - id: GSE42133
     series_matrix: data/geo/asd/GSE42133_series_matrix.txt.gz

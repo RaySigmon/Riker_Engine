@@ -51,6 +51,7 @@ datasets:
     phenotype_field: Sample_characteristics_ch1
     case_values: ["disease: autism spectrum disorder"]
     control_values: ["disease: nonaustistic control"]
+    # NOTE: Matches 21 ASD vs 42 controls (21 ASD-matched + 21 mother controls).
 
   - id: GSE42133
     series_matrix: data/geo/asd/GSE42133_series_matrix.txt.gz
