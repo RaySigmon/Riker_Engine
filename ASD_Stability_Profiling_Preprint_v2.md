@@ -37,7 +37,7 @@ The Riker Engine (v0.3.2, AGPL-3.0) implements a six-phase progressive filtering
 
 Seven ASD datasets from the Gene Expression Omnibus were used: three brain discovery datasets, one brain cortex replication dataset, and three blood replication datasets. The core gene identification (Phases 1–4) is driven entirely by the three brain discovery datasets. Blood datasets enter only at Phase 5 for cross-tissue replication testing. SFARI Gene database candidate genes (accessed March 2026, 1,267 genes) were used for blind recovery cross-referencing but were not used as pipeline inputs in blind mode.
 
-**Table 4. Cohort demographics.**
+**Table 1. Cohort demographics.**
 
 | Dataset | Role | Tissue | ASD | Controls | Total | Ages | Reference |
 |---------|------|--------|-----|----------|-------|------|-----------|
@@ -66,7 +66,7 @@ The full pipeline was executed 50 times. Each run received a unique base random 
 
 All 50 runs completed successfully. Core gene counts ranged from 389 to 410 (mean 401, ±2.6%), confirming genuine stochastic variance from varied UMAP initializations. A total of 438 unique genes appeared in at least one run.
 
-**Table 1. Stability classification across 50 independent runs with varied stochastic parameters.**
+**Table 2. Stability classification across 50 independent runs with varied stochastic parameters.**
 
 | Classification | Count | SFARI | Novel | At 100% |
 |----------------|-------|-------|-------|---------|
@@ -83,9 +83,9 @@ SEZ6L2, the second headline gene from the original curated analysis, appeared in
 
 ### 3.3 Mitochondrial and Energy Metabolism Cluster
 
-The most striking finding is a mitochondrial and energy metabolism cluster at iron-clad stability. The original 26-gene core (Table 2a) encodes nearly the complete oxidative phosphorylation system and was discovered without any hypothesis about mitochondrial involvement. When expanded to include glycolysis enzymes, V-ATPase subunits, and additional energy metabolism genes at iron-clad stability, the full cluster comprises 41 genes (Table 2b). Directions were verified as consistent across all 50 runs with zero flips.
+The most striking finding is a mitochondrial and energy metabolism cluster at iron-clad stability. The original 26-gene core (Table 3a) encodes nearly the complete oxidative phosphorylation system and was discovered without any hypothesis about mitochondrial involvement. When expanded to include glycolysis enzymes, V-ATPase subunits, and additional energy metabolism genes at iron-clad stability, the full cluster comprises 41 genes (Table 3b). Directions were verified as consistent across all 50 runs with zero flips.
 
-**Table 2a. Original 26-gene mitochondrial/OxPhos core (25 iron-clad + 1 borderline).**
+**Table 3a. Original 26-gene mitochondrial/OxPhos core (25 iron-clad + 1 borderline).**
 
 | Category | Gene | Stability | Direction | log2FC | Function |
 |----------|------|-----------|-----------|--------|----------|
@@ -118,7 +118,7 @@ The most striking finding is a mitochondrial and energy metabolism cluster at ir
 
 Only SLC25A12 and SLC25A27 are in the SFARI database; the remaining 24 are not established ASD candidate genes.
 
-**Table 2b. Additional energy metabolism genes at iron-clad stability (expanded cluster).**
+**Table 3b. Additional energy metabolism genes at iron-clad stability (expanded cluster).**
 
 | Category | Gene | Stability | Direction | log2FC | Function |
 |----------|------|-----------|-----------|--------|----------|
@@ -144,7 +144,7 @@ This cluster spans the core of the mitochondrial energy production system: the T
 
 ### 3.4 Additional Biologically Notable Findings
 
-**Table 3. Biologically notable genes beyond the mitochondrial cluster.**
+**Table 4. Biologically notable genes beyond the mitochondrial cluster.**
 
 | Gene | Stability | ASD Literature | Biological Relevance |
 |------|-----------|----------------|---------------------|
