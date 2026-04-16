@@ -35,7 +35,7 @@ The Riker Engine (v0.3.2, AGPL-3.0) implements a six-phase progressive filtering
 
 ### 2.2 ASD Datasets
 
-Seven ASD datasets from the Gene Expression Omnibus were used: three brain cortex discovery datasets, one brain cortex replication dataset, and three blood replication datasets. The core gene identification (Phases 1–4) is driven entirely by the three brain discovery datasets. Blood datasets enter only at Phase 5 for cross-tissue replication testing. SFARI Gene database candidate genes (accessed March 2026, 1,267 genes) were used for blind recovery cross-referencing but were not used as pipeline inputs in blind mode.
+Seven ASD datasets from the Gene Expression Omnibus were used: three brain discovery datasets, one brain cortex replication dataset, and three blood replication datasets. The core gene identification (Phases 1–4) is driven entirely by the three brain discovery datasets. Blood datasets enter only at Phase 5 for cross-tissue replication testing. SFARI Gene database candidate genes (accessed March 2026, 1,267 genes) were used for blind recovery cross-referencing but were not used as pipeline inputs in blind mode.
 
 **Table 4. Cohort demographics.**
 
@@ -54,7 +54,7 @@ Discovery (brain): 103 ASD samples, 113 control samples across 3 cohorts. GSE285
 
 ### 2.3 Blind Genome-Wide Mode
 
-Rather than seeding with SFARI candidate genes, the pipeline was run in blind mode using all 19,296 protein-coding genes as seeds. This eliminates any selection bias from the seed list and allows the pipeline to discover gene modules from the full expressed transcriptome without prior hypothesis.
+Rather than seeding with SFARI candidate genes, the pipeline was run in blind mode using all 19,296 protein-coding genes as seeds. The merged expression matrix across the discovery datasets contained approximately 26,800 genes; the 19,296 protein-coding subset was used as the seed list. This eliminates any selection bias from the seed list and allows the pipeline to discover gene modules from the full expressed transcriptome without prior hypothesis.
 
 ### 2.4 Stability Profiling Protocol
 
@@ -116,7 +116,7 @@ The most striking finding is a mitochondrial and energy metabolism cluster at ir
 | Other energy | CYBA | 50/50 | up | +0.87 | Cytochrome b-245 alpha (ROS) |
 | | NME4 | 50/50 | up | +0.37 | Nucleoside diphosphate kinase D |
 
-Only SLC25A12 and SLC25A27 are in the SFARI database. The remaining 24 have not been individually linked to ASD in the existing literature.
+Only SLC25A12 and SLC25A27 are in the SFARI database; the remaining 24 are not established ASD candidate genes.
 
 **Table 2b. Additional energy metabolism genes at iron-clad stability (expanded cluster).**
 
@@ -140,7 +140,7 @@ Only SLC25A12 and SLC25A27 are in the SFARI database. The remaining 24 have not 
 
 **Direction summary (full 41-gene cluster): 23 upregulated, 18 downregulated.** All directions verified as consistent across all 50 runs (zero genes changed direction between runs).
 
-This cluster spans the core of the mitochondrial energy production system: the TCA cycle (IDH3A/B/G, OGDHL, SDHA, ME3, FH, IDH1), the electron transport chain (Complex I assembly: NDUFAF5; Complex II: SDHA; Complex III: UQCRC1/2, CYC1; Complex IV: COX7A1), ATP synthesis (ATP5F1A/B, ATPAF1), coenzyme Q biosynthesis (COQ3, COQ6), mitochondrial protein import and assembly (CHCHD4, HSPD1, NDUFAF5), solute transport (SLC25A3/12/27/37, VDAC3), ROS production (CYBA), lysosomal acidification (ATP6V1A/C1/E1), and glycolysis (HK2, ALDOC, ENO2, GPI, PFKM, PFKP, PYGB). Of the original 26-gene core, only two (SLC25A12 and SLC25A27) are in the SFARI database.
+This cluster spans the core of the mitochondrial energy production system: the TCA cycle and related oxidative metabolism (IDH3A/B/G, IDH1, OGDHL, SDHA, ME3, FH), the electron transport chain (Complex I assembly: NDUFAF5; Complex II: SDHA; Complex III: UQCRC1/2, CYC1; Complex IV: COX7A1), ATP synthesis (ATP5F1A/B, ATPAF1), coenzyme Q biosynthesis (COQ3, COQ6), mitochondrial protein import and assembly (CHCHD4, HSPD1, NDUFAF5), solute transport (SLC25A3/12/27/37, VDAC3), ROS production (CYBA), lysosomal acidification (ATP6V1A/C1/E1), and glycolysis (HK2, ALDOC, ENO2, GPI, PFKM, PFKP, PYGB). Of the original 26-gene core, only two (SLC25A12 and SLC25A27) are in the SFARI database.
 
 ### 3.4 Additional Biologically Notable Findings
 
