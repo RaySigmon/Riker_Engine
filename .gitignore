@@ -25,6 +25,13 @@ data/hgnc/
 .vscode/
 .idea/
 
+# Nested repo clone artifact
+Riker_Engine/
+
+# Raw pipeline output (regenerable from master seed)
+output/
+stability_ASD_blind/runs/
+
 # OS
 .DS_Store
 Thumbs.db
