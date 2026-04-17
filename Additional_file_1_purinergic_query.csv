@@ -1,0 +1,28 @@
+Gene,Family,Tier,Stability (n/50),Direction,log2FC,GSE28521 (GPL6883),GSE28475 (GPL6883),GSE64018 (RNA-seq),Notes
+P2RX7,P2X,D1,0/50,—,—,present,present,present,Naviaux priority. Detected all 3 cohorts; not DE
+P2RY2,P2Y,D2,0/50,—,—,present,present,absent,Naviaux priority. Detected 2 of 3 cohorts
+P2RY6,P2Y,D2,0/50,—,—,present,present,absent,Naviaux priority. Detected 2 of 3 cohorts
+P2RY10,P2Y,D2,0/50,—,—,present,present,absent,Naviaux priority. Detected 2 of 3 cohorts
+P2RX1,P2X,D2,0/50,—,—,present,present,absent,Detected 2 of 3 cohorts
+P2RX2,P2X,D2,0/50,—,—,present,present,absent,Detected 2 of 3 cohorts
+P2RX3,P2X,D2,0/50,—,—,present,present,absent,Detected 2 of 3 cohorts
+P2RX4,P2X,E,0/50,—,—,absent,absent,present,No GPL6883 probe
+P2RX5,P2X,E,0/50,—,—,absent,absent,present,No GPL6883 probe
+P2RX6,P2X,D1,0/50,—,—,present,present,present,Detected all 3 cohorts; not DE
+P2RY1,P2Y,D1,0/50,—,—,present,present,present,Detected all 3 cohorts; not DE
+P2RY4,P2Y,D2,0/50,—,—,present,present,absent,Detected 2 of 3 cohorts
+P2RY8,P2Y,D2,0/50,—,—,present,present,absent,Detected 2 of 3 cohorts
+P2RY11,P2Y,D1,0/50,—,—,present,present,present,Detected all 3 cohorts; not DE
+P2RY12,P2Y,E,0/50,—,—,absent,absent,present,No GPL6883 probe; key microglial receptor
+P2RY13,P2Y,D1,0/50,—,—,present,present,present,Detected all 3 cohorts; not DE
+P2RY14,P2Y,D1,0/50,—,—,present,present,present,Detected all 3 cohorts; not DE
+ADORA1,P1,D1,0/50,—,—,present,present,present,Detected all 3 cohorts; not DE
+ADORA2A,P1,D2,0/50,—,—,present,present,absent,Detected 2 of 3 cohorts
+ADORA2B,P1,D1,0/50,—,—,present,present,present,Detected all 3 cohorts; not DE
+ADORA3,P1,D2,0/50,—,—,present,present,absent,Detected 2 of 3 cohorts
+PANX1,Pannexin,D1,0/50,—,—,present,present,present,Detected all 3 cohorts; not DE
+PANX2,Pannexin,D1,0/50,—,—,present,present,present,Detected all 3 cohorts; not DE
+PANX3,Pannexin,D2,0/50,—,—,present,present,absent,Detected 2 of 3 cohorts
+ENTPD1 (CD39),Ecto-enzyme,D1,0/50,—,—,present,present,present,Detected all 3 cohorts; not DE
+NT5E (CD73),Ecto-enzyme,D1,0/50,—,—,present,present,present,Detected all 3 cohorts; not DE
+ADA,Ecto-enzyme,D1,0/50,up,0.76,present,present,present,DE in all 3 cohorts consistent upregulation; Phase 1 only level 1 clustering — not core

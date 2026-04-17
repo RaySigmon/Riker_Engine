@@ -63,8 +63,8 @@ Of 41 mitochondrial and energy metabolism cluster genes:
 - **2 were not in the core gene set for the representative run** (COX7A1 at 47/50 stability, SLC25A12 at 48/50 stability — both iron-clad overall but not in run 001)
 
 Of the 19 genes with meta-analysis data:
-- **7 showed significant pooled random-effects (p < 0.05):** CYBA, GPI, IDH3A, OGDHL, SLC25A27, NDUFAF5, PFKP
-- **5 showed significant pooled effects with moderate heterogeneity:** HK2, ME3, UQCRC1, HK2, PFKP
-- **7 showed high heterogeneity (I² > 80%):** ATP5F1A (90.7%), PFKM (87.6%), NFS1 (86.7%), PYGB (84.9%), ALDOC (82.9%), FH (82.6%)
+- **10 showed significant pooled random-effects (p < 0.05):** CYBA, GPI, IDH3A, OGDHL, SLC25A27, NDUFAF5, PFKP, HK2, ME3, UQCRC1
+- **3 showed non-significant effects with moderate heterogeneity (I² 50–80%):** CYC1 (p = 0.162, I² = 74.9%), GOT1 (p = 0.147, I² = 79.5%), SLC25A3 (p = 0.303, I² = 74.1%)
+- **6 showed non-significant effects with high heterogeneity (I² > 80%):** ATP5F1A (90.7%), PFKM (87.6%), NFS1 (86.7%), PYGB (84.9%), ALDOC (82.9%), FH (82.6%)
 
-Note: The Phase 6 random-effects estimate uses inverse-variance weighting across the three brain discovery cohorts and may differ in magnitude or sign from the Phase 1 unweighted mean log2FC. This is expected when cohorts have different sample sizes, platforms, and brain regions. The stability finding (consistent co-clustering in ≥90% of 50 runs) is methodologically distinct from effect size homogeneity.
+Note on sign discrepancies: The Phase 6 random-effects estimate uses inverse-variance weighting across the three brain discovery cohorts and may differ in magnitude or sign from the Phase 1 unweighted mean log2FC. For example, ME3 has a Phase 1 mean log2FC of +0.08 (up) but a Phase 6 RE of −0.296 (down, p = 0.025). This occurs because the three cohorts contribute different effect sizes and the inverse-variance weighting can shift the pooled estimate relative to a simple average. Similar sign discrepancies appear for ATP5F1A, PFKM, SLC25A3, ALDOC, and FH. These discrepancies reflect between-cohort heterogeneity in effect magnitude across different platforms and brain regions — not errors in either estimate. The stability finding (consistent co-clustering in ≥90% of 50 runs) is methodologically distinct from effect size homogeneity.
