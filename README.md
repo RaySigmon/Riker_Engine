@@ -210,7 +210,7 @@ pip install ".[ui]"
 ### Verify Installation
 
 ```bash
-pip install ".[dev]"         # adds pytest (already included if you installed [clustering])
+pip install ".[dev]"         # adds pytest and pytest-cov
 python -m pytest tests/ -q   # 300 tests
 riker --help
 ```

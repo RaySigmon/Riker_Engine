@@ -11,6 +11,10 @@ repository-code: "https://github.com/RaySigmon/Riker_Engine"
 license: AGPL-3.0
 version: "0.3.2"
 date-released: "2026-04-12"
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.19623672
+    description: Zenodo archive of v0.3.2
 keywords:
   - transcriptomics
   - gene modules
