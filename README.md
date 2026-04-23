@@ -342,4 +342,3 @@ Licensed under [AGPL-3.0](LICENSE). Free to use for research and academic purpos
 
 Built by Ray Sigmon, independent computational researcher. Developed and validated entirely on a Raspberry Pi 5 named Ghost, using Claude Code CLI as the engineering layer.
 
-Named after his son Riker.

@@ -8,7 +8,7 @@ This script compiles known drug targets for each disease from authoritative
 sources (DrugBank, FDA labels, Open Targets, PharmGKB) and computes
 systematic hit rates against the core gene lists produced by the Riker Engine.
 
-Author: Cody (Kai)
+Author: Ray Sigmon
 Date: 2026-04-06
 """
 

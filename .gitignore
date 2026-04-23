@@ -32,6 +32,18 @@ Riker_Engine/
 output/
 stability_ASD_blind/runs/
 
+# Private correspondence and drafts — should live in ~/Documents/alpha_labs/
+manuscripts/*cover_letter*
+manuscripts/*Cover_Letter*
+manuscripts/*correspondence*
+manuscripts/*Correspondence*
+manuscripts/*_draft*
+manuscripts/*_Draft*
+manuscripts/*rejection*
+manuscripts/*_private*
+*.eml
+*.msg
+
 # OS
 .DS_Store
 Thumbs.db
