@@ -1,0 +1,36 @@
+gene,cluster_id,status,discovery_direction,n_same_tissue_concordant,n_same_tissue_discordant,n_cross_tissue_concordant,reason
+EFR3A,1,eliminated,up,3,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+FBXO33,1,eliminated,up,3,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+SLC45A1,1,eliminated,down,2,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE42133']. Discovery direction: down.
+ATP2B2,4,survived,down,3,0,0,Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+DEPDC5,4,survived,up,2,0,0,Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+GABRG2,4,survived,down,2,0,0,Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+NR3C2,4,eliminated,up,3,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+PPP3CA,4,eliminated,down,2,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: down.
+PRPF19,4,survived,down,2,0,0,Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+QRICH1,4,survived,up,1,0,0,Same-tissue replication: 1/4 concordant. Cross-tissue: 0/0 concordant.
+SLC12A5,4,eliminated,up,0,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: up.
+SPTAN1,4,eliminated,down,0,2,0,"Significant opposite direction in same-tissue dataset(s): ['GSE18123', 'GSE42133']. Discovery direction: down."
+ZNF385B,4,survived,down,1,0,0,Same-tissue replication: 1/3 concordant. Cross-tissue: 0/0 concordant.
+ELP2,5,eliminated,up,3,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+KIAA0232,5,eliminated,up,2,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+SNX14,5,eliminated,up,2,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+LIN7B,6,survived,down,2,0,0,Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+NPTN,6,survived,down,3,0,0,Same-tissue replication: 3/4 concordant. Cross-tissue: 0/0 concordant.
+RGS7,6,survived,down,2,0,0,Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+RPH3A,6,survived,down,2,0,0,Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+CADPS,8,survived,down,2,0,0,Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+SEZ6L2,8,survived,down,3,0,0,Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+SNAP25,8,survived,down,3,0,0,Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+ACTL6B,10,survived,down,2,0,0,Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+APBA2,10,eliminated,down,2,2,0,"Significant opposite direction in same-tissue dataset(s): ['GSE18123', 'GSE42133']. Discovery direction: down."
+ICA1,10,survived,down,2,0,0,Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+SLC25A12,10,survived,down,1,0,0,Same-tissue replication: 1/4 concordant. Cross-tissue: 0/0 concordant.
+SLC25A27,10,survived,down,2,0,0,Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+ATP1A1,11,eliminated,down,2,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: down.
+DPP10,11,survived,down,1,0,0,Same-tissue replication: 1/3 concordant. Cross-tissue: 0/0 concordant.
+ITPR1,11,eliminated,down,1,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: down.
+NAV2,12,eliminated,up,2,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: up.
+NPAS3,12,survived,up,2,0,0,Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+TBR1,12,survived,down,2,0,0,Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+ZFHX3,12,eliminated,up,3,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: up.

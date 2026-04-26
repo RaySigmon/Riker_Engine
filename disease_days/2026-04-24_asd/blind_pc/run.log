@@ -1,0 +1,1314 @@
+2026-04-26 08:22:33 [INFO] riker.config: Config loaded: condition=ASD_blind, 3 discovery + 4 replication datasets.
+2026-04-26 08:22:33 [INFO] riker: ============================================================
+2026-04-26 08:22:33 [INFO] riker: PHASE 1: Cross-Referencing
+2026-04-26 08:22:33 [INFO] riker: ============================================================
+2026-04-26 08:22:36 [INFO] riker.ingestion.gene_db: Loading HGNC data from data/hgnc/hgnc_complete_set.txt...
+2026-04-26 08:22:43 [INFO] riker.ingestion.gene_db: HGNC resolver loaded: 44981 approved symbols, 57613 aliases/previous symbols mapped.
+2026-04-26 08:22:44 [INFO] riker.ingestion.gene_db: Loaded 19296 seed genes from data/seeds/all_protein_coding_genes.csv. 0 symbols remapped via HGNC.
+2026-04-26 08:22:44 [INFO] riker: Loaded 19296 seed genes.
+2026-04-26 08:22:44 [INFO] riker: Loading dataset: GSE28521
+2026-04-26 08:22:47 [INFO] riker.ingestion.geo_parser: Probe-to-gene mapping: 10285 mapped, 508 unmapped, 9143 unique genes.
+2026-04-26 08:22:47 [INFO] riker: Loading dataset: GSE28475
+/home/kai001/riker-engine/riker/cli.py:131: UserWarning: Sample GSM703758 value 'tissue: brain | assay: ivt | heat treatment: heating at 95c for 0 min |' did not match any case (['diagnosis: autism']) or control (['diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:131: UserWarning: Sample GSM703759 value 'tissue: brain | assay: ivt | heat treatment: heating at 95c for 10 min |' did not match any case (['diagnosis: autism']) or control (['diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:131: UserWarning: Sample GSM703760 value 'tissue: brain | assay: ivt | heat treatment: heating at 95c for 30 min |' did not match any case (['diagnosis: autism']) or control (['diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:131: UserWarning: Sample GSM703761 value 'tissue: brain | assay: ivt | heat treatment: heating at 95c for 60 min |' did not match any case (['diagnosis: autism']) or control (['diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:131: UserWarning: Sample GSM703762 value 'tissue: stratagene universal reference pooled rna | assay: ivt | heat treatment: heating at 95c for 0 min |' did not match any case (['diagnosis: autism']) or control (['diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:131: UserWarning: Sample GSM703763 value 'tissue: stratagene universal reference pooled rna | assay: ivt | heat treatment: heating at 95c for 10 min |' did not match any case (['diagnosis: autism']) or control (['diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:131: UserWarning: Sample GSM703764 value 'tissue: stratagene universal reference pooled rna | assay: ivt | heat treatment: heating at 95c for 30 min |' did not match any case (['diagnosis: autism']) or control (['diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:131: UserWarning: Sample GSM703765 value 'tissue: stratagene universal reference pooled rna | assay: ivt | heat treatment: heating at 95c for 60 min |' did not match any case (['diagnosis: autism']) or control (['diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:131: UserWarning: Sample GSM703766 value 'tissue: 25% brain 75% pooled | assay: ivt |  |' did not match any case (['diagnosis: autism']) or control (['diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:131: UserWarning: Sample GSM703767 value 'tissue: 75% brain 25% pooled | assay: ivt |  |' did not match any case (['diagnosis: autism']) or control (['diagnosis: control']) values.
+  pheno = extractor.extract(
+2026-04-26 08:22:53 [INFO] riker.ingestion.geo_parser: Probe-to-gene mapping: 22735 mapped, 1791 unmapped, 17533 unique genes.
+2026-04-26 08:22:53 [WARNING] riker.ingestion.normalizer: Clamping 94 negative values to 0 (background subtraction artifacts in raw intensity data).
+2026-04-26 08:22:53 [INFO] riker.ingestion.normalizer: Applied log2(x+1) transformation (after clamping). Median: 178.21 -> 7.49
+2026-04-26 08:22:53 [INFO] riker: Loading dataset: GSE64018
+2026-04-26 08:22:56 [INFO] riker.ingestion.geo_parser: Probe-to-gene mapping: 13917 mapped, 689 unmapped, 13917 unique genes.
+2026-04-26 08:22:56 [INFO] riker.phases.phase1_crossref: Dataset GSE28521: 9058/19296 seed genes detected (46.9%).
+2026-04-26 08:22:56 [INFO] riker.phases.phase1_crossref: Dataset GSE28475: 17134/19296 seed genes detected (88.8%).
+2026-04-26 08:22:56 [INFO] riker.phases.phase1_crossref: Dataset GSE64018: 12740/19296 seed genes detected (66.0%).
+2026-04-26 08:23:51 [INFO] riker.phases.phase1_crossref: Phase 1 complete: 1793 study genes from 19296 seed genes (p < 0.05 in >= 2 datasets).
+2026-04-26 08:23:52 [INFO] riker.io.outputs: Phase 1 summary: disease_days/2026-04-24_asd/blind_pc/phase1_study_genes.csv
+2026-04-26 08:23:52 [INFO] riker: ============================================================
+2026-04-26 08:23:52 [INFO] riker: PHASE 2: Pathway Mapping
+2026-04-26 08:23:52 [INFO] riker: ============================================================
+2026-04-26 08:23:52 [WARNING] riker: No pathway data configured. Using expression features only.
+2026-04-26 08:23:52 [INFO] riker.phases.phase2_pathways: Pathway filter: 0 -> 0 pathways (min_study=3, max_total=500, min_frac=0.02).
+2026-04-26 08:23:52 [INFO] riker.phases.phase2_pathways: Phase 2 complete: 1793 genes × 5 features (0 pathway + 5 expression features).
+2026-04-26 08:23:52 [INFO] riker: ============================================================
+2026-04-26 08:23:52 [INFO] riker: PHASE 3: Consensus Clustering
+2026-04-26 08:23:52 [INFO] riker: ============================================================
+2026-04-26 08:24:06 [INFO] riker.phases.phase3_clustering: Running 15 UMAP+HDBSCAN configurations (3 n_neighbors × 5 seeds)...
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+2026-04-26 08:27:02 [INFO] riker.phases.phase3_clustering: Phase 3 complete: 180 clusters, 26 noise genes from 15 configurations.
+2026-04-26 08:27:02 [INFO] riker: ============================================================
+2026-04-26 08:27:02 [INFO] riker: PHASE 4: Robustness Testing
+2026-04-26 08:27:02 [INFO] riker: ============================================================
+2026-04-26 08:27:03 [INFO] riker.phases.phase4_robustness: Cluster 0: permutation p=0.9867, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:27:04 [INFO] riker.phases.phase4_robustness: Cluster 1: permutation p=0.9975, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:27:05 [INFO] riker.phases.phase4_robustness: Cluster 2: permutation p=0.6015, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:27:06 [INFO] riker.phases.phase4_robustness: Cluster 3: permutation p=0.0001, Bonferroni p=0.0180 (SIGNIFICANT)
+2026-04-26 08:27:07 [INFO] riker.phases.phase4_robustness: Cluster 4: permutation p=0.0001, Bonferroni p=0.0180 (SIGNIFICANT)
+2026-04-26 08:27:08 [INFO] riker.phases.phase4_robustness: Cluster 5: permutation p=0.9982, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:27:08 [INFO] riker.phases.phase4_robustness: Cluster 6: permutation p=0.9950, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:27:09 [INFO] riker.phases.phase4_robustness: Cluster 7: permutation p=0.8201, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:27:10 [INFO] riker.phases.phase4_robustness: Cluster 8: permutation p=0.9691, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:27:11 [INFO] riker.phases.phase4_robustness: Cluster 9: permutation p=0.0001, Bonferroni p=0.0180 (SIGNIFICANT)
+2026-04-26 08:27:12 [INFO] riker.phases.phase4_robustness: Cluster 10: permutation p=0.0001, Bonferroni p=0.0180 (SIGNIFICANT)
+2026-04-26 08:27:13 [INFO] riker.phases.phase4_robustness: Cluster 11: permutation p=1.0000, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:27:14 [INFO] riker.phases.phase4_robustness: Cluster 12: permutation p=0.0048, Bonferroni p=0.8639 (not significant)
+2026-04-26 08:27:15 [INFO] riker.phases.phase4_robustness: Cluster 13: permutation p=0.0002, Bonferroni p=0.0360 (SIGNIFICANT)
+2026-04-26 08:27:16 [INFO] riker.phases.phase4_robustness: Cluster 14: permutation p=0.9988, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:27:17 [INFO] riker.phases.phase4_robustness: Cluster 15: permutation p=0.9834, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:27:17 [INFO] riker.phases.phase4_robustness: Cluster 16: permutation p=0.7949, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:27:18 [INFO] riker.phases.phase4_robustness: Cluster 17: permutation p=0.9826, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:27:19 [INFO] riker.phases.phase4_robustness: Cluster 18: permutation p=0.9957, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:27:20 [INFO] riker.phases.phase4_robustness: Cluster 19: permutation p=0.0016, Bonferroni p=0.2880 (not significant)
+2026-04-26 08:27:21 [INFO] riker.phases.phase4_robustness: Cluster 20: permutation p=0.0061, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:27:22 [INFO] riker.phases.phase4_robustness: Cluster 21: permutation p=0.7478, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:27:23 [INFO] riker.phases.phase4_robustness: Cluster 22: permutation p=1.0000, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:27:24 [INFO] riker.phases.phase4_robustness: Cluster 23: permutation p=0.0407, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:27:25 [INFO] riker.phases.phase4_robustness: Cluster 24: permutation p=0.0009, Bonferroni p=0.1620 (not significant)
+2026-04-26 08:27:26 [INFO] riker.phases.phase4_robustness: Cluster 25: permutation p=0.9387, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:27:27 [INFO] riker.phases.phase4_robustness: Cluster 26: permutation p=0.6104, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:27:28 [INFO] riker.phases.phase4_robustness: Cluster 27: permutation p=0.9717, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:27:29 [INFO] riker.phases.phase4_robustness: Cluster 28: permutation p=0.9015, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:27:29 [INFO] riker.phases.phase4_robustness: Cluster 29: permutation p=0.1447, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:27:31 [INFO] riker.phases.phase4_robustness: Cluster 30: permutation p=0.0011, Bonferroni p=0.1980 (not significant)
+2026-04-26 08:27:31 [INFO] riker.phases.phase4_robustness: Cluster 31: permutation p=0.0600, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:27:32 [INFO] riker.phases.phase4_robustness: Cluster 32: permutation p=0.0061, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:27:33 [INFO] riker.phases.phase4_robustness: Cluster 33: permutation p=0.0001, Bonferroni p=0.0180 (SIGNIFICANT)
+2026-04-26 08:27:34 [INFO] riker.phases.phase4_robustness: Cluster 34: permutation p=0.0001, Bonferroni p=0.0180 (SIGNIFICANT)
+2026-04-26 08:27:35 [INFO] riker.phases.phase4_robustness: Cluster 35: permutation p=0.9998, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:27:36 [INFO] riker.phases.phase4_robustness: Cluster 36: permutation p=1.0000, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:27:37 [INFO] riker.phases.phase4_robustness: Cluster 37: permutation p=0.0317, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:27:38 [INFO] riker.phases.phase4_robustness: Cluster 38: permutation p=0.9279, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:27:39 [INFO] riker.phases.phase4_robustness: Cluster 39: permutation p=0.9017, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:27:39 [INFO] riker.phases.phase4_robustness: Cluster 40: permutation p=0.9792, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:27:40 [INFO] riker.phases.phase4_robustness: Cluster 41: permutation p=0.9999, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:27:41 [INFO] riker.phases.phase4_robustness: Cluster 42: permutation p=0.1027, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:27:42 [INFO] riker.phases.phase4_robustness: Cluster 43: permutation p=0.4210, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:27:43 [INFO] riker.phases.phase4_robustness: Cluster 44: permutation p=0.0003, Bonferroni p=0.0540 (not significant)
+2026-04-26 08:27:44 [INFO] riker.phases.phase4_robustness: Cluster 45: permutation p=0.0001, Bonferroni p=0.0180 (SIGNIFICANT)
+2026-04-26 08:27:45 [INFO] riker.phases.phase4_robustness: Cluster 46: permutation p=0.0505, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:27:46 [INFO] riker.phases.phase4_robustness: Cluster 47: permutation p=0.0004, Bonferroni p=0.0720 (not significant)
+2026-04-26 08:27:47 [INFO] riker.phases.phase4_robustness: Cluster 48: permutation p=0.1470, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:27:48 [INFO] riker.phases.phase4_robustness: Cluster 49: permutation p=0.0099, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:27:48 [INFO] riker.phases.phase4_robustness: Cluster 50: permutation p=0.0001, Bonferroni p=0.0180 (SIGNIFICANT)
+2026-04-26 08:27:49 [INFO] riker.phases.phase4_robustness: Cluster 51: permutation p=1.0000, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:27:50 [INFO] riker.phases.phase4_robustness: Cluster 52: permutation p=0.9999, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:27:51 [INFO] riker.phases.phase4_robustness: Cluster 53: permutation p=0.0001, Bonferroni p=0.0180 (SIGNIFICANT)
+2026-04-26 08:27:52 [INFO] riker.phases.phase4_robustness: Cluster 54: permutation p=0.9990, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:27:53 [INFO] riker.phases.phase4_robustness: Cluster 55: permutation p=1.0000, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:27:54 [INFO] riker.phases.phase4_robustness: Cluster 56: permutation p=1.0000, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:27:55 [INFO] riker.phases.phase4_robustness: Cluster 57: permutation p=0.0494, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:27:56 [INFO] riker.phases.phase4_robustness: Cluster 58: permutation p=0.2130, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:27:57 [INFO] riker.phases.phase4_robustness: Cluster 59: permutation p=0.0549, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:27:58 [INFO] riker.phases.phase4_robustness: Cluster 60: permutation p=0.9239, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:27:59 [INFO] riker.phases.phase4_robustness: Cluster 61: permutation p=0.9885, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:28:00 [INFO] riker.phases.phase4_robustness: Cluster 62: permutation p=1.0000, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:28:00 [INFO] riker.phases.phase4_robustness: Cluster 63: permutation p=0.0003, Bonferroni p=0.0540 (not significant)
+2026-04-26 08:28:01 [INFO] riker.phases.phase4_robustness: Cluster 64: permutation p=0.0061, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:28:02 [INFO] riker.phases.phase4_robustness: Cluster 65: permutation p=0.0001, Bonferroni p=0.0180 (SIGNIFICANT)
+2026-04-26 08:28:03 [INFO] riker.phases.phase4_robustness: Cluster 66: permutation p=0.0652, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:28:04 [INFO] riker.phases.phase4_robustness: Cluster 67: permutation p=0.0626, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:28:05 [INFO] riker.phases.phase4_robustness: Cluster 68: permutation p=0.2401, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:28:06 [INFO] riker.phases.phase4_robustness: Cluster 69: permutation p=0.2736, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:28:07 [INFO] riker.phases.phase4_robustness: Cluster 70: permutation p=0.0001, Bonferroni p=0.0180 (SIGNIFICANT)
+2026-04-26 08:28:08 [INFO] riker.phases.phase4_robustness: Cluster 71: permutation p=1.0000, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:28:09 [INFO] riker.phases.phase4_robustness: Cluster 72: permutation p=0.9847, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:28:10 [INFO] riker.phases.phase4_robustness: Cluster 73: permutation p=0.0375, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:28:11 [INFO] riker.phases.phase4_robustness: Cluster 74: permutation p=0.3533, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:28:12 [INFO] riker.phases.phase4_robustness: Cluster 75: permutation p=0.1905, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:28:12 [INFO] riker.phases.phase4_robustness: Cluster 76: permutation p=0.7878, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:28:13 [INFO] riker.phases.phase4_robustness: Cluster 77: permutation p=0.9237, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:28:14 [INFO] riker.phases.phase4_robustness: Cluster 78: permutation p=0.6655, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:28:15 [INFO] riker.phases.phase4_robustness: Cluster 79: permutation p=0.9999, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:28:16 [INFO] riker.phases.phase4_robustness: Cluster 80: permutation p=0.9979, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:28:17 [INFO] riker.phases.phase4_robustness: Cluster 81: permutation p=1.0000, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:28:18 [INFO] riker.phases.phase4_robustness: Cluster 82: permutation p=0.9975, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:28:19 [INFO] riker.phases.phase4_robustness: Cluster 83: permutation p=1.0000, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:28:20 [INFO] riker.phases.phase4_robustness: Cluster 84: permutation p=1.0000, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:28:21 [INFO] riker.phases.phase4_robustness: Cluster 85: permutation p=0.9746, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:28:22 [INFO] riker.phases.phase4_robustness: Cluster 86: permutation p=0.9997, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:28:23 [INFO] riker.phases.phase4_robustness: Cluster 87: permutation p=0.9392, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:28:24 [INFO] riker.phases.phase4_robustness: Cluster 88: permutation p=0.3760, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:28:25 [INFO] riker.phases.phase4_robustness: Cluster 89: permutation p=0.0001, Bonferroni p=0.0180 (SIGNIFICANT)
+2026-04-26 08:28:25 [INFO] riker.phases.phase4_robustness: Cluster 90: permutation p=0.0019, Bonferroni p=0.3420 (not significant)
+2026-04-26 08:28:26 [INFO] riker.phases.phase4_robustness: Cluster 91: permutation p=0.0016, Bonferroni p=0.2880 (not significant)
+2026-04-26 08:28:27 [INFO] riker.phases.phase4_robustness: Cluster 92: permutation p=1.0000, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:28:28 [INFO] riker.phases.phase4_robustness: Cluster 93: permutation p=1.0000, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:28:29 [INFO] riker.phases.phase4_robustness: Cluster 94: permutation p=0.0001, Bonferroni p=0.0180 (SIGNIFICANT)
+2026-04-26 08:28:30 [INFO] riker.phases.phase4_robustness: Cluster 95: permutation p=0.0001, Bonferroni p=0.0180 (SIGNIFICANT)
+2026-04-26 08:28:31 [INFO] riker.phases.phase4_robustness: Cluster 96: permutation p=0.9930, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:28:32 [INFO] riker.phases.phase4_robustness: Cluster 97: permutation p=0.0701, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:28:33 [INFO] riker.phases.phase4_robustness: Cluster 98: permutation p=0.0577, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:28:34 [INFO] riker.phases.phase4_robustness: Cluster 99: permutation p=0.7525, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:28:35 [INFO] riker.phases.phase4_robustness: Cluster 100: permutation p=0.4663, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:28:36 [INFO] riker.phases.phase4_robustness: Cluster 101: permutation p=0.9991, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:28:36 [INFO] riker.phases.phase4_robustness: Cluster 102: permutation p=0.9993, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:28:37 [INFO] riker.phases.phase4_robustness: Cluster 103: permutation p=0.0008, Bonferroni p=0.1440 (not significant)
+2026-04-26 08:28:38 [INFO] riker.phases.phase4_robustness: Cluster 104: permutation p=0.0001, Bonferroni p=0.0180 (SIGNIFICANT)
+2026-04-26 08:28:39 [INFO] riker.phases.phase4_robustness: Cluster 105: permutation p=0.9660, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:28:40 [INFO] riker.phases.phase4_robustness: Cluster 106: permutation p=0.9258, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:28:41 [INFO] riker.phases.phase4_robustness: Cluster 107: permutation p=0.7580, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:28:42 [INFO] riker.phases.phase4_robustness: Cluster 108: permutation p=0.8173, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:28:43 [INFO] riker.phases.phase4_robustness: Cluster 109: permutation p=0.0001, Bonferroni p=0.0180 (SIGNIFICANT)
+2026-04-26 08:28:43 [INFO] riker.phases.phase4_robustness: Cluster 110: permutation p=0.0001, Bonferroni p=0.0180 (SIGNIFICANT)
+2026-04-26 08:28:44 [INFO] riker.phases.phase4_robustness: Cluster 111: permutation p=1.0000, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:28:45 [INFO] riker.phases.phase4_robustness: Cluster 112: permutation p=0.9996, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:28:46 [INFO] riker.phases.phase4_robustness: Cluster 113: permutation p=0.8561, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:28:47 [INFO] riker.phases.phase4_robustness: Cluster 114: permutation p=0.9881, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:28:48 [INFO] riker.phases.phase4_robustness: Cluster 115: permutation p=0.9997, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:28:49 [INFO] riker.phases.phase4_robustness: Cluster 116: permutation p=0.9988, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:28:50 [INFO] riker.phases.phase4_robustness: Cluster 117: permutation p=0.0001, Bonferroni p=0.0180 (SIGNIFICANT)
+2026-04-26 08:28:50 [INFO] riker.phases.phase4_robustness: Cluster 118: permutation p=0.0001, Bonferroni p=0.0180 (SIGNIFICANT)
+2026-04-26 08:28:51 [INFO] riker.phases.phase4_robustness: Cluster 119: permutation p=1.0000, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:28:52 [INFO] riker.phases.phase4_robustness: Cluster 120: permutation p=1.0000, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:28:53 [INFO] riker.phases.phase4_robustness: Cluster 121: permutation p=0.2984, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:28:54 [INFO] riker.phases.phase4_robustness: Cluster 122: permutation p=0.7140, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:28:55 [INFO] riker.phases.phase4_robustness: Cluster 123: permutation p=0.3719, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:28:56 [INFO] riker.phases.phase4_robustness: Cluster 124: permutation p=0.2969, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:28:57 [INFO] riker.phases.phase4_robustness: Cluster 125: permutation p=0.8964, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:28:58 [INFO] riker.phases.phase4_robustness: Cluster 126: permutation p=0.9811, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:28:59 [INFO] riker.phases.phase4_robustness: Cluster 127: permutation p=0.9879, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:28:59 [INFO] riker.phases.phase4_robustness: Cluster 128: permutation p=0.9956, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:29:00 [INFO] riker.phases.phase4_robustness: Cluster 129: permutation p=0.0598, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:29:01 [INFO] riker.phases.phase4_robustness: Cluster 130: permutation p=0.1042, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:29:02 [INFO] riker.phases.phase4_robustness: Cluster 131: permutation p=0.9623, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:29:03 [INFO] riker.phases.phase4_robustness: Cluster 132: permutation p=1.0000, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:29:04 [INFO] riker.phases.phase4_robustness: Cluster 133: permutation p=0.9195, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:29:05 [INFO] riker.phases.phase4_robustness: Cluster 134: permutation p=0.1758, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:29:06 [INFO] riker.phases.phase4_robustness: Cluster 135: permutation p=0.2813, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:29:07 [INFO] riker.phases.phase4_robustness: Cluster 136: permutation p=0.3778, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:29:08 [INFO] riker.phases.phase4_robustness: Cluster 137: permutation p=1.0000, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:29:08 [INFO] riker.phases.phase4_robustness: Cluster 138: permutation p=0.9988, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:29:09 [INFO] riker.phases.phase4_robustness: Cluster 139: permutation p=0.9992, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:29:10 [INFO] riker.phases.phase4_robustness: Cluster 140: permutation p=0.9903, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:29:11 [INFO] riker.phases.phase4_robustness: Cluster 141: permutation p=0.9849, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:29:12 [INFO] riker.phases.phase4_robustness: Cluster 142: permutation p=0.1282, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:29:13 [INFO] riker.phases.phase4_robustness: Cluster 143: permutation p=0.9866, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:29:14 [INFO] riker.phases.phase4_robustness: Cluster 144: permutation p=1.0000, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:29:14 [INFO] riker.phases.phase4_robustness: Cluster 145: permutation p=1.0000, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:29:15 [INFO] riker.phases.phase4_robustness: Cluster 146: permutation p=1.0000, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:29:16 [INFO] riker.phases.phase4_robustness: Cluster 147: permutation p=1.0000, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:29:17 [INFO] riker.phases.phase4_robustness: Cluster 148: permutation p=0.9795, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:29:18 [INFO] riker.phases.phase4_robustness: Cluster 149: permutation p=0.6375, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:29:19 [INFO] riker.phases.phase4_robustness: Cluster 150: permutation p=0.5046, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:29:20 [INFO] riker.phases.phase4_robustness: Cluster 151: permutation p=0.8203, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:29:21 [INFO] riker.phases.phase4_robustness: Cluster 152: permutation p=0.9696, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:29:22 [INFO] riker.phases.phase4_robustness: Cluster 153: permutation p=0.0002, Bonferroni p=0.0360 (SIGNIFICANT)
+2026-04-26 08:29:22 [INFO] riker.phases.phase4_robustness: Cluster 154: permutation p=0.9986, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:29:23 [INFO] riker.phases.phase4_robustness: Cluster 155: permutation p=0.9999, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:29:24 [INFO] riker.phases.phase4_robustness: Cluster 156: permutation p=0.3692, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:29:25 [INFO] riker.phases.phase4_robustness: Cluster 157: permutation p=0.2255, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:29:26 [INFO] riker.phases.phase4_robustness: Cluster 158: permutation p=0.3477, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:29:27 [INFO] riker.phases.phase4_robustness: Cluster 159: permutation p=0.5166, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:29:28 [INFO] riker.phases.phase4_robustness: Cluster 160: permutation p=0.8846, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:29:29 [INFO] riker.phases.phase4_robustness: Cluster 161: permutation p=0.0124, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:29:29 [INFO] riker.phases.phase4_robustness: Cluster 162: permutation p=1.0000, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:29:30 [INFO] riker.phases.phase4_robustness: Cluster 163: permutation p=0.9992, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:29:31 [INFO] riker.phases.phase4_robustness: Cluster 164: permutation p=0.9999, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:29:32 [INFO] riker.phases.phase4_robustness: Cluster 165: permutation p=1.0000, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:29:33 [INFO] riker.phases.phase4_robustness: Cluster 166: permutation p=0.6640, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:29:34 [INFO] riker.phases.phase4_robustness: Cluster 167: permutation p=0.8796, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:29:35 [INFO] riker.phases.phase4_robustness: Cluster 168: permutation p=0.9485, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:29:35 [INFO] riker.phases.phase4_robustness: Cluster 169: permutation p=0.4047, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:29:36 [INFO] riker.phases.phase4_robustness: Cluster 170: permutation p=0.8724, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:29:37 [INFO] riker.phases.phase4_robustness: Cluster 171: permutation p=0.0004, Bonferroni p=0.0720 (not significant)
+2026-04-26 08:29:38 [INFO] riker.phases.phase4_robustness: Cluster 172: permutation p=0.0866, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:29:39 [INFO] riker.phases.phase4_robustness: Cluster 173: permutation p=1.0000, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:29:40 [INFO] riker.phases.phase4_robustness: Cluster 174: permutation p=1.0000, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:29:41 [INFO] riker.phases.phase4_robustness: Cluster 175: permutation p=0.9460, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:29:42 [INFO] riker.phases.phase4_robustness: Cluster 176: permutation p=1.0000, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:29:43 [INFO] riker.phases.phase4_robustness: Cluster 177: permutation p=0.9909, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:29:44 [INFO] riker.phases.phase4_robustness: Cluster 178: permutation p=0.9947, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 179: permutation p=0.6875, Bonferroni p=1.0000 (not significant)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 0 sensitivity: L1=12, L2=0, L3=0, L4=0 | dissolution=2 | core=0
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 1 sensitivity: L1=11, L2=2, L3=9, L4=0 | dissolution=2 | core=2
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 2 sensitivity: L1=16, L2=2, L3=16, L4=16 | dissolution=2 | core=2
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 3 sensitivity: L1=8, L2=0, L3=0, L4=0 | dissolution=2 | core=0
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 4 sensitivity: L1=7, L2=2, L3=4, L4=0 | dissolution=2 | core=2
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 5 sensitivity: L1=12, L2=0, L3=0, L4=0 | dissolution=2 | core=0
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 6 sensitivity: L1=13, L2=1, L3=12, L4=4 | dissolution=2 | core=1
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 7 sensitivity: L1=6, L2=1, L3=5, L4=0 | dissolution=2 | core=1
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 8 sensitivity: L1=11, L2=2, L3=11, L4=11 | dissolution=2 | core=2
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 9 sensitivity: L1=7, L2=3, L3=7, L4=5 | dissolution=None | core=3
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 10 sensitivity: L1=18, L2=3, L3=18, L4=0 | dissolution=4 | core=3
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 11 sensitivity: L1=12, L2=2, L3=4, L4=0 | dissolution=2 | core=2
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 12 sensitivity: L1=7, L2=3, L3=7, L4=0 | dissolution=4 | core=3
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 13 sensitivity: L1=15, L2=9, L3=15, L4=12 | dissolution=None | core=9
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 14 sensitivity: L1=6, L2=6, L3=6, L4=6 | dissolution=None | core=6
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 15 sensitivity: L1=12, L2=0, L3=12, L4=0 | dissolution=2 | core=0
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 16 sensitivity: L1=6, L2=1, L3=6, L4=0 | dissolution=2 | core=1
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 17 sensitivity: L1=7, L2=4, L3=7, L4=7 | dissolution=None | core=4
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 18 sensitivity: L1=6, L2=4, L3=6, L4=6 | dissolution=None | core=4
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 19 sensitivity: L1=10, L2=3, L3=10, L4=0 | dissolution=4 | core=3
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 20 sensitivity: L1=8, L2=3, L3=8, L4=7 | dissolution=None | core=3
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 21 sensitivity: L1=12, L2=8, L3=12, L4=12 | dissolution=None | core=8
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 22 sensitivity: L1=26, L2=3, L3=0, L4=0 | dissolution=3 | core=3
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 23 sensitivity: L1=6, L2=1, L3=4, L4=0 | dissolution=2 | core=1
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 24 sensitivity: L1=14, L2=2, L3=7, L4=0 | dissolution=2 | core=2
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 25 sensitivity: L1=12, L2=0, L3=0, L4=0 | dissolution=2 | core=0
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 26 sensitivity: L1=11, L2=0, L3=0, L4=0 | dissolution=2 | core=0
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 27 sensitivity: L1=10, L2=6, L3=10, L4=10 | dissolution=None | core=6
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 28 sensitivity: L1=6, L2=4, L3=6, L4=6 | dissolution=None | core=4
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 29 sensitivity: L1=7, L2=0, L3=0, L4=0 | dissolution=2 | core=0
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 30 sensitivity: L1=21, L2=0, L3=0, L4=0 | dissolution=2 | core=0
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 31 sensitivity: L1=13, L2=0, L3=0, L4=0 | dissolution=2 | core=0
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 32 sensitivity: L1=10, L2=6, L3=10, L4=10 | dissolution=None | core=6
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 33 sensitivity: L1=11, L2=5, L3=11, L4=11 | dissolution=None | core=5
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 34 sensitivity: L1=12, L2=4, L3=12, L4=12 | dissolution=None | core=4
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 35 sensitivity: L1=8, L2=4, L3=8, L4=0 | dissolution=4 | core=4
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 36 sensitivity: L1=6, L2=0, L3=0, L4=0 | dissolution=2 | core=0
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 37 sensitivity: L1=7, L2=2, L3=7, L4=0 | dissolution=2 | core=2
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 38 sensitivity: L1=10, L2=0, L3=0, L4=0 | dissolution=2 | core=0
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 39 sensitivity: L1=6, L2=0, L3=0, L4=0 | dissolution=2 | core=0
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 40 sensitivity: L1=8, L2=0, L3=0, L4=0 | dissolution=2 | core=0
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 41 sensitivity: L1=7, L2=1, L3=5, L4=0 | dissolution=2 | core=1
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 42 sensitivity: L1=14, L2=0, L3=0, L4=0 | dissolution=2 | core=0
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 43 sensitivity: L1=8, L2=0, L3=0, L4=0 | dissolution=2 | core=0
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 44 sensitivity: L1=10, L2=7, L3=10, L4=10 | dissolution=None | core=7
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 45 sensitivity: L1=18, L2=0, L3=0, L4=0 | dissolution=2 | core=0
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 46 sensitivity: L1=14, L2=0, L3=0, L4=0 | dissolution=2 | core=0
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 47 sensitivity: L1=10, L2=4, L3=10, L4=0 | dissolution=4 | core=4
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 48 sensitivity: L1=8, L2=6, L3=8, L4=8 | dissolution=None | core=6
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 49 sensitivity: L1=9, L2=5, L3=9, L4=9 | dissolution=None | core=5
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 50 sensitivity: L1=17, L2=2, L3=17, L4=14 | dissolution=2 | core=2
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 51 sensitivity: L1=13, L2=5, L3=13, L4=13 | dissolution=None | core=5
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 52 sensitivity: L1=6, L2=4, L3=6, L4=6 | dissolution=None | core=4
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 53 sensitivity: L1=7, L2=7, L3=7, L4=4 | dissolution=None | core=7
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 54 sensitivity: L1=11, L2=0, L3=0, L4=0 | dissolution=2 | core=0
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 55 sensitivity: L1=23, L2=0, L3=0, L4=0 | dissolution=2 | core=0
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 56 sensitivity: L1=5, L2=0, L3=0, L4=0 | dissolution=2 | core=0
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 57 sensitivity: L1=8, L2=3, L3=8, L4=0 | dissolution=4 | core=3
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 58 sensitivity: L1=7, L2=1, L3=7, L4=7 | dissolution=2 | core=1
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 59 sensitivity: L1=12, L2=5, L3=12, L4=12 | dissolution=None | core=5
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 60 sensitivity: L1=5, L2=0, L3=0, L4=0 | dissolution=2 | core=0
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 61 sensitivity: L1=7, L2=0, L3=0, L4=0 | dissolution=2 | core=0
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 62 sensitivity: L1=12, L2=1, L3=0, L4=0 | dissolution=2 | core=1
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 63 sensitivity: L1=9, L2=0, L3=0, L4=0 | dissolution=2 | core=0
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 64 sensitivity: L1=8, L2=6, L3=8, L4=8 | dissolution=None | core=6
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 65 sensitivity: L1=14, L2=0, L3=0, L4=0 | dissolution=2 | core=0
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 66 sensitivity: L1=5, L2=0, L3=0, L4=0 | dissolution=2 | core=0
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 67 sensitivity: L1=7, L2=0, L3=0, L4=0 | dissolution=2 | core=0
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 68 sensitivity: L1=12, L2=7, L3=12, L4=12 | dissolution=None | core=7
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 69 sensitivity: L1=5, L2=3, L3=5, L4=5 | dissolution=None | core=3
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 70 sensitivity: L1=10, L2=6, L3=10, L4=10 | dissolution=None | core=6
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 71 sensitivity: L1=10, L2=3, L3=10, L4=0 | dissolution=4 | core=3
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 72 sensitivity: L1=9, L2=1, L3=0, L4=0 | dissolution=2 | core=1
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 73 sensitivity: L1=19, L2=1, L3=0, L4=0 | dissolution=2 | core=1
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 74 sensitivity: L1=6, L2=4, L3=6, L4=0 | dissolution=4 | core=4
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 75 sensitivity: L1=9, L2=3, L3=9, L4=0 | dissolution=4 | core=3
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 76 sensitivity: L1=10, L2=0, L3=0, L4=0 | dissolution=2 | core=0
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 77 sensitivity: L1=16, L2=0, L3=0, L4=0 | dissolution=2 | core=0
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 78 sensitivity: L1=19, L2=0, L3=0, L4=0 | dissolution=2 | core=0
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 79 sensitivity: L1=9, L2=4, L3=9, L4=0 | dissolution=4 | core=4
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 80 sensitivity: L1=7, L2=2, L3=7, L4=0 | dissolution=2 | core=2
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 81 sensitivity: L1=9, L2=4, L3=9, L4=0 | dissolution=4 | core=4
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 82 sensitivity: L1=5, L2=2, L3=5, L4=0 | dissolution=2 | core=2
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 83 sensitivity: L1=5, L2=0, L3=5, L4=0 | dissolution=2 | core=0
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 84 sensitivity: L1=8, L2=1, L3=8, L4=0 | dissolution=2 | core=1
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 85 sensitivity: L1=5, L2=0, L3=0, L4=0 | dissolution=2 | core=0
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 86 sensitivity: L1=15, L2=7, L3=14, L4=0 | dissolution=4 | core=7
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 87 sensitivity: L1=8, L2=1, L3=3, L4=0 | dissolution=2 | core=1
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 88 sensitivity: L1=9, L2=0, L3=0, L4=0 | dissolution=2 | core=0
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 89 sensitivity: L1=12, L2=1, L3=0, L4=0 | dissolution=2 | core=1
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 90 sensitivity: L1=12, L2=0, L3=0, L4=0 | dissolution=2 | core=0
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 91 sensitivity: L1=16, L2=0, L3=0, L4=0 | dissolution=2 | core=0
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 92 sensitivity: L1=9, L2=0, L3=0, L4=0 | dissolution=2 | core=0
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 93 sensitivity: L1=13, L2=0, L3=0, L4=0 | dissolution=2 | core=0
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 94 sensitivity: L1=21, L2=9, L3=21, L4=21 | dissolution=None | core=9
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 95 sensitivity: L1=5, L2=1, L3=5, L4=5 | dissolution=2 | core=1
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 96 sensitivity: L1=9, L2=1, L3=9, L4=9 | dissolution=2 | core=1
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 97 sensitivity: L1=12, L2=1, L3=10, L4=0 | dissolution=2 | core=1
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 98 sensitivity: L1=8, L2=1, L3=0, L4=0 | dissolution=2 | core=1
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 99 sensitivity: L1=16, L2=4, L3=16, L4=11 | dissolution=None | core=4
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 100 sensitivity: L1=13, L2=0, L3=0, L4=0 | dissolution=2 | core=0
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 101 sensitivity: L1=8, L2=2, L3=8, L4=0 | dissolution=2 | core=2
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 102 sensitivity: L1=6, L2=1, L3=6, L4=0 | dissolution=2 | core=1
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 103 sensitivity: L1=7, L2=5, L3=7, L4=7 | dissolution=None | core=5
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 104 sensitivity: L1=7, L2=5, L3=7, L4=6 | dissolution=None | core=5
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 105 sensitivity: L1=6, L2=2, L3=6, L4=3 | dissolution=2 | core=2
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 106 sensitivity: L1=11, L2=0, L3=0, L4=0 | dissolution=2 | core=0
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 107 sensitivity: L1=9, L2=1, L3=5, L4=1 | dissolution=2 | core=1
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 108 sensitivity: L1=7, L2=0, L3=7, L4=0 | dissolution=2 | core=0
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 109 sensitivity: L1=6, L2=1, L3=6, L4=6 | dissolution=2 | core=1
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 110 sensitivity: L1=5, L2=3, L3=5, L4=5 | dissolution=None | core=3
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 111 sensitivity: L1=21, L2=11, L3=21, L4=21 | dissolution=None | core=11
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 112 sensitivity: L1=6, L2=0, L3=6, L4=6 | dissolution=2 | core=0
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 113 sensitivity: L1=8, L2=2, L3=8, L4=8 | dissolution=2 | core=2
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 114 sensitivity: L1=8, L2=5, L3=8, L4=8 | dissolution=None | core=5
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 115 sensitivity: L1=11, L2=6, L3=11, L4=11 | dissolution=None | core=6
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 116 sensitivity: L1=5, L2=2, L3=5, L4=0 | dissolution=2 | core=2
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 117 sensitivity: L1=8, L2=5, L3=8, L4=8 | dissolution=None | core=5
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 118 sensitivity: L1=8, L2=7, L3=8, L4=8 | dissolution=None | core=7
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 119 sensitivity: L1=9, L2=2, L3=9, L4=0 | dissolution=2 | core=2
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 120 sensitivity: L1=9, L2=2, L3=9, L4=0 | dissolution=2 | core=2
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 121 sensitivity: L1=6, L2=0, L3=0, L4=0 | dissolution=2 | core=0
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 122 sensitivity: L1=8, L2=0, L3=8, L4=0 | dissolution=2 | core=0
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 123 sensitivity: L1=24, L2=3, L3=6, L4=0 | dissolution=4 | core=3
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 124 sensitivity: L1=25, L2=1, L3=19, L4=0 | dissolution=2 | core=1
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 125 sensitivity: L1=15, L2=0, L3=0, L4=0 | dissolution=2 | core=0
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 126 sensitivity: L1=6, L2=3, L3=6, L4=0 | dissolution=4 | core=3
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 127 sensitivity: L1=8, L2=2, L3=8, L4=0 | dissolution=2 | core=2
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 128 sensitivity: L1=9, L2=3, L3=9, L4=0 | dissolution=4 | core=3
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 129 sensitivity: L1=6, L2=1, L3=6, L4=0 | dissolution=2 | core=1
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 130 sensitivity: L1=6, L2=0, L3=4, L4=0 | dissolution=2 | core=0
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 131 sensitivity: L1=8, L2=4, L3=8, L4=8 | dissolution=None | core=4
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 132 sensitivity: L1=25, L2=13, L3=25, L4=25 | dissolution=None | core=13
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 133 sensitivity: L1=16, L2=2, L3=16, L4=0 | dissolution=2 | core=2
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 134 sensitivity: L1=7, L2=2, L3=7, L4=4 | dissolution=2 | core=2
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 135 sensitivity: L1=9, L2=3, L3=9, L4=9 | dissolution=None | core=3
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 136 sensitivity: L1=5, L2=3, L3=5, L4=5 | dissolution=None | core=3
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 137 sensitivity: L1=10, L2=6, L3=10, L4=9 | dissolution=None | core=6
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 138 sensitivity: L1=9, L2=7, L3=9, L4=9 | dissolution=None | core=7
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 139 sensitivity: L1=11, L2=6, L3=11, L4=2 | dissolution=4 | core=6
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 140 sensitivity: L1=5, L2=0, L3=0, L4=0 | dissolution=2 | core=0
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 141 sensitivity: L1=5, L2=0, L3=0, L4=0 | dissolution=2 | core=0
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 142 sensitivity: L1=11, L2=6, L3=11, L4=2 | dissolution=4 | core=6
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 143 sensitivity: L1=8, L2=3, L3=8, L4=8 | dissolution=None | core=3
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 144 sensitivity: L1=7, L2=4, L3=7, L4=7 | dissolution=None | core=4
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 145 sensitivity: L1=5, L2=3, L3=5, L4=0 | dissolution=4 | core=3
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 146 sensitivity: L1=7, L2=1, L3=7, L4=1 | dissolution=2 | core=1
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 147 sensitivity: L1=7, L2=3, L3=7, L4=7 | dissolution=None | core=3
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 148 sensitivity: L1=23, L2=8, L3=23, L4=0 | dissolution=4 | core=8
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 149 sensitivity: L1=10, L2=0, L3=0, L4=0 | dissolution=2 | core=0
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 150 sensitivity: L1=5, L2=0, L3=0, L4=0 | dissolution=2 | core=0
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 151 sensitivity: L1=8, L2=3, L3=8, L4=8 | dissolution=None | core=3
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 152 sensitivity: L1=7, L2=2, L3=7, L4=6 | dissolution=2 | core=2
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 153 sensitivity: L1=10, L2=2, L3=9, L4=0 | dissolution=2 | core=2
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 154 sensitivity: L1=6, L2=2, L3=6, L4=6 | dissolution=2 | core=2
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 155 sensitivity: L1=9, L2=2, L3=9, L4=9 | dissolution=2 | core=2
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 156 sensitivity: L1=5, L2=3, L3=5, L4=5 | dissolution=None | core=3
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 157 sensitivity: L1=8, L2=0, L3=0, L4=0 | dissolution=2 | core=0
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 158 sensitivity: L1=6, L2=0, L3=0, L4=0 | dissolution=2 | core=0
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 159 sensitivity: L1=8, L2=0, L3=0, L4=0 | dissolution=2 | core=0
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 160 sensitivity: L1=5, L2=0, L3=0, L4=0 | dissolution=2 | core=0
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 161 sensitivity: L1=10, L2=2, L3=10, L4=0 | dissolution=2 | core=2
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 162 sensitivity: L1=9, L2=8, L3=9, L4=9 | dissolution=None | core=8
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 163 sensitivity: L1=6, L2=2, L3=6, L4=6 | dissolution=2 | core=2
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 164 sensitivity: L1=5, L2=1, L3=5, L4=5 | dissolution=2 | core=1
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 165 sensitivity: L1=7, L2=6, L3=7, L4=7 | dissolution=None | core=6
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 166 sensitivity: L1=8, L2=7, L3=8, L4=8 | dissolution=None | core=7
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 167 sensitivity: L1=5, L2=4, L3=5, L4=5 | dissolution=None | core=4
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 168 sensitivity: L1=5, L2=4, L3=5, L4=5 | dissolution=None | core=4
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 169 sensitivity: L1=9, L2=4, L3=9, L4=9 | dissolution=None | core=4
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 170 sensitivity: L1=6, L2=1, L3=6, L4=6 | dissolution=2 | core=1
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 171 sensitivity: L1=22, L2=11, L3=22, L4=22 | dissolution=None | core=11
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 172 sensitivity: L1=5, L2=1, L3=5, L4=5 | dissolution=2 | core=1
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 173 sensitivity: L1=20, L2=7, L3=20, L4=20 | dissolution=None | core=7
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 174 sensitivity: L1=14, L2=8, L3=14, L4=14 | dissolution=None | core=8
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 175 sensitivity: L1=9, L2=7, L3=9, L4=9 | dissolution=None | core=7
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 176 sensitivity: L1=16, L2=9, L3=16, L4=16 | dissolution=None | core=9
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 177 sensitivity: L1=5, L2=4, L3=5, L4=5 | dissolution=None | core=4
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 178 sensitivity: L1=6, L2=3, L3=6, L4=6 | dissolution=None | core=3
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 179 sensitivity: L1=6, L2=4, L3=6, L4=6 | dissolution=None | core=4
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 0 LOO: min_retention=0.08 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 1 LOO: min_retention=0.09 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 2 LOO: min_retention=0.06 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 3 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 4 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 5 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 6 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 7 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 8 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 9 LOO: min_retention=0.14 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 10 LOO: min_retention=0.22 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 11 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 12 LOO: min_retention=1.00 (STABLE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 13 LOO: min_retention=1.00 (STABLE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 14 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 15 LOO: min_retention=0.17 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 16 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 17 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 18 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 19 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 20 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 21 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 22 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 23 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 24 LOO: min_retention=0.14 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 25 LOO: min_retention=0.17 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 26 LOO: min_retention=0.09 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 27 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 28 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 29 LOO: min_retention=1.00 (STABLE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 30 LOO: min_retention=0.24 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 31 LOO: min_retention=0.08 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 32 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 33 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 34 LOO: min_retention=0.08 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 35 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 36 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 37 LOO: min_retention=0.14 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 38 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 39 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 40 LOO: min_retention=0.12 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 41 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 42 LOO: min_retention=0.07 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 43 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 44 LOO: min_retention=1.00 (STABLE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 45 LOO: min_retention=0.22 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 46 LOO: min_retention=0.14 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 47 LOO: min_retention=0.20 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 48 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 49 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 50 LOO: min_retention=0.18 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 51 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 52 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 53 LOO: min_retention=1.00 (STABLE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 54 LOO: min_retention=0.09 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 55 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 56 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 57 LOO: min_retention=0.12 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 58 LOO: min_retention=0.14 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 59 LOO: min_retention=0.08 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 60 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 61 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 62 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 63 LOO: min_retention=1.00 (STABLE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 64 LOO: min_retention=1.00 (STABLE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 65 LOO: min_retention=0.14 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 66 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 67 LOO: min_retention=0.14 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 68 LOO: min_retention=0.17 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 69 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 70 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 71 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 72 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 73 LOO: min_retention=0.11 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 74 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 75 LOO: min_retention=0.11 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 76 LOO: min_retention=0.10 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 77 LOO: min_retention=0.19 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 78 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 79 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 80 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 81 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 82 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 83 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 84 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 85 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 86 LOO: min_retention=1.00 (STABLE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 87 LOO: min_retention=1.00 (STABLE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 88 LOO: min_retention=0.11 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 89 LOO: min_retention=0.08 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 90 LOO: min_retention=0.25 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 91 LOO: min_retention=0.06 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 92 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 93 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 94 LOO: min_retention=0.10 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 95 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 96 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 97 LOO: min_retention=0.08 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 98 LOO: min_retention=0.25 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 99 LOO: min_retention=0.25 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 100 LOO: min_retention=0.15 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 101 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 102 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 103 LOO: min_retention=1.00 (STABLE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 104 LOO: min_retention=1.00 (STABLE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 105 LOO: min_retention=1.00 (STABLE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 106 LOO: min_retention=0.18 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 107 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 108 LOO: min_retention=0.14 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 109 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 110 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 111 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 112 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 113 LOO: min_retention=0.25 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 114 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 115 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 116 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 117 LOO: min_retention=1.00 (STABLE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 118 LOO: min_retention=1.00 (STABLE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 119 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 120 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 121 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 122 LOO: min_retention=0.12 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 123 LOO: min_retention=0.21 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 124 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 125 LOO: min_retention=0.07 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 126 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 127 LOO: min_retention=0.12 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 128 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 129 LOO: min_retention=1.00 (STABLE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 130 LOO: min_retention=1.00 (STABLE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 131 LOO: min_retention=1.00 (STABLE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 132 LOO: min_retention=1.00 (STABLE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 133 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 134 LOO: min_retention=0.14 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 135 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 136 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 137 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 138 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 139 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 140 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 141 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 142 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 143 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 144 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 145 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 146 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 147 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 148 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 149 LOO: min_retention=0.20 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 150 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 151 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 152 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 153 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 154 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 155 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 156 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 157 LOO: min_retention=0.25 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 158 LOO: min_retention=0.17 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 159 LOO: min_retention=1.00 (STABLE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 160 LOO: min_retention=1.00 (STABLE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 161 LOO: min_retention=0.20 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 162 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 163 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 164 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 165 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 166 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 167 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 168 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 169 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 170 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 171 LOO: min_retention=0.09 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 172 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 173 LOO: min_retention=0.05 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 174 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 175 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 176 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 177 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 178 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 179 LOO: min_retention=0.00 (FRAGILE)
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 0: 0 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 1: 2 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 2: 2 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 3: 0 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 4: 2 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 5: 0 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 6: 1 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 7: 1 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 8: 2 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 11: 2 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 15: 0 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 16: 1 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 23: 1 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 24: 2 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 25: 0 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 26: 0 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 29: 0 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 30: 0 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 31: 0 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 36: 0 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 37: 2 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 38: 0 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 39: 0 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 40: 0 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 41: 1 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 42: 0 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 43: 0 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 45: 0 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 46: 0 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 50: 2 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 54: 0 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 55: 0 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 56: 0 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 58: 1 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 60: 0 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 61: 0 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 62: 1 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 63: 0 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 65: 0 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 66: 0 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 67: 0 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 72: 1 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 73: 1 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 76: 0 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 77: 0 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 78: 0 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 80: 2 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 82: 2 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 83: 0 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 84: 1 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 85: 0 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 87: 1 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 88: 0 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 89: 1 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 90: 0 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 91: 0 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 92: 0 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 93: 0 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 95: 1 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 96: 1 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 97: 1 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 98: 1 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 100: 0 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 101: 2 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 102: 1 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 105: 2 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 106: 0 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 107: 1 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 108: 0 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 109: 1 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 112: 0 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 113: 2 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 116: 2 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 119: 2 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 120: 2 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 121: 0 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 122: 0 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 124: 1 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 125: 0 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 127: 2 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 129: 1 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 130: 0 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 133: 2 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 134: 2 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 140: 0 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 141: 0 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 146: 1 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 149: 0 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 150: 0 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 152: 2 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 153: 2 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 154: 2 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 155: 2 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 157: 0 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 158: 0 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 159: 0 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 160: 0 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 161: 2 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 163: 2 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 164: 1 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 170: 1 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Cluster 172: 1 Level 2 survivors < 3 minimum. No core genes.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Identified 401 core genes across all clusters.
+2026-04-26 08:29:45 [INFO] riker.phases.phase4_robustness: Phase 4 complete: 21 significant clusters, 20 LOO-stable clusters, 401 core genes.
+2026-04-26 08:29:45 [INFO] riker.io.outputs: Phase 4 core genes: disease_days/2026-04-24_asd/blind_pc/phase4_core_genes.csv
+2026-04-26 08:29:45 [INFO] riker.io.outputs: Phase 4 all levels: disease_days/2026-04-24_asd/blind_pc/phase4_all_levels.csv (1793 genes)
+2026-04-26 08:29:45 [INFO] riker: ============================================================
+2026-04-26 08:29:45 [INFO] riker: PHASE 5: Independent Replication
+2026-04-26 08:29:45 [INFO] riker: ============================================================
+2026-04-26 08:29:45 [INFO] riker: Loading replication dataset: GSE102741
+2026-04-26 08:29:51 [INFO] riker.ingestion.geo_parser: Probe-to-gene mapping: 37347 mapped, 20312 unmapped, 37346 unique genes.
+2026-04-26 08:29:51 [INFO] riker: Loading replication dataset: GSE18123
+2026-04-26 08:30:01 [INFO] riker.ingestion.geo_parser: Probe-to-gene mapping: 22195 mapped, 11102 unmapped, 19978 unique genes.
+2026-04-26 08:30:01 [INFO] riker: Loading replication dataset: GSE26415
+/home/kai001/riker-engine/riker/cli.py:292: UserWarning: Sample GSM648315 value 'disease: nonaustistic | cell type: human blood leukocytes | sample type: healthy women who had children with asd (asdmo) | sample id: 3329' did not match any case (['disease: autism spectrum disorder']) or control (['disease: nonaustistic control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:292: UserWarning: Sample GSM648317 value 'disease: nonaustistic | cell type: human blood leukocytes | sample type: healthy women who had children with asd (asdmo) | sample id: 3330' did not match any case (['disease: autism spectrum disorder']) or control (['disease: nonaustistic control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:292: UserWarning: Sample GSM648321 value 'disease: nonaustistic | cell type: human blood leukocytes | sample type: healthy women who had children with asd (asdmo) | sample id: 3327' did not match any case (['disease: autism spectrum disorder']) or control (['disease: nonaustistic control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:292: UserWarning: Sample GSM648327 value 'disease: nonaustistic | cell type: human blood leukocytes | sample type: healthy women who had children with asd (asdmo) | sample id: 3333' did not match any case (['disease: autism spectrum disorder']) or control (['disease: nonaustistic control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:292: UserWarning: Sample GSM648333 value 'disease: nonaustistic | cell type: human blood leukocytes | sample type: healthy women who had children with asd (asdmo) | sample id: 3612' did not match any case (['disease: autism spectrum disorder']) or control (['disease: nonaustistic control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:292: UserWarning: Sample GSM648363 value 'disease: nonaustistic | cell type: human blood leukocytes | sample type: healthy women who had children with asd (asdmo) | sample id: 3613' did not match any case (['disease: autism spectrum disorder']) or control (['disease: nonaustistic control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:292: UserWarning: Sample GSM648365 value 'disease: nonaustistic | cell type: human blood leukocytes | sample type: healthy women who had children with asd (asdmo) | sample id: 3618' did not match any case (['disease: autism spectrum disorder']) or control (['disease: nonaustistic control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:292: UserWarning: Sample GSM648369 value 'disease: nonaustistic | cell type: human blood leukocytes | sample type: healthy women who had children with asd (asdmo) | sample id: 3620' did not match any case (['disease: autism spectrum disorder']) or control (['disease: nonaustistic control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:292: UserWarning: Sample GSM648371 value 'disease: nonaustistic | cell type: human blood leukocytes | sample type: healthy women who had children with asd (asdmo) | sample id: 3621' did not match any case (['disease: autism spectrum disorder']) or control (['disease: nonaustistic control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:292: UserWarning: Sample GSM648379 value 'disease: nonaustistic | cell type: human blood leukocytes | sample type: healthy women who had children with asd (asdmo) | sample id: 3625' did not match any case (['disease: autism spectrum disorder']) or control (['disease: nonaustistic control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:292: UserWarning: Sample GSM648383 value 'disease: nonaustistic | cell type: human blood leukocytes | sample type: healthy women who had children with asd (asdmo) | sample id: 3830' did not match any case (['disease: autism spectrum disorder']) or control (['disease: nonaustistic control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:292: UserWarning: Sample GSM648387 value 'disease: nonaustistic | cell type: human blood leukocytes | sample type: healthy women who had children with asd (asdmo) | sample id: 3832' did not match any case (['disease: autism spectrum disorder']) or control (['disease: nonaustistic control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:292: UserWarning: Sample GSM648389 value 'disease: nonaustistic | cell type: human blood leukocytes | sample type: healthy women who had children with asd (asdmo) | sample id: 3833' did not match any case (['disease: autism spectrum disorder']) or control (['disease: nonaustistic control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:292: UserWarning: Sample GSM648391 value 'disease: nonaustistic | cell type: human blood leukocytes | sample type: healthy women who had children with asd (asdmo) | sample id: 3834' did not match any case (['disease: autism spectrum disorder']) or control (['disease: nonaustistic control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:292: UserWarning: Sample GSM648393 value 'disease: nonaustistic | cell type: human blood leukocytes | sample type: healthy women who had children with asd (asdmo) | sample id: 3835' did not match any case (['disease: autism spectrum disorder']) or control (['disease: nonaustistic control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:292: UserWarning: Sample GSM648395 value 'disease: nonaustistic | cell type: human blood leukocytes | sample type: healthy women who had children with asd (asdmo) | sample id: 3836' did not match any case (['disease: autism spectrum disorder']) or control (['disease: nonaustistic control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:292: UserWarning: Sample GSM648397 value 'disease: nonaustistic | cell type: human blood leukocytes | sample type: healthy women who had children with asd (asdmo) | sample id: 3837' did not match any case (['disease: autism spectrum disorder']) or control (['disease: nonaustistic control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:292: UserWarning: Sample GSM648399 value 'disease: nonaustistic | cell type: human blood leukocytes | sample type: healthy women who had children with asd (asdmo) | sample id: 3838' did not match any case (['disease: autism spectrum disorder']) or control (['disease: nonaustistic control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:292: UserWarning: Sample GSM648402 value 'disease: nonaustistic | cell type: human blood leukocytes | sample type: healthy women who had children with asd (asdmo) | sample id: 3839' did not match any case (['disease: autism spectrum disorder']) or control (['disease: nonaustistic control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:292: UserWarning: Sample GSM648406 value 'disease: nonaustistic | cell type: human blood leukocytes | sample type: healthy women who had children with asd (asdmo) | sample id: 3840' did not match any case (['disease: autism spectrum disorder']) or control (['disease: nonaustistic control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:292: UserWarning: Sample GSM648409 value 'disease: nonaustistic | cell type: human blood leukocytes | sample type: healthy women who had children with asd (asdmo) | sample id: 3841' did not match any case (['disease: autism spectrum disorder']) or control (['disease: nonaustistic control']) values.
+  pheno = extractor.extract(
+2026-04-26 08:30:06 [INFO] riker.ingestion.geo_parser: Probe-to-gene mapping: 15894 mapped, 3300 unmapped, 11191 unique genes.
+2026-04-26 08:30:06 [INFO] riker: Loading replication dataset: GSE42133
+2026-04-26 08:30:18 [INFO] riker.ingestion.geo_parser: Probe-to-gene mapping: 31266 mapped, 16057 unmapped, 20735 unique genes.
+2026-04-26 08:30:18 [INFO] riker.phases.phase5_replication: Phase 5: Testing 401 pre-specified core genes in 4 replication datasets.
+2026-04-26 08:30:18 [INFO] riker.phases.phase5_replication: Gene APOC1: survived — Same-tissue replication: 1/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:18 [INFO] riker.phases.phase5_replication: Gene CEBPD: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE102741', 'GSE18123']. Discovery direction: up.
+2026-04-26 08:30:18 [INFO] riker.phases.phase5_replication: Gene TENT5A: survived — Same-tissue replication: 1/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:18 [INFO] riker.phases.phase5_replication: Gene DEPP1: survived — Same-tissue replication: 0/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:18 [INFO] riker.phases.phase5_replication: Gene GADD45B: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE102741']. Discovery direction: up.
+2026-04-26 08:30:18 [INFO] riker.phases.phase5_replication: Gene VIM: survived — Same-tissue replication: 1/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:18 [INFO] riker.phases.phase5_replication: Gene ACTL6A: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:18 [INFO] riker.phases.phase5_replication: Gene HK2: survived — Same-tissue replication: 1/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:18 [INFO] riker.phases.phase5_replication: Gene WSCD1: survived — Same-tissue replication: 1/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:18 [INFO] riker.phases.phase5_replication: Gene ANO6: survived — Same-tissue replication: 3/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:18 [INFO] riker.phases.phase5_replication: Gene CTSH: survived — Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:18 [INFO] riker.phases.phase5_replication: Gene GNA12: survived — Same-tissue replication: 3/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:18 [INFO] riker.phases.phase5_replication: Gene LHX2: survived — Same-tissue replication: 1/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:18 [INFO] riker.phases.phase5_replication: Gene MAPKAPK3: survived — Same-tissue replication: 1/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:18 [INFO] riker.phases.phase5_replication: Gene PLCE1: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: up.
+2026-04-26 08:30:18 [INFO] riker.phases.phase5_replication: Gene PSME2: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE42133']. Discovery direction: up.
+2026-04-26 08:30:18 [INFO] riker.phases.phase5_replication: Gene PTPN1: survived — Same-tissue replication: 1/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:18 [INFO] riker.phases.phase5_replication: Gene TIPARP: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:18 [INFO] riker.phases.phase5_replication: Gene CCDC25: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:18 [INFO] riker.phases.phase5_replication: Gene DHX35: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:18 [INFO] riker.phases.phase5_replication: Gene HAGH: survived — Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:18 [INFO] riker.phases.phase5_replication: Gene HMG20A: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:18 [INFO] riker.phases.phase5_replication: Gene PARL: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:18 [INFO] riker.phases.phase5_replication: Gene PARN: survived — Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:18 [INFO] riker.phases.phase5_replication: Gene DDX1: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:18 [INFO] riker.phases.phase5_replication: Gene MRPL22: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:18 [INFO] riker.phases.phase5_replication: Gene URGCP: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:18 [INFO] riker.phases.phase5_replication: Gene WDR54: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:18 [INFO] riker.phases.phase5_replication: Gene ANAPC5: survived — Same-tissue replication: 3/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:18 [INFO] riker.phases.phase5_replication: Gene ME3: survived — Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:18 [INFO] riker.phases.phase5_replication: Gene TTC19: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:18 [INFO] riker.phases.phase5_replication: Gene UBE4A: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:18 [INFO] riker.phases.phase5_replication: Gene BIRC3: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415', 'GSE42133']. Discovery direction: up.
+2026-04-26 08:30:18 [INFO] riker.phases.phase5_replication: Gene PARP14: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE42133']. Discovery direction: up.
+2026-04-26 08:30:18 [INFO] riker.phases.phase5_replication: Gene PTAFR: survived — Same-tissue replication: 1/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:18 [INFO] riker.phases.phase5_replication: Gene ERBB2: survived — Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:18 [INFO] riker.phases.phase5_replication: Gene HSPD1: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:18 [INFO] riker.phases.phase5_replication: Gene IRF8: survived — Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:18 [INFO] riker.phases.phase5_replication: Gene APBA2: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123', 'GSE42133']. Discovery direction: down.
+2026-04-26 08:30:18 [INFO] riker.phases.phase5_replication: Gene FAM81A: survived — Same-tissue replication: 1/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:18 [INFO] riker.phases.phase5_replication: Gene GLS2: survived — Same-tissue replication: 1/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:18 [INFO] riker.phases.phase5_replication: Gene ICA1: survived — Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:18 [INFO] riker.phases.phase5_replication: Gene NFS1: survived — Same-tissue replication: 3/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:18 [INFO] riker.phases.phase5_replication: Gene PVALB: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE42133']. Discovery direction: down.
+2026-04-26 08:30:18 [INFO] riker.phases.phase5_replication: Gene STAT4: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123', 'GSE42133']. Discovery direction: down.
+2026-04-26 08:30:18 [INFO] riker.phases.phase5_replication: Gene UQCRC1: survived — Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:18 [INFO] riker.phases.phase5_replication: Gene GLS: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123', 'GSE42133']. Discovery direction: down.
+2026-04-26 08:30:18 [INFO] riker.phases.phase5_replication: Gene NPTN: survived — Same-tissue replication: 3/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:18 [INFO] riker.phases.phase5_replication: Gene RPH3A: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:18 [INFO] riker.phases.phase5_replication: Gene ACTR1B: survived — Same-tissue replication: 1/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:18 [INFO] riker.phases.phase5_replication: Gene IDH3A: survived — Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:18 [INFO] riker.phases.phase5_replication: Gene NEFH: survived — Same-tissue replication: 3/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:18 [INFO] riker.phases.phase5_replication: Gene OGDHL: survived — Same-tissue replication: 1/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:18 [INFO] riker.phases.phase5_replication: Gene OLA1: survived — Same-tissue replication: 3/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:18 [INFO] riker.phases.phase5_replication: Gene PYGB: survived — Same-tissue replication: 0/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:18 [INFO] riker.phases.phase5_replication: Gene CORO2A: survived — Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:18 [INFO] riker.phases.phase5_replication: Gene SLC25A12: survived — Same-tissue replication: 1/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene TARBP1: survived — Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene VAMP1: survived — Same-tissue replication: 1/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene ELF1: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene HEY2: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene MANF: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene NECAP2: survived — Same-tissue replication: 3/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene PLOD1: survived — Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene PTPN13: survived — Same-tissue replication: 1/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene DTX2: survived — Same-tissue replication: 0/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene LPP: survived — Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene MGST1: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene NFKBIZ: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE102741', 'GSE26415']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene SOX2: survived — Same-tissue replication: 1/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene DNAJB1: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE102741', 'GSE26415']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene NBPF9: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene S100A10: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene S100A8: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene ABCA5: survived — Same-tissue replication: 1/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene GALNT17: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene LIN7B: survived — Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene RNF41: survived — Same-tissue replication: 1/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene ADAP2: survived — Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene CPNE3: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene DYNLT1: survived — Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene H2BC21: survived — Same-tissue replication: 4/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene IDH1: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene PLXDC2: survived — Same-tissue replication: 1/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene SRGN: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene ANXA5: survived — Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene B2M: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene NIBAN2: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene TXNIP: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene H2AC20: survived — Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene PEA15: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene PITPNC1: survived — Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene PPP1R14B: survived — Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene RPL36: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene SEC14L2: survived — Same-tissue replication: 1/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene ARHGAP45: survived — Same-tissue replication: 1/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene COLGALT1: survived — Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene NFE2L2: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene RPL39: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene SIPA1: survived — Same-tissue replication: 1/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene CYC1: survived — Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene DOP1A: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene MTMR7: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123', 'GSE42133']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene SUV39H1: survived — Same-tissue replication: 1/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene TTC13: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene GOT2: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene HACL1: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene PIK3R4: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene SLC35B3: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene C1QB: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123', 'GSE42133']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene CDKN1A: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE102741', 'GSE18123']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene GBP2: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE42133']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene IFITM3: survived — Same-tissue replication: 1/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene NQO1: survived — Same-tissue replication: 1/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene TIMP1: survived — Same-tissue replication: 3/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene YBX3: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene PABPC4: survived — Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene RFXANK: survived — Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene RPS16: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene CHSY1: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene DOK1: survived — Same-tissue replication: 3/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene FAM111A: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene MAPKAPK2: survived — Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene UBE2L6: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE42133']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene IFRD1: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene P4HA1: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene RPLP1: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene SEC11A: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene SLA: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene UGDH: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene ATXN7: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene BMP7: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene DDAH2: survived — Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene EPB41L2: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene MCL1: survived — Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene PDIA6: survived — Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene RPS2: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene CHST11: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene SBF2: survived — Same-tissue replication: 3/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene SERF2: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene C1QC: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene LIMS1: survived — Same-tissue replication: 3/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene PARP9: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE42133']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene RHBDF2: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123', 'GSE42133']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene RHPN2: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene TRAM2: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123', 'GSE26415']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene GPI: survived — Same-tissue replication: 1/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene NAP1L5: survived — Same-tissue replication: 1/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene VRK1: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: down.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene MDFIC: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene NME4: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene RAMP1: survived — Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene TOB1: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene MPZL1: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene NPAS3: survived — Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene POU3F2: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene EIF3K: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene HMGB3: survived — Same-tissue replication: 1/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene NET1: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene VCPKMT: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415', 'GSE42133']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene ARL3: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene FAM216A: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene MTRES1: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene SAYSD1: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene DKK3: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene HEATR5B: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene KCNIP4: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene NAPB: survived — Same-tissue replication: 0/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene SLC45A1: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE42133']. Discovery direction: down.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene SSX2IP: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene SYT13: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene DTNA: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene SERTAD1: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE102741', 'GSE18123']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene SLC16A3: survived — Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene TRAF3IP2: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene WWC1: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene YBX1: survived — Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene ZFHX3: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene ZFP36L1: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123', 'GSE26415']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene ZFYVE21: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene C3orf62: survived — Same-tissue replication: 3/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene KCNN3: survived — Same-tissue replication: 0/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene NGFR: survived — Same-tissue replication: 0/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene RPL18A: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene AEBP1: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene CACHD1: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene EHD4: survived — Same-tissue replication: 1/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene FERMT2: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene SLC15A3: survived — Same-tissue replication: 3/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene LYN: survived — Same-tissue replication: 3/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene PALLD: survived — Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene PTTG1IP: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene RAB31: survived — Same-tissue replication: 3/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene SP110: survived — Same-tissue replication: 1/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene CXCL16: survived — Same-tissue replication: 0/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene PIK3AP1: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE42133']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene TUBB2B: survived — Same-tissue replication: 1/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene ATP6V1C1: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: down.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene CIRBP: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: down.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene CPEB1: survived — Same-tissue replication: 1/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene EMC1: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123', 'GSE42133']. Discovery direction: down.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene FIBP: survived — Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene FOCAD: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: down.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene KCTD9: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: down.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene KIFBP: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123', 'GSE42133']. Discovery direction: down.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene NDUFAF5: survived — Same-tissue replication: 1/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene POMGNT2: survived — Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene SPINT2: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: down.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene ACTR6: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene ALDOC: survived — Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene COQ6: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene SPOCK2: survived — Same-tissue replication: 4/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:19 [INFO] riker.phases.phase5_replication: Gene TRIM44: survived — Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene CHCHD4: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene FH: survived — Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene GMPR2: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene IDH3G: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: up.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene KLHDC2: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene MRPL2: survived — Same-tissue replication: 3/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene ABCA1: survived — Same-tissue replication: 3/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene BST2: survived — Same-tissue replication: 1/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene LAPTM5: survived — Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene MSN: survived — Same-tissue replication: 3/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene YAP1: survived — Same-tissue replication: 1/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene CD14: survived — Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene CNN3: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene CYBA: survived — Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene PDYN: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene PLIN2: survived — Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene PNP: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene RDH10: survived — Same-tissue replication: 1/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene GAREM1: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene SLC25A1: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: up.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene UBTD1: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: up.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene KIAA0232: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene NAE1: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene RWDD2A: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene SLC25A3: survived — Same-tissue replication: 3/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene TOPBP1: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415', 'GSE42133']. Discovery direction: up.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene TRMT11: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene ATPAF1: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene EFR3A: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene LCMT1: survived — Same-tissue replication: 3/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene MAT2B: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene ARMCX5: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene ATP5F1A: survived — Same-tissue replication: 3/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene COQ3: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: up.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene ENO2: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123', 'GSE42133']. Discovery direction: down.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene FAHD2B: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene GPRASP2: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene IDH3B: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE42133']. Discovery direction: up.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene NIF3L1: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene PARP2: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene PFKM: survived — Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene RFX5: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene TOX: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene UBLCP1: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene ATRNL1: survived — Same-tissue replication: 1/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene CPLX2: survived — Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene SCN1B: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene FAM131B: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene PELI3: survived — Same-tissue replication: 3/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene SHD: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: down.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene CHCHD7: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene FAM241B: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE42133']. Discovery direction: down.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene GPCPD1: survived — Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene N4BP2L1: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: down.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene TMX4: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene VPS39: survived — Same-tissue replication: 1/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene ARHGAP26: survived — Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene CEND1: survived — Same-tissue replication: 3/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene EXOSC9: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: down.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene KYAT3: survived — Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene MAP3K9: survived — Same-tissue replication: 3/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene PRPF19: survived — Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene TMEM268: survived — Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene ATP6V1A: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: down.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene EID1: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: down.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene KRT222: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene MAGED2: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: down.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene PSMG3: survived — Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene TSNAX: survived — Same-tissue replication: 1/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene ASXL2: survived — Same-tissue replication: 3/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene GNAI3: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene RPL12: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene SH3GLB1: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene SLC25A37: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: up.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene ZFAND3: survived — Same-tissue replication: 1/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene SLC16A14: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene SLC35B4: survived — Same-tissue replication: 1/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene SNAP25: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene FAR2: survived — Same-tissue replication: 1/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene NTHL1: survived — Same-tissue replication: 0/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene PHYH: survived — Same-tissue replication: 1/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene SNAP47: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123', 'GSE26415']. Discovery direction: up.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene DTD1: survived — Same-tissue replication: 1/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene EXTL2: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene UQCRC2: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene MAGEE1: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE42133']. Discovery direction: down.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene PRC1: survived — Same-tissue replication: 3/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene SDHA: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: down.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene BBS7: survived — Same-tissue replication: 1/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene GABRA1: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene GPAT3: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: down.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene LYRM9: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: down.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene MICU3: survived — Same-tissue replication: 1/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene NMNAT2: survived — Same-tissue replication: 1/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene RETREG2: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE42133']. Discovery direction: down.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene RHBDL3: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene ACBD6: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene MARF1: survived — Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene RALGPS1: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: up.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene B4GALT6: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene PPL: survived — Same-tissue replication: 1/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene SERTAD4: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene FAM234B: survived — Same-tissue replication: 1/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene INA: survived — Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene NTN4: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene PFKP: survived — Same-tissue replication: 3/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene PPP3CA: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: down.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene RMND1: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: down.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene VPS36: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: down.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene ZNF385B: survived — Same-tissue replication: 1/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene DEPDC5: survived — Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene DPP8: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene NCKIPSD: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: up.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene SYNGR1: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: up.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene VDAC3: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: down.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene VPS33B: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: down.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene ATP1A1: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: down.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene DPP10: survived — Same-tissue replication: 1/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene FBLN7: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene GOT1: survived — Same-tissue replication: 4/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene NDRG3: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE42133']. Discovery direction: down.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene THEMIS: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: down.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene VSNL1: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE42133']. Discovery direction: down.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene ATP2B2: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene NOMO1: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene PRKCE: survived — Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene SH3GL2: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene GABRG2: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene KCNS2: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene RCAN2: survived — Same-tissue replication: 1/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene SLC6A15: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene CBLN2: survived — Same-tissue replication: 1/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene KCNS1: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene PREPL: survived — Same-tissue replication: 1/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene SEZ6L2: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene BTG3: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene CD84: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene GNG5: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123', 'GSE26415']. Discovery direction: up.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene HSPA5: survived — Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene JUN: survived — Same-tissue replication: 0/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene NEK6: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene P3H2: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: up.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene RPS19: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene SDF2L1: survived — Same-tissue replication: 1/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene SFMBT2: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene SOX4: survived — Same-tissue replication: 3/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene AARS1: survived — Same-tissue replication: 3/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene FXR2: survived — Same-tissue replication: 4/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene QRICH1: survived — Same-tissue replication: 1/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene RNMT: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene SERGEF: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene SHLD1: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene SPIN2B: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415', 'GSE42133']. Discovery direction: up.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene ATP5F1B: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene ENTPD6: survived — Same-tissue replication: 2/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene KAT7: survived — Same-tissue replication: 4/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene LRRC20: survived — Same-tissue replication: 3/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene NR3C2: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene NTAQ1: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene SLC12A5: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: up.
+2026-04-26 08:30:20 [INFO] riker.phases.phase5_replication: Gene SPATA7: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Gene ASB13: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE42133']. Discovery direction: down.
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Gene ATP6V1E1: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: down.
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Gene DYNLT5: survived — Same-tissue replication: 1/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Gene ITPR1: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: down.
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Gene PTH2R: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Gene RWDD2B: survived — Same-tissue replication: 3/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Gene SCN2B: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Gene ABCG4: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Gene COPG1: survived — Same-tissue replication: 3/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Gene DDX24: survived — Same-tissue replication: 3/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Gene MPP1: survived — Same-tissue replication: 1/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Gene ORC2: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Gene SNU13: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: down.
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Gene TBC1D4: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Gene UCHL5: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE26415']. Discovery direction: up.
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Gene ZBTB24: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: down.
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Gene COX7A1: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Gene GLMN: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: down.
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Gene KLHDC9: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Gene LPCAT4: survived — Same-tissue replication: 4/4 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Gene AVPI1: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE42133']. Discovery direction: down.
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Gene CDCA5: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Gene HYLS1: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123']. Discovery direction: down.
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Gene ACTL6B: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Gene NSG1: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE18123', 'GSE42133']. Discovery direction: down.
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Gene SCN4B: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Gene SLC25A27: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 9: partially_replicated (2/3 survived, 1 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 10: partially_replicated (2/3 survived, 1 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 12: partially_replicated (2/3 survived, 1 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 13: partially_replicated (6/9 survived, 3 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 14: failed (2/6 survived, 4 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 17: failed (1/4 survived, 3 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 18: partially_replicated (2/4 survived, 2 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 19: failed (1/3 survived, 2 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 20: partially_replicated (2/3 survived, 1 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 21: partially_replicated (5/8 survived, 3 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 22: partially_replicated (2/3 survived, 1 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 27: replicated (6/6 survived, 0 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 28: replicated (4/4 survived, 0 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 32: partially_replicated (3/6 survived, 3 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 33: partially_replicated (3/5 survived, 2 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 34: failed (1/4 survived, 3 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 35: replicated (4/4 survived, 0 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 44: partially_replicated (4/7 survived, 3 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 47: partially_replicated (2/4 survived, 2 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 48: partially_replicated (4/6 survived, 2 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 49: partially_replicated (3/5 survived, 2 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 51: failed (2/5 survived, 3 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 52: failed (0/4 survived, 4 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 53: failed (3/7 survived, 4 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 57: partially_replicated (2/3 survived, 1 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 59: failed (2/5 survived, 3 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 64: failed (2/6 survived, 4 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 68: partially_replicated (4/7 survived, 3 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 69: partially_replicated (2/3 survived, 1 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 70: failed (2/6 survived, 4 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 71: partially_replicated (2/3 survived, 1 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 74: failed (1/4 survived, 3 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 75: failed (1/3 survived, 2 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 79: failed (1/4 survived, 3 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 81: failed (0/4 survived, 4 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 86: failed (3/7 survived, 4 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 94: failed (4/9 survived, 5 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 99: partially_replicated (3/4 survived, 1 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 103: partially_replicated (3/5 survived, 2 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 104: partially_replicated (4/5 survived, 1 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 110: partially_replicated (2/3 survived, 1 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 111: failed (4/11 survived, 7 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 114: partially_replicated (3/5 survived, 2 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 115: failed (2/6 survived, 4 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 117: replicated (5/5 survived, 0 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 118: partially_replicated (6/7 survived, 1 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 123: failed (1/3 survived, 2 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 126: failed (1/3 survived, 2 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 128: partially_replicated (2/3 survived, 1 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 131: failed (1/4 survived, 3 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 132: failed (5/13 survived, 8 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 135: replicated (3/3 survived, 0 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 136: partially_replicated (2/3 survived, 1 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 137: failed (2/6 survived, 4 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 138: partially_replicated (6/7 survived, 1 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 139: partially_replicated (3/6 survived, 3 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 142: failed (2/6 survived, 4 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 143: replicated (3/3 survived, 0 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 144: partially_replicated (3/4 survived, 1 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 145: partially_replicated (2/3 survived, 1 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 147: failed (1/3 survived, 2 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 148: partially_replicated (5/8 survived, 3 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 151: failed (1/3 survived, 2 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 156: replicated (3/3 survived, 0 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 162: partially_replicated (5/8 survived, 3 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 165: failed (1/6 survived, 5 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 166: failed (3/7 survived, 4 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 167: replicated (4/4 survived, 0 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 168: replicated (4/4 survived, 0 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 169: replicated (4/4 survived, 0 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 171: failed (5/11 survived, 6 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 173: partially_replicated (5/7 survived, 2 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 174: partially_replicated (4/8 survived, 4 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 175: partially_replicated (4/7 survived, 3 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 176: failed (4/9 survived, 5 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 177: partially_replicated (3/4 survived, 1 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 178: failed (1/3 survived, 2 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Cluster 179: partially_replicated (3/4 survived, 1 eliminated)
+2026-04-26 08:30:21 [INFO] riker.phases.phase5_replication: Phase 5 complete: 220 survived, 181 eliminated, 0 insufficient data.
+2026-04-26 08:30:21 [INFO] riker.io.outputs: Phase 5 verdicts: disease_days/2026-04-24_asd/blind_pc/phase5_verdicts.csv
+2026-04-26 08:30:21 [INFO] riker: ============================================================
+2026-04-26 08:30:21 [INFO] riker: PHASE 6: Effect Size Meta-Analysis
+2026-04-26 08:30:21 [INFO] riker: ============================================================
+2026-04-26 08:30:21 [INFO] riker.phases.phase6_meta: Phase 6: Computing meta-analysis for 220 surviving genes.
+2026-04-26 08:30:21 [INFO] riker.phases.phase6_meta: Phase 6 complete: 220 genes analyzed, 135 significant (random effects), 72 high heterogeneity.
+2026-04-26 08:30:21 [INFO] riker.io.outputs: Phase 6 meta-analysis: disease_days/2026-04-24_asd/blind_pc/phase6_meta_analysis.csv
+2026-04-26 08:30:21 [INFO] riker: ============================================================
+2026-04-26 08:30:21 [INFO] riker: WRITING FINAL OUTPUTS
+2026-04-26 08:30:21 [INFO] riker: ============================================================
+2026-04-26 08:30:21 [INFO] riker.io.outputs: QC report: disease_days/2026-04-24_asd/blind_pc/qc_report.json
+2026-04-26 08:30:21 [INFO] riker.io.outputs: Pipeline summary: disease_days/2026-04-24_asd/blind_pc/pipeline_summary.json
+2026-04-26 08:30:21 [INFO] riker: ============================================================
+2026-04-26 08:30:21 [INFO] riker: PIPELINE COMPLETE: ASD_blind
+2026-04-26 08:30:21 [INFO] riker: QC Report: 4 passed, 0 warnings, 0 critical. Pipeline OK.
+2026-04-26 08:30:21 [INFO] riker: Output: disease_days/2026-04-24_asd/blind_pc
+2026-04-26 08:30:21 [INFO] riker: ============================================================
