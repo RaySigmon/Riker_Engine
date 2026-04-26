@@ -28,7 +28,7 @@ A "disease-day" is a structured validation effort for one disease, producing two
 
 **Optional component:**
 
-4. **All-expressed blind run** — single run using the archived `all_expressed_genes.csv` for that disease, if the file exists at `/home/kai001/riker-archive/old-iterations/<disease>_validation/data/seed_genes/all_expressed_genes.csv`. If the archived file does not exist, this run is SKIPPED. Do not regenerate all-expressed files — the historical procedure used raw platform-specific probe identifiers that cannot be cleanly reproduced.
+4. **All-expressed blind run** — single run using the preserved archive file at `data/seeds/<disease>_all_expressed.csv` in the repo. These files are copied (not regenerated) from `/home/kai001/riker-archive/old-iterations/<disease>_validation/data/seed_genes/all_expressed_genes.csv` with a header comment documenting source, date captured, and originating procedure. If neither the repo copy nor the archived file exists for a given disease, the all-expressed run is SKIPPED. Do not regenerate all-expressed files — the historical procedure used raw platform-specific probe identifiers that cannot be cleanly reproduced. Preservation-by-copy is allowed and encouraged.
 
 All outputs are preserved in a single `disease_days/YYYY-MM-DD_<disease>/` directory structure with full provenance metadata.
 
@@ -76,7 +76,7 @@ Before starting a disease-day, the executor must verify:
 - [ ] All required configs exist and use relative paths (not absolute `/home/kai001/` paths)
 - [ ] `riker` CLI is on PATH (`which riker` returns `/home/kai001/.local/bin/riker`)
 - [ ] `riker.__version__` matches the intended version (should be `0.3.2` or later)
-- [ ] Ghost has ≥20GB free disk and ≥4GB available RAM
+- [ ] Ghost has ≥20GB free disk and ≥3GB available RAM (empirically validated floor on Pi 5)
 - [ ] No competing Ghost workload scheduled for the disease-day window
 
 If any checkbox fails, halt and resolve before proceeding.
@@ -89,41 +89,44 @@ All runs use **master seed 42** as the canonical reference seed. This is the see
 
 ### Curated run (mandatory)
 
+Create a per-run disease-day config by copying the base disease config and setting
+`output_dir`, `random_seed`, `phase3.seeds`, and `phase4.seed` in the YAML directly:
+
 ```bash
 cd /home/kai001/riker-engine
-mkdir -p disease_days/$(date +%Y-%m-%d)_<disease>/curated
-riker run configs/examples/<disease>_curated.yaml \
-  --output-dir disease_days/$(date +%Y-%m-%d)_<disease>/curated \
-  --random-seed 42 \
-  2>&1 | tee disease_days/$(date +%Y-%m-%d)_<disease>/curated/run.log
+DD="disease_days/$(date +%Y-%m-%d)_<disease>"
+mkdir -p "$DD/curated"
+cp configs/examples/<disease>_curated.yaml "$DD/curated/config.yaml"
+# Edit config: set output_dir=$DD/curated, random_seed=42, phase3.seeds, phase4.seed
+riker run "$DD/curated/config.yaml" 2>&1 | tee "$DD/curated/run.log"
 ```
 
 ### Protein-coding blind run (mandatory)
 
+Same per-run config pattern as curated. Base config is `configs/examples/<disease>_blind.yaml`:
+
 ```bash
 cd /home/kai001/riker-engine
-mkdir -p disease_days/$(date +%Y-%m-%d)_<disease>/blind_pc
-riker run configs/examples/<disease>_blind.yaml \
-  --output-dir disease_days/$(date +%Y-%m-%d)_<disease>/blind_pc \
-  --random-seed 42 \
-  2>&1 | tee disease_days/$(date +%Y-%m-%d)_<disease>/blind_pc/run.log
+DD="disease_days/$(date +%Y-%m-%d)_<disease>"
+mkdir -p "$DD/blind_pc"
+cp configs/examples/<disease>_blind.yaml "$DD/blind_pc/config.yaml"
+# Edit config: set output_dir=$DD/blind_pc, random_seed=42, phase3.seeds, phase4.seed
+riker run "$DD/blind_pc/config.yaml" 2>&1 | tee "$DD/blind_pc/run.log"
 ```
 
 ### All-expressed blind run (optional — only if archive seed file exists)
 
 ```bash
-# First verify the archived seed file exists:
-ls /home/kai001/riker-archive/old-iterations/<disease>_validation/data/seed_genes/all_expressed_genes.csv
+# Verify the preserved seed file exists in the repo:
+ls data/seeds/<disease>_all_expressed.csv || echo "No all-expressed file — skipping"
 
-# If it exists, run using a config that points to it:
 cd /home/kai001/riker-engine
-mkdir -p disease_days/$(date +%Y-%m-%d)_<disease>/allexpressed
-riker run configs/examples/<disease>_allexpressed.yaml \
-  --output-dir disease_days/$(date +%Y-%m-%d)_<disease>/allexpressed \
-  --random-seed 42 \
-  2>&1 | tee disease_days/$(date +%Y-%m-%d)_<disease>/allexpressed/run.log
-
-# If it does not exist: SKIP this run entirely. Do not regenerate.
+DD="disease_days/$(date +%Y-%m-%d)_<disease>"
+mkdir -p "$DD/allexpressed"
+# Start from blind_pc config and swap seed file to the all-expressed version
+cp "$DD/blind_pc/config.yaml" "$DD/allexpressed/config.yaml"
+# Edit config: set seed_genes=data/seeds/<disease>_all_expressed.csv, output_dir=$DD/allexpressed
+riker run "$DD/allexpressed/config.yaml" 2>&1 | tee "$DD/allexpressed/run.log"
 ```
 
 ### 50-run stability profile (mandatory, overnight)
@@ -132,9 +135,10 @@ riker run configs/examples/<disease>_allexpressed.yaml \
 cd /home/kai001/riker-engine
 mkdir -p disease_days/$(date +%Y-%m-%d)_<disease>/stability_50run
 nohup python3 scripts/stability_profiling.py \
-  --config configs/examples/<disease>_blind.yaml \
-  --num-runs 50 \
+  configs/examples/<disease>_blind.yaml \
+  -n 50 \
   --master-seed 42 \
+  --keep-runs \
   --output-dir disease_days/$(date +%Y-%m-%d)_<disease>/stability_50run \
   > disease_days/$(date +%Y-%m-%d)_<disease>/stability_50run/profiler.log 2>&1 &
 ```
@@ -266,7 +270,11 @@ These are improvements, not blockers. The SOP can be followed without them.
 
 ## Revision history
 
-- **v1.0 (2026-04-24):** Initial SOP. Established after April 23 internal audit. All-expressed blind run made optional after determining the archived generation procedure uses raw platform-specific probe identifiers that cannot be cleanly reproduced. Added cohort selection pre-specification criteria. First SOP-compliant disease-day: ASD three-run comparison + IPF 50-run stability (depending on execution sequence).
+- **v1.0 (2026-04-24):** Initial SOP.
+- **v1.0.1 (2026-04-24):** Patched during first execution. See `SOP_LESSONS.md` Entry 001.
+  Corrected CLI flag error (use per-run YAML configs, not non-existent `--output-dir`/`--random-seed`).
+  Clarified all-expressed preservation path (copy to `data/seeds/<disease>_all_expressed.csv`).
+  Lowered RAM threshold from 4GB to 3GB. Fixed stability profiler arg syntax. Established after April 23 internal audit. All-expressed blind run made optional after determining the archived generation procedure uses raw platform-specific probe identifiers that cannot be cleanly reproduced. Added cohort selection pre-specification criteria. First SOP-compliant disease-day: ASD three-run comparison + IPF 50-run stability (depending on execution sequence).
 
 ---
 
