@@ -245,6 +245,95 @@ The engine's outputs use specific terminology that must be preserved accurately 
 
 ---
 
+## Performance Characteristics
+
+The Riker Engine completes a full six-phase pipeline run on a Raspberry Pi 5 (8GB RAM, ARM64)
+in 2-8 minutes for typical diseases. This section documents measured timing from the first
+SOP-compliant ASD disease-day (April 26, 2026) and explains the architectural decisions that
+make this possible.
+
+### Measured per-phase timing (ASD, 2026-04-26, Pi 5)
+
+Wall-clock measurements extracted from per-phase log timestamps across three runs of the same
+disease under different seed-set configurations. Source: `disease_days/2026-04-24_asd/{run}/run.log`.
+
+| Phase | Curated (1,267 seeds) | Blind protein-coding (19,296 seeds) | All-expressed (39,185 seeds) |
+|---|---|---|---|
+| 1: Cross-referencing (Welch's t per gene per dataset) | 25s | 79s | 81s |
+| 2: Feature matrix construction | <1s | <1s | <1s |
+| 3: Consensus clustering (15× UMAP+HDBSCAN) | 35s | 190s | 191s |
+| 4: Robustness testing (10K permutations × N clusters) | 11s | 163s | 159s |
+| 5: Replication filtering (4 replication datasets) | 45s | 36s | 35s |
+| 6: Meta-analysis (closed-form IVW + REML/DL) | <1s | <1s | <1s |
+| **Total** | **1.9 min** | **7.8 min** | **7.8 min** |
+
+**Phase 2 and Phase 6 take <1 second each** — confirmed by identical timestamps at phase
+boundaries in the run logs. Phase 2 builds a 5-feature numeric matrix per gene (no pathway
+database is configured in the current pipeline). Phase 6 applies closed-form inverse-variance
+weighted meta-analysis — no MCMC, no iterative fitting.
+
+**Phase 3 + Phase 4 dominate blind runs** (76% of wall clock). Phase 3 runs 15 UMAP+HDBSCAN
+configurations on the study gene set; Phase 4 runs 10,000 permutation tests per cluster.
+
+**Phase 5 dominates the curated run** (39% of wall clock) because replication dataset loading
+is a fixed I/O cost regardless of core gene count (35 curated vs 401 blind).
+
+### Why it's fast: the Phase 1 funnel
+
+The single most important performance fact is that **Phase 1 eliminates 89-96% of input genes
+before any clustering happens.** All downstream phases operate on the filtered study gene set,
+not the original transcriptome.
+
+| Run | Input seeds | → Phase 1 study genes | Reduction |
+|---|---|---|---|
+| Curated | 1,267 | 141 | 89% eliminated |
+| Blind protein-coding | 19,296 | 1,793 | 91% eliminated |
+| All-expressed | 39,185 | 1,813 | 95% eliminated |
+
+The all-expressed run starts with twice as many seeds as the protein-coding blind run but
+produces only 20 more study genes (1,813 vs 1,793). The additional ~20,000 non-protein-coding
+identifiers in the all-expressed seed list are not detected in expression matrices and are
+eliminated immediately. This is why the all-expressed run takes the same time as the
+protein-coding blind run (7.8 min vs 7.8 min) — the effective working set is identical.
+
+### Why it's fast: architectural comparison to WGCNA
+
+WGCNA computes a full soft-thresholded gene-gene correlation matrix (O(n²) in genes),
+iteratively optimizes topology parameters, and requires the full transcriptome to remain
+in memory throughout. For the same ASD datasets:
+
+- **WGCNA**: ~3h 50min on Pi 5, OOM-crashed on 18K genes (required filtering to 10K),
+  produced 1,427-9,995 genes per significant module
+- **Riker Engine**: 7.8 min on Pi 5, ran full 19K gene set without issue, produced 401
+  core genes
+
+The engine avoids the O(n²) bottleneck by never computing a full gene-gene correlation matrix.
+Instead, it reduces genes to a small feature matrix (5 features per gene), runs density-based
+clustering (HDBSCAN) on the 2D UMAP embedding of that matrix, and builds consensus from 15
+independent UMAP configurations. The co-association matrix is n×n, but n is the study gene
+count (~1,800), not the full transcriptome (~19,000).
+
+### The gene funnel (selectivity)
+
+Speed is not the goal — specificity is. Each phase is a statistical filter:
+
+```
+19,296 protein-coding seeds
+  → Phase 1:  1,793 study genes    (p<0.05 in ≥2 of 3 discovery datasets)
+  → Phase 4:    401 core genes     (p<0.01 in ≥2, with ≥3 per cluster)
+  → Phase 5:    220 survived       (replicated in held-out cohorts)
+  → Phase 6:    135 meta-significant (random-effects p<0.05)
+```
+
+Cumulative pass-through: 1.1% of seeds reach Phase 5 survival. 0.7% reach meta-analytical
+significance. The engine prioritizes specificity over sensitivity — it is better to miss a
+real gene than to include a false positive.
+
+For full statistical methodology, see `docs/RIKER_ENGINE_METHODS.md`.
+
+
+---
+
 ## What the engine does NOT claim
 
 Clear scope boundaries, to prevent overinterpretation:

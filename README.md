@@ -4,6 +4,10 @@ A condition-agnostic transcriptomics pipeline for discovering replicated gene mo
 
 [![Tests](https://github.com/RaySigmon/Riker_Engine/actions/workflows/test.yml/badge.svg)](https://github.com/RaySigmon/Riker_Engine/actions/workflows/test.yml) ![Python](https://img.shields.io/badge/python-3.11%2B-blue) ![License](https://img.shields.io/badge/license-AGPL--3.0-blue) ![Version](https://img.shields.io/badge/version-0.3.2-orange)
 
+### Performance
+
+Riker completes a full six-phase pipeline run on a Raspberry Pi 5 in 2-8 minutes for typical diseases. The engine's compute scales with study-gene count (~1,800 after Phase 1 filtering) rather than seed-gene count (~19,000), and uses density-based clustering on a pre-filtered set rather than the O(n²) gene-gene correlation matrices typical of WGCNA-style tools. Per-phase measured timings, the gene-funnel cascade, and full architectural reasoning are documented in [docs/RIKER_ENGINE_METHODS.md §Performance Characteristics](docs/RIKER_ENGINE_METHODS.md#performance-characteristics).
+
 ## What It Does
 
 The Riker Engine takes a list of candidate genes for any disease and determines which ones form reproducible, statistically defensible modules across multiple independent expression datasets. It enforces pre-specification, full-seed-set FDR correction, consensus clustering, and directional replication — returning a minimal core gene set that survives all filters.
