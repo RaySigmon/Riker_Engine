@@ -1,0 +1,11 @@
+# asd_all_expressed.csv
+# Source: /home/kai001/riker-archive/old-iterations/asd_validation/data/seed_genes/all_expressed_genes.csv
+# Captured from archive: 2026-04-24
+# Original archive date: 2026-03-21
+# Gene count: 39185
+# Generation procedure (per IBD_VALIDATION_RUN.md lines 308-353):
+#   1. Extract expr.index.tolist() from each GEO series matrix
+#   2. Take union of identifiers across datasets for this disease
+#   3. Write result as CSV (raw probe/gene identifiers, NOT curated gene symbols)
+# NOTE: Contents are raw platform-specific identifiers, may include probe IDs,
+#       pseudogenes, and non-coding transcripts in addition to protein-coding genes.
