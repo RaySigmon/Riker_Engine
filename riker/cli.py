@@ -30,6 +30,7 @@ import logging
 import sys
 from pathlib import Path
 
+import riker
 from riker.config import load_config
 
 logger = logging.getLogger("riker")
@@ -433,6 +434,8 @@ def main() -> int:
         description="Riker Engine — Condition-agnostic transcriptomics pipeline. "
                     "Run with no arguments to launch the web UI.",
     )
+    parser.add_argument("--version", action="version",
+                        version=f"riker {riker.__version__}")
     parser.add_argument("--no-browser", action="store_true",
                         help="(UI mode) Do not auto-open browser")
     parser.add_argument("--host", default="127.0.0.1",

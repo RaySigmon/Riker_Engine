@@ -26,12 +26,29 @@ References:
 
 import json
 import logging
+import subprocess
 from dataclasses import asdict
 from pathlib import Path
 
 import pandas as pd
 
+import riker
+
 logger = logging.getLogger(__name__)
+
+
+def _get_git_commit_hash() -> str:
+    """Get current git commit hash. Returns 'unknown' if git unavailable."""
+    try:
+        result = subprocess.run(
+            ["git", "rev-parse", "HEAD"],
+            capture_output=True, text=True, timeout=5,
+        )
+        if result.returncode == 0:
+            return result.stdout.strip()
+    except (FileNotFoundError, subprocess.TimeoutExpired):
+        pass
+    return "unknown"
 
 
 def write_phase1_summary(phase1_result, output_dir: Path) -> Path:
@@ -264,6 +281,8 @@ def write_pipeline_summary(
 ) -> Path:
     """Write overall pipeline summary to JSON."""
     data = {
+        "package_version": riker.__version__,
+        "code_version": _get_git_commit_hash(),
         "condition": config.condition,
         "seed_genes": config.seed_genes_path,
         "n_datasets_discovery": len([d for d in config.datasets if d.role == "discovery"]),
