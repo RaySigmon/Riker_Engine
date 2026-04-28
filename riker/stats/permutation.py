@@ -139,7 +139,7 @@ def permutation_test(
     observed_stat = stat_func(observed_values)
 
     # --- Build null distribution ---
-    rng = np.random.RandomState(seed)
+    rng = np.random.default_rng(seed)
     all_genes_arr = np.array(all_genes)
     k = len(observed_genes)
     null_stats = np.empty(n_permutations, dtype=np.float64)

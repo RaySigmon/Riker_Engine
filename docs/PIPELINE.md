@@ -328,8 +328,8 @@ After gene-level elimination, each cluster receives a verdict:
 
 | Verdict | Criterion |
 |---|---|
-| `replicated` | All core genes survived, no blood-specific failures |
-| `brain_specific` | All core genes survived, but blood replication failed |
+| `replicated` | All core genes survived, no cross-tissue failures |
+| `tissue_specific` | All core genes survived, but cross-tissue replication failed |
 | `partially_replicated` | >= 50% of core genes survived |
 | `failed` | < 50% of core genes survived, or none survived |
 

@@ -104,6 +104,7 @@ def cmd_run(args) -> int:
         # Parse discovery datasets
         discovery_datasets = {}
         discovery_phenotypes = {}
+        discovery_dataset_tissues = {}
         dataset_ids = []
 
         for ds_config in config.datasets:
@@ -112,6 +113,7 @@ def cmd_run(args) -> int:
 
             ds_id = ds_config.dataset_id
             dataset_ids.append(ds_id)
+            discovery_dataset_tissues[ds_id] = ds_config.tissue
             logger.info(f"Loading dataset: {ds_id}")
 
             # Parse series matrix
@@ -337,7 +339,10 @@ def cmd_run(args) -> int:
     try:
         from riker.phases.phase6_meta import run_phase6
 
-        phase6_result = run_phase6(phase1_result, phase5_result)
+        phase6_result = run_phase6(
+            phase1_result, phase5_result,
+            dataset_tissues=discovery_dataset_tissues,
+        )
 
         from riker.io.outputs import write_phase6_meta
         write_phase6_meta(phase6_result, output_dir)

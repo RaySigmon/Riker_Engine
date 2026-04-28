@@ -152,6 +152,7 @@ class TestCrossReferenceGene:
         assert result.consistent_direction is True
 
     def test_non_significant_gene(self):
+        """A gene with no real effect should not reliably pass the filter."""
         expr1, samples1 = _make_expression_df(["GENE_A"], n_cases=10, n_controls=10, seed=42)
         pheno1 = _make_phenotypes(samples1, n_cases=10)
         expr2, samples2 = _make_expression_df(["GENE_A"], n_cases=10, n_controls=10, seed=99)
@@ -162,10 +163,12 @@ class TestCrossReferenceGene:
             {"DS1": expr1, "DS2": expr2},
             {"DS1": pheno1, "DS2": pheno2},
         )
-        # With no real effect, should not reach significance in 2 datasets
-        assert result.n_datasets_significant < 2 or result.passes_filter is False or True
-        # At minimum, the gene should be detected in both datasets
+        # Gene should be detected in both datasets
         assert result.n_datasets_detected == 2
+        # With no real effect (no case_shift), gene should either:
+        # - not reach significance in 2 datasets, OR
+        # - not pass the filter
+        assert result.n_datasets_significant < 2 or result.passes_filter is False
 
     def test_gene_missing_from_dataset(self):
         expr1, samples1 = _make_expression_df(["GENE_A", "GENE_B"], n_cases=5, n_controls=5, seed=42)

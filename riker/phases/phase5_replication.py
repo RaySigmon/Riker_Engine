@@ -107,7 +107,7 @@ class ClusterVerdict:
 
     Attributes:
         cluster_id: Cluster label.
-        verdict: 'replicated', 'partially_replicated', 'brain_specific', 'failed'.
+        verdict: 'replicated', 'partially_replicated', 'tissue_specific', 'failed'.
         n_core_genes: Total core genes in this cluster.
         n_survived: Core genes that survived elimination.
         n_eliminated: Core genes eliminated.
@@ -391,14 +391,14 @@ def assign_cluster_verdicts(
         if n_surv == 0:
             verdict = "failed"
         elif n_surv == n_core:
-            # Check if blood failed (brain-specific pattern)
-            has_blood_fail = False
+            # Check if cross-tissue replication failed (tissue-specific pattern)
+            has_cross_tissue_fail = False
             for gene in survived:
                 gv = gene_verdicts[gene]
                 if gv.n_cross_tissue_tested > 0 and gv.n_cross_tissue_concordant == 0:
-                    has_blood_fail = True
+                    has_cross_tissue_fail = True
                     break
-            verdict = "brain_specific" if has_blood_fail else "replicated"
+            verdict = "tissue_specific" if has_cross_tissue_fail else "replicated"
         elif n_surv >= n_core * 0.5:
             verdict = "partially_replicated"
         else:

@@ -37,7 +37,7 @@ import warnings
 from dataclasses import dataclass
 
 import numpy as np
-from scipy.stats import norm, t as t_dist
+from scipy.stats import chi2, norm, t as t_dist
 
 
 @dataclass(frozen=True)
@@ -550,7 +550,6 @@ def _chi2_cdf(x: float, df: int) -> float:
 
     Used for Cochran's Q p-value calculation.
     """
-    from scipy.stats import chi2
     if df <= 0 or x < 0:
         return 0.0
     return float(chi2.cdf(x, df))

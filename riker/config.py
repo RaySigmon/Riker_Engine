@@ -178,13 +178,35 @@ def load_config(path: str | Path) -> PipelineConfig:
 
     p3 = raw.get("phase3", {})
     config.phase3_n_neighbors = p3.get("n_neighbors", [10, 15, 30])
-    config.phase3_seeds = p3.get("seeds", [42, 123, 456, 789, 1024])
     config.phase3_min_cluster_size = p3.get("min_cluster_size", 5)
     config.phase3_min_samples = p3.get("min_samples", 3)
 
     p4 = raw.get("phase4", {})
     config.phase4_n_permutations = p4.get("n_permutations", 10000)
-    config.phase4_permutation_seed = p4.get("seed", 42)
+
+    # Seed wiring: random_seed derives phase-specific seeds when they
+    # aren't explicitly set. Phase-specific seeds always take priority.
+    # When random_seed is explicitly set in the YAML, it overrides the
+    # hardcoded defaults. When it's absent, the historical defaults are
+    # preserved for backward compatibility.
+    random_seed_explicit = "random_seed" in raw
+    if "seeds" in p3:
+        config.phase3_seeds = p3["seeds"]
+    elif random_seed_explicit:
+        import random as _random
+        rng = _random.Random(config.random_seed)
+        config.phase3_seeds = [rng.randint(0, 2**31 - 1) for _ in range(5)]
+    else:
+        config.phase3_seeds = [42, 123, 456, 789, 1024]
+
+    if "seed" in p4:
+        config.phase4_permutation_seed = p4["seed"]
+    elif random_seed_explicit:
+        import random as _random
+        rng = _random.Random(config.random_seed + 1000)
+        config.phase4_permutation_seed = rng.randint(0, 2**31 - 1)
+    else:
+        config.phase4_permutation_seed = 42
 
     # Pathways
     config.pathways = raw.get("pathways", {})

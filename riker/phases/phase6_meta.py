@@ -126,6 +126,7 @@ def compute_gene_meta(
     cluster_id: int,
     de_results: list,
     dataset_scales: dict[str, bool] | None = None,
+    dataset_tissues: dict[str, str] | None = None,
 ) -> GeneMetaResult | None:
     """Compute meta-analysis for one gene.
 
@@ -139,6 +140,8 @@ def compute_gene_meta(
         List of GeneDatasetDE from Phase 1 (per-dataset stats).
     dataset_scales : dict or None
         Dataset_id -> True if scale warning applies.
+    dataset_tissues : dict or None
+        Dataset_id -> tissue type string. If None, defaults to 'unknown'.
 
     Returns
     -------
@@ -179,6 +182,10 @@ def compute_gene_meta(
         if dataset_scales and de.dataset_id in dataset_scales:
             scale_warn = dataset_scales[de.dataset_id]
 
+        tissue = "unknown"
+        if dataset_tissues and de.dataset_id in dataset_tissues:
+            tissue = dataset_tissues[de.dataset_id]
+
         study_effects.append(StudyEffect(
             dataset_id=de.dataset_id,
             log2fc=effect,
@@ -186,7 +193,7 @@ def compute_gene_meta(
             n_cases=de.n_cases,
             n_controls=de.n_controls,
             p_value=de.p_value,
-            tissue="brain" # Standard assumption for meta-analysis pooling
+            tissue=tissue,
         ))
         
         per_dataset_info.append(GeneEffectSize(
@@ -232,6 +239,7 @@ def run_phase6(
     phase1_result,
     phase5_result,
     dataset_expression_ranges: dict[str, float] | None = None,
+    dataset_tissues: dict[str, str] | None = None,
 ) -> Phase6Result:
     """Run Phase 6 meta-analysis for all surviving genes.
 
@@ -244,6 +252,8 @@ def run_phase6(
     dataset_expression_ranges : dict or None
         Dataset_id -> max expression value (for scale check).
         If None, scale check is skipped.
+    dataset_tissues : dict or None
+        Dataset_id -> tissue type string. Passed to StudyEffect metadata.
 
     Returns
     -------
@@ -286,6 +296,7 @@ def run_phase6(
         meta = compute_gene_meta(
             gene, cluster_id, gene_result.de_results,
             dataset_scales=dataset_scales or None,
+            dataset_tissues=dataset_tissues,
         )
 
         if meta is not None:
