@@ -296,7 +296,7 @@ def fixed_effects_meta(
 
     # Z-test for pooled estimate
     pooled_z = pooled_effect / pooled_se
-    pooled_p = float(2.0 * norm.sf(abs(pooled_z)))
+    pooled_p = float(2.0 * max(norm.sf(abs(pooled_z)), 1e-300))
 
     # 95% CI
     ci_lower = pooled_effect - 1.96 * pooled_se
@@ -407,7 +407,7 @@ def random_effects_meta(
 
     # Z-test
     pooled_z = pooled_effect / pooled_se
-    pooled_p = float(2.0 * norm.sf(abs(pooled_z)))
+    pooled_p = float(2.0 * max(norm.sf(abs(pooled_z)), 1e-300))
 
     # 95% CI
     ci_lower = pooled_effect - 1.96 * pooled_se

@@ -221,19 +221,37 @@ class GEOSeriesMatrix:
         # Parse data rows
         rows = []
         index_vals = []
+        n_high_nan_rows = 0
         for line in lines[1:]:
             if not line.strip():
                 continue
             parts = line.split("\t")
             probe_id = parts[0].strip('"')
-            try:
-                values = [float(v.strip('"')) if v.strip('"') not in ("", "null", "NA", "NaN") else np.nan for v in parts[1:]]
-            except (ValueError, IndexError):
-                continue
+            # Per-cell try/except: bad cells become NaN, not dropped rows
+            values = []
+            for v in parts[1:]:
+                v_stripped = v.strip('"')
+                if v_stripped in ("", "null", "NA", "NaN"):
+                    values.append(np.nan)
+                else:
+                    try:
+                        values.append(float(v_stripped))
+                    except (ValueError, IndexError):
+                        values.append(np.nan)
 
             if len(values) == len(sample_cols):
+                # Track rows with high NaN fraction
+                n_nan = sum(1 for val in values if np.isnan(val))
+                if len(values) > 0 and n_nan / len(values) > 0.05:
+                    n_high_nan_rows += 1
                 index_vals.append(probe_id)
                 rows.append(values)
+
+        if n_high_nan_rows > 0:
+            logger.warning(
+                f"{self._accession}: {n_high_nan_rows} probe(s) have >5% NaN "
+                f"cells after parsing. Check data quality."
+            )
 
         if rows:
             self._expression_df = pd.DataFrame(

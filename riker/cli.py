@@ -307,16 +307,37 @@ def cmd_run(args) -> int:
             dataset_tissues[ds_id] = ds_config.tissue
 
         if replication_datasets:
+            # Pass discovery tissue types so Phase 5 can distinguish
+            # same-tissue vs cross-tissue replication correctly
+            discovery_tissues = set(discovery_dataset_tissues.values())
             phase5_result = run_phase5(
                 phase4_result.core_genes,
                 replication_datasets,
                 replication_phenotypes,
                 dataset_tissues,
+                discovery_tissues=discovery_tissues,
             )
         else:
+            # No replication datasets: all core genes survive by default.
+            # Populate gene_verdicts so Phase 6 can iterate over survivors.
             logger.warning("No replication datasets configured. Skipping Phase 5.")
-            from riker.phases.phase5_replication import Phase5Result
+            from riker.phases.phase5_replication import Phase5Result, GeneVerdict
+            skip_verdicts = {}
+            for gene, core_info in phase4_result.core_genes.items():
+                skip_verdicts[gene] = GeneVerdict(
+                    gene=gene,
+                    cluster_id=core_info.cluster_id,
+                    status="survived",
+                    reason="No replication datasets configured; retained by default.",
+                    replication_results=[],
+                    n_same_tissue_concordant=0,
+                    n_same_tissue_discordant=0,
+                    n_cross_tissue_tested=0,
+                    n_cross_tissue_concordant=0,
+                    discovery_direction=core_info.direction,
+                )
             phase5_result = Phase5Result(
+                gene_verdicts=skip_verdicts,
                 locked_core_genes=sorted(phase4_result.core_genes.keys()),
                 n_survived=len(phase4_result.core_genes),
             )
