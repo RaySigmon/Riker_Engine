@@ -3,18 +3,18 @@
 # To download data: python scripts/download_data.py ibd
 
 condition: IBD
-seed_genes: data/seeds/ibd_open_targets_genes.csv
+seed_genes: ../../data/seeds/ibd_open_targets_genes.csv
 symbol_column: symbol
-hgnc_path: data/hgnc/hgnc_complete_set.txt
-output_dir: output/ibd_curated
+hgnc_path: ../../data/hgnc/hgnc_complete_set.txt
+output_dir: ../../output/ibd_curated
 
 datasets:
   # === Discovery datasets (intestinal mucosa) ===
 
   # Colonic + ileal mucosa, CD + UC + controls
   - id: GSE75214
-    series_matrix: data/geo/ibd/GSE75214_series_matrix.txt.gz
-    platform: data/platforms/GPL6244.annot
+    series_matrix: ../../data/geo/ibd/GSE75214_series_matrix.txt.gz
+    platform: ../../data/platforms/GPL6244.annot
     role: discovery
     tissue: colon
     phenotype_field: Sample_characteristics_ch1
@@ -23,8 +23,8 @@ datasets:
 
   # Colonic mucosa, CD + UC, before/after infliximab
   - id: GSE16879
-    series_matrix: data/geo/ibd/GSE16879_series_matrix.txt.gz
-    platform: data/platforms/GPL570.annot
+    series_matrix: ../../data/geo/ibd/GSE16879_series_matrix.txt.gz
+    platform: ../../data/platforms/GPL570.annot
     role: discovery
     tissue: colon
     phenotype_field: Sample_characteristics_ch1
@@ -33,8 +33,8 @@ datasets:
 
   # Colonic mucosa, CD + UC + controls
   - id: GSE59071
-    series_matrix: data/geo/ibd/GSE59071_series_matrix.txt.gz
-    platform: data/platforms/GPL6244.annot
+    series_matrix: ../../data/geo/ibd/GSE59071_series_matrix.txt.gz
+    platform: ../../data/platforms/GPL6244.annot
     role: discovery
     tissue: colon
     phenotype_field: Sample_characteristics_ch1
@@ -45,8 +45,8 @@ datasets:
 
   # Colonic mucosa, UC + normal
   - id: GSE87466
-    series_matrix: data/geo/ibd/GSE87466_series_matrix.txt.gz
-    platform: data/platforms/GPL13158.annot
+    series_matrix: ../../data/geo/ibd/GSE87466_series_matrix.txt.gz
+    platform: ../../data/platforms/GPL13158.annot
     role: replication
     tissue: colon
     phenotype_field: Sample_characteristics_ch1
@@ -55,8 +55,8 @@ datasets:
 
   # Colonic mucosa, UC + non-inflammatory controls
   - id: GSE38713
-    series_matrix: data/geo/ibd/GSE38713_series_matrix.txt.gz
-    platform: data/platforms/GPL570.annot
+    series_matrix: ../../data/geo/ibd/GSE38713_series_matrix.txt.gz
+    platform: ../../data/platforms/GPL570.annot
     role: replication
     tissue: colon
     phenotype_field: Sample_source_name_ch1
@@ -65,8 +65,8 @@ datasets:
 
   # Colonic tissue, CD + UC + healthy controls
   - id: GSE36807
-    series_matrix: data/geo/ibd/GSE36807_series_matrix.txt.gz
-    platform: data/platforms/GPL570.annot
+    series_matrix: ../../data/geo/ibd/GSE36807_series_matrix.txt.gz
+    platform: ../../data/platforms/GPL570.annot
     role: replication
     tissue: colon
     phenotype_field: Sample_characteristics_ch1

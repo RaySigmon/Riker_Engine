@@ -4,9 +4,9 @@
 # NOTE: 3 datasets require filtering — see docs/DATA_RECONSTRUCTION.md
 
 condition: alzheimers_disease
-seed_genes: data/seeds/ad_curated_genes.csv
-hgnc_path: data/hgnc/hgnc_complete_set.txt
-output_dir: output/ad_curated
+seed_genes: ../../data/seeds/ad_curated_genes.csv
+hgnc_path: ../../data/hgnc/hgnc_complete_set.txt
+output_dir: ../../output/ad_curated
 
 datasets:
   # === Discovery — Brain Cortex ===
@@ -15,8 +15,8 @@ datasets:
   # REQUIRES FILTERING: remove Huntington's disease samples
   # NOTE: Log-ratio values centered near zero, NOT log2-intensities
   - id: GSE33000
-    series_matrix: data/geo/ad/GSE33000_AD_only_series_matrix.txt.gz
-    platform: data/platforms/GPL4372.annot
+    series_matrix: ../../data/geo/ad/GSE33000_AD_only_series_matrix.txt.gz
+    platform: ../../data/platforms/GPL4372.annot
     role: discovery
     tissue: brain
     phenotype_field: Sample_characteristics_ch2
@@ -25,8 +25,8 @@ datasets:
 
   # GSE44770 — Prefrontal cortex, same Rosetta/Merck platform
   - id: GSE44770
-    series_matrix: data/geo/ad/GSE44770_series_matrix.txt.gz
-    platform: data/platforms/GPL4372.annot
+    series_matrix: ../../data/geo/ad/GSE44770_series_matrix.txt.gz
+    platform: ../../data/platforms/GPL4372.annot
     role: discovery
     tissue: brain
     phenotype_field: Sample_characteristics_ch2
@@ -36,8 +36,8 @@ datasets:
   # GSE118553 — Temporal cortex, Illumina HumanHT-12 V4
   # REQUIRES FILTERING: extract temporal cortex samples only, exclude AsymAD
   - id: GSE118553
-    series_matrix: data/geo/ad/GSE118553_TC_series_matrix.txt.gz
-    platform: data/platforms/GPL10558.annot
+    series_matrix: ../../data/geo/ad/GSE118553_TC_series_matrix.txt.gz
+    platform: ../../data/platforms/GPL10558.annot
     role: discovery
     tissue: brain
     phenotype_field: Sample_characteristics_ch1
@@ -49,8 +49,8 @@ datasets:
   # GSE5281 — Superior frontal gyrus, Affymetrix HG-U133 Plus 2
   # REQUIRES FILTERING: extract SFG samples only
   - id: GSE5281
-    series_matrix: data/geo/ad/GSE5281_SFG_series_matrix.txt.gz
-    platform: data/platforms/GPL570.annot
+    series_matrix: ../../data/geo/ad/GSE5281_SFG_series_matrix.txt.gz
+    platform: ../../data/platforms/GPL570.annot
     role: replication
     tissue: brain
     phenotype_field: Sample_characteristics_ch1
@@ -59,8 +59,8 @@ datasets:
 
   # GSE15222 — Cortical tissue, Sentrix HumanRef-8
   - id: GSE15222
-    series_matrix: data/geo/ad/GSE15222_series_matrix.txt.gz
-    platform: data/platforms/GPL2700.annot
+    series_matrix: ../../data/geo/ad/GSE15222_series_matrix.txt.gz
+    platform: ../../data/platforms/GPL2700.annot
     role: replication
     tissue: brain
     phenotype_field: Sample_source_name_ch1

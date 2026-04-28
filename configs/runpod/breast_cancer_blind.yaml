@@ -4,14 +4,14 @@
 
 condition: breast_cancer_blind
 seed_genes: all_expressed
-hgnc_path: data/hgnc/hgnc_complete_set.txt
-output_dir: results/breast_cancer/blind
+hgnc_path: ../../data/hgnc/hgnc_complete_set.txt
+output_dir: ../../results/breast_cancer/blind
 
 datasets:
   # Discovery
   - id: GSE10810
-    series_matrix: data/geo/breast_cancer/GSE10810_series_matrix.txt.gz
-    platform: data/platforms/GPL570.annot
+    series_matrix: ../../data/geo/breast_cancer/GSE10810_series_matrix.txt.gz
+    platform: ../../data/platforms/GPL570.annot
     role: discovery
     tissue: breast
     phenotype_field: Sample_characteristics_ch1
@@ -19,8 +19,8 @@ datasets:
     control_values: ["tumor (t) vs healthy (s): s"]
 
   - id: GSE42568
-    series_matrix: data/geo/breast_cancer/GSE42568_series_matrix.txt.gz
-    platform: data/platforms/GPL570.annot
+    series_matrix: ../../data/geo/breast_cancer/GSE42568_series_matrix.txt.gz
+    platform: ../../data/platforms/GPL570.annot
     role: discovery
     tissue: breast
     phenotype_field: Sample_characteristics_ch1
@@ -28,8 +28,8 @@ datasets:
     control_values: ["tissue: normal breast"]
 
   - id: GSE15852
-    series_matrix: data/geo/breast_cancer/GSE15852_series_matrix.txt.gz
-    platform: data/platforms/GPL96.annot
+    series_matrix: ../../data/geo/breast_cancer/GSE15852_series_matrix.txt.gz
+    platform: ../../data/platforms/GPL96.annot
     role: discovery
     tissue: breast
     phenotype_field: Sample_source_name_ch1
@@ -38,8 +38,8 @@ datasets:
 
   # Replication
   - id: GSE45827
-    series_matrix: data/geo/breast_cancer/GSE45827_series_matrix.txt.gz
-    platform: data/platforms/GPL570.annot
+    series_matrix: ../../data/geo/breast_cancer/GSE45827_series_matrix.txt.gz
+    platform: ../../data/platforms/GPL570.annot
     role: replication
     tissue: breast
     phenotype_field: Sample_characteristics_ch1
@@ -47,8 +47,8 @@ datasets:
     control_values: ["diagnosis: none"]
 
   - id: GSE65194
-    series_matrix: data/geo/breast_cancer/GSE65194_series_matrix.txt.gz
-    platform: data/platforms/GPL570.annot
+    series_matrix: ../../data/geo/breast_cancer/GSE65194_series_matrix.txt.gz
+    platform: ../../data/platforms/GPL570.annot
     role: replication
     tissue: breast
     phenotype_field: Sample_characteristics_ch1

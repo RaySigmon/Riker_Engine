@@ -4,10 +4,10 @@
 # Seed genes: 515 curated CRC genes from COSMIC, Open Targets, KEGG, literature
 
 condition: CRC
-seed_genes: data/seeds/crc_curated_genes.csv
+seed_genes: ../../data/seeds/crc_curated_genes.csv
 symbol_column: symbol
-hgnc_path: data/hgnc/hgnc_complete_set.txt
-output_dir: output/crc
+hgnc_path: ../../data/hgnc/hgnc_complete_set.txt
+output_dir: ../../output/crc
 
 datasets:
   # === Discovery datasets ===
@@ -15,8 +15,8 @@ datasets:
   # Skrzypczak et al. 2010 — Colon adenocarcinoma vs normal colon
   # ~66 CRC (macro + micro-dissected) + ~34 normal (excluding 45 adenomas)
   - id: GSE20916
-    series_matrix: data/geo/crc/GSE20916_series_matrix.txt.gz
-    platform: data/platforms/GPL570.annot
+    series_matrix: ../../data/geo/crc/GSE20916_series_matrix.txt.gz
+    platform: ../../data/platforms/GPL570.annot
     role: discovery
     tissue: colon
     phenotype_field: Sample_characteristics_ch1
@@ -26,8 +26,8 @@ datasets:
   # Hong et al. 2010 — Early-stage CRC tumor vs healthy colon mucosa
   # 70 tumor + 12 healthy
   - id: GSE9348
-    series_matrix: data/geo/crc/GSE9348_series_matrix.txt.gz
-    platform: data/platforms/GPL570.annot
+    series_matrix: ../../data/geo/crc/GSE9348_series_matrix.txt.gz
+    platform: ../../data/platforms/GPL570.annot
     role: discovery
     tissue: colon
     phenotype_field: Sample_source_name_ch1
@@ -37,8 +37,8 @@ datasets:
   # Uddin et al. 2011 — Colon tumour vs normal paired tissue
   # 35 tumour + 24 normal
   - id: GSE23878
-    series_matrix: data/geo/crc/GSE23878_series_matrix.txt.gz
-    platform: data/platforms/GPL570.annot
+    series_matrix: ../../data/geo/crc/GSE23878_series_matrix.txt.gz
+    platform: ../../data/platforms/GPL570.annot
     role: discovery
     tissue: colon
     phenotype_field: Sample_source_name_ch1
@@ -50,8 +50,8 @@ datasets:
   # Khamas/Mogushi et al. 2012 — Paired CRC tumor/normal tissue
   # 17 tumor + 17 normal (10 cell line samples auto-excluded)
   - id: GSE32323
-    series_matrix: data/geo/crc/GSE32323_series_matrix.txt.gz
-    platform: data/platforms/GPL570.annot
+    series_matrix: ../../data/geo/crc/GSE32323_series_matrix.txt.gz
+    platform: ../../data/platforms/GPL570.annot
     role: replication
     tissue: colon
     phenotype_field: Sample_characteristics_ch1
@@ -61,8 +61,8 @@ datasets:
   # Galamb et al. 2012 — CRC adenocarcinoma vs normal colonic mucosa
   # 14-27 CRC + 38 normal (29 adenomas auto-excluded)
   - id: GSE37364
-    series_matrix: data/geo/crc/GSE37364_series_matrix.txt.gz
-    platform: data/platforms/GPL570.annot
+    series_matrix: ../../data/geo/crc/GSE37364_series_matrix.txt.gz
+    platform: ../../data/platforms/GPL570.annot
     role: replication
     tissue: colon
     phenotype_field: Sample_characteristics_ch1
@@ -72,8 +72,8 @@ datasets:
   # Marisa et al. 2013 — CRC molecular subtypes cohort vs non-tumoral mucosa
   # 566 tumors + 19 normal
   - id: GSE39582
-    series_matrix: data/geo/crc/GSE39582_series_matrix.txt.gz
-    platform: data/platforms/GPL570.annot
+    series_matrix: ../../data/geo/crc/GSE39582_series_matrix.txt.gz
+    platform: ../../data/platforms/GPL570.annot
     role: replication
     tissue: colon
     phenotype_field: Sample_source_name_ch1

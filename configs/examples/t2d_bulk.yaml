@@ -3,10 +3,10 @@
 # To download data: python scripts/download_data.py t2d
 
 condition: T2D
-seed_genes: data/seeds/t2d_open_targets_genes.csv
+seed_genes: ../../data/seeds/t2d_open_targets_genes.csv
 symbol_column: symbol
-hgnc_path: data/hgnc/hgnc_complete_set.txt
-output_dir: output/t2d_curated
+hgnc_path: ../../data/hgnc/hgnc_complete_set.txt
+output_dir: ../../output/t2d_curated
 
 datasets:
   # === Discovery datasets (pancreatic islets) ===
@@ -14,8 +14,8 @@ datasets:
   # Rosengren et al. — pancreatic islets, Affymetrix HuGene-1.0-ST
   # 20 T2D + 43 non-diabetic (14 unlabeled excluded by engine)
   - id: GSE41762
-    series_matrix: data/geo/t2d/GSE41762_series_matrix.txt.gz
-    platform: data/platforms/GPL6244.annot
+    series_matrix: ../../data/geo/t2d/GSE41762_series_matrix.txt.gz
+    platform: ../../data/platforms/GPL6244.annot
     role: discovery
     tissue: islet
     phenotype_field: Sample_characteristics_ch1
@@ -24,8 +24,8 @@ datasets:
 
   # Taneera et al. — pancreatic islets, Affymetrix HG-U133A
   - id: GSE25724
-    series_matrix: data/geo/t2d/GSE25724_series_matrix.txt.gz
-    platform: data/platforms/GPL96.annot
+    series_matrix: ../../data/geo/t2d/GSE25724_series_matrix.txt.gz
+    platform: ../../data/platforms/GPL96.annot
     role: discovery
     tissue: islet
     phenotype_field: Sample_characteristics_ch1
@@ -34,8 +34,8 @@ datasets:
 
   # Marselli et al. — pancreatic beta cells (LCM)
   - id: GSE20966
-    series_matrix: data/geo/t2d/GSE20966_series_matrix.txt.gz
-    platform: data/platforms/GPL1352.annot
+    series_matrix: ../../data/geo/t2d/GSE20966_series_matrix.txt.gz
+    platform: ../../data/platforms/GPL1352.annot
     role: discovery
     tissue: islet
     phenotype_field: Sample_characteristics_ch1
@@ -46,8 +46,8 @@ datasets:
 
   # Lawlor et al. — islet RNA-seq (reconstructed, see docs/DATA_RECONSTRUCTION.md)
   - id: GSE86468
-    series_matrix: data/geo/t2d/GSE86468_reconstructed_series_matrix.txt.gz
-    platform: data/mappings/ensembl_to_symbol.txt
+    series_matrix: ../../data/geo/t2d/GSE86468_reconstructed_series_matrix.txt.gz
+    platform: ../../data/mappings/ensembl_to_symbol.txt
     role: replication
     tissue: islet
     phenotype_field: Sample_characteristics_ch1

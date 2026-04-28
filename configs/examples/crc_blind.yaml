@@ -1,14 +1,14 @@
 # CRC Blind Run — All protein-coding genes (hypothesis-free)
 condition: CRC_blind
-seed_genes: data/seeds/all_protein_coding_genes.csv
+seed_genes: ../../data/seeds/all_protein_coding_genes.csv
 symbol_column: symbol
-hgnc_path: data/hgnc/hgnc_complete_set.txt
-output_dir: output/crc_blind
+hgnc_path: ../../data/hgnc/hgnc_complete_set.txt
+output_dir: ../../output/crc_blind
 
 datasets:
   - id: GSE20916
-    series_matrix: data/geo/crc/GSE20916_series_matrix.txt.gz
-    platform: data/platforms/GPL570.annot
+    series_matrix: ../../data/geo/crc/GSE20916_series_matrix.txt.gz
+    platform: ../../data/platforms/GPL570.annot
     role: discovery
     tissue: colon
     phenotype_field: Sample_characteristics_ch1
@@ -16,8 +16,8 @@ datasets:
     control_values: ["tissue: normal colon"]
 
   - id: GSE9348
-    series_matrix: data/geo/crc/GSE9348_series_matrix.txt.gz
-    platform: data/platforms/GPL570.annot
+    series_matrix: ../../data/geo/crc/GSE9348_series_matrix.txt.gz
+    platform: ../../data/platforms/GPL570.annot
     role: discovery
     tissue: colon
     phenotype_field: Sample_source_name_ch1
@@ -25,8 +25,8 @@ datasets:
     control_values: ["mucosa"]
 
   - id: GSE23878
-    series_matrix: data/geo/crc/GSE23878_series_matrix.txt.gz
-    platform: data/platforms/GPL570.annot
+    series_matrix: ../../data/geo/crc/GSE23878_series_matrix.txt.gz
+    platform: ../../data/platforms/GPL570.annot
     role: discovery
     tissue: colon
     phenotype_field: Sample_source_name_ch1
@@ -34,8 +34,8 @@ datasets:
     control_values: ["normal"]
 
   - id: GSE32323
-    series_matrix: data/geo/crc/GSE32323_series_matrix.txt.gz
-    platform: data/platforms/GPL570.annot
+    series_matrix: ../../data/geo/crc/GSE32323_series_matrix.txt.gz
+    platform: ../../data/platforms/GPL570.annot
     role: replication
     tissue: colon
     phenotype_field: Sample_characteristics_ch1
@@ -43,8 +43,8 @@ datasets:
     control_values: ["tissue: normal"]
 
   - id: GSE37364
-    series_matrix: data/geo/crc/GSE37364_series_matrix.txt.gz
-    platform: data/platforms/GPL570.annot
+    series_matrix: ../../data/geo/crc/GSE37364_series_matrix.txt.gz
+    platform: ../../data/platforms/GPL570.annot
     role: replication
     tissue: colon
     phenotype_field: Sample_characteristics_ch1
@@ -52,8 +52,8 @@ datasets:
     control_values: ["normal colonic mucosa"]
 
   - id: GSE39582
-    series_matrix: data/geo/crc/GSE39582_series_matrix.txt.gz
-    platform: data/platforms/GPL570.annot
+    series_matrix: ../../data/geo/crc/GSE39582_series_matrix.txt.gz
+    platform: ../../data/platforms/GPL570.annot
     role: replication
     tissue: colon
     phenotype_field: Sample_source_name_ch1

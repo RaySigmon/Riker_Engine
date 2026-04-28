@@ -890,6 +890,78 @@ class TestConfig:
         with pytest.raises(ValueError, match="id"):
             load_config(path)
 
+class TestPathResolution:
+    """Test config path resolution against config file directory."""
+
+    def test_absolute_path_unchanged(self):
+        from riker.config import _resolve_path
+        result = _resolve_path("/absolute/path/to/file.csv", Path("/some/dir"))
+        assert result == "/absolute/path/to/file.csv"
+
+    def test_relative_path_resolved(self, tmp_path):
+        from riker.config import _resolve_path
+        config_dir = tmp_path / "configs"
+        config_dir.mkdir()
+        result = _resolve_path("../data/seeds.csv", config_dir)
+        expected = str((config_dir / "../data/seeds.csv").resolve())
+        assert result == expected
+
+    def test_dotdot_components(self, tmp_path):
+        from riker.config import _resolve_path
+        config_dir = tmp_path / "a" / "b"
+        config_dir.mkdir(parents=True)
+        result = _resolve_path("../../data/file.txt", config_dir)
+        expected = str((tmp_path / "data" / "file.txt").resolve())
+        assert result == expected
+
+    def test_auto_passthrough(self):
+        from riker.config import _resolve_path
+        assert _resolve_path("auto", Path("/any/dir")) == "auto"
+
+    def test_empty_string_passthrough(self):
+        from riker.config import _resolve_path
+        assert _resolve_path("", Path("/any/dir")) == ""
+
+    def test_none_passthrough(self):
+        from riker.config import _resolve_path
+        assert _resolve_path(None, Path("/any/dir")) is None
+
+    def test_config_resolves_relative_paths(self, tmp_path):
+        """Integration test: load a config from a subdirectory and verify
+        paths resolve against the config file's location."""
+        import yaml
+        subdir = tmp_path / "configs" / "examples"
+        subdir.mkdir(parents=True)
+        config_data = {
+            "condition": "TEST",
+            "seed_genes": "../../data/seeds/test.csv",
+            "hgnc_path": "auto",
+            "output_dir": "../../output/test",
+            "datasets": [{
+                "id": "GSE1",
+                "series_matrix": "../../data/geo/test.txt.gz",
+                "platform": "../../data/platforms/GPL1.annot",
+                "role": "discovery",
+            }],
+        }
+        config_path = subdir / "test.yaml"
+        with open(config_path, "w") as f:
+            yaml.dump(config_data, f)
+
+        config = load_config(config_path)
+
+        # Paths should resolve against subdir (config file's parent)
+        assert config.seed_genes_path == str((tmp_path / "data" / "seeds" / "test.csv").resolve())
+        assert config.hgnc_path == "auto"  # sentinel preserved
+        assert config.output_dir == str((tmp_path / "output" / "test").resolve())
+        assert config.datasets[0].series_matrix_path == str(
+            (tmp_path / "data" / "geo" / "test.txt.gz").resolve()
+        )
+        assert config.datasets[0].platform_path == str(
+            (tmp_path / "data" / "platforms" / "GPL1.annot").resolve()
+        )
+
+
 class TestQCReport:
     def test_critical_halts(self):
         qc = QCReport()

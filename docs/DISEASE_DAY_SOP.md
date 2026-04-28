@@ -289,11 +289,7 @@ The following items from the v1.0 deferred list have been resolved:
 
 ## Deferred items (not blocking SOP compliance)
 
-Queued for v0.3.4 / v0.4.0 releases:
-
-- **Config portability** — resolve relative paths against config file directory for full portability.
-
-This is an improvement, not a blocker. The SOP can be followed without it.
+All items from the original v1.0 deferred list have been resolved in v0.3.3. No remaining deferred items.
 
 ---
 

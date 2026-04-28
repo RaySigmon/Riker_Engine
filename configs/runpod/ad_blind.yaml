@@ -4,14 +4,14 @@
 
 condition: alzheimers_disease_blind
 seed_genes: all_expressed
-hgnc_path: data/hgnc/hgnc_complete_set.txt
-output_dir: results/ad/blind
+hgnc_path: ../../data/hgnc/hgnc_complete_set.txt
+output_dir: ../../results/ad/blind
 
 datasets:
   # Discovery
   - id: GSE33000
-    series_matrix: data/geo/ad/GSE33000_AD_only_series_matrix.txt.gz
-    platform: data/platforms/GPL4372.annot
+    series_matrix: ../../data/geo/ad/GSE33000_AD_only_series_matrix.txt.gz
+    platform: ../../data/platforms/GPL4372.annot
     role: discovery
     tissue: brain
     phenotype_field: Sample_characteristics_ch2
@@ -19,8 +19,8 @@ datasets:
     control_values: ["disease status: non-demented"]
 
   - id: GSE44770
-    series_matrix: data/geo/ad/GSE44770_series_matrix.txt.gz
-    platform: data/platforms/GPL4372.annot
+    series_matrix: ../../data/geo/ad/GSE44770_series_matrix.txt.gz
+    platform: ../../data/platforms/GPL4372.annot
     role: discovery
     tissue: brain
     phenotype_field: Sample_characteristics_ch2
@@ -28,8 +28,8 @@ datasets:
     control_values: ["disease: n"]
 
   - id: GSE118553
-    series_matrix: data/geo/ad/GSE118553_TC_series_matrix.txt.gz
-    platform: data/platforms/GPL10558.annot
+    series_matrix: ../../data/geo/ad/GSE118553_TC_series_matrix.txt.gz
+    platform: ../../data/platforms/GPL10558.annot
     role: discovery
     tissue: brain
     phenotype_field: Sample_characteristics_ch1
@@ -38,8 +38,8 @@ datasets:
 
   # Replication
   - id: GSE5281
-    series_matrix: data/geo/ad/GSE5281_SFG_series_matrix.txt.gz
-    platform: data/platforms/GPL570.annot
+    series_matrix: ../../data/geo/ad/GSE5281_SFG_series_matrix.txt.gz
+    platform: ../../data/platforms/GPL570.annot
     role: replication
     tissue: brain
     phenotype_field: Sample_characteristics_ch1
@@ -47,8 +47,8 @@ datasets:
     control_values: ["disease state: normal"]
 
   - id: GSE15222
-    series_matrix: data/geo/ad/GSE15222_series_matrix.txt.gz
-    platform: data/platforms/GPL2700.annot
+    series_matrix: ../../data/geo/ad/GSE15222_series_matrix.txt.gz
+    platform: ../../data/platforms/GPL2700.annot
     role: replication
     tissue: brain
     phenotype_field: Sample_source_name_ch1

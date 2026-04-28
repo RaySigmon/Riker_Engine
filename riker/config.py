@@ -34,6 +34,23 @@ import yaml
 logger = logging.getLogger(__name__)
 
 
+def _resolve_path(path_str: str, config_dir: Path) -> str:
+    """Resolve a config path against the config file's directory.
+
+    Absolute paths are returned unchanged. Relative paths are resolved
+    against config_dir and returned as absolute path strings.
+
+    The sentinel value "auto" (used by hgnc_path) is passed through unchanged.
+    Empty or None values are returned unchanged.
+    """
+    if not path_str or path_str == "auto":
+        return path_str
+    p = Path(path_str)
+    if p.is_absolute():
+        return str(p)
+    return str((config_dir / p).resolve())
+
+
 @dataclass
 class DatasetConfig:
     """Configuration for a single dataset.
@@ -115,9 +132,11 @@ def load_config(path: str | Path) -> PipelineConfig:
     ValueError
         If required fields are missing or invalid.
     """
-    path = Path(path)
+    path = Path(path).resolve()
     if not path.exists():
         raise FileNotFoundError(f"Config file not found: {path}")
+
+    config_dir = path.parent
 
     with open(path, "r") as f:
         raw = yaml.safe_load(f)
@@ -165,6 +184,14 @@ def load_config(path: str | Path) -> PipelineConfig:
         if not ds.dataset_id:
             raise ValueError("Each dataset must have an 'id' field.")
         config.datasets.append(ds)
+
+    # Resolve paths relative to config file directory
+    config.seed_genes_path = _resolve_path(config.seed_genes_path, config_dir)
+    config.hgnc_path = _resolve_path(config.hgnc_path, config_dir)
+    config.output_dir = _resolve_path(config.output_dir, config_dir)
+    for ds in config.datasets:
+        ds.series_matrix_path = _resolve_path(ds.series_matrix_path, config_dir)
+        ds.platform_path = _resolve_path(ds.platform_path, config_dir)
 
     # Validate at least one discovery dataset
     discovery = [d for d in config.datasets if d.role == "discovery"]

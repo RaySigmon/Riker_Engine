@@ -8,16 +8,16 @@
 # This config uses only the 5 microarray datasets for immediate reproducibility.
 
 condition: ASD
-seed_genes: data/seeds/asd_sfari_genes.csv
+seed_genes: ../../data/seeds/asd_sfari_genes.csv
 symbol_column: symbol
-hgnc_path: data/hgnc/hgnc_complete_set.txt
-output_dir: output/asd_microarray_only
+hgnc_path: ../../data/hgnc/hgnc_complete_set.txt
+output_dir: ../../output/asd_microarray_only
 
 datasets:
   # Discovery (brain, microarray)
   - id: GSE28521
-    series_matrix: data/geo/asd/GSE28521_series_matrix.txt.gz
-    platform: data/platforms/GPL6883.annot
+    series_matrix: ../../data/geo/asd/GSE28521_series_matrix.txt.gz
+    platform: ../../data/platforms/GPL6883.annot
     role: discovery
     tissue: brain
     phenotype_field: Sample_characteristics_ch1
@@ -25,8 +25,8 @@ datasets:
     control_values: ["disease status: controls"]
 
   - id: GSE28475
-    series_matrix: data/geo/asd/GSE28475-GPL6883_series_matrix.txt.gz
-    platform: data/platforms/GPL6883.annot
+    series_matrix: ../../data/geo/asd/GSE28475-GPL6883_series_matrix.txt.gz
+    platform: ../../data/platforms/GPL6883.annot
     role: discovery
     tissue: brain
     phenotype_field: Sample_characteristics_ch1
@@ -35,8 +35,8 @@ datasets:
 
   # Replication (blood/LCL, microarray)
   - id: GSE18123
-    series_matrix: data/geo/asd/GSE18123-GPL6244_series_matrix.txt.gz
-    platform: data/platforms/GPL6244.annot
+    series_matrix: ../../data/geo/asd/GSE18123-GPL6244_series_matrix.txt.gz
+    platform: ../../data/platforms/GPL6244.annot
     role: replication
     tissue: blood
     phenotype_field: Sample_characteristics_ch1
@@ -44,8 +44,8 @@ datasets:
     control_values: ["diagnosis: control"]
 
   - id: GSE26415
-    series_matrix: data/geo/asd/GSE26415_series_matrix.txt.gz
-    platform: data/platforms/GPL6480.annot
+    series_matrix: ../../data/geo/asd/GSE26415_series_matrix.txt.gz
+    platform: ../../data/platforms/GPL6480.annot
     role: replication
     tissue: blood
     phenotype_field: Sample_characteristics_ch1
@@ -54,8 +54,8 @@ datasets:
     # NOTE: Matches 21 ASD vs 42 controls (21 ASD-matched + 21 mother controls).
 
   - id: GSE42133
-    series_matrix: data/geo/asd/GSE42133_series_matrix.txt.gz
-    platform: data/platforms/GPL10558.annot
+    series_matrix: ../../data/geo/asd/GSE42133_series_matrix.txt.gz
+    platform: ../../data/platforms/GPL10558.annot
     role: replication
     tissue: blood
     phenotype_field: Sample_characteristics_ch1

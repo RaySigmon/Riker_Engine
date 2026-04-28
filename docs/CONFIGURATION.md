@@ -15,7 +15,37 @@ logic stays the same. This document describes every field the config loader
 | `seed_genes` | **yes** | -- | Path to a CSV file containing known disease genes. Must have a column with HGNC symbols. |
 | `hgnc_path` | no | `auto` | Path to the HGNC complete set file. When set to `auto` the engine downloads it on first run and caches it under `~/.riker/`. |
 | `output_dir` | no | `riker_output` | Directory where all pipeline outputs are written. Created if it does not exist. |
-| `random_seed` | no | `42` | Base random seed used throughout the pipeline for reproducibility. |
+| `random_seed` | no | `42` | Base random seed. When explicitly set, derives `phase3.seeds` and `phase4.seed` unless those are also set. When omitted, historical defaults are preserved. |
+
+---
+
+## Path Resolution
+
+Paths in Riker config files are resolved relative to the config file's
+directory, not the current working directory. This makes configs portable:
+you can run a config from anywhere on disk and it will find its data
+correctly, as long as the data is at the path the config specifies
+relative to itself.
+
+Absolute paths are used as-is. This lets you write configs that reference
+shared resources (e.g., a centralized HGNC database) by absolute path
+while still using relative paths for project-local data.
+
+The sentinel value `auto` for `hgnc_path` is preserved unchanged (it
+triggers automatic download and caching).
+
+**Example:**
+
+A config at `configs/examples/asd_curated.yaml` referencing:
+
+```yaml
+seed_genes: ../../data/seeds/asd_sfari_genes.csv
+hgnc_path: ../../data/hgnc/hgnc_complete_set.txt
+output_dir: ../../output/asd_curated
+```
+
+...will look for those files at `<repo_root>/data/seeds/...` regardless
+of where you invoke `riker run` from.
 
 ---
 

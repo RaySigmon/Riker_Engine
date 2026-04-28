@@ -3,18 +3,18 @@
 # To download data: python scripts/download_data.py breast_cancer
 
 condition: breast_cancer
-seed_genes: data/seeds/breast_cancer_curated_genes.csv
+seed_genes: ../../data/seeds/breast_cancer_curated_genes.csv
 symbol_column: symbol
-hgnc_path: data/hgnc/hgnc_complete_set.txt
-output_dir: output/breast_cancer_curated
+hgnc_path: ../../data/hgnc/hgnc_complete_set.txt
+output_dir: ../../output/breast_cancer_curated
 
 datasets:
   # === Discovery datasets ===
 
   # Breast tumor vs. healthy
   - id: GSE10810
-    series_matrix: data/geo/breast_cancer/GSE10810_series_matrix.txt.gz
-    platform: data/platforms/GPL570.annot
+    series_matrix: ../../data/geo/breast_cancer/GSE10810_series_matrix.txt.gz
+    platform: ../../data/platforms/GPL570.annot
     role: discovery
     tissue: breast
     phenotype_field: Sample_characteristics_ch1
@@ -23,8 +23,8 @@ datasets:
 
   # Breast cancer vs. normal
   - id: GSE42568
-    series_matrix: data/geo/breast_cancer/GSE42568_series_matrix.txt.gz
-    platform: data/platforms/GPL570.annot
+    series_matrix: ../../data/geo/breast_cancer/GSE42568_series_matrix.txt.gz
+    platform: ../../data/platforms/GPL570.annot
     role: discovery
     tissue: breast
     phenotype_field: Sample_characteristics_ch1
@@ -33,8 +33,8 @@ datasets:
 
   # Breast tumor vs. normal tissue
   - id: GSE15852
-    series_matrix: data/geo/breast_cancer/GSE15852_series_matrix.txt.gz
-    platform: data/platforms/GPL96.annot
+    series_matrix: ../../data/geo/breast_cancer/GSE15852_series_matrix.txt.gz
+    platform: ../../data/platforms/GPL96.annot
     role: discovery
     tissue: breast
     phenotype_field: Sample_source_name_ch1
@@ -45,8 +45,8 @@ datasets:
 
   # Breast cancer diagnosis
   - id: GSE45827
-    series_matrix: data/geo/breast_cancer/GSE45827_series_matrix.txt.gz
-    platform: data/platforms/GPL570.annot
+    series_matrix: ../../data/geo/breast_cancer/GSE45827_series_matrix.txt.gz
+    platform: ../../data/platforms/GPL570.annot
     role: replication
     tissue: breast
     phenotype_field: Sample_characteristics_ch1
@@ -55,8 +55,8 @@ datasets:
 
   # TNBC + HER2 + luminal vs. healthy
   - id: GSE65194
-    series_matrix: data/geo/breast_cancer/GSE65194_series_matrix.txt.gz
-    platform: data/platforms/GPL570.annot
+    series_matrix: ../../data/geo/breast_cancer/GSE65194_series_matrix.txt.gz
+    platform: ../../data/platforms/GPL570.annot
     role: replication
     tissue: breast
     phenotype_field: Sample_characteristics_ch1
