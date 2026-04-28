@@ -221,7 +221,7 @@ class GEOSeriesMatrix:
         # Parse data rows
         rows = []
         index_vals = []
-        n_high_nan_rows = 0
+        high_nan_probes = []
         for line in lines[1:]:
             if not line.strip():
                 continue
@@ -243,14 +243,17 @@ class GEOSeriesMatrix:
                 # Track rows with high NaN fraction
                 n_nan = sum(1 for val in values if np.isnan(val))
                 if len(values) > 0 and n_nan / len(values) > 0.05:
-                    n_high_nan_rows += 1
+                    high_nan_probes.append(probe_id)
                 index_vals.append(probe_id)
                 rows.append(values)
 
-        if n_high_nan_rows > 0:
+        if high_nan_probes:
             logger.warning(
-                f"{self._accession}: {n_high_nan_rows} probe(s) have >5% NaN "
-                f"cells after parsing. Check data quality."
+                f"{self._accession}: {len(high_nan_probes)} probe(s) have >5% "
+                f"NaN cells after parsing. Probe IDs: "
+                f"{high_nan_probes[:10]}"
+                f"{' (and more)' if len(high_nan_probes) > 10 else ''}. "
+                f"Check data quality."
             )
 
         if rows:

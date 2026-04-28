@@ -195,6 +195,9 @@ def cmd_run(args) -> int:
 
         phase2_result = run_phase2(phase1_result, pathway_db)
 
+        from riker.io.outputs import write_phase2_feature_matrix
+        write_phase2_feature_matrix(phase2_result, output_dir)
+
     except Exception as e:
         logger.error(f"Phase 2 failed: {e}", exc_info=True)
         return 1
@@ -222,6 +225,9 @@ def cmd_run(args) -> int:
             from riker.io.outputs import write_qc_report
             write_qc_report(qc, output_dir)
             return 1
+
+        from riker.io.outputs import write_phase3_cluster_assignments
+        write_phase3_cluster_assignments(phase3_result, output_dir)
 
     except Exception as e:
         logger.error(f"Phase 3 failed: {e}", exc_info=True)

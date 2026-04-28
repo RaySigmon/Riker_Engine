@@ -778,6 +778,68 @@ class TestRunPhase6:
         result = run_phase6(p1, p5)
         assert result.gene_results["G1"].direction == "down"
 
+    def test_no_replication_skip_path(self):
+        """When Phase 5 has no replication data, all core genes should be
+        marked as survived in gene_verdicts, and Phase 6 should analyze them."""
+        from riker.phases.phase5_replication import Phase5Result, GeneVerdict
+        from riker.phases.phase1_crossref import Phase1Result, GeneResult, GeneDatasetDE
+
+        # Build Phase 1 result with 2 genes, 3 datasets each
+        des_g1 = [GeneDatasetDE("G1", f"D{i}", -0.6, 0.001, -3.5, 28.0, 0.15, 15, 15, "down") for i in range(3)]
+        des_g2 = [GeneDatasetDE("G2", f"D{i}", -0.4, 0.01, -2.5, 22.0, 0.18, 12, 12, "down") for i in range(3)]
+        p1 = Phase1Result({
+            "G1": GeneResult("G1", des_g1, 3, 3, True, -0.6, True),
+            "G2": GeneResult("G2", des_g2, 3, 3, True, -0.4, True),
+        })
+
+        # Build Phase 5 skip-path result (all core genes survive by default)
+        skip_verdicts = {
+            "G1": GeneVerdict("G1", 0, "survived", "No replication data", [], 0, 0, 0, 0, "down"),
+            "G2": GeneVerdict("G2", 0, "survived", "No replication data", [], 0, 0, 0, 0, "down"),
+        }
+        p5 = Phase5Result(
+            gene_verdicts=skip_verdicts,
+            locked_core_genes=["G1", "G2"],
+            n_survived=2,
+        )
+
+        result = run_phase6(p1, p5)
+        assert result.n_genes_analyzed == 2
+        assert "G1" in result.gene_results
+        assert "G2" in result.gene_results
+
+
+# ---------------------------------------------------------------------------
+# 7b. Output Writer Tests (Phase 2/3 standalone CSVs)
+# ---------------------------------------------------------------------------
+
+class TestPhase2Output:
+    def test_write_feature_matrix(self, tmp_path):
+        from riker.io.outputs import write_phase2_feature_matrix
+        phase1 = Phase1Result(study_genes=_make_study_genes_dict(10), n_study_genes=10)
+        from riker.phases.phase2_pathways import run_phase2
+        p2 = run_phase2(phase1, _make_pathway_db())
+        path = write_phase2_feature_matrix(p2, tmp_path)
+        assert path.exists()
+        df = pd.read_csv(path, index_col=0)
+        assert len(df) == 10
+        assert df.index.name == "gene"
+
+class TestPhase3Output:
+    def test_write_cluster_assignments(self, tmp_path):
+        from riker.io.outputs import write_phase3_cluster_assignments
+        features = _make_clusterable_features(20, 2)
+        result = run_consensus_clustering(
+            features, n_neighbors_list=[5], seeds=[42],
+            min_cluster_size=3, min_samples=2,
+        )
+        path = write_phase3_cluster_assignments(result, tmp_path)
+        assert path.exists()
+        df = pd.read_csv(path)
+        assert "gene" in df.columns
+        assert "cluster_id" in df.columns
+        assert len(df) == 20
+
 
 # ---------------------------------------------------------------------------
 # 8. Operational Shell (Phase 14)

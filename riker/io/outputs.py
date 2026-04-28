@@ -53,6 +53,42 @@ def write_phase1_summary(phase1_result, output_dir: Path) -> Path:
     return path
 
 
+def write_phase2_feature_matrix(phase2_result, output_dir: Path) -> Path:
+    """Write Phase 2 feature matrix to CSV.
+
+    One row per study gene, columns are features (pathway memberships +
+    expression statistics). Index column is gene symbols. All values are
+    min-max normalized to [0, 1].
+    """
+    path = output_dir / "phase2_feature_matrix.csv"
+    phase2_result.feature_matrix.to_csv(path)
+    logger.info(
+        f"Phase 2 feature matrix: {path} "
+        f"({phase2_result.n_genes} genes x {phase2_result.n_features} features)"
+    )
+    return path
+
+
+def write_phase3_cluster_assignments(phase3_result, output_dir: Path) -> Path:
+    """Write Phase 3 cluster assignments to CSV.
+
+    Two columns: gene, cluster_id. Noise genes have cluster_id = -1.
+    """
+    rows = []
+    for gene in phase3_result.gene_order:
+        cluster_id = phase3_result.cluster_labels.get(gene, -1)
+        rows.append({"gene": gene, "cluster_id": cluster_id})
+
+    df = pd.DataFrame(rows)
+    path = output_dir / "phase3_cluster_assignments.csv"
+    df.to_csv(path, index=False)
+    logger.info(
+        f"Phase 3 cluster assignments: {path} "
+        f"({phase3_result.n_clusters} clusters, {phase3_result.n_noise} noise)"
+    )
+    return path
+
+
 def write_phase4_core_genes(phase4_result, output_dir: Path) -> Path:
     """Write Phase 4 core gene list to CSV."""
     rows = []
