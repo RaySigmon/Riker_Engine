@@ -290,12 +290,8 @@ def build_feature_matrix(
         gene_result = study_genes[gene]
         de_list = gene_result.de_results
 
-        # Average log2FC
-        if de_list:
-            avg_fc = float(np.mean([d.log2fc for d in de_list]))
-        else:
-            avg_fc = 0.0
-        avg_log2fc.append(avg_fc)
+        # Average log2FC (significant datasets only)
+        avg_log2fc.append(gene_result.mean_log2fc_sig)
 
         # -log10(min p-value), capped at 10
         if de_list:

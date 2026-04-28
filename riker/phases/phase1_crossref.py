@@ -83,6 +83,8 @@ class GeneResult:
         n_datasets_significant: How many datasets had p < threshold.
         passes_filter: True if n_datasets_significant >= min_datasets.
         mean_log2fc: Mean log2FC across all detected datasets.
+        mean_log2fc_sig: Mean log2FC across significant datasets only.
+            Falls back to mean_log2fc when no datasets are significant.
         consistent_direction: True if all significant datasets agree on direction.
     """
     gene: str
@@ -91,6 +93,7 @@ class GeneResult:
     n_datasets_significant: int
     passes_filter: bool
     mean_log2fc: float
+    mean_log2fc_sig: float
     consistent_direction: bool
 
 
@@ -212,6 +215,18 @@ def cross_reference_gene(
 
     mean_fc = float(np.mean([r.log2fc for r in de_results])) if de_results else 0.0
 
+    # Significant-only mean: averages only datasets where p < p_threshold.
+    # Falls back to all-datasets mean when no datasets are significant.
+    sig_results = [r for r in de_results if r.p_value < p_threshold]
+    if sig_results:
+        mean_fc_sig = float(np.mean([r.log2fc for r in sig_results]))
+    else:
+        mean_fc_sig = mean_fc
+        logger.debug(
+            f"{gene}: no significant datasets in cross-reference, "
+            f"mean_log2fc_sig falls back to all-datasets mean"
+        )
+
     # Check directional consistency among significant results
     sig_directions = [r.direction for r in de_results if r.p_value < p_threshold]
     consistent = len(set(sig_directions)) <= 1 if sig_directions else True
@@ -223,6 +238,7 @@ def cross_reference_gene(
         n_datasets_significant=n_significant,
         passes_filter=passes,
         mean_log2fc=mean_fc,
+        mean_log2fc_sig=mean_fc_sig,
         consistent_direction=consistent,
     )
 

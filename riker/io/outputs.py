@@ -43,6 +43,7 @@ def write_phase1_summary(phase1_result, output_dir: Path) -> Path:
             "n_datasets_detected": gr.n_datasets_detected,
             "n_datasets_significant": gr.n_datasets_significant,
             "mean_log2fc": gr.mean_log2fc,
+            "mean_log2fc_sig": gr.mean_log2fc_sig,
             "consistent_direction": gr.consistent_direction,
         })
 
@@ -97,7 +98,7 @@ def write_phase4_core_genes(phase4_result, output_dir: Path) -> Path:
             "gene": gene,
             "cluster_id": cg.cluster_id,
             "max_level_survived": cg.max_level_survived,
-            "mean_log2fc": cg.mean_log2fc,
+            "mean_log2fc_sig": cg.mean_log2fc_sig,
             "direction": cg.direction,
         })
 
@@ -160,7 +161,8 @@ def write_phase4_all_levels(
             "max_level": max_level,
             "is_core": gene in core_set,
             "mean_log2fc": gene_result.mean_log2fc,
-            "direction": "down" if gene_result.mean_log2fc < 0 else "up",
+            "mean_log2fc_sig": gene_result.mean_log2fc_sig,
+            "direction": "down" if gene_result.mean_log2fc_sig < 0 else "up",
         })
 
     df = pd.DataFrame(rows)

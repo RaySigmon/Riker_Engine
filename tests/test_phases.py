@@ -320,6 +320,7 @@ def _make_study_genes_dict(n_genes=10):
             gene=gene, de_results=[de1, de2],
             n_datasets_detected=2, n_datasets_significant=2,
             passes_filter=True, mean_log2fc=-0.45 - i * 0.09,
+            mean_log2fc_sig=-0.45 - i * 0.09,
             consistent_direction=True,
         )
     return study
@@ -527,7 +528,7 @@ def _make_robust_test_data():
     for i in range(5):
         gene = f"S_{i}"
         de = [GeneDatasetDE(gene, "D1", -0.8, 0.001, -4.0, 28.0, 0.12, 15, 15, "down")]
-        study_genes[gene] = GeneResult(gene, de, 1, 1, True, -0.8, True)
+        study_genes[gene] = GeneResult(gene, de, 1, 1, True, -0.8, -0.8, True)
     cluster_info = {0: ClusterInfo(0, [f"S_{i}" for i in range(5)], 5, 0.95)}
     return study_genes, cluster_info, ["D1"]
 
@@ -721,7 +722,7 @@ def _make_meta_test_data():
     from riker.phases.phase1_crossref import Phase1Result, GeneResult, GeneDatasetDE
     from riker.phases.phase5_replication import Phase5Result, GeneVerdict
     des = [GeneDatasetDE("G1", f"D{i}", -0.6, 0.001, -3.5, 28.0, 0.15, 15, 15, "down") for i in range(3)]
-    p1 = Phase1Result({"G1": GeneResult("G1", des, 3, 3, True, -0.6, True)})
+    p1 = Phase1Result({"G1": GeneResult("G1", des, 3, 3, True, -0.6, -0.6, True)})
     gv = {"G1": GeneVerdict("G1", 0, "survived", "OK", [], 2, 0, 0, 0, "down")}
     p5 = Phase5Result(gv, n_survived=1)
     return p1, p5
@@ -788,8 +789,8 @@ class TestRunPhase6:
         des_g1 = [GeneDatasetDE("G1", f"D{i}", -0.6, 0.001, -3.5, 28.0, 0.15, 15, 15, "down") for i in range(3)]
         des_g2 = [GeneDatasetDE("G2", f"D{i}", -0.4, 0.01, -2.5, 22.0, 0.18, 12, 12, "down") for i in range(3)]
         p1 = Phase1Result({
-            "G1": GeneResult("G1", des_g1, 3, 3, True, -0.6, True),
-            "G2": GeneResult("G2", des_g2, 3, 3, True, -0.4, True),
+            "G1": GeneResult("G1", des_g1, 3, 3, True, -0.6, -0.6, True),
+            "G2": GeneResult("G2", des_g2, 3, 3, True, -0.4, -0.4, True),
         })
 
         # Build Phase 5 skip-path result (all core genes survive by default)
@@ -918,7 +919,7 @@ class TestOutputWriters:
 
     def test_write_phase1_summary(self, tmp_path):
         from riker.phases.phase1_crossref import Phase1Result, GeneResult
-        p1 = Phase1Result({"G1": GeneResult("G1", [], 1, 1, True, -0.5, True)})
+        p1 = Phase1Result({"G1": GeneResult("G1", [], 1, 1, True, -0.5, -0.5, True)})
         path = write_phase1_summary(p1, tmp_path)
         assert path.exists()
 

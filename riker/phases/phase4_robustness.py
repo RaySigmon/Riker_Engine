@@ -116,7 +116,7 @@ class CoreGene:
         max_level_survived: Highest sensitivity level survived (1-4).
         per_dataset_pvalues: Dict of dataset_id -> p-value.
         per_dataset_log2fc: Dict of dataset_id -> log2FC.
-        mean_log2fc: Mean log2FC across all datasets.
+        mean_log2fc_sig: Mean log2FC across significant datasets only.
         direction: Predominant direction ('up' or 'down').
     """
     gene: str
@@ -124,7 +124,7 @@ class CoreGene:
     max_level_survived: int
     per_dataset_pvalues: dict
     per_dataset_log2fc: dict
-    mean_log2fc: float
+    mean_log2fc_sig: float
     direction: str
 
 
@@ -180,15 +180,10 @@ def evaluate_cluster_significance(
     if n_clusters == 0:
         return {}
 
-    # Build gene -> mean |log2FC| map for permutation stat
+    # Build gene -> mean log2FC map for permutation stat (significant datasets only)
     gene_log2fc = {}
     for gene, result in study_genes.items():
-        if result.de_results:
-            gene_log2fc[gene] = float(
-                np.mean([d.log2fc for d in result.de_results])
-            )
-        else:
-            gene_log2fc[gene] = 0.0
+        gene_log2fc[gene] = result.mean_log2fc_sig
 
     results = {}
     for cid, info in cluster_info.items():
@@ -471,8 +466,8 @@ def identify_core_genes(
                 per_ds_p[de.dataset_id] = de.p_value
                 per_ds_fc[de.dataset_id] = de.log2fc
 
-            mean_fc = gene_result.mean_log2fc
-            direction = "down" if mean_fc < 0 else "up"
+            mean_fc_sig = gene_result.mean_log2fc_sig
+            direction = "down" if mean_fc_sig < 0 else "up"
 
             core_genes[gene] = CoreGene(
                 gene=gene,
@@ -480,7 +475,7 @@ def identify_core_genes(
                 max_level_survived=max_level,
                 per_dataset_pvalues=per_ds_p,
                 per_dataset_log2fc=per_ds_fc,
-                mean_log2fc=mean_fc,
+                mean_log2fc_sig=mean_fc_sig,
                 direction=direction,
             )
 
