@@ -1,7 +1,7 @@
 # Riker Engine — Methods
 
-**Version:** 1.0
-**Last updated:** April 24, 2026
+**Version:** 1.1 (updated for v0.3.3)
+**Last updated:** April 28, 2026
 **Authors:** Ray Sigmon (Alpha Research Labs, Independent)
 **Corresponding email:** alphalabsincorp@gmail.com
 **Repository:** https://github.com/RaySigmon/Riker_Engine
@@ -137,7 +137,7 @@ The ≥3-per-cluster threshold is an anti-singleton guard: it requires that a ge
 - **Elimination criterion:** A gene is eliminated from the core set if it shows *significant* expression in an *opposite direction* in a *same-tissue* replication cohort. A single discordant-significant same-tissue cohort triggers elimination.
 - Genes eliminated here are permanently excluded from the final reported core set for this run
 
-**Tissue logic:** The code supports a cross-tissue tolerance mode — when replication is in a different tissue from discovery, the elimination criterion is relaxed. This reflects the biological reality that, e.g., brain and blood can show opposite directions for tissue-specific metabolic genes. **Current pipeline invocations run under the conservative default where all replication is treated as same-tissue**, making the elimination criterion maximally strict. This is a latent plumbing issue slated for a v0.3.3 fix; in the interim, all results have been produced under the stricter filter.
+**Tissue logic:** The code supports a cross-tissue tolerance mode — when replication is in a different tissue from discovery, the elimination criterion is relaxed. This reflects the biological reality that, e.g., brain and blood can show opposite directions for tissue-specific metabolic genes. As of v0.3.3, `discovery_tissues` is plumbed from the config through to Phase 5, and cross-tissue tolerance is active. Replication datasets in a different tissue from discovery will not trigger elimination; discordant results in such datasets produce a `tissue_specific` cluster verdict rather than `failed`. Prior to v0.3.3, all replication was treated as same-tissue (conservative default).
 
 **Output:** Surviving core genes for final meta-analysis.
 
@@ -370,16 +370,25 @@ A full re-validation of all 8 diseases under the Disease-Day SOP is the current 
 
 ---
 
-## Known limitations and v0.3.3 roadmap
+## v0.3.3 changes
 
-The following items are known issues scheduled for the v0.3.3 release. None of them affect the correctness of published results, but they affect usability, portability, and documentation clarity.
+The following items were identified in the April 23, 2026 internal audit and the April 28, 2026 expanded audit, and resolved in the v0.3.3 release:
 
-- **`config.random_seed` field is dead.** The top-level `random_seed` in YAML configs is parsed but not consumed by any phase. No `--random-seed` CLI flag exists either. The actual stochastic controls are `phase3.seeds` (UMAP random states) and `phase4.seed` (permutation base seed), both set explicitly in the YAML config. The SOP-compliant workaround is to set all three fields explicitly in per-run disease-day configs. Slated fix: wire the YAML `random_seed` field to derive `phase3.seeds` and `phase4.seed` defaults automatically.
-- **`discovery_tissues` is not plumbed to Phase 5.** Cross-tissue tolerance logic exists but never activates. Current behavior is conservative (same-tissue by default). Slated fix: pass `discovery_tissues` from CLI through the pipeline.
-- **Config portability.** Archived configs use absolute `/home/kai001/` paths. Slated fix: relative path resolution with environment-variable override support.
-- **Phase output standardization.** Some phases' intermediate output files are inconsistent across versions. Slated fix: standardize the required output set per phase (see SOP §"Required outputs per run").
-- **Code version in pipeline output.** `pipeline_summary.json` does not embed the git commit hash that produced it. Slated fix: inject `code_version` at run start.
-- **All-expressed config templates.** The archived all-expressed runs use seed-file paths and dataset conventions that don't match current relative-path standards. Slated fix: runnable all-expressed config template per disease with current paths.
+- **`config.random_seed` now active.** When `random_seed` is explicitly set in the YAML config, it derives `phase3.seeds` and `phase4.seed` deterministically (unless those fields are also explicitly set). When omitted, the historical defaults `[42, 123, 456, 789, 1024]` and `42` are preserved for backward compatibility. A `--version` CLI flag was also added.
+- **`discovery_tissues` now plumbed to Phase 5.** Cross-tissue tolerance is active. Replication datasets in a different tissue from discovery produce `tissue_specific` verdicts rather than `failed`. The `brain_specific` verdict label was replaced with the disease-agnostic `tissue_specific`.
+- **Phase output standardization.** The pipeline now writes `phase2_feature_matrix.csv` and `phase3_cluster_assignments.csv` as standalone outputs, matching SOP requirements.
+- **Code version in pipeline output.** `pipeline_summary.json` now includes `package_version` and `code_version` (git commit hash) fields.
+- **Mean log2FC dilution fix.** Phase 1 now computes both `mean_log2fc` (average over all detected datasets) and `mean_log2fc_sig` (average over significant datasets only, p < p_threshold). Downstream consumers (Phase 2 feature matrix, Phase 4 permutation test, Phase 4 core gene identification) use `mean_log2fc_sig`. Both values are reported in CSV outputs for audit transparency.
+- **GEO parser robustness.** A single malformed cell no longer drops the entire probe row; bad cells become NaN. Rows with >5% NaN cells trigger a logged warning with probe IDs.
+- **Meta-analysis p-value floor.** Pooled p-values in both fixed and random effects models are floored at 2e-300 to prevent exact 0.0 values that break downstream log transforms.
+- **Tissue metadata in Phase 6.** `StudyEffect.tissue` is now populated from the config rather than hardcoded as "brain".
+- **RNG migration.** Permutation testing uses `np.random.default_rng` (modern NumPy Generator API) instead of the deprecated `np.random.RandomState`. Same seed produces different RNG streams than v0.3.2, but core gene identification is robust to RNG implementation (verified empirically: ASD curated produces identical 35 core genes at the Phase 4 level when phase-specific seeds are held constant).
+
+## Remaining known limitations
+
+- **Config portability.** Archived configs use absolute `/home/kai001/` paths. Relative path resolution with environment-variable override support is planned for v0.3.4.
+- **All-expressed config templates.** The archived all-expressed runs use seed-file paths and dataset conventions that don't match current relative-path standards.
+- **Stability profiler metrics.** The SOP v1.0.2 specifies three stochastic metrics (iron-clad fraction, appearance distribution, pairwise Jaccard). The current profiler produces the first two but not pairwise Jaccard similarity. Profiler update planned before the 8-disease re-validation.
 
 ---
 

@@ -1,7 +1,7 @@
 # Riker Engine — Disease-Day Standard Operating Procedure
 
-**Version:** 1.0
-**Effective date:** April 24, 2026
+**Version:** 1.0.2
+**Effective date:** April 28, 2026
 **Owner:** Ray Sigmon / Alpha Research Labs
 **Applies to:** All disease validation runs after this date
 **Status:** Authoritative — all 8-disease validations from this date forward follow this procedure
@@ -31,6 +31,16 @@ A "disease-day" is a structured validation effort for one disease, producing two
 4. **All-expressed blind run** — single run using the preserved archive file at `data/seeds/<disease>_all_expressed.csv` in the repo. These files are copied (not regenerated) from `/home/kai001/riker-archive/old-iterations/<disease>_validation/data/seed_genes/all_expressed_genes.csv` with a header comment documenting source, date captured, and originating procedure. If neither the repo copy nor the archived file exists for a given disease, the all-expressed run is SKIPPED. Do not regenerate all-expressed files — the historical procedure used raw platform-specific probe identifiers that cannot be cleanly reproduced. Preservation-by-copy is allowed and encouraged.
 
 All outputs are preserved in a single `disease_days/YYYY-MM-DD_<disease>/` directory structure with full provenance metadata.
+
+### Three-tier protocol (mandatory per disease)
+
+Each disease-day produces three result tiers in order:
+
+1. **Curated single run** — disease-specific candidate seed list (e.g., SFARI for ASD). Validates the engine recovers known biology when given a high-quality candidate set.
+2. **Protein-coding blind single run** — full ~19,296 protein-coding seed set, master seed 42. Canonical discovery result.
+3. **Protein-coding blind 50-run stability profile** — same config as Tier 2, deterministically varied seeds. Iron-clad gene set (>=90% appearance) is the headline scientific output.
+
+The optional fourth tier (all-expressed historical run) is preserved for methodology-evolution comparison only and is not part of the paper-ready criteria.
 
 ---
 
@@ -173,6 +183,20 @@ Each single run must produce the full intermediate output set, preserving phase-
 - `stability_summary.json` — summary statistics, per-run runtime, total wall time
 - `profiler.log` — profiler-level log
 
+#### Stochastic stability metrics (mandatory)
+
+The 50-run profile must produce three quantitative measures of run-to-run variation:
+
+1. **Iron-clad fraction**: count of iron-clad genes (>=90% appearance) divided by total unique genes appearing in >=1 run. Expressed as a percentage in stability_summary.json.
+
+2. **Appearance frequency distribution**: per-gene appearance count across 50 runs. Stored as stability_appearance_distribution.csv with columns: gene, n_runs_appeared, frequency_percent.
+
+3. **Pairwise Jaccard similarity**: median Jaccard index between core gene sets across all 1225 unique run pairs. Reported as median with 25th/75th percentile range in stability_summary.json.
+
+These three metrics together describe stochastic behavior on each disease and must be reported in any paper using the iron-clad gene set as evidence.
+
+**Note (v1.0.2):** The current stability profiler (`scripts/stability_profiling.py`) produces metrics 1 and 2 but not metric 3 (pairwise Jaccard). Profiler update is required before the 8-disease re-validation.
+
 ---
 
 ## Required provenance metadata
@@ -254,15 +278,21 @@ Disease-days passing all six criteria can be cited in papers. In-progress diseas
 
 ---
 
+## Resolved in v0.3.3
+
+The following items from the v1.0 deferred list have been resolved:
+
+- **`config.random_seed` wiring** — now derives `phase3.seeds` and `phase4.seed` when explicitly set. `--version` CLI flag also added.
+- **`discovery_tissues` plumbing** — now passed from CLI to Phase 5. Cross-tissue tolerance is active.
+- **`code_version` in pipeline_summary.json** — now includes `package_version` and `code_version` (git commit hash).
+- **Phase output standardization** — pipeline now writes `phase2_feature_matrix.csv` and `phase3_cluster_assignments.csv`.
+
 ## Deferred items (not blocking SOP compliance)
 
-Queued for v0.3.3 / v0.4.0 releases:
+Queued for v0.3.4 / v0.4.0 releases:
 
-- **`config.random_seed` wiring** — currently dead; `--random-seed` CLI flag is used instead
-- **`discovery_tissues` plumbing** — currently not passed to Phase 5; cross-tissue tolerance inactive (conservative default)
 - **Config portability** — replace absolute `/home/kai001/` paths with relative/env-var paths
-- **`code_version` in pipeline_summary.json** — embed git commit hash in output for automatic provenance
-- **Phase output standardization** — ensure the required intermediate output set (above) is consistently produced by all phases
+- **Stability profiler pairwise Jaccard** — metric 3 in the stochastic stability metrics section above. Profiler update required before 8-disease re-validation.
 
 These are improvements, not blockers. The SOP can be followed without them.
 
@@ -275,6 +305,7 @@ These are improvements, not blockers. The SOP can be followed without them.
   Corrected CLI flag error (use per-run YAML configs, not non-existent `--output-dir`/`--random-seed`).
   Clarified all-expressed preservation path (copy to `data/seeds/<disease>_all_expressed.csv`).
   Lowered RAM threshold from 4GB to 3GB. Fixed stability profiler arg syntax. Established after April 23 internal audit. All-expressed blind run made optional after determining the archived generation procedure uses raw platform-specific probe identifiers that cannot be cleanly reproduced. Added cohort selection pre-specification criteria. First SOP-compliant disease-day: ASD three-run comparison + IPF 50-run stability (depending on execution sequence).
+- **v1.0.2 (2026-04-28):** Updated for v0.3.3 engine release. Added three-tier protocol section. Added stochastic stability metrics requirements (iron-clad fraction, appearance distribution, pairwise Jaccard). Moved resolved items (random_seed wiring, discovery_tissues, code_version, phase output standardization) out of deferred list. Flagged stability profiler Jaccard gap.
 
 ---
 
