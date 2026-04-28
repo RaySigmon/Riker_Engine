@@ -195,7 +195,7 @@ The 50-run profile must produce three quantitative measures of run-to-run variat
 
 These three metrics together describe stochastic behavior on each disease and must be reported in any paper using the iron-clad gene set as evidence.
 
-**Note (v1.0.2):** The current stability profiler (`scripts/stability_profiling.py`) produces metrics 1 and 2 but not metric 3 (pairwise Jaccard). Profiler update is required before the 8-disease re-validation.
+All three metrics are produced by the stability profiler as of v0.3.3. Machine-readable output is in `stability_summary.json`; pairwise details are in `stability_pairwise_jaccard.csv`.
 
 ---
 
@@ -291,10 +291,9 @@ The following items from the v1.0 deferred list have been resolved:
 
 Queued for v0.3.4 / v0.4.0 releases:
 
-- **Config portability** — replace absolute `/home/kai001/` paths with relative/env-var paths
-- **Stability profiler pairwise Jaccard** — metric 3 in the stochastic stability metrics section above. Profiler update required before 8-disease re-validation.
+- **Config portability** — resolve relative paths against config file directory for full portability.
 
-These are improvements, not blockers. The SOP can be followed without them.
+This is an improvement, not a blocker. The SOP can be followed without it.
 
 ---
 

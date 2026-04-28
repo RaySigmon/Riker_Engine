@@ -12,14 +12,17 @@ Usage:
 
 Output:
     <output_dir>/
-        stability_scores.csv     — per-gene appearance count and stability class
-        run_summary.csv          — per-run core gene count
-        stability_report.txt     — human-readable summary
-        runs/run_001/            — individual pipeline outputs
+        stability_scores.csv          — per-gene appearance count and stability class
+        stability_pairwise_jaccard.csv — pairwise Jaccard similarity between all run pairs
+        stability_summary.json        — machine-readable summary with all metrics
+        run_summary.csv               — per-run core gene count
+        stability_report.txt          — human-readable summary
+        runs/run_001/                 — individual pipeline outputs
 """
 
 import argparse
 import csv
+import json
 import os
 import shutil
 import subprocess
@@ -137,6 +140,55 @@ def classify_stability(count: int, total_runs: int) -> str:
         return "stochastic"
 
 
+def compute_pairwise_jaccard(run_gene_sets: list[set[str]]) -> list[dict]:
+    """Compute pairwise Jaccard similarity between all run pairs.
+
+    Uses in-memory gene sets from each run (not re-read from CSV).
+    Jaccard(A, B) = |A & B| / |A | B| if |A | B| > 0 else 0.
+
+    Parameters
+    ----------
+    run_gene_sets : list of sets
+        One set of gene symbols per successful run.
+
+    Returns
+    -------
+    list of dicts with keys: run_i, run_j, n_genes_i, n_genes_j,
+        n_intersection, n_union, jaccard
+    """
+    pairs = []
+    n = len(run_gene_sets)
+    for i in range(n):
+        for j in range(i + 1, n):
+            intersection = run_gene_sets[i] & run_gene_sets[j]
+            union = run_gene_sets[i] | run_gene_sets[j]
+            jaccard = len(intersection) / len(union) if len(union) > 0 else 0.0
+            pairs.append({
+                "run_i": i + 1,
+                "run_j": j + 1,
+                "n_genes_i": len(run_gene_sets[i]),
+                "n_genes_j": len(run_gene_sets[j]),
+                "n_intersection": len(intersection),
+                "n_union": len(union),
+                "jaccard": jaccard,
+            })
+    return pairs
+
+
+def _get_git_commit_hash() -> str:
+    """Get current git commit hash. Returns 'unknown' if git unavailable."""
+    try:
+        result = subprocess.run(
+            ["git", "rev-parse", "HEAD"],
+            capture_output=True, text=True, timeout=5,
+        )
+        if result.returncode == 0:
+            return result.stdout.strip()
+    except (FileNotFoundError, subprocess.TimeoutExpired):
+        pass
+    return "unknown"
+
+
 def write_results(output_dir: str, run_results: list, config_path: str):
     """Write stability analysis results."""
     os.makedirs(output_dir, exist_ok=True)
@@ -231,6 +283,83 @@ def write_results(output_dir: str, run_results: list, config_path: str):
                 c = gene_counts[g]
                 f.write(f"  {g}: {c}/{n_runs} ({c/n_runs*100:.0f}%)\n")
 
+    # Compute pairwise Jaccard similarity between all run pairs
+    run_gene_sets = [set(r["genes"]) for r in successful_runs]
+    jaccard_pairs = compute_pairwise_jaccard(run_gene_sets)
+
+    # Write stability_pairwise_jaccard.csv
+    jaccard_path = os.path.join(output_dir, "stability_pairwise_jaccard.csv")
+    with open(jaccard_path, "w", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=[
+            "run_i", "run_j", "n_genes_i", "n_genes_j",
+            "n_intersection", "n_union", "jaccard",
+        ])
+        writer.writeheader()
+        writer.writerows(jaccard_pairs)
+
+    # Compute Jaccard aggregate statistics
+    if jaccard_pairs:
+        jaccard_values = sorted(p["jaccard"] for p in jaccard_pairs)
+        n_pairs = len(jaccard_values)
+        jaccard_median = jaccard_values[n_pairs // 2]
+        jaccard_p25 = jaccard_values[n_pairs // 4]
+        jaccard_p75 = jaccard_values[(3 * n_pairs) // 4]
+        jaccard_min = jaccard_values[0]
+        jaccard_max = jaccard_values[-1]
+    else:
+        jaccard_median = jaccard_p25 = jaccard_p75 = 0.0
+        jaccard_min = jaccard_max = 0.0
+        n_pairs = 0
+
+    # Write stability_summary.json (canonical machine-readable output)
+    try:
+        engine_version = __import__("riker").__version__
+    except (ImportError, AttributeError):
+        engine_version = "unknown"
+
+    summary_json = {
+        "n_runs": n_runs,
+        "config": config_path,
+        "total_genes_seen": len(gene_counts),
+        "iron_clad": {
+            "count": len(iron_clad),
+            "fraction": len(iron_clad) / len(gene_counts) * 100 if gene_counts else 0,
+            "threshold": 0.90,
+        },
+        "borderline": {
+            "count": len(borderline),
+            "threshold_low": 0.50,
+            "threshold_high": 0.89,
+        },
+        "stochastic": {
+            "count": len(stochastic),
+            "threshold": 0.49,
+        },
+        "pairwise_jaccard": {
+            "median": round(jaccard_median, 4),
+            "p25": round(jaccard_p25, 4),
+            "p75": round(jaccard_p75, 4),
+            "min": round(jaccard_min, 4),
+            "max": round(jaccard_max, 4),
+            "n_pairs": n_pairs,
+        },
+        "core_gene_counts": {
+            "min": min_count,
+            "max": max_count,
+            "mean": round(mean_count, 1),
+        },
+        "per_run_runtime_seconds": [
+            round(r["elapsed"], 1) for r in successful_runs
+        ],
+        "total_wall_time_seconds": round(total_elapsed, 1),
+        "engine_version": engine_version,
+        "engine_commit": _get_git_commit_hash(),
+    }
+
+    json_path = os.path.join(output_dir, "stability_summary.json")
+    with open(json_path, "w") as f:
+        json.dump(summary_json, f, indent=2)
+
     print(f"\n{'='*60}")
     print("STABILITY PROFILING COMPLETE")
     print(f"{'='*60}")
@@ -240,8 +369,12 @@ def write_results(output_dir: str, run_results: list, config_path: str):
     print(f"  Iron-clad (>=90%): {len(iron_clad)}")
     print(f"  Borderline (50-89%): {len(borderline)}")
     print(f"  Stochastic (<50%): {len(stochastic)}")
+    print(f"Pairwise Jaccard: median={jaccard_median:.3f} "
+          f"[{jaccard_p25:.3f}–{jaccard_p75:.3f}]")
     print(f"\nResults: {output_dir}/")
     print(f"  stability_scores.csv")
+    print(f"  stability_pairwise_jaccard.csv")
+    print(f"  stability_summary.json")
     print(f"  run_summary.csv")
     print(f"  stability_report.txt")
 
