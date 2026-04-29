@@ -93,9 +93,11 @@ class PipelineConfig:
         phase4: Phase 4 parameters.
         n_permutations: Number of permutations for significance tests.
         random_seed: Base random seed for reproducibility.
+        symbol_column: Column name in the seed gene CSV containing gene symbols.
     """
     condition: str = "unknown"
     seed_genes_path: str = ""
+    symbol_column: str = "symbol"
     hgnc_path: str = "auto"
     datasets: list = field(default_factory=list)
     output_dir: str = "riker_output"
@@ -160,6 +162,7 @@ def load_config(path: str | Path) -> PipelineConfig:
             "Blind discovery mode (no seed genes) is not yet supported."
         )
 
+    config.symbol_column = raw.get("symbol_column", "symbol")
     config.hgnc_path = raw.get("hgnc_path", "auto")
     config.output_dir = raw.get("output_dir", "riker_output")
     config.random_seed = raw.get("random_seed", 42)
@@ -169,12 +172,20 @@ def load_config(path: str | Path) -> PipelineConfig:
         raise ValueError("Config must specify at least one dataset.")
 
     for ds_raw in raw["datasets"]:
+        if "tissue" not in ds_raw:
+            ds_id = ds_raw.get("id", "unknown")
+            raise ValueError(
+                f"Dataset '{ds_id}' is missing required field 'tissue'. "
+                f"Specify the sample tissue (e.g. tissue: brain, tissue: lung, "
+                f"tissue: islet, tissue: colon). Tissue is methodologically "
+                f"critical for Phase 5 cross-tissue tolerance logic."
+            )
         ds = DatasetConfig(
             dataset_id=ds_raw.get("id", ""),
             series_matrix_path=ds_raw.get("series_matrix", ""),
             platform_path=ds_raw.get("platform", ""),
             role=ds_raw.get("role", "discovery"),
-            tissue=ds_raw.get("tissue", "brain"),
+            tissue=ds_raw["tissue"],
             phenotype_field=ds_raw.get("phenotype_field"),
             case_values=ds_raw.get("case_values"),
             control_values=ds_raw.get("control_values"),

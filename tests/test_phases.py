@@ -855,7 +855,7 @@ class TestConfig:
         return config_path
 
     def test_valid_config(self, tmp_path):
-        data = {"condition": "ASD", "seed_genes": "s.csv", "datasets": [{"id": "GSE1", "series_matrix": "sm.txt", "platform": "pl.txt", "role": "discovery"}]}
+        data = {"condition": "ASD", "seed_genes": "s.csv", "datasets": [{"id": "GSE1", "series_matrix": "sm.txt", "platform": "pl.txt", "role": "discovery", "tissue": "brain"}]}
         path = self._write_config(tmp_path, data)
         config = load_config(path)
         assert config.condition == "ASD"
@@ -879,15 +879,21 @@ class TestConfig:
             load_config(path)
 
     def test_discovery_enforced(self, tmp_path):
-        data = {"condition": "ASD", "seed_genes": "s.csv", "datasets": [{"id": "G1", "role": "replication"}]}
+        data = {"condition": "ASD", "seed_genes": "s.csv", "datasets": [{"id": "G1", "role": "replication", "tissue": "brain"}]}
         path = self._write_config(tmp_path, data)
         with pytest.raises(ValueError, match="discovery"):
             load_config(path)
 
     def test_dataset_id_required(self, tmp_path):
-        data = {"condition": "ASD", "seed_genes": "s.csv", "datasets": [{"role": "discovery"}]}
+        data = {"condition": "ASD", "seed_genes": "s.csv", "datasets": [{"role": "discovery", "tissue": "brain"}]}
         path = self._write_config(tmp_path, data)
         with pytest.raises(ValueError, match="id"):
+            load_config(path)
+
+    def test_tissue_required(self, tmp_path):
+        data = {"condition": "ASD", "seed_genes": "s.csv", "datasets": [{"id": "G1", "role": "discovery"}]}
+        path = self._write_config(tmp_path, data)
+        with pytest.raises(ValueError, match="tissue"):
             load_config(path)
 
 class TestPathResolution:
@@ -942,6 +948,7 @@ class TestPathResolution:
                 "series_matrix": "../../data/geo/test.txt.gz",
                 "platform": "../../data/platforms/GPL1.annot",
                 "role": "discovery",
+                "tissue": "brain",
             }],
         }
         config_path = subdir / "test.yaml"

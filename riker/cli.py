@@ -96,6 +96,7 @@ def cmd_run(args) -> int:
 
         seed_db = SeedGeneDB(
             csv_path=config.seed_genes_path,
+            symbol_column=config.symbol_column,
             resolver=resolver,
         )
         seed_genes = [g.resolved_symbol for g in seed_db.genes]
