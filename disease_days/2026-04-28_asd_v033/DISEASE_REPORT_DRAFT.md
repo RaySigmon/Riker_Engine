@@ -621,37 +621,37 @@ Output files: `stability_50run/iron_clad_cluster_analysis.csv`, `stability_50run
 
 Candidates identified by objective criteria applied mechanically to run outputs.
 
-Effect size and p-value statistics are computed as the median across the N stability runs where each gene appeared in Phase 6 meta-analysis output. Std dev of effect size characterizes run-to-run variability; direction concordance flags genes where the effect direction itself is unstable. See `iron_clad_aggregated.csv` for full per-gene distributions.
+Effect size and p-value are deterministic given Phase 5 survivors — Phase 6 meta-analysis math is not stochastic, verified empirically across sampled runs and by code inspection. Cross-run variation appears in n_runs_in_phase6 (how often each iron-clad gene reaches the meta-analysis stage), not in the values themselves. See `iron_clad_aggregated.csv` for the full per-gene audit trail.
 
 ### A. Highest median effect size (top 10 iron-clad by median |random_effect|)
 
-| Gene | Median effect | Std (effect) | Direction (concordance) | n_runs |
-|---|---|---|---|---|
-| BAG3 | 1.4722 | 0.0000 | up (1.00) | 50 |
-| CCN1 | 1.4007 | 0.0000 | up (1.00) | 50 |
-| HSPB1 | 1.2985 | 0.0000 | up (1.00) | 50 |
-| TIMP1 | 1.1720 | 0.0000 | up (1.00) | 50 |
-| C1QB | 1.1328 | 0.0000 | up (1.00) | 50 |
-| PDYN | 1.1264 | 0.0000 | up (1.00) | 50 |
-| RDH10 | 1.0550 | 0.0000 | up (1.00) | 50 |
-| S100A8 | 1.0438 | 0.0000 | up (1.00) | 50 |
-| NQO1 | 1.0435 | 0.0000 | up (1.00) | 50 |
-| YBX3 | 1.0298 | 0.0000 | up (1.00) | 50 |
+| Gene | Median effect | Direction | n_runs |
+|---|---|---|---|
+| BAG3 | 1.4722 | up | 50 |
+| CCN1 | 1.4007 | up | 50 |
+| HSPB1 | 1.2985 | up | 50 |
+| TIMP1 | 1.1720 | up | 50 |
+| C1QB | 1.1328 | up | 50 |
+| PDYN | 1.1264 | up | 50 |
+| RDH10 | 1.0550 | up | 50 |
+| S100A8 | 1.0438 | up | 50 |
+| NQO1 | 1.0435 | up | 50 |
+| YBX3 | 1.0298 | up | 50 |
 
 ### B. Strongest statistical evidence (top 10 iron-clad by -log10(median p))
 
-| Gene | -log10(median p) | Median p | Median effect | Direction (concordance) |
-|---|---|---|---|---|
-| SFMBT2 | 10.73 | 1.87e-11 | 0.5058 | up (1.00) |
-| PLXDC2 | 9.88 | 1.33e-10 | 0.4740 | up (1.00) |
-| H2BC21 | 9.44 | 3.67e-10 | 0.5707 | up (1.00) |
-| DTNA | 7.61 | 2.44e-08 | 0.5020 | up (1.00) |
-| SERF2 | 7.58 | 2.65e-08 | 0.2776 | up (1.00) |
-| WWC1 | 7.53 | 2.95e-08 | 0.4237 | up (1.00) |
-| ATXN7 | 7.40 | 3.94e-08 | 0.2251 | up (1.00) |
-| RPL36 | 7.28 | 5.24e-08 | 0.1914 | up (1.00) |
-| EPB41L2 | 7.21 | 6.17e-08 | 0.3064 | up (1.00) |
-| CPNE3 | 7.14 | 7.25e-08 | 0.3846 | up (1.00) |
+| Gene | -log10(median p) | Median p | Median effect |
+|---|---|---|---|
+| SFMBT2 | 10.73 | 1.87e-11 | 0.5058 |
+| PLXDC2 | 9.88 | 1.33e-10 | 0.4740 |
+| H2BC21 | 9.44 | 3.67e-10 | 0.5707 |
+| DTNA | 7.61 | 2.44e-08 | 0.5020 |
+| SERF2 | 7.58 | 2.65e-08 | 0.2776 |
+| WWC1 | 7.53 | 2.95e-08 | 0.4237 |
+| ATXN7 | 7.40 | 3.94e-08 | 0.2251 |
+| RPL36 | 7.28 | 5.24e-08 | 0.1914 |
+| EPB41L2 | 7.21 | 6.17e-08 | 0.3064 |
+| CPNE3 | 7.14 | 7.25e-08 | 0.3846 |
 
 ### C. Perfect reproducibility (50/50 runs): 293 genes
 
@@ -691,6 +691,24 @@ Effect size and p-value statistics are computed as the median across the N stabi
 - SNX14
 - ZFHX3
 - ZNF385B
+
+### F. Phase-4-stable but Phase-5-unstable genes
+
+7 iron-clad genes are consistently identified in Phase 4 clustering (appearing in the core gene set in >=90% of stability runs) but consistently eliminated at Phase 5 (replication tier). They represent stable transcriptional clustering signal that does not survive cross-cohort replication.
+
+All 7 are eliminated by GSE102741 (brain replication dataset) due to significant opposite-direction expression.
+
+| Gene | Phase 4 appearance | n_runs_in_phase6 | Elimination dataset | Elimination reason |
+|---|---|---|---|---|
+| CDKN1A | 50/50 | 0 | GSE102741 | Significant opposite direction (same-tissue) |
+| CEBPD | 47/50 | 0 | GSE102741 | Significant opposite direction (same-tissue) |
+| DNAJB1 | 50/50 | 0 | GSE102741 | Significant opposite direction (same-tissue) |
+| HSPA1A | 50/50 | 0 | GSE102741 | Significant opposite direction (same-tissue) |
+| NFKBIZ | 50/50 | 0 | GSE102741 | Significant opposite direction (same-tissue) |
+| SERPINH1 | 50/50 | 0 | GSE102741 | Significant opposite direction (same-tissue) |
+| SERTAD1 | 46/50 | 0 | GSE102741 | Significant opposite direction (same-tissue) |
+
+5 of 7 appeared in all 50 stability runs (perfect Phase 4 reproducibility). Verified in runs 1 and 25 — same elimination verdict in both.
 
 ## 9. Comparison to historical v0.3.2
 

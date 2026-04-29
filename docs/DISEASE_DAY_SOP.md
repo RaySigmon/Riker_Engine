@@ -293,6 +293,32 @@ All items from the original v1.0 deferred list have been resolved in v0.3.3. No 
 
 ---
 
+## Architectural verification discipline
+
+When reporting on engine behavior, distinguish between:
+
+- **Empirical findings:** "the data shows X" (backed by run outputs)
+- **Architectural claims:** "the engine is designed to do X" (backed by code inspection or reasoning)
+
+Architectural claims require empirical verification before being treated as conclusions. When in doubt, verify.
+
+**Standing rule:** When Kai or Claude offers an architectural explanation for unexpected results, verify empirically before accepting. Plausible explanations that sound correct can still be wrong.
+
+**Anchor example (April 29, 2026, ASD disease day):** Cross-run aggregation of Phase 6 effect sizes showed std_dev = 0.0000 for all iron-clad genes. The architectural claim was "Phase 6 is deterministic given Phase 5 survivors." Verification: sampled 3 genes (BAG3, CCN1, SFMBT2) across 5 runs, confirmed values identical to 17-18 significant digits. Code inspection of phase1_crossref.py, phase6_meta.py, and stats/meta.py confirmed zero stochastic operations. Claim verified empirically.
+
+**Engine determinism profile** (verified April 29, 2026):
+
+| Phase | Deterministic? | Stochastic element |
+|---|---|---|
+| Phase 1 (differential expression) | Yes | None |
+| Phase 2 (feature matrix) | Yes | None |
+| Phase 3 (consensus clustering) | **No** | UMAP random_state |
+| Phase 4 (robustness testing) | **No** | Permutation seed |
+| Phase 5 (replication) | Yes | None |
+| Phase 6 (meta-analysis) | Yes | None |
+
+---
+
 ## Revision history
 
 - **v1.0 (2026-04-24):** Initial SOP.
