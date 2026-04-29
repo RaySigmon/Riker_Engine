@@ -621,35 +621,37 @@ Output files: `stability_50run/iron_clad_cluster_analysis.csv`, `stability_50run
 
 Candidates identified by objective criteria applied mechanically to run outputs.
 
-### A. Highest meta-analysis effect size (top 10 iron-clad by |random_effect|)
+Effect size and p-value statistics are computed as the median across the N stability runs where each gene appeared in Phase 6 meta-analysis output. Std dev of effect size characterizes run-to-run variability; direction concordance flags genes where the effect direction itself is unstable. See `iron_clad_aggregated.csv` for full per-gene distributions.
 
-| Gene | Random effect | Direction |
-|---|---|---|
-| BAG3 | 1.4722 | up |
-| CCN1 | 1.4007 | up |
-| HSPB1 | 1.2985 | up |
-| TIMP1 | 1.1720 | up |
-| C1QB | 1.1328 | up |
-| PDYN | 1.1264 | up |
-| RDH10 | 1.0550 | up |
-| S100A8 | 1.0438 | up |
-| NQO1 | 1.0435 | up |
-| YBX3 | 1.0298 | up |
+### A. Highest median effect size (top 10 iron-clad by median |random_effect|)
 
-### B. Strongest statistical confidence (top 10 iron-clad by -log10(p_random))
+| Gene | Median effect | Std (effect) | Direction (concordance) | n_runs |
+|---|---|---|---|---|
+| BAG3 | 1.4722 | 0.0000 | up (1.00) | 50 |
+| CCN1 | 1.4007 | 0.0000 | up (1.00) | 50 |
+| HSPB1 | 1.2985 | 0.0000 | up (1.00) | 50 |
+| TIMP1 | 1.1720 | 0.0000 | up (1.00) | 50 |
+| C1QB | 1.1328 | 0.0000 | up (1.00) | 50 |
+| PDYN | 1.1264 | 0.0000 | up (1.00) | 50 |
+| RDH10 | 1.0550 | 0.0000 | up (1.00) | 50 |
+| S100A8 | 1.0438 | 0.0000 | up (1.00) | 50 |
+| NQO1 | 1.0435 | 0.0000 | up (1.00) | 50 |
+| YBX3 | 1.0298 | 0.0000 | up (1.00) | 50 |
 
-| Gene | -log10(p) | p-value |
-|---|---|---|
-| SFMBT2 | 10.73 | 1.87e-11 |
-| PLXDC2 | 9.88 | 1.33e-10 |
-| H2BC21 | 9.44 | 3.67e-10 |
-| DTNA | 7.61 | 2.44e-08 |
-| SERF2 | 7.58 | 2.65e-08 |
-| WWC1 | 7.53 | 2.95e-08 |
-| ATXN7 | 7.40 | 3.94e-08 |
-| RPL36 | 7.28 | 5.24e-08 |
-| EPB41L2 | 7.21 | 6.17e-08 |
-| CPNE3 | 7.14 | 7.25e-08 |
+### B. Strongest statistical evidence (top 10 iron-clad by -log10(median p))
+
+| Gene | -log10(median p) | Median p | Median effect | Direction (concordance) |
+|---|---|---|---|---|
+| SFMBT2 | 10.73 | 1.87e-11 | 0.5058 | up (1.00) |
+| PLXDC2 | 9.88 | 1.33e-10 | 0.4740 | up (1.00) |
+| H2BC21 | 9.44 | 3.67e-10 | 0.5707 | up (1.00) |
+| DTNA | 7.61 | 2.44e-08 | 0.5020 | up (1.00) |
+| SERF2 | 7.58 | 2.65e-08 | 0.2776 | up (1.00) |
+| WWC1 | 7.53 | 2.95e-08 | 0.4237 | up (1.00) |
+| ATXN7 | 7.40 | 3.94e-08 | 0.2251 | up (1.00) |
+| RPL36 | 7.28 | 5.24e-08 | 0.1914 | up (1.00) |
+| EPB41L2 | 7.21 | 6.17e-08 | 0.3064 | up (1.00) |
+| CPNE3 | 7.14 | 7.25e-08 | 0.3846 | up (1.00) |
 
 ### C. Perfect reproducibility (50/50 runs): 293 genes
 
