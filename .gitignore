@@ -28,6 +28,9 @@ data/hgnc/
 # Nested repo clone artifact
 Riker_Engine/
 
+# Historical v0.3.2 reference baselines (not source, not committed)
+historical_v032_baselines/
+
 # Raw pipeline output (regenerable from master seed)
 output/
 stability_ASD_blind/runs/
