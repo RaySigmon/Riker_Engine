@@ -1,0 +1,567 @@
+2026-04-29 14:10:41 [INFO] riker.config: Config loaded: condition=IPF, 3 discovery + 2 replication datasets.
+2026-04-29 14:10:41 [INFO] riker: ============================================================
+2026-04-29 14:10:41 [INFO] riker: PHASE 1: Cross-Referencing
+2026-04-29 14:10:41 [INFO] riker: ============================================================
+2026-04-29 14:10:42 [INFO] riker.ingestion.gene_db: Loading HGNC data from /home/kai001/riker-engine/data/hgnc/hgnc_complete_set.txt...
+2026-04-29 14:10:49 [INFO] riker.ingestion.gene_db: HGNC resolver loaded: 44981 approved symbols, 57613 aliases/previous symbols mapped.
+2026-04-29 14:10:49 [INFO] riker.ingestion.gene_db: Loaded 352 seed genes from /home/kai001/riker-engine/data/seeds/ipf_curated_genes.csv. 8 symbols remapped via HGNC.
+2026-04-29 14:10:49 [INFO] riker.ingestion.gene_db:   Remapped: CASC1 -> DNAI7
+2026-04-29 14:10:49 [INFO] riker.ingestion.gene_db:   Remapped: EFCAB1 -> CLXN
+2026-04-29 14:10:49 [INFO] riker.ingestion.gene_db:   Remapped: FAM83D -> SACK1D
+2026-04-29 14:10:49 [INFO] riker.ingestion.gene_db:   Remapped: GRASP -> TAMALIN
+2026-04-29 14:10:49 [INFO] riker.ingestion.gene_db:   Remapped: OBFC1 -> STN1
+2026-04-29 14:10:49 [INFO] riker.ingestion.gene_db:   Remapped: TTC25 -> ODAD4
+2026-04-29 14:10:49 [INFO] riker.ingestion.gene_db:   Remapped: WDR63 -> DNAI3
+2026-04-29 14:10:49 [INFO] riker.ingestion.gene_db:   Remapped: WDR78 -> DNAI4
+2026-04-29 14:10:49 [INFO] riker: Loaded 352 seed genes.
+2026-04-29 14:10:49 [INFO] riker: Loading dataset: GSE32537
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM806206 value 'age: 52 | gender: male | final diagnosis: uf | repository: ltrc | tissue source: r middle | preservative: frozen | rin: 8.9 | smoking status: former | quit how many years ago: 45 | pack years: 1 | st. george's total score: 65.88 | fvc pre-bronchodilator % predicted: 50.8848 | dlco % predicted: 63.1221' did not match any case (['final diagnosis: ipf/uip']) or control (['final diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM806211 value 'age: 52 | gender: male | final diagnosis: rb-ild | repository: ltrc | tissue source: r middle | preservative: rnalater | rin: 9.1 | smoking status: nonsmoker | quit how many years ago: nonsmoker | pack years: 0 | st. george's total score: 55.32 | fvc pre-bronchodilator % predicted: 90.7622 |' did not match any case (['final diagnosis: ipf/uip']) or control (['final diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM806213 value 'age: 65 | gender: male | final diagnosis: nsip | repository: ltrc | tissue source: r lower | preservative: frozen | rin: 7.1 | smoking status: former | quit how many years ago: 25 | pack years: 10 | st. george's total score: 30.73 | fvc pre-bronchodilator % predicted: 91.7951 | dlco % predicted: 74.6446' did not match any case (['final diagnosis: ipf/uip']) or control (['final diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM806215 value 'age: 48 | gender: male | final diagnosis: dip | repository: ltrc | tissue source: r lower | preservative: frozen | rin: 8.8 | smoking status: former | quit how many years ago: -- | pack years: 30 | st. george's total score: 64.34 | fvc pre-bronchodilator % predicted: 68.2051 | dlco % predicted: --' did not match any case (['final diagnosis: ipf/uip']) or control (['final diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM806217 value 'age: 55 | gender: female | final diagnosis: uf | repository: ltrc | tissue source: l lower | preservative: rnalater | rin: 8.6 | smoking status: nonsmoker | quit how many years ago: nonsmoker | pack years: 0 | st. george's total score: 80.44 | fvc pre-bronchodilator % predicted: 28.6962 | dlco % predicted: 16.8638' did not match any case (['final diagnosis: ipf/uip']) or control (['final diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM806218 value 'age: 55 | gender: male | final diagnosis: nsip | repository: ltrc | tissue source: r lower | preservative: frozen | rin: 8.8 | smoking status: current | quit how many years ago: 0 | pack years: 57 | st. george's total score: 42.48 | fvc pre-bronchodilator % predicted: 66.2241 | dlco % predicted: 50.8655' did not match any case (['final diagnosis: ipf/uip']) or control (['final diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM806224 value 'age: 53 | gender: female | final diagnosis: nsip | repository: ltrc | tissue source: r lower | preservative: frozen | rin: 7.4 | smoking status: former | quit how many years ago: 3 | pack years: 45 | st. george's total score: 48.47 | fvc pre-bronchodilator % predicted: 73.8903 | dlco % predicted: 71.0345' did not match any case (['final diagnosis: ipf/uip']) or control (['final diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM806233 value 'age: 74 | gender: male | final diagnosis: uf | repository: ltrc | tissue source: l upper | preservative: frozen | rin: 8.6 | smoking status: former | quit how many years ago: 40 | pack years: 20 | st. george's total score: 27.34 | fvc pre-bronchodilator % predicted: 82.5965 | dlco % predicted: 57.1213' did not match any case (['final diagnosis: ipf/uip']) or control (['final diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM806244 value 'age: 39 | gender: male | final diagnosis: rb-ild | repository: ltrc | tissue source: r lower | preservative: frozen | rin: 8.5 | smoking status: former | quit how many years ago: 1 | pack years: 35 | st. george's total score: 53.8 | fvc pre-bronchodilator % predicted: 93.5305 | dlco % predicted: 76.9721' did not match any case (['final diagnosis: ipf/uip']) or control (['final diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM806245 value 'age: 53 | gender: male | final diagnosis: nsip | repository: ltrc | tissue source: l lower | preservative: frozen | rin: 8.7 | smoking status: former | quit how many years ago: 8 | pack years: 75 | st. george's total score: 71.61 | fvc pre-bronchodilator % predicted: 103.375 | dlco % predicted: --' did not match any case (['final diagnosis: ipf/uip']) or control (['final diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM806246 value 'age: 46 | gender: male | final diagnosis: rb-ild | repository: ltrc | tissue source: r middle | preservative: frozen | rin: 8.9 | smoking status: former | quit how many years ago: -- | pack years: 70 | st. george's total score: 32.77 | fvc pre-bronchodilator % predicted: 61.7265 | dlco % predicted: 44.8848' did not match any case (['final diagnosis: ipf/uip']) or control (['final diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM806248 value 'age: 77 | gender: male | final diagnosis: uf | repository: ltrc | tissue source: r upper | preservative: rnalater | rin: 8.3 | smoking status: former | quit how many years ago: 32 | pack years: 20 | st. george's total score: 27.04 | fvc pre-bronchodilator % predicted: 111.798 | dlco % predicted: --' did not match any case (['final diagnosis: ipf/uip']) or control (['final diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM806249 value 'age: 47 | gender: female | final diagnosis: nsip | repository: ltrc | tissue source: r lower | preservative: frozen | rin: 8.3 | smoking status: former | quit how many years ago: 15 | pack years: 15 | st. george's total score: 38.54 | fvc pre-bronchodilator % predicted: 63.6565 | dlco % predicted: 57.4016' did not match any case (['final diagnosis: ipf/uip']) or control (['final diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM806256 value 'age: 50 | gender: female | final diagnosis: nsip | repository: ltrc | tissue source: r middle | preservative: frozen | rin: 6.2 | smoking status: former | quit how many years ago: 21 | pack years: 10 | st. george's total score: 47.15 | fvc pre-bronchodilator % predicted: 87.2304 | dlco % predicted: 72.9549' did not match any case (['final diagnosis: ipf/uip']) or control (['final diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM806265 value 'age: 57 | gender: male | final diagnosis: nsip | repository: ltrc | tissue source: l lower | preservative: frozen | rin: 8.6 | smoking status: former | quit how many years ago: 30 | pack years: 1 | st. george's total score: 61.96 | fvc pre-bronchodilator % predicted: 70.129 | dlco % predicted: 29.6146' did not match any case (['final diagnosis: ipf/uip']) or control (['final diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM806266 value 'age: 50 | gender: female | final diagnosis: cop | repository: ltrc | tissue source: r upper | preservative: frozen | rin: 8.1 | smoking status: -- | quit how many years ago: -- | pack years: -- | st. george's total score: 0 | fvc pre-bronchodilator % predicted: 105.122 | dlco % predicted: 108.064' did not match any case (['final diagnosis: ipf/uip']) or control (['final diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM806270 value 'age: 32 | gender: female | final diagnosis: rb-ild | repository: ltrc | tissue source: l upper | preservative: frozen | rin: 8.7 | smoking status: current | quit how many years ago: 0 | pack years: 18 | st. george's total score: 51.17 | fvc pre-bronchodilator % predicted: 93.0329 | dlco % predicted: 60.4317' did not match any case (['final diagnosis: ipf/uip']) or control (['final diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM806271 value 'age: 55 | gender: male | final diagnosis: dip | repository: ltrc | tissue source: r lower | preservative: frozen | rin: 7.8 | smoking status: former | quit how many years ago: 1 | pack years: 40 | st. george's total score: 68.21 | fvc pre-bronchodilator % predicted: 67.0009 | dlco % predicted: --' did not match any case (['final diagnosis: ipf/uip']) or control (['final diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM806272 value 'age: 56 | gender: male | final diagnosis: dip | repository: ltrc | tissue source: r lower | preservative: rnalater | rin: 7.1 | smoking status: nonsmoker | quit how many years ago: nonsmoker | pack years: 0 | st. george's total score: 74.03 | fvc pre-bronchodilator % predicted: 56.8336 | dlco % predicted: 54.2864' did not match any case (['final diagnosis: ipf/uip']) or control (['final diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM806280 value 'age: 77 | gender: male | final diagnosis: uf | repository: ltrc | tissue source: r lower | preservative: frozen | rin: 5.7 | smoking status: nonsmoker | quit how many years ago: nonsmoker | pack years: 0 | st. george's total score: 18.48 | fvc pre-bronchodilator % predicted: 68.6391 | dlco % predicted: 58.334' did not match any case (['final diagnosis: ipf/uip']) or control (['final diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM806282 value 'age: 41 | gender: female | final diagnosis: nsip | repository: ltrc | tissue source: l upper | preservative: frozen | rin: 7.8 | smoking status: nonsmoker | quit how many years ago: nonsmoker | pack years: 0 | st. george's total score: 62.01 | fvc pre-bronchodilator % predicted: 80.0679 | dlco % predicted: 65.6709' did not match any case (['final diagnosis: ipf/uip']) or control (['final diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM806283 value 'age: 58 | gender: male | final diagnosis: rb-ild | repository: ltrc | tissue source: r upper | preservative: frozen | rin: 7 | smoking status: former | quit how many years ago: 2 | pack years: 90 | st. george's total score: 34.13 | fvc pre-bronchodilator % predicted: 92.1677 | dlco % predicted: 75.9881' did not match any case (['final diagnosis: ipf/uip']) or control (['final diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM806288 value 'age: 62 | gender: female | final diagnosis: rb-ild | repository: ltrc | tissue source: r lower | preservative: rnalater | rin: 6.1 | smoking status: former | quit how many years ago: 14 | pack years: 90 | st. george's total score: 8.24 | fvc pre-bronchodilator % predicted: 97.3079 | dlco % predicted: 104.885' did not match any case (['final diagnosis: ipf/uip']) or control (['final diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM806289 value 'age: 58 | gender: female | final diagnosis: uf | repository: ltrc | tissue source: r upper | preservative: frozen | rin: 8.4 | smoking status: former | quit how many years ago: 9 | pack years: 45 | st. george's total score: 41.33 | fvc pre-bronchodilator % predicted: 81.7356 | dlco % predicted: 33.5987' did not match any case (['final diagnosis: ipf/uip']) or control (['final diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM806295 value 'age: 45 | gender: male | final diagnosis: uf | repository: ltrc | tissue source: r lower | preservative: frozen | rin: 9.4 | smoking status: nonsmoker | quit how many years ago: nonsmoker | pack years: 0 | st. george's total score: 74.6 | fvc pre-bronchodilator % predicted: 43.0541 | dlco % predicted: --' did not match any case (['final diagnosis: ipf/uip']) or control (['final diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM806296 value 'age: 49 | gender: female | final diagnosis: nsip | repository: ltrc | tissue source: r lower | preservative: frozen | rin: 8.5 | smoking status: former | quit how many years ago: 26 | pack years: 10 | st. george's total score: 62.53 | fvc pre-bronchodilator % predicted: 50.6299 | dlco % predicted: 43.4922' did not match any case (['final diagnosis: ipf/uip']) or control (['final diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM806303 value 'age: 73 | gender: male | final diagnosis: nsip | repository: ltrc | tissue source: l lower | preservative: frozen | rin: 8 | smoking status: nonsmoker | quit how many years ago: nonsmoker | pack years: 0 | st. george's total score: 76.95 | fvc pre-bronchodilator % predicted: 42.026 | dlco % predicted: 30.8978' did not match any case (['final diagnosis: ipf/uip']) or control (['final diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM806304 value 'age: 61 | gender: male | final diagnosis: cop | repository: ltrc | tissue source: r lower | preservative: frozen | rin: 8.1 | smoking status: former | quit how many years ago: 29 | pack years: 5 | st. george's total score: 0.79 | fvc pre-bronchodilator % predicted: 93.7093 | dlco % predicted: 89.3145' did not match any case (['final diagnosis: ipf/uip']) or control (['final diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM806311 value 'age: 54 | gender: female | final diagnosis: nsip | repository: ltrc | tissue source: r lower | preservative: frozen | rin: 9.2 | smoking status: nonsmoker | quit how many years ago: nonsmoker | pack years: 0 | st. george's total score: 61.85 | fvc pre-bronchodilator % predicted: 79.7006 | dlco % predicted: 96.6294' did not match any case (['final diagnosis: ipf/uip']) or control (['final diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM806312 value 'age: 40 | gender: male | final diagnosis: nsip | repository: ltrc | tissue source: r lower | preservative: frozen | rin: 8.2 | smoking status: -- | quit how many years ago: -- | pack years: -- | st. george's total score: 0 | fvc pre-bronchodilator % predicted: 27.8666 | dlco % predicted: ?' did not match any case (['final diagnosis: ipf/uip']) or control (['final diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM806317 value 'age: 47 | gender: male | final diagnosis: uf | repository: ltrc | tissue source: r lower | preservative: frozen | rin: 7.9 | smoking status: former | quit how many years ago: 3 | pack years: 25 | st. george's total score: 51.87 | fvc pre-bronchodilator % predicted: 46.1464 | dlco % predicted: 49.4464' did not match any case (['final diagnosis: ipf/uip']) or control (['final diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM806319 value 'age: 59 | gender: female | final diagnosis: rb-ild | repository: ltrc | tissue source: r lower | preservative: frozen | rin: 7.8 | smoking status: former | quit how many years ago: 1 | pack years: 20 | st. george's total score: 19.97 | fvc pre-bronchodilator % predicted: 66.8795 | dlco % predicted: 92.3694' did not match any case (['final diagnosis: ipf/uip']) or control (['final diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM806323 value 'age: 67 | gender: female | final diagnosis: rb-ild | repository: ltrc | tissue source: l ling | preservative: frozen | rin: 6.1 | smoking status: nonsmoker | quit how many years ago: nonsmoker | pack years: 0 | st. george's total score: 23.31 | fvc pre-bronchodilator % predicted: 85.7969 | dlco % predicted: 86.311' did not match any case (['final diagnosis: ipf/uip']) or control (['final diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM806325 value 'age: 63 | gender: female | final diagnosis: rb-ild | repository: ltrc | tissue source: r upper | preservative: rnalater | rin: 9 | smoking status: nonsmoker | quit how many years ago: nonsmoker | pack years: 0 | st. george's total score: 57.57 | fvc pre-bronchodilator % predicted: 99.7196 | dlco % predicted: 100.807' did not match any case (['final diagnosis: ipf/uip']) or control (['final diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM806326 value 'age: 35 | gender: female | final diagnosis: uf | repository: ltrc | tissue source: l lower | preservative: frozen | rin: 8.2 | smoking status: nonsmoker | quit how many years ago: nonsmoker | pack years: 0 | st. george's total score: 67.34 | fvc pre-bronchodilator % predicted: 64.4438 | dlco % predicted: 61.8147' did not match any case (['final diagnosis: ipf/uip']) or control (['final diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM806328 value 'age: 44 | gender: female | final diagnosis: rb-ild | repository: ltrc | tissue source: l lower | preservative: frozen | rin: 8.4 | smoking status: former | quit how many years ago: -- | pack years: 50 | st. george's total score: 52.19 | fvc pre-bronchodilator % predicted: 75.9523 | dlco % predicted: 51.5628' did not match any case (['final diagnosis: ipf/uip']) or control (['final diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM806331 value 'age: 26 | gender: female | final diagnosis: uf | repository: ltrc | tissue source: r lower | preservative: frozen | rin: 8.4 | smoking status: nonsmoker | quit how many years ago: nonsmoker | pack years: 0 | st. george's total score: 60.88 | fvc pre-bronchodilator % predicted: 25.4745 | dlco % predicted: --' did not match any case (['final diagnosis: ipf/uip']) or control (['final diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM806334 value 'age: 80 | gender: male | final diagnosis: nsip | repository: ltrc | tissue source: r lower | preservative: frozen | rin: 8.1 | smoking status: former | quit how many years ago: 48 | pack years: 3 | st. george's total score: 29.7 | fvc pre-bronchodilator % predicted: 79.2868 | dlco % predicted: 52.3153' did not match any case (['final diagnosis: ipf/uip']) or control (['final diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM806337 value 'age: 53 | gender: male | final diagnosis: nsip | repository: ltrc | tissue source: r middle | preservative: rnalater | rin: 6.7 | smoking status: former | quit how many years ago: 35 | pack years: 1 | st. george's total score: 63.49 | fvc pre-bronchodilator % predicted: 48.0141 | dlco % predicted: 24.9833' did not match any case (['final diagnosis: ipf/uip']) or control (['final diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM806341 value 'age: 41 | gender: female | final diagnosis: dip | repository: ltrc | tissue source: r lower | preservative: frozen | rin: 8.7 | smoking status: current | quit how many years ago: 0 | pack years: 26 | st. george's total score: 41.18 | fvc pre-bronchodilator % predicted: 77.6661 | dlco % predicted: --' did not match any case (['final diagnosis: ipf/uip']) or control (['final diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM806343 value 'age: 52 | gender: female | final diagnosis: rb-ild | repository: ltrc | tissue source: r lower | preservative: rnalater | rin: 8.4 | smoking status: nonsmoker | quit how many years ago: nonsmoker | pack years: 0 | st. george's total score: 27.66 | fvc pre-bronchodilator % predicted: -- | dlco % predicted: --' did not match any case (['final diagnosis: ipf/uip']) or control (['final diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM806345 value 'age: 55 | gender: female | final diagnosis: nsip | repository: ltrc | tissue source: r lower | preservative: frozen | rin: 8 | smoking status: former | quit how many years ago: -- | pack years: 15 | st. george's total score: 18.4 | fvc pre-bronchodilator % predicted: 43.1694 | dlco % predicted: 58.3955' did not match any case (['final diagnosis: ipf/uip']) or control (['final diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM806347 value 'age: 60 | gender: male | final diagnosis: uf | repository: ltrc | tissue source: l upper | preservative: rnalater | rin: 8.6 | smoking status: nonsmoker | quit how many years ago: nonsmoker | pack years: 0 | st. george's total score: 65.45 | fvc pre-bronchodilator % predicted: 36.6655 | dlco % predicted: 34.3833' did not match any case (['final diagnosis: ipf/uip']) or control (['final diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM806348 value 'age: 53 | gender: male | final diagnosis: cop | repository: ltrc | tissue source: r lower | preservative: frozen | rin: 8.8 | smoking status: nonsmoker | quit how many years ago: nonsmoker | pack years: 0 | st. george's total score: 50.06 | fvc pre-bronchodilator % predicted: 90.3909 | dlco % predicted: 103.532' did not match any case (['final diagnosis: ipf/uip']) or control (['final diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM806350 value 'age: 66 | gender: female | final diagnosis: nsip | repository: ltrc | tissue source: l upper | preservative: frozen | rin: 8.6 | smoking status: former | quit how many years ago: 22 | pack years: 25 | st. george's total score: 39.25 | fvc pre-bronchodilator % predicted: 73.4757 | dlco % predicted: 92.9914' did not match any case (['final diagnosis: ipf/uip']) or control (['final diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM806353 value 'age: 54 | gender: male | final diagnosis: uf | repository: ltrc | tissue source: r lower | preservative: frozen | rin: 8.5 | smoking status: former | quit how many years ago: 1 | pack years: 20 | st. george's total score: 78.45 | fvc pre-bronchodilator % predicted: 36.1349 | dlco % predicted: --' did not match any case (['final diagnosis: ipf/uip']) or control (['final diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM806360 value 'age: 82 | gender: female | final diagnosis: nsip | repository: ltrc | tissue source: r lower | preservative: frozen | rin: 7.2 | smoking status: nonsmoker | quit how many years ago: nonsmoker | pack years: 0 | st. george's total score: 59.12 | fvc pre-bronchodilator % predicted: 108.632 | dlco % predicted: --' did not match any case (['final diagnosis: ipf/uip']) or control (['final diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM806367 value 'age: 77 | gender: female | final diagnosis: uf | repository: ltrc | tissue source: r upper | preservative: frozen | rin: 8.4 | smoking status: nonsmoker | quit how many years ago: nonsmoker | pack years: 0 | st. george's total score: 49.1 | fvc pre-bronchodilator % predicted: 99.4732 | dlco % predicted: 63.7614' did not match any case (['final diagnosis: ipf/uip']) or control (['final diagnosis: control']) values.
+  pheno = extractor.extract(
+2026-04-29 14:10:57 [INFO] riker.ingestion.geo_parser: Probe-to-gene mapping: 10058 mapped, 1892 unmapped, 9056 unique genes.
+2026-04-29 14:10:58 [INFO] riker: Loading dataset: GSE53845
+2026-04-29 14:11:05 [INFO] riker.ingestion.geo_parser: Probe-to-gene mapping: 30723 mapped, 10277 unmapped, 19527 unique genes.
+2026-04-29 14:11:05 [INFO] riker: Loading dataset: GSE24206
+2026-04-29 14:11:13 [INFO] riker.ingestion.geo_parser: Probe-to-gene mapping: 45108 mapped, 9505 unmapped, 21717 unique genes.
+2026-04-29 14:11:13 [INFO] riker.phases.phase1_crossref: Dataset GSE32537: 302/352 seed genes detected (85.8%).
+2026-04-29 14:11:13 [INFO] riker.phases.phase1_crossref: Dataset GSE53845: 348/352 seed genes detected (98.9%).
+2026-04-29 14:11:13 [INFO] riker.phases.phase1_crossref: Dataset GSE24206: 344/352 seed genes detected (97.7%).
+2026-04-29 14:11:14 [INFO] riker.phases.phase1_crossref: Phase 1 complete: 241 study genes from 352 seed genes (p < 0.05 in >= 2 datasets).
+2026-04-29 14:11:14 [INFO] riker.io.outputs: Phase 1 summary: /home/kai001/riker-engine/disease_days/2026-04-29_ipf_v0332/curated/phase1_study_genes.csv
+2026-04-29 14:11:14 [INFO] riker: ============================================================
+2026-04-29 14:11:14 [INFO] riker: PHASE 2: Pathway Mapping
+2026-04-29 14:11:14 [INFO] riker: ============================================================
+2026-04-29 14:11:14 [WARNING] riker: No pathway data configured. Using expression features only.
+2026-04-29 14:11:14 [INFO] riker.phases.phase2_pathways: Pathway filter: 0 -> 0 pathways (min_study=3, max_total=500, min_frac=0.02).
+2026-04-29 14:11:14 [INFO] riker.phases.phase2_pathways: Phase 2 complete: 241 genes × 5 features (0 pathway + 5 expression features).
+2026-04-29 14:11:14 [INFO] riker.io.outputs: Phase 2 feature matrix: /home/kai001/riker-engine/disease_days/2026-04-29_ipf_v0332/curated/phase2_feature_matrix.csv (241 genes x 5 features)
+2026-04-29 14:11:14 [INFO] riker: ============================================================
+2026-04-29 14:11:14 [INFO] riker: PHASE 3: Consensus Clustering
+2026-04-29 14:11:14 [INFO] riker: ============================================================
+2026-04-29 14:11:26 [INFO] riker.phases.phase3_clustering: Running 15 UMAP+HDBSCAN configurations (3 n_neighbors × 5 seeds)...
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+2026-04-29 14:11:48 [INFO] riker.phases.phase3_clustering: Phase 3 complete: 30 clusters, 0 noise genes from 15 configurations.
+2026-04-29 14:11:48 [INFO] riker.io.outputs: Phase 3 cluster assignments: /home/kai001/riker-engine/disease_days/2026-04-29_ipf_v0332/curated/phase3_cluster_assignments.csv (30 clusters, 0 noise)
+2026-04-29 14:11:48 [INFO] riker: ============================================================
+2026-04-29 14:11:48 [INFO] riker: PHASE 4: Robustness Testing
+2026-04-29 14:11:48 [INFO] riker: ============================================================
+2026-04-29 14:11:49 [INFO] riker.phases.phase4_robustness: Cluster 0: permutation p=0.5568, Bonferroni p=1.0000 (not significant)
+2026-04-29 14:11:49 [INFO] riker.phases.phase4_robustness: Cluster 1: permutation p=0.1084, Bonferroni p=1.0000 (not significant)
+2026-04-29 14:11:49 [INFO] riker.phases.phase4_robustness: Cluster 2: permutation p=0.1639, Bonferroni p=1.0000 (not significant)
+2026-04-29 14:11:50 [INFO] riker.phases.phase4_robustness: Cluster 3: permutation p=0.4181, Bonferroni p=1.0000 (not significant)
+2026-04-29 14:11:50 [INFO] riker.phases.phase4_robustness: Cluster 4: permutation p=0.9982, Bonferroni p=1.0000 (not significant)
+2026-04-29 14:11:51 [INFO] riker.phases.phase4_robustness: Cluster 5: permutation p=0.8641, Bonferroni p=1.0000 (not significant)
+2026-04-29 14:11:51 [INFO] riker.phases.phase4_robustness: Cluster 6: permutation p=0.0356, Bonferroni p=1.0000 (not significant)
+2026-04-29 14:11:52 [INFO] riker.phases.phase4_robustness: Cluster 7: permutation p=0.0005, Bonferroni p=0.0150 (SIGNIFICANT)
+2026-04-29 14:11:52 [INFO] riker.phases.phase4_robustness: Cluster 8: permutation p=0.5662, Bonferroni p=1.0000 (not significant)
+2026-04-29 14:11:52 [INFO] riker.phases.phase4_robustness: Cluster 9: permutation p=0.9775, Bonferroni p=1.0000 (not significant)
+2026-04-29 14:11:53 [INFO] riker.phases.phase4_robustness: Cluster 10: permutation p=0.7701, Bonferroni p=1.0000 (not significant)
+2026-04-29 14:11:53 [INFO] riker.phases.phase4_robustness: Cluster 11: permutation p=0.0027, Bonferroni p=0.0810 (not significant)
+2026-04-29 14:11:54 [INFO] riker.phases.phase4_robustness: Cluster 12: permutation p=0.0001, Bonferroni p=0.0030 (SIGNIFICANT)
+2026-04-29 14:11:54 [INFO] riker.phases.phase4_robustness: Cluster 13: permutation p=0.5321, Bonferroni p=1.0000 (not significant)
+2026-04-29 14:11:55 [INFO] riker.phases.phase4_robustness: Cluster 14: permutation p=0.9998, Bonferroni p=1.0000 (not significant)
+2026-04-29 14:11:55 [INFO] riker.phases.phase4_robustness: Cluster 15: permutation p=0.8219, Bonferroni p=1.0000 (not significant)
+2026-04-29 14:11:56 [INFO] riker.phases.phase4_robustness: Cluster 16: permutation p=0.9977, Bonferroni p=1.0000 (not significant)
+2026-04-29 14:11:56 [INFO] riker.phases.phase4_robustness: Cluster 17: permutation p=0.0001, Bonferroni p=0.0030 (SIGNIFICANT)
+2026-04-29 14:11:56 [INFO] riker.phases.phase4_robustness: Cluster 18: permutation p=0.9986, Bonferroni p=1.0000 (not significant)
+2026-04-29 14:11:57 [INFO] riker.phases.phase4_robustness: Cluster 19: permutation p=1.0000, Bonferroni p=1.0000 (not significant)
+2026-04-29 14:11:57 [INFO] riker.phases.phase4_robustness: Cluster 20: permutation p=0.4184, Bonferroni p=1.0000 (not significant)
+2026-04-29 14:11:58 [INFO] riker.phases.phase4_robustness: Cluster 21: permutation p=0.0101, Bonferroni p=0.3030 (not significant)
+2026-04-29 14:11:58 [INFO] riker.phases.phase4_robustness: Cluster 22: permutation p=0.9843, Bonferroni p=1.0000 (not significant)
+2026-04-29 14:11:59 [INFO] riker.phases.phase4_robustness: Cluster 23: permutation p=0.9997, Bonferroni p=1.0000 (not significant)
+2026-04-29 14:11:59 [INFO] riker.phases.phase4_robustness: Cluster 24: permutation p=0.9946, Bonferroni p=1.0000 (not significant)
+2026-04-29 14:12:00 [INFO] riker.phases.phase4_robustness: Cluster 25: permutation p=0.0004, Bonferroni p=0.0120 (SIGNIFICANT)
+2026-04-29 14:12:00 [INFO] riker.phases.phase4_robustness: Cluster 26: permutation p=0.9993, Bonferroni p=1.0000 (not significant)
+2026-04-29 14:12:00 [INFO] riker.phases.phase4_robustness: Cluster 27: permutation p=0.9965, Bonferroni p=1.0000 (not significant)
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 28: permutation p=0.0481, Bonferroni p=1.0000 (not significant)
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 29: permutation p=0.0698, Bonferroni p=1.0000 (not significant)
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 0 sensitivity: L1=10, L2=9, L3=10, L4=10 | dissolution=None | core=9
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 1 sensitivity: L1=6, L2=6, L3=6, L4=6 | dissolution=None | core=6
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 2 sensitivity: L1=10, L2=9, L3=10, L4=10 | dissolution=None | core=9
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 3 sensitivity: L1=6, L2=4, L3=6, L4=6 | dissolution=None | core=4
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 4 sensitivity: L1=11, L2=11, L3=11, L4=11 | dissolution=None | core=11
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 5 sensitivity: L1=12, L2=10, L3=12, L4=12 | dissolution=None | core=10
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 6 sensitivity: L1=17, L2=17, L3=17, L4=17 | dissolution=None | core=17
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 7 sensitivity: L1=5, L2=5, L3=5, L4=5 | dissolution=None | core=5
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 8 sensitivity: L1=6, L2=6, L3=6, L4=6 | dissolution=None | core=6
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 9 sensitivity: L1=7, L2=6, L3=7, L4=7 | dissolution=None | core=6
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 10 sensitivity: L1=8, L2=2, L3=8, L4=8 | dissolution=2 | core=2
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 11 sensitivity: L1=7, L2=7, L3=7, L4=7 | dissolution=None | core=7
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 12 sensitivity: L1=5, L2=5, L3=5, L4=5 | dissolution=None | core=5
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 13 sensitivity: L1=9, L2=8, L3=9, L4=9 | dissolution=None | core=8
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 14 sensitivity: L1=9, L2=7, L3=9, L4=9 | dissolution=None | core=7
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 15 sensitivity: L1=8, L2=7, L3=8, L4=8 | dissolution=None | core=7
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 16 sensitivity: L1=5, L2=4, L3=5, L4=5 | dissolution=None | core=4
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 17 sensitivity: L1=9, L2=9, L3=9, L4=9 | dissolution=None | core=9
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 18 sensitivity: L1=6, L2=2, L3=6, L4=6 | dissolution=2 | core=2
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 19 sensitivity: L1=13, L2=8, L3=13, L4=13 | dissolution=None | core=8
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 20 sensitivity: L1=6, L2=5, L3=6, L4=6 | dissolution=None | core=5
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 21 sensitivity: L1=12, L2=10, L3=12, L4=12 | dissolution=None | core=10
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 22 sensitivity: L1=5, L2=5, L3=5, L4=5 | dissolution=None | core=5
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 23 sensitivity: L1=7, L2=4, L3=7, L4=7 | dissolution=None | core=4
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 24 sensitivity: L1=6, L2=4, L3=6, L4=6 | dissolution=None | core=4
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 25 sensitivity: L1=12, L2=12, L3=12, L4=12 | dissolution=None | core=12
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 26 sensitivity: L1=6, L2=2, L3=6, L4=6 | dissolution=2 | core=2
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 27 sensitivity: L1=8, L2=1, L3=8, L4=8 | dissolution=2 | core=1
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 28 sensitivity: L1=5, L2=4, L3=5, L4=5 | dissolution=None | core=4
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 29 sensitivity: L1=5, L2=4, L3=5, L4=5 | dissolution=None | core=4
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 0 LOO: min_retention=1.00 (STABLE)
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 1 LOO: min_retention=1.00 (STABLE)
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 2 LOO: min_retention=1.00 (STABLE)
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 3 LOO: min_retention=1.00 (STABLE)
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 4 LOO: min_retention=1.00 (STABLE)
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 5 LOO: min_retention=1.00 (STABLE)
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 6 LOO: min_retention=1.00 (STABLE)
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 7 LOO: min_retention=0.00 (FRAGILE)
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 8 LOO: min_retention=1.00 (STABLE)
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 9 LOO: min_retention=0.14 (FRAGILE)
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 10 LOO: min_retention=0.00 (FRAGILE)
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 11 LOO: min_retention=1.00 (STABLE)
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 12 LOO: min_retention=1.00 (STABLE)
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 13 LOO: min_retention=0.00 (FRAGILE)
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 14 LOO: min_retention=0.00 (FRAGILE)
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 15 LOO: min_retention=1.00 (STABLE)
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 16 LOO: min_retention=1.00 (STABLE)
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 17 LOO: min_retention=1.00 (STABLE)
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 18 LOO: min_retention=0.00 (FRAGILE)
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 19 LOO: min_retention=0.23 (FRAGILE)
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 20 LOO: min_retention=0.00 (FRAGILE)
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 21 LOO: min_retention=0.00 (FRAGILE)
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 22 LOO: min_retention=0.00 (FRAGILE)
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 23 LOO: min_retention=0.00 (FRAGILE)
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 24 LOO: min_retention=0.00 (FRAGILE)
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 25 LOO: min_retention=1.00 (STABLE)
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 26 LOO: min_retention=0.00 (FRAGILE)
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 27 LOO: min_retention=0.25 (FRAGILE)
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 28 LOO: min_retention=1.00 (STABLE)
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 29 LOO: min_retention=1.00 (STABLE)
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 10: 2 Level 2 survivors < 3 minimum. No core genes.
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 18: 2 Level 2 survivors < 3 minimum. No core genes.
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 26: 2 Level 2 survivors < 3 minimum. No core genes.
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Cluster 27: 1 Level 2 survivors < 3 minimum. No core genes.
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Identified 186 core genes across all clusters.
+2026-04-29 14:12:01 [INFO] riker.phases.phase4_robustness: Phase 4 complete: 4 significant clusters, 16 LOO-stable clusters, 186 core genes.
+2026-04-29 14:12:01 [INFO] riker.io.outputs: Phase 4 core genes: /home/kai001/riker-engine/disease_days/2026-04-29_ipf_v0332/curated/phase4_core_genes.csv
+2026-04-29 14:12:01 [INFO] riker.io.outputs: Phase 4 all levels: /home/kai001/riker-engine/disease_days/2026-04-29_ipf_v0332/curated/phase4_all_levels.csv (241 genes)
+2026-04-29 14:12:01 [INFO] riker: ============================================================
+2026-04-29 14:12:01 [INFO] riker: PHASE 5: Independent Replication
+2026-04-29 14:12:01 [INFO] riker: ============================================================
+2026-04-29 14:12:01 [INFO] riker: Loading replication dataset: GSE110147
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM2978774 value 'disease state: non-specific interstitial pneumonia | tissue: lung' did not match any case (['disease state: idiopathic pulmonary fibrosis']) or control (['disease state: normal control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM2978775 value 'disease state: non-specific interstitial pneumonia | tissue: lung' did not match any case (['disease state: idiopathic pulmonary fibrosis']) or control (['disease state: normal control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM2978776 value 'disease state: non-specific interstitial pneumonia | tissue: lung' did not match any case (['disease state: idiopathic pulmonary fibrosis']) or control (['disease state: normal control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM2978777 value 'disease state: non-specific interstitial pneumonia | tissue: lung' did not match any case (['disease state: idiopathic pulmonary fibrosis']) or control (['disease state: normal control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM2978778 value 'disease state: non-specific interstitial pneumonia | tissue: lung' did not match any case (['disease state: idiopathic pulmonary fibrosis']) or control (['disease state: normal control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM2978779 value 'disease state: non-specific interstitial pneumonia | tissue: lung' did not match any case (['disease state: idiopathic pulmonary fibrosis']) or control (['disease state: normal control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM2978780 value 'disease state: non-specific interstitial pneumonia | tissue: lung' did not match any case (['disease state: idiopathic pulmonary fibrosis']) or control (['disease state: normal control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM2978781 value 'disease state: non-specific interstitial pneumonia | tissue: lung' did not match any case (['disease state: idiopathic pulmonary fibrosis']) or control (['disease state: normal control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM2978782 value 'disease state: non-specific interstitial pneumonia | tissue: lung' did not match any case (['disease state: idiopathic pulmonary fibrosis']) or control (['disease state: normal control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM2978783 value 'disease state: non-specific interstitial pneumonia | tissue: lung' did not match any case (['disease state: idiopathic pulmonary fibrosis']) or control (['disease state: normal control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM2978784 value 'disease state: mixed ipf-nsip | tissue: lung' did not match any case (['disease state: idiopathic pulmonary fibrosis']) or control (['disease state: normal control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM2978785 value 'disease state: mixed ipf-nsip | tissue: lung' did not match any case (['disease state: idiopathic pulmonary fibrosis']) or control (['disease state: normal control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM2978786 value 'disease state: mixed ipf-nsip | tissue: lung' did not match any case (['disease state: idiopathic pulmonary fibrosis']) or control (['disease state: normal control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM2978787 value 'disease state: mixed ipf-nsip | tissue: lung' did not match any case (['disease state: idiopathic pulmonary fibrosis']) or control (['disease state: normal control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM2978788 value 'disease state: mixed ipf-nsip | tissue: lung' did not match any case (['disease state: idiopathic pulmonary fibrosis']) or control (['disease state: normal control']) values.
+  pheno = extractor.extract(
+2026-04-29 14:12:08 [INFO] riker.ingestion.geo_parser: Probe-to-gene mapping: 22195 mapped, 11102 unmapped, 19978 unique genes.
+2026-04-29 14:12:08 [INFO] riker: Loading replication dataset: GSE10667
+2026-04-29 14:12:17 [INFO] riker.ingestion.geo_parser: Probe-to-gene mapping: 32995 mapped, 10381 unmapped, 19237 unique genes.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Phase 5: Testing 186 pre-specified core genes in 2 replication datasets.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene ABCA3: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene CSF3R: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene GPR4: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene NPR1: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene PAPSS2: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene PDGFRA: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE110147', 'GSE10667']. Discovery direction: down.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene PLLP: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene SCN7A: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE110147']. Discovery direction: down.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene SLCO2A1: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene COL17A1: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene EPHA3: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene LRRN1: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene MUC5B: survived — Same-tissue replication: 1/1 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene MXRA5: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene SOX2: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene ABCA13: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene C12orf75: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE110147']. Discovery direction: up.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene COL3A1: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene CTSK: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene CXCL12: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene MMP10: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene MS4A2: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene TMEM45A: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene VSIG1: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene NELL2: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene OGN: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene PRSS12: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene SLN: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene BMP4: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE110147']. Discovery direction: up.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene COL5A2: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene FGF1: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE110147']. Discovery direction: up.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene GPNMB: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene IGFL2: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene ITGAV: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene KRT14: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene NEK11: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene SERPINI2: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene SYTL2: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene TGFB2: survived — Same-tissue replication: 0/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene COL1A2: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene COL6A3: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene HHLA2: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene HMCN1: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene HSPA4L: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene IL33: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene ITGB8: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene LTBP1: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene TRIM2: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene WDR49: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene ACADL: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene AFF3: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene CHI3L2: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene CRTAC1: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene EDNRB: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene FAM107A: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene FPR1: survived — Same-tissue replication: 0/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene GPX3: survived — Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene HHIP: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene HSD17B6: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene IL18R1: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE110147']. Discovery direction: down.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene PEBP4: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene PGC: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene PTPRB: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene S100A8: survived — Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene SLC39A8: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene ZBTB16: survived — Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene FCN3: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene PROK2: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene SLC6A4: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene TMEM100: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene VIPR1: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene BCHE: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene CFH: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene CLCA2: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene DCLK1: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene MMP13: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene PSD3: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene GREM2: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene ITGA11: survived — Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene SMAD6: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene SMAD7: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene THBS1: survived — Same-tissue replication: 0/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene ZKSCAN1: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene CA4: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene CLEC4E: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE110147']. Discovery direction: down.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene FKBP5: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE110147', 'GSE10667']. Discovery direction: down.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene FMO5: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene IL18RAP: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE110147']. Discovery direction: down.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene MGAM: survived — Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene PLA2G1B: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene HIF3A: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene IL1R2: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE110147']. Discovery direction: down.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene IL1RL1: survived — Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene S100A12: survived — Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene SLCO4A1: survived — Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene ACVRL1: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene ANXA3: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene LAMA3: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene LPL: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE110147']. Discovery direction: down.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene MME: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene P2RY1: survived — Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene PLA2G4F: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene TLR2: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE110147', 'GSE10667']. Discovery direction: down.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene ADAMTS14: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene CCL21: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE110147']. Discovery direction: up.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene COL5A1: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene FN1: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene MMP3: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene WNT5A: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene ZBTB7C: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE110147']. Discovery direction: up.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene AGER: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene CACNA2D2: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene CDH13: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene ID1: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene STX11: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene TAMALIN: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene TIMP3: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene AOC3: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene ENG: survived — Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene KDR: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE110147']. Discovery direction: down.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene LIN7A: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene ASPN: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene COL14A1: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene CXCL14: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene IL13RA2: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene KRT5: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene MMP1: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene MMP7: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene MSMB: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene SFRP2: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene CXCL1: survived — Same-tissue replication: 0/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene CXCL8: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene IFNG: survived — Same-tissue replication: 0/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene IL6: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene IVD: survived — Same-tissue replication: 0/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene MARCKS: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene SPARC: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE110147']. Discovery direction: up.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene TIMP2: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE110147']. Discovery direction: up.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene CDH2: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene CPA3: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene SACK1D: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene SLC27A2: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene SYNPO2: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene CXCL13: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene FAP: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene GEM: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene HS6ST2: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene POSTN: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene SERPINB3: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene SPP1: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene TDO2: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene THBS2: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene TSPAN1: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene ADAM17: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE110147']. Discovery direction: down.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene CA2: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene ITGA5: survived — Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene SFTPA2: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene TNNC1: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene AKAP13: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE110147']. Discovery direction: down.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene CDH5: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene PECAM1: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene PPP1R14A: survived — Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene HGF: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene IGF1: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene LOXL2: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE110147']. Discovery direction: up.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene MMP2: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene CDH3: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene COL15A1: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene COMP: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene DIO2: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene FNDC1: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene KRT15: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene KRT17: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene SERPIND1: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene SLAMF7: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene SULF1: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene THY1: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene TP63: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene COL1A1: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene GPR87: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene GSTA1: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene VCAM1: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene CLDN1: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene LRRC17: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene SFRP4: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Gene TMPRSS4: survived — Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Cluster 0: partially_replicated (7/9 survived, 2 eliminated)
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Cluster 1: replicated (6/6 survived, 0 eliminated)
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Cluster 2: partially_replicated (8/9 survived, 1 eliminated)
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Cluster 3: replicated (4/4 survived, 0 eliminated)
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Cluster 4: partially_replicated (9/11 survived, 2 eliminated)
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Cluster 5: replicated (10/10 survived, 0 eliminated)
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Cluster 6: partially_replicated (16/17 survived, 1 eliminated)
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Cluster 7: replicated (5/5 survived, 0 eliminated)
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Cluster 8: replicated (6/6 survived, 0 eliminated)
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Cluster 9: replicated (6/6 survived, 0 eliminated)
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Cluster 11: partially_replicated (4/7 survived, 3 eliminated)
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Cluster 12: partially_replicated (4/5 survived, 1 eliminated)
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Cluster 13: partially_replicated (6/8 survived, 2 eliminated)
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Cluster 14: partially_replicated (5/7 survived, 2 eliminated)
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Cluster 15: replicated (7/7 survived, 0 eliminated)
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Cluster 16: partially_replicated (3/4 survived, 1 eliminated)
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Cluster 17: replicated (9/9 survived, 0 eliminated)
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Cluster 19: partially_replicated (6/8 survived, 2 eliminated)
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Cluster 20: replicated (5/5 survived, 0 eliminated)
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Cluster 21: replicated (10/10 survived, 0 eliminated)
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Cluster 22: partially_replicated (4/5 survived, 1 eliminated)
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Cluster 23: partially_replicated (3/4 survived, 1 eliminated)
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Cluster 24: partially_replicated (3/4 survived, 1 eliminated)
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Cluster 25: replicated (12/12 survived, 0 eliminated)
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Cluster 28: replicated (4/4 survived, 0 eliminated)
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Cluster 29: replicated (4/4 survived, 0 eliminated)
+2026-04-29 14:12:17 [INFO] riker.phases.phase5_replication: Phase 5 complete: 166 survived, 20 eliminated, 0 insufficient data.
+2026-04-29 14:12:17 [INFO] riker.io.outputs: Phase 5 verdicts: /home/kai001/riker-engine/disease_days/2026-04-29_ipf_v0332/curated/phase5_verdicts.csv
+2026-04-29 14:12:17 [INFO] riker: ============================================================
+2026-04-29 14:12:17 [INFO] riker: PHASE 6: Effect Size Meta-Analysis
+2026-04-29 14:12:17 [INFO] riker: ============================================================
+2026-04-29 14:12:17 [INFO] riker.phases.phase6_meta: Phase 6: Computing meta-analysis for 166 surviving genes.
+2026-04-29 14:12:17 [INFO] riker.phases.phase6_meta: Phase 6 complete: 166 genes analyzed, 155 significant (random effects), 74 high heterogeneity.
+2026-04-29 14:12:17 [INFO] riker.io.outputs: Phase 6 meta-analysis: /home/kai001/riker-engine/disease_days/2026-04-29_ipf_v0332/curated/phase6_meta_analysis.csv
+2026-04-29 14:12:17 [INFO] riker: ============================================================
+2026-04-29 14:12:17 [INFO] riker: WRITING FINAL OUTPUTS
+2026-04-29 14:12:17 [INFO] riker: ============================================================
+2026-04-29 14:12:17 [INFO] riker.io.outputs: QC report: /home/kai001/riker-engine/disease_days/2026-04-29_ipf_v0332/curated/qc_report.json
+2026-04-29 14:12:17 [INFO] riker.io.outputs: Pipeline summary: /home/kai001/riker-engine/disease_days/2026-04-29_ipf_v0332/curated/pipeline_summary.json
+2026-04-29 14:12:17 [INFO] riker: ============================================================
+2026-04-29 14:12:17 [INFO] riker: PIPELINE COMPLETE: IPF
+2026-04-29 14:12:17 [INFO] riker: QC Report: 4 passed, 0 warnings, 0 critical. Pipeline OK.
+2026-04-29 14:12:17 [INFO] riker: Output: /home/kai001/riker-engine/disease_days/2026-04-29_ipf_v0332/curated
+2026-04-29 14:12:17 [INFO] riker: ============================================================
