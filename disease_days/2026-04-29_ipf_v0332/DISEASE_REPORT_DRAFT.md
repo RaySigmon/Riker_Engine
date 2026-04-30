@@ -569,7 +569,7 @@ The v0.3.3.2 dilution fix (Round 4 of v0.3.3 release) removed 4 boundary-case ge
 
 ### Stability profile comparison
 
-v0.3.2 historical stability profile data is not available for IPF. The v0.3.3.2 50-run iron-clad set (2,309 genes) cannot be directly compared to historical v0.3.2 single-run results due to methodological incompatibility (single curated run vs 50-run blind stability profile). This is documented as a limitation in the engine paper's methodology discussion.
+No v0.3.2 stability profile was produced for IPF. The 50-run blind stability profiling protocol was introduced during the v0.3.3 release cycle; the v0.3.3.2 IPF stability profile (2,309 iron-clad genes) is the inaugural stability characterization for this disease. Historical v0.3.2 data exists only for the curated single run (above), not for blind stability profiling.
 
 ## 10. Cluster-level findings
 
