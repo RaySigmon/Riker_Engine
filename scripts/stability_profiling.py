@@ -42,12 +42,33 @@ def modify_config_for_run(config_path: str, new_output_dir: str,
     Each run gets a unique base random_seed derived from the master seed and
     run number. The Phase 3 UMAP seeds are also regenerated per run so that
     consensus clustering explores different stochastic initializations.
+
+    All relative paths from the source config are resolved to absolute paths
+    before writing the temp config, so the temp config is self-contained
+    regardless of where it's written (e.g., /tmp/).
     """
     import random
+    from riker.config import _resolve_path
+
+    source_path = Path(config_path).resolve()
+    source_dir = source_path.parent
 
     with open(config_path) as f:
         config = yaml.safe_load(f)
 
+    # Resolve all relative paths against source config's directory so the
+    # temp config works from any location (including /tmp/).
+    # TODO (v0.3.4): Refactor profiler to use load_config() + serialize back,
+    # so config validation and defaults apply consistently.
+    for field in ["seed_genes", "hgnc_path"]:
+        if field in config:
+            config[field] = _resolve_path(config[field], source_dir)
+    for ds in config.get("datasets", []):
+        for field in ["series_matrix", "platform"]:
+            if field in ds:
+                ds[field] = _resolve_path(ds[field], source_dir)
+
+    # output_dir is set to the per-run directory (absolute)
     config["output_dir"] = new_output_dir
 
     # Derive a unique base seed for this run from the master seed
