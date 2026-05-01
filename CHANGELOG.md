@@ -1,5 +1,49 @@
 # Changelog
 
+## v0.3.3.2 — Hotfix: config field wiring (2026-04-29)
+
+### Bug Fixes
+- `symbol_column` wired from YAML config — was silently ignored in `load_config()`, now properly read and passed to `SeedGeneDB`. Configs that relied on the default `"symbol"` were unaffected; configs using a different column name would have failed silently.
+- `tissue` field now required on every dataset entry — `load_config()` raises `ValueError` with a helpful message if tissue is missing from any dataset. Prevents downstream Phase 5 replication logic from receiving `None` tissue values.
+
+Both bugs were verified by empirical reproduction before fix. ASD results (run under v0.3.3) are scientifically valid under v0.3.3.2 because ASD configs already used the default symbol column and had explicit tissue on every dataset.
+
+## v0.3.3 — SOP-compliant disease-day infrastructure (2026-04-25)
+
+### Engine Fixes (8 rounds)
+- Round 1: Tissue labels from config, dead `random_seed` field wired, broken test fix, RNG migration to `np.random.default_rng`
+- Round 2: `geo_parser` row-drop on duplicate probes, p-value floor guard, `discovery_tissues` plumbed to Phase 5, Phase 5 skip path when no replication datasets
+- Round 3: Phase 2/Phase 3 CSV output standardization (`phase2_feature_matrix.csv`, `phase3_cluster_assignments.csv` now always written)
+- Round 4: Mean log2FC dilution fix — significant-only averaging (Option C) replaces all-datasets averaging, preventing non-significant datasets from diluting effect sizes toward zero
+- Round 5: `code_version` (git commit hash) and `package_version` embedded in `pipeline_summary.json`; `riker --version` CLI flag added
+- Round 6: Documentation sweep (METHODS v1.1, SOP v1.0.2)
+- Round 7: Stability profiler pairwise Jaccard similarity + `stability_summary.json` with iron-clad fraction, appearance distribution, and Jaccard statistics
+- Round 8: Config portability — all paths in YAML configs resolved relative to the config file's directory, not `cwd`. Makes configs work from any invocation directory.
+
+### Disease-Day SOP
+- Established three-tier validation protocol: (1) curated single run, (2) protein-coding blind single run, (3) 50-run blind stability profile
+- SOP v1.0 → v1.0.2 with execution-day corrections documented in `SOP_LESSONS.md`
+- Binding terminology defined (iron-clad, borderline, stochastic, core gene, biological annotation)
+- `DISEASE_DAY_MANIFEST.md` reproducibility receipt format specified
+
+### Stability Profiling
+- Seeds now deterministically varied per run (`master_seed + run_num` → 5 derived UMAP seeds + 1 permutation seed per run). Previously all runs used the same seeds — same as running the pipeline once.
+- Pairwise Jaccard similarity across all 1,225 run pairs quantifies run-to-run reproducibility
+- `stability_summary.json` machine-readable aggregate output
+
+### Documentation
+- `RIKER_ENGINE_METHODS.md` v1.1 — full statistical methodology, design rationale, performance characteristics with measured per-phase timings
+- `ENGINE_WALKTHROUGH.md` — end-to-end structural review of every source file
+- `CONFIGURATION.md` — complete YAML config reference with path resolution rules
+- Internal architecture audit (April 23): 11 flags, 0 logic errors, 0 statistical bugs
+
+### Validation
+- ASD disease day complete (v0.3.3): 394 iron-clad genes, Jaccard median 0.933
+- IPF disease day complete (v0.3.3.2): 2,309 iron-clad genes, Jaccard median 0.955
+
+### Test Count
+- 319 tests passing
+
 ## v0.3.2 — Independent validation & PI outreach (2026-04-12)
 
 ### Independent Validation

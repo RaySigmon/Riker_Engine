@@ -189,7 +189,7 @@ The 50-run profile must produce three quantitative measures of run-to-run variat
 
 1. **Iron-clad fraction**: count of iron-clad genes (>=90% appearance) divided by total unique genes appearing in >=1 run. Expressed as a percentage in stability_summary.json.
 
-2. **Appearance frequency distribution**: per-gene appearance count across 50 runs. Stored as stability_appearance_distribution.csv with columns: gene, n_runs_appeared, frequency_percent.
+2. **Appearance frequency distribution**: per-gene appearance count across 50 runs. Included in `stability_report.csv` with columns: gene, appearance_count, appearance_rate, stability_class, total_runs.
 
 3. **Pairwise Jaccard similarity**: median Jaccard index between core gene sets across all 1225 unique run pairs. Reported as median with 25th/75th percentile range in stability_summary.json.
 

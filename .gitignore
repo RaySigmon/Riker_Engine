@@ -35,6 +35,13 @@ historical_v032_baselines/
 output/
 stability_ASD_blind/runs/
 
+# Disease-day stability per-run outputs (regenerable, see REGENERATION.md)
+disease_days/*/stability_50run/runs/
+disease_days/*/stability_50run/profiler.log
+
+# Engineering verification artifacts (not SOP-compliant runs)
+disease_days/*_verify/
+
 # Private correspondence and drafts — should live in ~/Documents/alpha_labs/
 manuscripts/*cover_letter*
 manuscripts/*Cover_Letter*

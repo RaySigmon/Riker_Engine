@@ -12,7 +12,7 @@ Usage:
 
 Output:
     <output_dir>/
-        stability_scores.csv          — per-gene appearance count and stability class
+        stability_report.csv          — per-gene appearance count, rate, and stability class
         stability_pairwise_jaccard.csv — pairwise Jaccard similarity between all run pairs
         stability_summary.json        — machine-readable summary with all metrics
         run_summary.csv               — per-run core gene count
@@ -227,8 +227,9 @@ def write_results(output_dir: str, run_results: list, config_path: str):
         for gene in r["genes"]:
             gene_counts[gene] += 1
 
-    # Write stability_scores.csv
-    scores_path = os.path.join(output_dir, "stability_scores.csv")
+    # Write stability_report.csv (per-gene appearance count and stability class)
+    # This file also serves as the appearance distribution (SOP §stability metrics).
+    scores_path = os.path.join(output_dir, "stability_report.csv")
     with open(scores_path, "w", newline="") as f:
         writer = csv.writer(f)
         writer.writerow([
