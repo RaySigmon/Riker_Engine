@@ -81,4 +81,3 @@ current status. As of last update:
 ## Contact
 
 Cody Sigmon — see /STATE.json for current project info.
-# Mirror test
