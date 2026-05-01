@@ -85,7 +85,7 @@ Before starting a disease-day, the executor must verify:
 - [ ] Disease's GEO data files are present in `data/geo/<disease>/`
 - [ ] All required configs exist and use relative paths (not absolute `/home/kai001/` paths)
 - [ ] `riker` CLI is on PATH (`which riker` returns `/home/kai001/.local/bin/riker`)
-- [ ] `riker.__version__` matches the intended version (should be `0.3.2` or later)
+- [ ] `riker.__version__` matches the intended version (should be `0.3.3.2` or later)
 - [ ] Ghost has ≥20GB free disk and ≥3GB available RAM (empirically validated floor on Pi 5)
 - [ ] No competing Ghost workload scheduled for the disease-day window
 

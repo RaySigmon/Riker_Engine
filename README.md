@@ -2,7 +2,7 @@
 
 A condition-agnostic transcriptomics pipeline for discovering replicated gene modules across multiple independent datasets.
 
-[![Tests](https://github.com/RaySigmon/Riker_Engine/actions/workflows/test.yml/badge.svg)](https://github.com/RaySigmon/Riker_Engine/actions/workflows/test.yml) ![Python](https://img.shields.io/badge/python-3.11%2B-blue) ![License](https://img.shields.io/badge/license-AGPL--3.0-blue) ![Version](https://img.shields.io/badge/version-0.3.2-orange)
+[![Tests](https://github.com/RaySigmon/Riker_Engine/actions/workflows/test.yml/badge.svg)](https://github.com/RaySigmon/Riker_Engine/actions/workflows/test.yml) ![Python](https://img.shields.io/badge/python-3.11%2B-blue) ![License](https://img.shields.io/badge/license-AGPL--3.0-blue) ![Version](https://img.shields.io/badge/version-0.3.3.2-orange)
 
 ### Performance
 
@@ -215,7 +215,7 @@ pip install ".[ui]"
 
 ```bash
 pip install ".[dev]"         # adds pytest and pytest-cov
-python -m pytest tests/ -q   # 300 tests
+python -m pytest tests/ -q   # 319 tests
 riker --help
 ```
 
@@ -299,17 +299,17 @@ output/
 
 ```
 riker/
-├── stats/              # Statistical primitives (96 tests)
+├── stats/              # Statistical primitives (102 tests)
 │   ├── welch.py        # Welch's t-test with exact t-distribution
 │   ├── fdr.py          # Benjamini-Hochberg with scope enforcement
 │   ├── meta.py         # IVW meta-analysis (fixed + random effects)
 │   └── permutation.py  # Generic permutation framework
-├── ingestion/          # Data loading (74 tests)
+├── ingestion/          # Data loading (78 tests)
 │   ├── gene_db.py      # Seed genes + HGNC resolution
 │   ├── normalizer.py   # Log2 detection + fold change validation
 │   ├── geo_parser.py   # GEO series matrix + platform annotation
 │   └── snrnaseq.py     # snRNA-seq pseudo-bulking (h5ad + CSV)
-├── phases/             # Pipeline phases (89 tests)
+├── phases/             # Pipeline phases (106 tests)
 │   ├── phase1_crossref.py    # Cross-referencing
 │   ├── phase2_pathways.py    # Pathway mapping + feature matrix
 │   ├── phase3_clustering.py  # Consensus clustering
@@ -330,7 +330,7 @@ riker/
 3. **Pathway databases require manual setup**: KEGG and Reactome can be downloaded programmatically, but MSigDB Hallmark gene sets require registration at [gsea-msigdb.org](https://www.gsea-msigdb.org). See `docs/DATA_RECONSTRUCTION.md`.
 4. **Single embedding default**: Default consensus clustering uses UMAP only. PCA validation is opt-in via `embedding_methods` configuration.
 5. **Phase 5 tissue handling**: The elimination protocol uses same-tissue vs. cross-tissue logic. Pass `discovery_tissues` in the config to specify which tissue types were used in discovery; replication datasets matching those tissues can trigger elimination, while cross-tissue non-replication is tolerated.
-6. **Single developer**: Bus-factor risk. The codebase is well-tested (300 tests) and reproducible (cold-start proven), but institutional adoption would benefit from independent code review.
+6. **Single developer**: Bus-factor risk. The codebase is well-tested (319 tests) and reproducible (cold-start proven), but institutional adoption would benefit from independent code review.
 
 ## Citation
 

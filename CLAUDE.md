@@ -11,7 +11,7 @@ Sigmon / Alpha Research Labs.
 ## Key locations
 
 - Engine source: `riker/`
-- Tests: `tests/` (318 tests as of v0.3.3)
+- Tests: `tests/` (319 tests as of v0.3.3.2)
 - Configs: `configs/examples/` (paths are relative to config file location)
 - Disease day outputs: `disease_days/YYYY-MM-DD_<disease>/`
 - Scripts: `scripts/` (stability_profiling.py, aggregate_phase6_iron_clad.py, etc.)
@@ -74,6 +74,6 @@ for hgnc_path is preserved. When copying configs to deeper directories
 
 ## Current version
 
-v0.3.3 (tagged April 28, 2026). Engine is frozen for 8-disease re-validation.
+v0.3.3.2 (tagged April 29, 2026). Engine is frozen for 8-disease re-validation.
 No code changes during validation. If unexpected behavior is found, stop and
 report — do not fix in place.
