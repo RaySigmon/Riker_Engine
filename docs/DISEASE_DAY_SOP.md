@@ -1,7 +1,7 @@
 # Riker Engine — Disease-Day Standard Operating Procedure
 
-**Version:** 1.0.2
-**Effective date:** April 28, 2026
+**Version:** 1.0.3
+**Effective date:** May 1, 2026
 **Owner:** Ray Sigmon / Alpha Research Labs
 **Applies to:** All disease validation runs after this date
 **Status:** Authoritative — all 8-disease validations from this date forward follow this procedure
@@ -174,6 +174,9 @@ Each single run must produce the full intermediate output set, preserving phase-
 - `phase6_meta_analysis.csv` — pooled effect sizes and meta-analysis statistics
 - `run.log` — stdout/stderr from the run
 - `timings.csv` — per-phase wall clock (if produced by pipeline)
+- `exact_commands.txt` — the exact shell commands used to invoke each run, captured at time of execution
+- `environment.txt` — output of `uname -a`, `python3 --version`, `riker --version`, `free -h`, `df -h /`
+- `pip_freeze.txt` — output of `pip freeze` at time of run
 
 ### 50-run stability profile
 
@@ -327,6 +330,7 @@ Architectural claims require empirical verification before being treated as conc
   Clarified all-expressed preservation path (copy to `data/seeds/<disease>_all_expressed.csv`).
   Lowered RAM threshold from 4GB to 3GB. Fixed stability profiler arg syntax. Established after April 23 internal audit. All-expressed blind run made optional after determining the archived generation procedure uses raw platform-specific probe identifiers that cannot be cleanly reproduced. Added cohort selection pre-specification criteria. First SOP-compliant disease-day: ASD three-run comparison + IPF 50-run stability (depending on execution sequence).
 - **v1.0.2 (2026-04-28):** Updated for v0.3.3 engine release. Added three-tier protocol section. Added stochastic stability metrics requirements (iron-clad fraction, appearance distribution, pairwise Jaccard). Moved resolved items (random_seed wiring, discovery_tissues, code_version, phase output standardization) out of deferred list. Flagged stability profiler Jaccard gap.
+- **v1.0.3 (2026-05-01):** Added required provenance files: `exact_commands.txt`, `environment.txt`, `pip_freeze.txt` per run. Added `stability_report.csv` as canonical name (replaces `stability_scores.csv`). Version check updated to v0.3.3.2. Appearance distribution clarified as included in `stability_report.csv`.
 
 ---
 
