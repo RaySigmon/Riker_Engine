@@ -72,5 +72,12 @@ Cohort selection: All available ASD brain tissue cohorts with clear case/control
 
 ---
 
-## Manifest status
-This manifest was retrospectively generated on 2026-05-01 from existing artifacts (`pipeline_summary.json`, `config.yaml`, `stability_summary.json`, `DISEASE_REPORT_DRAFT.md`). All numbers verified against committed output files.
+## Provenance status
+This disease-day predates SOP v1.0.3. `exact_commands.txt`, `environment.txt`,
+and `pip_freeze.txt` were not captured at execution time. Available provenance
+includes `config.yaml`, `run.log`, `pipeline_summary.json`, `qc_report.json`,
+and all phase output files.
+
+This manifest was retrospectively generated on 2026-05-01 from existing artifacts
+(`pipeline_summary.json`, `config.yaml`, `stability_summary.json`,
+`DISEASE_REPORT_DRAFT.md`). All numbers verified against committed output files.

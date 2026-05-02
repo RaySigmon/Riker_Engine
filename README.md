@@ -90,7 +90,7 @@ The pipeline is calibrated — not biased toward any disease. Weak transcriptomi
 - **IPF cold replication**: 86.3% of core genes replicated in a held-out dataset the engine never saw. 52 genes survive every leave-one-out configuration AND cold replication. FAM107A identified as a novel candidate with zero prior IPF literature.
 - **Breast cancer**: The engine independently separated ER biology (ESR1), HER2 biology (ERBB2), and proliferation biology (TOP2A/AURKA) into distinct modules — reconstructing the current clinical subtype classification from raw expression data without being told the subtypes exist.
 - **Alzheimer's**: Found TREM2, APOE, APP, MAPT, CLU, BIN1, CD33. PSEN1 correctly absent (genetic variant, not expression change).
-- **Negative control**: 500 random genes produced 5 core genes (1.0% false positive rate), confirming the pipeline rejects noise.
+- **Negative control**: 500 random protein-coding genes produced 5 core genes (1.0% yield), 4 replication survivors (0.8%), and 1 random-effects meta-significant gene (0.2%), indicating low but nonzero false-positive yield. See `results/negative_control/NEGATIVE_CONTROL_SUMMARY.md` for full details and limitations.
 
 ## WGCNA Benchmark
 
@@ -181,7 +181,7 @@ Seed Genes + GEO Datasets
 1. **Phase 1 — Cross-Referencing**: Welch's t-test (exact t-distribution) per gene per dataset. Genes significant at p < 0.05 in 2+ datasets advance. Intentionally lenient — this is dimensionality reduction, not discovery.
 2. **Phase 2 — Pathway Mapping**: Builds a feature matrix combining expression statistics with optional KEGG, Reactome, and MSigDB Hallmark pathway memberships. Anti-circularity rule: individual pathway IDs are features; pre-assigned category labels are never used. **Note:** All validation results in this repository were produced using expression-based features only (the default). Pathway integration is available as an optional enhancement — see `docs/CONFIGURATION.md`. The log message "No pathway data configured" is informational, not an error.
 3. **Phase 3 — Consensus Clustering**: Sweeps 15 UMAP + HDBSCAN configurations (3 n_neighbors × 5 random seeds), builds a co-association consensus matrix. Genes must cluster together across multiple parameter settings. Converts a parameter-sensitive method into a parameter-robust one.
-4. **Phase 4 — Robustness Testing**: Bonferroni-corrected permutation tests (10,000 permutations), four progressive stringency levels (including full-seed-set FDR using the entire seed set as the denominator), and leave-one-dataset-out stability. Core genes are locked before replication.
+4. **Phase 4 — Robustness Testing**: Core genes are identified as genes reaching p < 0.01 in at least 2 discovery datasets (Level 2 sensitivity) within clusters containing at least 3 such genes. Additionally reports Bonferroni-corrected permutation tests (10,000 permutations) per cluster, four progressive stringency levels (including full-seed-set FDR), and leave-one-dataset-out stability as robustness evidence. Core genes are locked before replication.
 5. **Phase 5 — Replication**: Tests core genes in held-out datasets for directional concordance. Genes with significant opposite-direction effects in same-tissue datasets are eliminated. Cross-tissue non-replication (e.g., brain signal absent in blood) is tolerated — tissue mismatch is not evidence against.
 6. **Phase 6 — Meta-Analysis**: Inverse-variance weighted meta-analysis with REML random effects (primary) and fixed effects. REML selected over DerSimonian-Laird because DL underestimates tau-squared with few studies (<10). Reports effect sizes, confidence intervals, and heterogeneity statistics (Cochran's Q, I², τ²).
 
@@ -231,9 +231,9 @@ Editable mode (`-e`) links the installed package to your local source files so c
 
 ### Dependencies
 
-**Core** (installed automatically): numpy, pandas, scipy, scikit-learn, PyYAML, matplotlib
+**Core** (installed automatically): numpy, pandas, scipy, requests, PyYAML, matplotlib
 
-**Clustering extras** (`pip install -e ".[clustering]"`): umap-learn, hdbscan
+**Clustering extras** (`pip install -e ".[clustering]"`): umap-learn, hdbscan (scikit-learn's HDBSCAN is used when available, standalone hdbscan as fallback)
 
 **UI extras** (`pip install -e ".[ui]"`): FastAPI, uvicorn, jinja2
 
@@ -286,7 +286,7 @@ output/
 
 | Decision | Why |
 |---|---|
-| FDR uses full seed set | Study-set-only FDR inflates significance by excluding non-significant genes from the denominator. Stress test: study-set FDR produced 420 false positives; full-seed-set FDR correctly returned 0. |
+| FDR uses full seed set | Study-set-only FDR inflates significance by excluding non-significant genes from the denominator. Enforced in code via `apply_fdr_with_scope()` and tested explicitly (`test_stats.py::test_ad_scenario_zero_survivors`). See `docs/build_phases/PHASE2_fdr_py.md` for development history. |
 | Welch's uses exact t-distribution | Normal approximation underestimates p-values at small sample sizes (n=8–15 per group) |
 | Welch's over limma/DESeq2 | Uniform across platforms (microarray + RNA-seq), conservative, independent per gene |
 | log2FC range check (±10) | Raw intensities produce biologically impossible fold changes |

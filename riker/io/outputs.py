@@ -293,6 +293,7 @@ def write_pipeline_summary(
         "phase5_survived": phase5_result.n_survived,
         "phase5_eliminated": phase5_result.n_eliminated,
         "phase6_genes_analyzed": phase6_result.n_genes_analyzed,
+        "phase6_significant_random_effects": phase6_result.n_significant_random,
         "phase6_significant_random": phase6_result.n_significant_random,
         "qc_status": "PASSED" if qc_report.pipeline_ok else "FAILED",
         "locked_core_genes": phase5_result.locked_core_genes,

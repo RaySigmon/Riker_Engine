@@ -78,7 +78,7 @@ class GeneMetaResult:
         fixed_effect: Fixed-effect pooled estimate.
         fixed_se: Fixed-effect standard error.
         fixed_p: Fixed-effect p-value.
-        random_effect: Random-effects pooled estimate (DerSimonian-Laird).
+        random_effect: Random-effects pooled estimate (REML primary, DL fallback).
         random_se: Random-effects standard error.
         random_p: Random-effects p-value.
         cochran_q: Cochran's Q heterogeneity statistic.

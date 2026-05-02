@@ -78,5 +78,12 @@ v0.3.2 curated: 190 core genes. v0.3.3.2 curated: 186 core genes. 186 stable acr
 
 ---
 
-## Manifest status
-This manifest was retrospectively generated on 2026-05-01 from existing artifacts (`pipeline_summary.json`, `config.yaml`, `stability_summary.json`, `DISEASE_REPORT_DRAFT.md`). All numbers verified against committed output files.
+## Provenance status
+This disease-day predates SOP v1.0.3. `exact_commands.txt`, `environment.txt`,
+and `pip_freeze.txt` were not captured at execution time. Available provenance
+includes `config.yaml`, `run.log`, `pipeline_summary.json`, `qc_report.json`,
+and all phase output files.
+
+This manifest was retrospectively generated on 2026-05-01 from existing artifacts
+(`pipeline_summary.json`, `config.yaml`, `stability_summary.json`,
+`DISEASE_REPORT_DRAFT.md`). All numbers verified against committed output files.

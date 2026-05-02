@@ -74,7 +74,7 @@ class MetaResult:
         pooled_p: P-value for the pooled estimate (two-sided).
         ci_lower: Lower bound of 95% confidence interval.
         ci_upper: Upper bound of 95% confidence interval.
-        model: 'fixed' or 'random' (DerSimonian-Laird).
+        model: 'fixed' or 'random' (REML primary, DL fallback).
         cochran_q: Cochran's Q statistic for heterogeneity.
         q_p_value: P-value for Cochran's Q (chi-squared test).
         i_squared: I-squared heterogeneity percentage (0-100).
@@ -340,11 +340,13 @@ def random_effects_meta(
     gene: str,
     studies: list[StudyEffect],
 ) -> MetaResult:
-    """DerSimonian-Laird random-effects meta-analysis.
+    """Random-effects meta-analysis (REML primary, DerSimonian-Laird fallback).
 
     This is the PRIMARY meta-analysis model for the Riker Engine
     (Blueprint Section 10). It accommodates between-study variability
-    by adding tau-squared to each study's variance.
+    by adding tau-squared to each study's variance. Tau-squared is estimated
+    by REML when k >= 3; DerSimonian-Laird is used as fallback when REML
+    fails to converge or when fewer than 3 studies are available.
 
     Parameters
     ----------
@@ -569,9 +571,9 @@ def run_meta_analysis(
     gene : str
         Gene symbol.
     studies : list of StudyEffect
-        Per-study results. Should include only brain datasets
-        (blood datasets are excluded from meta-analysis pooling
-        per Blueprint Section 10).
+        Per-study results. In practice, these are limited to discovery
+        cohorts by the CLI layer (cli.py passes only discovery datasets
+        to Phase 1). Tissue filtering is role-based, not enforced here.
 
     Returns
     -------
