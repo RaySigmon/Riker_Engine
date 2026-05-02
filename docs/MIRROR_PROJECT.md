@@ -29,10 +29,17 @@ plus per-disease application papers.
 
 ## Operating norms (rules every AI agent should follow)
 
-- **Don't infer when uncertain — ask Cody for files.** GitHub serves stale
-  cache for this repo. The mirror at rikerengine.quickaffordablesites.com is the
-  freshest publicly-readable surface, but Cody's local repo on Ghost is
-  ground truth.
+- **Mirror URL formatting matters.** When sharing mirror URLs with AI agents,
+  paste them as bare text on their own line. Do not wrap in markdown bold,
+  links, or other formatting — some AI fetch tools use URL provenance checks
+  that fail on decorated URLs. Example:
+
+  https://rikerengine.quickaffordablesites.com/STATE.json
+
+- **Don't infer when uncertain — ask Cody for files.** GitHub and some AI
+  fetch tools may serve stale cached views. The mirror at
+  rikerengine.quickaffordablesites.com is the freshest publicly-readable
+  surface, but Cody's local repo on Ghost is ground truth.
 - **The six pipeline phases are LOCKED and never modified.** Any phase code
   change during the 8-disease validation is a regression, not an improvement.
 - **Kai instructions must be clean technical directives only.** No
