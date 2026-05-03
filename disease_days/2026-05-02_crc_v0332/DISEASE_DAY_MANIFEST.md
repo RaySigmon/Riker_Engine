@@ -45,15 +45,29 @@ All 6 datasets use GPL570 (Affymetrix HG-U133 Plus 2.0). All tissue-matched (col
 - Phase 5 survived: 245 (17 eliminated)
 - Phase 6 meta-significant (random effects): 219
 
-### Tier 2 — Blind protein-coding run
+### Tier 2 — Blind protein-coding run (transcriptomic characterization)
 - Wall clock: ~34 min
-- Phase 1 study genes: 8,288
+- Phase 1 study genes: 8,288 (42.9% of protein-coding genome — global cancer rewiring)
 - Phase 4 core genes: 6,052
-- Phase 4 significant clusters: 0
-- Phase 5 survived: 5,790 (262 eliminated)
+- **Phase 4 significant clusters: 0** (no localized structure detected by permutation test)
+- Phase 5 survived: 5,790 (262 eliminated, 4.3% elimination rate)
 - Phase 6 meta-significant (random effects): 5,036
 
-### Tier 3 — 50-run stability profile
+**Interpretation:** The blind run detected massive, genome-wide differential expression
+between CRC tumor and normal colon (43% of the protein-coding genome passes Phase 1).
+The Bonferroni-corrected permutation test found zero significant clusters — meaning no
+cluster showed coherence distinguishable from random gene groups drawn from this highly
+perturbed background. The 6,052 core genes reflect the unfiltered breadth of CRC
+transcriptomic rewiring, not localized disease-specific biology.
+
+**Contrast with IPF blind** (23% Phase 1 yield, 24 significant clusters): IPF's blind
+run earned its 2,451 core genes through real statistical gates. CRC's blind run did not.
+
+**The curated run (Tier 1) is the publishable CRC validation.** The blind Tier 2/3
+results characterize the transcriptomic scale of CRC but should not be cited as a
+CRC-specific gene set.
+
+### Tier 3 — 50-run stability profile (engine reproducibility under global rewiring)
 - Wall clock: 70,764 sec (19.7 hours)
 - Runs completed: 50/50 (0 failures)
 - Total unique genes seen: 6,192
@@ -65,12 +79,17 @@ All 6 datasets use GPL570 (Affymetrix HG-U133 Plus 2.0). All tissue-matched (col
 - Core gene counts: min=5,994, max=6,057, mean=6,027.4
 - Clusters with >=5 iron-clad members: 577
 
+**Note:** The high iron-clad fraction (92.8%) reflects engine-level reproducibility
+under stochastic variation, not biological specificity to CRC. The engine is stable
+even when processing an unfiltered high-yield disease.
+
 ---
 
 ## Flag 6 annotation
-- `n_significant_clusters` (Tier 2 blind): 0
-- `n_clusters_contributing_core_genes`: documented in `phase4_all_levels.csv`
-- Note: Zero significant clusters is consistent with a very large core gene set spread across many clusters. Per-gene Level 2 sensitivity (p<0.01 in >=2 datasets) with >=3 per cluster is the actual gate.
+- `n_significant_clusters` (Tier 2 blind): **0** — no localized structure
+- `n_significant_clusters` (Tier 1 curated): **4** — real localized structure
+- The curated run passes the permutation gate; the blind run does not
+- This is the expected behavior when >40% of the genome is differentially expressed
 
 ---
 
