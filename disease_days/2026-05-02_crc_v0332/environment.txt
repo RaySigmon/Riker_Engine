@@ -1,0 +1,10 @@
+=== Environment Snapshot — CRC Disease Day 2026-05-02 ===
+Linux raspberrypi 6.12.75+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.75-1+rpt1 (2026-03-11) aarch64 GNU/Linux
+Python 3.13.5
+riker 0.3.3.2
+               total        used        free      shared  buff/cache   available
+Mem:           7.9Gi       4.9Gi       836Mi       320Mi       1.8Gi       3.0Gi
+/dev/mmcblk0p2  117G   37G   76G  33% /
+git_commit: 11fb6921892018b6d116c6e034f9ef634517e1ff
+git_branch: main
+date: 2026-05-02T03:07:12Z

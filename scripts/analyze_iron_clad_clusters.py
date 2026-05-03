@@ -28,10 +28,10 @@ def main():
 
     stability_dir = Path(sys.argv[1])
     runs_dir = stability_dir / "runs"
-    scores_path = stability_dir / "stability_scores.csv"
+    scores_path = stability_dir / "stability_report.csv"
 
     if not scores_path.exists():
-        print(f"stability_scores.csv not found at {scores_path}")
+        print(f"stability_report.csv not found at {scores_path}")
         sys.exit(1)
 
     # Load iron-clad genes

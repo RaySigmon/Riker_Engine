@@ -1,0 +1,734 @@
+2026-05-01 22:07:23 [INFO] riker.config: Config loaded: condition=CRC, 3 discovery + 3 replication datasets.
+2026-05-01 22:07:23 [INFO] riker: ============================================================
+2026-05-01 22:07:23 [INFO] riker: PHASE 1: Cross-Referencing
+2026-05-01 22:07:23 [INFO] riker: ============================================================
+2026-05-01 22:07:24 [INFO] riker.ingestion.gene_db: Loading HGNC data from /home/kai001/riker-engine/data/hgnc/hgnc_complete_set.txt...
+2026-05-01 22:07:33 [INFO] riker.ingestion.gene_db: HGNC resolver loaded: 44981 approved symbols, 57613 aliases/previous symbols mapped.
+2026-05-01 22:07:33 [INFO] riker.ingestion.gene_db: Loaded 515 seed genes from /home/kai001/riker-engine/data/seeds/crc_curated_genes.csv. 1 symbols remapped via HGNC.
+2026-05-01 22:07:33 [INFO] riker.ingestion.gene_db:   Remapped: H2AFX -> H2AX
+2026-05-01 22:07:33 [INFO] riker: Loaded 515 seed genes.
+2026-05-01 22:07:33 [INFO] riker: Loading dataset: GSE20916
+2026-05-01 22:07:41 [WARNING] riker.ingestion.geo_parser: GSE20916: 5982 probe(s) have >5% NaN cells after parsing. Probe IDs: ['117_at', '1316_at', '1552279_a_at', '1552288_at', '1552304_at', '1552307_a_at', '1552311_a_at', '1552315_at', '1552334_at', '1552343_s_at'] (and more). Check data quality.
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM523287 value 'tissue: adenoma | sex: female | protocol: colonoscopy | age: 57 | localization: sigmoid' did not match any case (['tissue: adenocarcinoma', 'tissue: colon tumor']) or control (['tissue: normal colon']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM523288 value 'tissue: adenoma | sex: male | protocol: colonoscopy | age: 64 | localization: sigmoid' did not match any case (['tissue: adenocarcinoma', 'tissue: colon tumor']) or control (['tissue: normal colon']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM523293 value 'tissue: adenoma | sex: female | protocol: colonoscopy | age: 77 | localization: ascending' did not match any case (['tissue: adenocarcinoma', 'tissue: colon tumor']) or control (['tissue: normal colon']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM523294 value 'tissue: adenoma | sex: female | protocol: colonoscopy | age: 72 | localization: descending' did not match any case (['tissue: adenocarcinoma', 'tissue: colon tumor']) or control (['tissue: normal colon']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM523295 value 'tissue: adenoma | sex: male | protocol: colonoscopy | age: 80 | localization: transverse' did not match any case (['tissue: adenocarcinoma', 'tissue: colon tumor']) or control (['tissue: normal colon']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM523300 value 'tissue: adenoma | sex: female | protocol: colonoscopy | age: 60 | localization: descending' did not match any case (['tissue: adenocarcinoma', 'tissue: colon tumor']) or control (['tissue: normal colon']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM523301 value 'tissue: adenoma | sex: male | protocol: colonoscopy | age: 62 | localization: transverse' did not match any case (['tissue: adenocarcinoma', 'tissue: colon tumor']) or control (['tissue: normal colon']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM523302 value 'tissue: adenoma | sex: male | protocol: colonoscopy | age: 79 | localization: sigmoid' did not match any case (['tissue: adenocarcinoma', 'tissue: colon tumor']) or control (['tissue: normal colon']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM523307 value 'tissue: adenoma | sex: male | protocol: colonoscopy | age: 81 | localization: transverse' did not match any case (['tissue: adenocarcinoma', 'tissue: colon tumor']) or control (['tissue: normal colon']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM523308 value 'tissue: adenoma | sex: female | protocol: colonoscopy | age: 61 | localization: sigmoid' did not match any case (['tissue: adenocarcinoma', 'tissue: colon tumor']) or control (['tissue: normal colon']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM523309 value 'tissue: adenoma | sex: male | protocol: colonoscopy | age: 79 | localization: sigmoid' did not match any case (['tissue: adenocarcinoma', 'tissue: colon tumor']) or control (['tissue: normal colon']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM523315 value 'tissue: adenoma | sex: female | protocol: colonoscopy | age: 68 | localization: sigmoid' did not match any case (['tissue: adenocarcinoma', 'tissue: colon tumor']) or control (['tissue: normal colon']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM523319 value 'tissue: adenoma | sex: male | protocol: colonoscopy | age: 76 | localization: transverse' did not match any case (['tissue: adenocarcinoma', 'tissue: colon tumor']) or control (['tissue: normal colon']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM523320 value 'tissue: adenoma | sex: male | protocol: colonoscopy | age: 59 | localization: sigmoid' did not match any case (['tissue: adenocarcinoma', 'tissue: colon tumor']) or control (['tissue: normal colon']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM523321 value 'tissue: adenoma | sex: male | protocol: colonoscopy | age: 83 | localization: caecum' did not match any case (['tissue: adenocarcinoma', 'tissue: colon tumor']) or control (['tissue: normal colon']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM523322 value 'tissue: adenoma | sex: male | protocol: colonoscopy | age: 46 | localization: rectum' did not match any case (['tissue: adenocarcinoma', 'tissue: colon tumor']) or control (['tissue: normal colon']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM523327 value 'tissue: adenoma | sex: female | protocol: colonoscopy | age: 55 | localization: rectum' did not match any case (['tissue: adenocarcinoma', 'tissue: colon tumor']) or control (['tissue: normal colon']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM523328 value 'tissue: adenoma | sex: male | protocol: colonoscopy | age: 59 | localization: sigmoid' did not match any case (['tissue: adenocarcinoma', 'tissue: colon tumor']) or control (['tissue: normal colon']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM523329 value 'tissue: adenoma | sex: male | protocol: colonoscopy | age: 60 | localization: sigmoid' did not match any case (['tissue: adenocarcinoma', 'tissue: colon tumor']) or control (['tissue: normal colon']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM523333 value 'tissue: adenoma | sex: male | protocol: colonoscopy | age: 41 | localization: sigmoid' did not match any case (['tissue: adenocarcinoma', 'tissue: colon tumor']) or control (['tissue: normal colon']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM523334 value 'tissue: adenoma | sex: male | protocol: colonoscopy | age: 55 | localization: sigmoid' did not match any case (['tissue: adenocarcinoma', 'tissue: colon tumor']) or control (['tissue: normal colon']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM523335 value 'tissue: adenoma | sex: female | protocol: colonoscopy | age: 43 | localization: sigmoid' did not match any case (['tissue: adenocarcinoma', 'tissue: colon tumor']) or control (['tissue: normal colon']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM523336 value 'tissue: adenoma | sex: female | protocol: colonoscopy | age: 61 | localization: rectum' did not match any case (['tissue: adenocarcinoma', 'tissue: colon tumor']) or control (['tissue: normal colon']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM523340 value 'tissue: adenoma | sex: male | protocol: colonoscopy | age: 78 | localization: sigmoid' did not match any case (['tissue: adenocarcinoma', 'tissue: colon tumor']) or control (['tissue: normal colon']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM523341 value 'tissue: adenoma | sex: male | protocol: colonoscopy | age: 55 | localization: sigmoid' did not match any case (['tissue: adenocarcinoma', 'tissue: colon tumor']) or control (['tissue: normal colon']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM523342 value 'tissue: adenoma | sex: male | protocol: colonoscopy | age: 68 | localization: sigmoid' did not match any case (['tissue: adenocarcinoma', 'tissue: colon tumor']) or control (['tissue: normal colon']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM523346 value 'tissue: adenoma | sex: male | protocol: colonoscopy | age: 57 | localization: sigmoid' did not match any case (['tissue: adenocarcinoma', 'tissue: colon tumor']) or control (['tissue: normal colon']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM523347 value 'tissue: adenoma | sex: female | protocol: colonoscopy | age: 75 | localization: caecum' did not match any case (['tissue: adenocarcinoma', 'tissue: colon tumor']) or control (['tissue: normal colon']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM523348 value 'tissue: adenoma | sex: male | protocol: colonoscopy | age: 59 | localization: sigmoid' did not match any case (['tissue: adenocarcinoma', 'tissue: colon tumor']) or control (['tissue: normal colon']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM523353 value 'tissue: adenoma | sex: male | protocol: colonoscopy | age: 48 | localization: rectum' did not match any case (['tissue: adenocarcinoma', 'tissue: colon tumor']) or control (['tissue: normal colon']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM523354 value 'tissue: adenoma | sex: female | protocol: colonoscopy | age: 67 | localization: sigmoid' did not match any case (['tissue: adenocarcinoma', 'tissue: colon tumor']) or control (['tissue: normal colon']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM523355 value 'tissue: adenoma | sex: male | protocol: colonoscopy | age: 78 | localization: sigmoid' did not match any case (['tissue: adenocarcinoma', 'tissue: colon tumor']) or control (['tissue: normal colon']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM523356 value 'tissue: adenoma | sex: male | protocol: colonoscopy | age: 53 | localization: caecum' did not match any case (['tissue: adenocarcinoma', 'tissue: colon tumor']) or control (['tissue: normal colon']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM523361 value 'tissue: adenoma | sex: female | protocol: colonoscopy | age: 72 | localization: transverse' did not match any case (['tissue: adenocarcinoma', 'tissue: colon tumor']) or control (['tissue: normal colon']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM523362 value 'tissue: adenoma | sex: female | protocol: colonoscopy | age: 56 | localization: sigmoid' did not match any case (['tissue: adenocarcinoma', 'tissue: colon tumor']) or control (['tissue: normal colon']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM523363 value 'tissue: adenoma | sex: female | protocol: colonoscopy | age: 48 | localization: rectum' did not match any case (['tissue: adenocarcinoma', 'tissue: colon tumor']) or control (['tissue: normal colon']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM523367 value 'tissue: adenoma | sex: male | protocol: colonoscopy | age: 59 | localization: sigmoid' did not match any case (['tissue: adenocarcinoma', 'tissue: colon tumor']) or control (['tissue: normal colon']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM523374 value 'tissue: adenoma | sex: female | protocol: colonoscopy | age: 57 | localization: sigmoid' did not match any case (['tissue: adenocarcinoma', 'tissue: colon tumor']) or control (['tissue: normal colon']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM523375 value 'tissue: adenoma | sex: male | protocol: colonoscopy | age: 82 | localization: sigmoid' did not match any case (['tissue: adenocarcinoma', 'tissue: colon tumor']) or control (['tissue: normal colon']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM523376 value 'tissue: adenoma | sex: male | protocol: colonoscopy | age: 66 | localization: ascending' did not match any case (['tissue: adenocarcinoma', 'tissue: colon tumor']) or control (['tissue: normal colon']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM523381 value 'tissue: adenoma | sex: male | protocol: colonoscopy | age: 42 | localization: sigmoid' did not match any case (['tissue: adenocarcinoma', 'tissue: colon tumor']) or control (['tissue: normal colon']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM523383 value 'tissue: adenoma | sex: male | protocol: colonoscopy | age: 52 | localization: ascending' did not match any case (['tissue: adenocarcinoma', 'tissue: colon tumor']) or control (['tissue: normal colon']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM523384 value 'tissue: adenoma | sex: female | protocol: colonoscopy | age: 57 | localization: sigmoid' did not match any case (['tissue: adenocarcinoma', 'tissue: colon tumor']) or control (['tissue: normal colon']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM523385 value 'tissue: adenoma | sex: female | protocol: colonoscopy | age: 46 | localization: rectum' did not match any case (['tissue: adenocarcinoma', 'tissue: colon tumor']) or control (['tissue: normal colon']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM523386 value 'tissue: adenoma | sex: female | protocol: colonoscopy | age: 67 | localization: rectum' did not match any case (['tissue: adenocarcinoma', 'tissue: colon tumor']) or control (['tissue: normal colon']) values.
+  pheno = extractor.extract(
+2026-05-01 22:07:47 [INFO] riker.ingestion.geo_parser: Probe-to-gene mapping: 25642 mapped, 2055 unmapped, 14113 unique genes.
+2026-05-01 22:07:47 [INFO] riker: Loading dataset: GSE9348
+2026-05-01 22:08:01 [INFO] riker.ingestion.geo_parser: Probe-to-gene mapping: 45118 mapped, 9557 unmapped, 21717 unique genes.
+2026-05-01 22:08:01 [INFO] riker.ingestion.normalizer: Applied log2(x+1) transformation. Median: 265.27 -> 8.06
+2026-05-01 22:08:01 [INFO] riker: Loading dataset: GSE23878
+2026-05-01 22:08:13 [INFO] riker.ingestion.geo_parser: Probe-to-gene mapping: 45118 mapped, 9557 unmapped, 21717 unique genes.
+2026-05-01 22:08:13 [INFO] riker.phases.phase1_crossref: Dataset GSE20916: 473/515 seed genes detected (91.8%).
+2026-05-01 22:08:13 [INFO] riker.phases.phase1_crossref: Dataset GSE9348: 507/515 seed genes detected (98.4%).
+2026-05-01 22:08:13 [INFO] riker.phases.phase1_crossref: Dataset GSE23878: 507/515 seed genes detected (98.4%).
+2026-05-01 22:08:15 [INFO] riker.phases.phase1_crossref: Phase 1 complete: 331 study genes from 515 seed genes (p < 0.05 in >= 2 datasets).
+2026-05-01 22:08:15 [INFO] riker.io.outputs: Phase 1 summary: /home/kai001/riker-engine/disease_days/2026-05-02_crc_v0332/curated/phase1_study_genes.csv
+2026-05-01 22:08:15 [INFO] riker: ============================================================
+2026-05-01 22:08:15 [INFO] riker: PHASE 2: Pathway Mapping
+2026-05-01 22:08:15 [INFO] riker: ============================================================
+2026-05-01 22:08:15 [WARNING] riker: No pathway data configured. Using expression features only.
+2026-05-01 22:08:15 [INFO] riker.phases.phase2_pathways: Pathway filter: 0 -> 0 pathways (min_study=3, max_total=500, min_frac=0.02).
+2026-05-01 22:08:15 [INFO] riker.phases.phase2_pathways: Phase 2 complete: 331 genes × 5 features (0 pathway + 5 expression features).
+2026-05-01 22:08:15 [INFO] riker.io.outputs: Phase 2 feature matrix: /home/kai001/riker-engine/disease_days/2026-05-02_crc_v0332/curated/phase2_feature_matrix.csv (331 genes x 5 features)
+2026-05-01 22:08:15 [INFO] riker: ============================================================
+2026-05-01 22:08:15 [INFO] riker: PHASE 3: Consensus Clustering
+2026-05-01 22:08:15 [INFO] riker: ============================================================
+2026-05-01 22:08:26 [INFO] riker.phases.phase3_clustering: Running 15 UMAP+HDBSCAN configurations (3 n_neighbors × 5 seeds)...
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+2026-05-01 22:08:51 [INFO] riker.phases.phase3_clustering: Phase 3 complete: 43 clusters, 6 noise genes from 15 configurations.
+2026-05-01 22:08:51 [INFO] riker.io.outputs: Phase 3 cluster assignments: /home/kai001/riker-engine/disease_days/2026-05-02_crc_v0332/curated/phase3_cluster_assignments.csv (43 clusters, 6 noise)
+2026-05-01 22:08:51 [INFO] riker: ============================================================
+2026-05-01 22:08:51 [INFO] riker: PHASE 4: Robustness Testing
+2026-05-01 22:08:51 [INFO] riker: ============================================================
+2026-05-01 22:08:51 [INFO] riker.phases.phase4_robustness: Cluster 0: permutation p=0.6129, Bonferroni p=1.0000 (not significant)
+2026-05-01 22:08:52 [INFO] riker.phases.phase4_robustness: Cluster 1: permutation p=0.0812, Bonferroni p=1.0000 (not significant)
+2026-05-01 22:08:52 [INFO] riker.phases.phase4_robustness: Cluster 2: permutation p=0.0001, Bonferroni p=0.0043 (SIGNIFICANT)
+2026-05-01 22:08:53 [INFO] riker.phases.phase4_robustness: Cluster 3: permutation p=0.0001, Bonferroni p=0.0043 (SIGNIFICANT)
+2026-05-01 22:08:53 [INFO] riker.phases.phase4_robustness: Cluster 4: permutation p=1.0000, Bonferroni p=1.0000 (not significant)
+2026-05-01 22:08:54 [INFO] riker.phases.phase4_robustness: Cluster 5: permutation p=0.5734, Bonferroni p=1.0000 (not significant)
+2026-05-01 22:08:54 [INFO] riker.phases.phase4_robustness: Cluster 6: permutation p=0.9993, Bonferroni p=1.0000 (not significant)
+2026-05-01 22:08:55 [INFO] riker.phases.phase4_robustness: Cluster 7: permutation p=0.8740, Bonferroni p=1.0000 (not significant)
+2026-05-01 22:08:55 [INFO] riker.phases.phase4_robustness: Cluster 8: permutation p=0.2611, Bonferroni p=1.0000 (not significant)
+2026-05-01 22:08:56 [INFO] riker.phases.phase4_robustness: Cluster 9: permutation p=0.7326, Bonferroni p=1.0000 (not significant)
+2026-05-01 22:08:56 [INFO] riker.phases.phase4_robustness: Cluster 10: permutation p=0.8560, Bonferroni p=1.0000 (not significant)
+2026-05-01 22:08:57 [INFO] riker.phases.phase4_robustness: Cluster 11: permutation p=0.9995, Bonferroni p=1.0000 (not significant)
+2026-05-01 22:08:57 [INFO] riker.phases.phase4_robustness: Cluster 12: permutation p=0.8327, Bonferroni p=1.0000 (not significant)
+2026-05-01 22:08:58 [INFO] riker.phases.phase4_robustness: Cluster 13: permutation p=0.0238, Bonferroni p=1.0000 (not significant)
+2026-05-01 22:08:58 [INFO] riker.phases.phase4_robustness: Cluster 14: permutation p=0.0008, Bonferroni p=0.0344 (SIGNIFICANT)
+2026-05-01 22:08:58 [INFO] riker.phases.phase4_robustness: Cluster 15: permutation p=0.0001, Bonferroni p=0.0043 (SIGNIFICANT)
+2026-05-01 22:08:59 [INFO] riker.phases.phase4_robustness: Cluster 16: permutation p=0.9809, Bonferroni p=1.0000 (not significant)
+2026-05-01 22:08:59 [INFO] riker.phases.phase4_robustness: Cluster 17: permutation p=0.9981, Bonferroni p=1.0000 (not significant)
+2026-05-01 22:09:00 [INFO] riker.phases.phase4_robustness: Cluster 18: permutation p=0.3602, Bonferroni p=1.0000 (not significant)
+2026-05-01 22:09:00 [INFO] riker.phases.phase4_robustness: Cluster 19: permutation p=0.9121, Bonferroni p=1.0000 (not significant)
+2026-05-01 22:09:01 [INFO] riker.phases.phase4_robustness: Cluster 20: permutation p=0.9660, Bonferroni p=1.0000 (not significant)
+2026-05-01 22:09:01 [INFO] riker.phases.phase4_robustness: Cluster 21: permutation p=0.6612, Bonferroni p=1.0000 (not significant)
+2026-05-01 22:09:01 [INFO] riker.phases.phase4_robustness: Cluster 22: permutation p=0.3080, Bonferroni p=1.0000 (not significant)
+2026-05-01 22:09:02 [INFO] riker.phases.phase4_robustness: Cluster 23: permutation p=0.0670, Bonferroni p=1.0000 (not significant)
+2026-05-01 22:09:02 [INFO] riker.phases.phase4_robustness: Cluster 24: permutation p=0.0067, Bonferroni p=0.2881 (not significant)
+2026-05-01 22:09:03 [INFO] riker.phases.phase4_robustness: Cluster 25: permutation p=0.1217, Bonferroni p=1.0000 (not significant)
+2026-05-01 22:09:03 [INFO] riker.phases.phase4_robustness: Cluster 26: permutation p=0.3320, Bonferroni p=1.0000 (not significant)
+2026-05-01 22:09:04 [INFO] riker.phases.phase4_robustness: Cluster 27: permutation p=0.3823, Bonferroni p=1.0000 (not significant)
+2026-05-01 22:09:04 [INFO] riker.phases.phase4_robustness: Cluster 28: permutation p=0.4831, Bonferroni p=1.0000 (not significant)
+2026-05-01 22:09:05 [INFO] riker.phases.phase4_robustness: Cluster 29: permutation p=1.0000, Bonferroni p=1.0000 (not significant)
+2026-05-01 22:09:05 [INFO] riker.phases.phase4_robustness: Cluster 30: permutation p=0.9819, Bonferroni p=1.0000 (not significant)
+2026-05-01 22:09:05 [INFO] riker.phases.phase4_robustness: Cluster 31: permutation p=0.9709, Bonferroni p=1.0000 (not significant)
+2026-05-01 22:09:06 [INFO] riker.phases.phase4_robustness: Cluster 32: permutation p=0.8790, Bonferroni p=1.0000 (not significant)
+2026-05-01 22:09:06 [INFO] riker.phases.phase4_robustness: Cluster 33: permutation p=0.9658, Bonferroni p=1.0000 (not significant)
+2026-05-01 22:09:07 [INFO] riker.phases.phase4_robustness: Cluster 34: permutation p=0.9990, Bonferroni p=1.0000 (not significant)
+2026-05-01 22:09:07 [INFO] riker.phases.phase4_robustness: Cluster 35: permutation p=1.0000, Bonferroni p=1.0000 (not significant)
+2026-05-01 22:09:08 [INFO] riker.phases.phase4_robustness: Cluster 36: permutation p=0.5033, Bonferroni p=1.0000 (not significant)
+2026-05-01 22:09:08 [INFO] riker.phases.phase4_robustness: Cluster 37: permutation p=0.9716, Bonferroni p=1.0000 (not significant)
+2026-05-01 22:09:08 [INFO] riker.phases.phase4_robustness: Cluster 38: permutation p=0.5228, Bonferroni p=1.0000 (not significant)
+2026-05-01 22:09:09 [INFO] riker.phases.phase4_robustness: Cluster 39: permutation p=0.9494, Bonferroni p=1.0000 (not significant)
+2026-05-01 22:09:09 [INFO] riker.phases.phase4_robustness: Cluster 40: permutation p=0.6373, Bonferroni p=1.0000 (not significant)
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 41: permutation p=0.7508, Bonferroni p=1.0000 (not significant)
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 42: permutation p=0.9577, Bonferroni p=1.0000 (not significant)
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 0 sensitivity: L1=6, L2=6, L3=6, L4=6 | dissolution=None | core=6
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 1 sensitivity: L1=9, L2=9, L3=9, L4=9 | dissolution=None | core=9
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 2 sensitivity: L1=8, L2=8, L3=8, L4=8 | dissolution=None | core=8
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 3 sensitivity: L1=7, L2=7, L3=7, L4=7 | dissolution=None | core=7
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 4 sensitivity: L1=9, L2=9, L3=9, L4=9 | dissolution=None | core=9
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 5 sensitivity: L1=8, L2=8, L3=8, L4=8 | dissolution=None | core=8
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 6 sensitivity: L1=5, L2=0, L3=5, L4=5 | dissolution=2 | core=0
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 7 sensitivity: L1=5, L2=5, L3=5, L4=5 | dissolution=None | core=5
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 8 sensitivity: L1=8, L2=8, L3=8, L4=8 | dissolution=None | core=8
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 9 sensitivity: L1=7, L2=7, L3=7, L4=7 | dissolution=None | core=7
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 10 sensitivity: L1=8, L2=7, L3=8, L4=8 | dissolution=None | core=7
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 11 sensitivity: L1=8, L2=0, L3=8, L4=8 | dissolution=2 | core=0
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 12 sensitivity: L1=14, L2=14, L3=14, L4=14 | dissolution=None | core=14
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 13 sensitivity: L1=7, L2=7, L3=7, L4=7 | dissolution=None | core=7
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 14 sensitivity: L1=10, L2=10, L3=10, L4=10 | dissolution=None | core=10
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 15 sensitivity: L1=6, L2=6, L3=6, L4=6 | dissolution=None | core=6
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 16 sensitivity: L1=5, L2=3, L3=5, L4=5 | dissolution=None | core=3
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 17 sensitivity: L1=10, L2=6, L3=10, L4=10 | dissolution=None | core=6
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 18 sensitivity: L1=7, L2=7, L3=7, L4=7 | dissolution=None | core=7
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 19 sensitivity: L1=6, L2=5, L3=6, L4=6 | dissolution=None | core=5
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 20 sensitivity: L1=6, L2=0, L3=6, L4=6 | dissolution=2 | core=0
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 21 sensitivity: L1=12, L2=12, L3=12, L4=12 | dissolution=None | core=12
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 22 sensitivity: L1=6, L2=6, L3=6, L4=6 | dissolution=None | core=6
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 23 sensitivity: L1=13, L2=13, L3=13, L4=13 | dissolution=None | core=13
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 24 sensitivity: L1=6, L2=6, L3=6, L4=6 | dissolution=None | core=6
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 25 sensitivity: L1=10, L2=10, L3=10, L4=10 | dissolution=None | core=10
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 26 sensitivity: L1=6, L2=6, L3=6, L4=6 | dissolution=None | core=6
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 27 sensitivity: L1=5, L2=5, L3=5, L4=5 | dissolution=None | core=5
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 28 sensitivity: L1=10, L2=9, L3=10, L4=10 | dissolution=None | core=9
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 29 sensitivity: L1=10, L2=2, L3=10, L4=10 | dissolution=2 | core=2
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 30 sensitivity: L1=5, L2=4, L3=5, L4=5 | dissolution=None | core=4
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 31 sensitivity: L1=5, L2=5, L3=5, L4=5 | dissolution=None | core=5
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 32 sensitivity: L1=6, L2=5, L3=6, L4=6 | dissolution=None | core=5
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 33 sensitivity: L1=7, L2=3, L3=7, L4=7 | dissolution=None | core=3
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 34 sensitivity: L1=5, L2=5, L3=5, L4=5 | dissolution=None | core=5
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 35 sensitivity: L1=6, L2=1, L3=6, L4=6 | dissolution=2 | core=1
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 36 sensitivity: L1=10, L2=10, L3=10, L4=10 | dissolution=None | core=10
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 37 sensitivity: L1=5, L2=2, L3=5, L4=5 | dissolution=2 | core=2
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 38 sensitivity: L1=10, L2=6, L3=10, L4=10 | dissolution=None | core=6
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 39 sensitivity: L1=11, L2=10, L3=11, L4=11 | dissolution=None | core=10
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 40 sensitivity: L1=6, L2=6, L3=6, L4=6 | dissolution=None | core=6
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 41 sensitivity: L1=6, L2=5, L3=6, L4=6 | dissolution=None | core=5
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 42 sensitivity: L1=6, L2=4, L3=6, L4=6 | dissolution=None | core=4
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 0 LOO: min_retention=1.00 (STABLE)
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 1 LOO: min_retention=0.00 (FRAGILE)
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 2 LOO: min_retention=1.00 (STABLE)
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 3 LOO: min_retention=1.00 (STABLE)
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 4 LOO: min_retention=1.00 (STABLE)
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 5 LOO: min_retention=0.00 (FRAGILE)
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 6 LOO: min_retention=0.20 (FRAGILE)
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 7 LOO: min_retention=1.00 (STABLE)
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 8 LOO: min_retention=1.00 (STABLE)
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 9 LOO: min_retention=1.00 (STABLE)
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 10 LOO: min_retention=0.00 (FRAGILE)
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 11 LOO: min_retention=0.25 (FRAGILE)
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 12 LOO: min_retention=1.00 (STABLE)
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 13 LOO: min_retention=1.00 (STABLE)
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 14 LOO: min_retention=1.00 (STABLE)
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 15 LOO: min_retention=1.00 (STABLE)
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 16 LOO: min_retention=0.20 (FRAGILE)
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 17 LOO: min_retention=0.10 (FRAGILE)
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 18 LOO: min_retention=0.00 (FRAGILE)
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 19 LOO: min_retention=0.00 (FRAGILE)
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 20 LOO: min_retention=0.00 (FRAGILE)
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 21 LOO: min_retention=1.00 (STABLE)
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 22 LOO: min_retention=1.00 (STABLE)
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 23 LOO: min_retention=1.00 (STABLE)
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 24 LOO: min_retention=1.00 (STABLE)
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 25 LOO: min_retention=1.00 (STABLE)
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 26 LOO: min_retention=1.00 (STABLE)
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 27 LOO: min_retention=1.00 (STABLE)
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 28 LOO: min_retention=0.00 (FRAGILE)
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 29 LOO: min_retention=0.30 (FRAGILE)
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 30 LOO: min_retention=1.00 (STABLE)
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 31 LOO: min_retention=1.00 (STABLE)
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 32 LOO: min_retention=1.00 (STABLE)
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 33 LOO: min_retention=1.00 (STABLE)
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 34 LOO: min_retention=0.20 (FRAGILE)
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 35 LOO: min_retention=0.17 (FRAGILE)
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 36 LOO: min_retention=0.00 (FRAGILE)
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 37 LOO: min_retention=0.00 (FRAGILE)
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 38 LOO: min_retention=0.00 (FRAGILE)
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 39 LOO: min_retention=1.00 (STABLE)
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 40 LOO: min_retention=1.00 (STABLE)
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 41 LOO: min_retention=0.00 (FRAGILE)
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 42 LOO: min_retention=0.17 (FRAGILE)
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 6: 0 Level 2 survivors < 3 minimum. No core genes.
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 11: 0 Level 2 survivors < 3 minimum. No core genes.
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 20: 0 Level 2 survivors < 3 minimum. No core genes.
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 29: 2 Level 2 survivors < 3 minimum. No core genes.
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 35: 1 Level 2 survivors < 3 minimum. No core genes.
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Cluster 37: 2 Level 2 survivors < 3 minimum. No core genes.
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Identified 262 core genes across all clusters.
+2026-05-01 22:09:10 [INFO] riker.phases.phase4_robustness: Phase 4 complete: 4 significant clusters, 24 LOO-stable clusters, 262 core genes.
+2026-05-01 22:09:10 [INFO] riker.io.outputs: Phase 4 core genes: /home/kai001/riker-engine/disease_days/2026-05-02_crc_v0332/curated/phase4_core_genes.csv
+2026-05-01 22:09:10 [INFO] riker.io.outputs: Phase 4 all levels: /home/kai001/riker-engine/disease_days/2026-05-02_crc_v0332/curated/phase4_all_levels.csv (331 genes)
+2026-05-01 22:09:10 [INFO] riker: ============================================================
+2026-05-01 22:09:10 [INFO] riker: PHASE 5: Independent Replication
+2026-05-01 22:09:10 [INFO] riker: ============================================================
+2026-05-01 22:09:10 [INFO] riker: Loading replication dataset: GSE32323
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM800776 value 'metastasis: na | stage: na | tissue: colo320 cell line' did not match any case (['tissue: cancer']) or control (['tissue: normal']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM800777 value 'metastasis: na | stage: na | tissue: colo320 cell line' did not match any case (['tissue: cancer']) or control (['tissue: normal']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM800778 value 'metastasis: na | stage: na | tissue: hct116 cell line' did not match any case (['tissue: cancer']) or control (['tissue: normal']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM800779 value 'metastasis: na | stage: na | tissue: hct116 cell line' did not match any case (['tissue: cancer']) or control (['tissue: normal']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM800780 value 'metastasis: na | stage: na | tissue: ht29 cell line' did not match any case (['tissue: cancer']) or control (['tissue: normal']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM800781 value 'metastasis: na | stage: na | tissue: ht29 cell line' did not match any case (['tissue: cancer']) or control (['tissue: normal']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM800782 value 'metastasis: na | stage: na | tissue: rko cell line' did not match any case (['tissue: cancer']) or control (['tissue: normal']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM800783 value 'metastasis: na | stage: na | tissue: rko cell line' did not match any case (['tissue: cancer']) or control (['tissue: normal']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM800784 value 'metastasis: na | stage: na | tissue: sw480 cell line' did not match any case (['tissue: cancer']) or control (['tissue: normal']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM800785 value 'metastasis: na | stage: na | tissue: sw480 cell line' did not match any case (['tissue: cancer']) or control (['tissue: normal']) values.
+  pheno = extractor.extract(
+2026-05-01 22:09:20 [INFO] riker.ingestion.geo_parser: Probe-to-gene mapping: 45118 mapped, 9557 unmapped, 21717 unique genes.
+2026-05-01 22:09:20 [INFO] riker: Loading replication dataset: GSE37364
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM916687 value 'disease state: adenoma | stage: high-grade dysplasia' did not match any case (['colorectal adenocarcinoma', 'dukes c/d']) or control (['normal colonic mucosa']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM916688 value 'disease state: adenoma | stage: high-grade dysplasia' did not match any case (['colorectal adenocarcinoma', 'dukes c/d']) or control (['normal colonic mucosa']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM916689 value 'disease state: adenoma | stage: high-grade dysplasia' did not match any case (['colorectal adenocarcinoma', 'dukes c/d']) or control (['normal colonic mucosa']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM916690 value 'disease state: adenoma | stage: high-grade dysplasia' did not match any case (['colorectal adenocarcinoma', 'dukes c/d']) or control (['normal colonic mucosa']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM916691 value 'disease state: adenoma | stage: high-grade dysplasia' did not match any case (['colorectal adenocarcinoma', 'dukes c/d']) or control (['normal colonic mucosa']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM916692 value 'disease state: adenoma | stage: high-grade dysplasia' did not match any case (['colorectal adenocarcinoma', 'dukes c/d']) or control (['normal colonic mucosa']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM916693 value 'disease state: adenoma | stage: high-grade dysplasia' did not match any case (['colorectal adenocarcinoma', 'dukes c/d']) or control (['normal colonic mucosa']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM916694 value 'disease state: adenoma | stage: high-grade dysplasia' did not match any case (['colorectal adenocarcinoma', 'dukes c/d']) or control (['normal colonic mucosa']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM916695 value 'disease state: adenoma | stage: high-grade dysplasia' did not match any case (['colorectal adenocarcinoma', 'dukes c/d']) or control (['normal colonic mucosa']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM916696 value 'disease state: adenoma | stage: high-grade dysplasia' did not match any case (['colorectal adenocarcinoma', 'dukes c/d']) or control (['normal colonic mucosa']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM916697 value 'disease state: adenoma | stage: high-grade dysplasia' did not match any case (['colorectal adenocarcinoma', 'dukes c/d']) or control (['normal colonic mucosa']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM916698 value 'disease state: adenoma | stage: high-grade dysplasia' did not match any case (['colorectal adenocarcinoma', 'dukes c/d']) or control (['normal colonic mucosa']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM916699 value 'disease state: adenoma | stage: high-grade dysplasia' did not match any case (['colorectal adenocarcinoma', 'dukes c/d']) or control (['normal colonic mucosa']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM916700 value 'disease state: adenoma | stage: low-grade dysplasia' did not match any case (['colorectal adenocarcinoma', 'dukes c/d']) or control (['normal colonic mucosa']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM916701 value 'disease state: adenoma | stage: low-grade dysplasia' did not match any case (['colorectal adenocarcinoma', 'dukes c/d']) or control (['normal colonic mucosa']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM916702 value 'disease state: adenoma | stage: low-grade dysplasia' did not match any case (['colorectal adenocarcinoma', 'dukes c/d']) or control (['normal colonic mucosa']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM916703 value 'disease state: adenoma | stage: low-grade dysplasia' did not match any case (['colorectal adenocarcinoma', 'dukes c/d']) or control (['normal colonic mucosa']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM916704 value 'disease state: adenoma | stage: low-grade dysplasia' did not match any case (['colorectal adenocarcinoma', 'dukes c/d']) or control (['normal colonic mucosa']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM916705 value 'disease state: adenoma | stage: low-grade dysplasia' did not match any case (['colorectal adenocarcinoma', 'dukes c/d']) or control (['normal colonic mucosa']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM916706 value 'disease state: adenoma | stage: low-grade dysplasia' did not match any case (['colorectal adenocarcinoma', 'dukes c/d']) or control (['normal colonic mucosa']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM916707 value 'disease state: adenoma | stage: low-grade dysplasia' did not match any case (['colorectal adenocarcinoma', 'dukes c/d']) or control (['normal colonic mucosa']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM916708 value 'disease state: adenoma | stage: low-grade dysplasia' did not match any case (['colorectal adenocarcinoma', 'dukes c/d']) or control (['normal colonic mucosa']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM916709 value 'disease state: adenoma | stage: low-grade dysplasia' did not match any case (['colorectal adenocarcinoma', 'dukes c/d']) or control (['normal colonic mucosa']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM916710 value 'disease state: adenoma | stage: low-grade dysplasia' did not match any case (['colorectal adenocarcinoma', 'dukes c/d']) or control (['normal colonic mucosa']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM916711 value 'disease state: adenoma | stage: low-grade dysplasia' did not match any case (['colorectal adenocarcinoma', 'dukes c/d']) or control (['normal colonic mucosa']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM916712 value 'disease state: adenoma | stage: low-grade dysplasia' did not match any case (['colorectal adenocarcinoma', 'dukes c/d']) or control (['normal colonic mucosa']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM916713 value 'disease state: adenoma | stage: low-grade dysplasia' did not match any case (['colorectal adenocarcinoma', 'dukes c/d']) or control (['normal colonic mucosa']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM916714 value 'disease state: adenoma | stage: low-grade dysplasia' did not match any case (['colorectal adenocarcinoma', 'dukes c/d']) or control (['normal colonic mucosa']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM916715 value 'disease state: adenoma | stage: low-grade dysplasia' did not match any case (['colorectal adenocarcinoma', 'dukes c/d']) or control (['normal colonic mucosa']) values.
+  pheno = extractor.extract(
+2026-05-01 22:09:35 [INFO] riker.ingestion.geo_parser: Probe-to-gene mapping: 45118 mapped, 9557 unmapped, 21717 unique genes.
+2026-05-01 22:09:35 [INFO] riker: Loading replication dataset: GSE39582
+2026-05-01 22:11:05 [INFO] riker.ingestion.geo_parser: Probe-to-gene mapping: 45118 mapped, 9557 unmapped, 21717 unique genes.
+2026-05-01 22:11:05 [INFO] riker.phases.phase5_replication: Phase 5: Testing 262 pre-specified core genes in 3 replication datasets.
+2026-05-01 22:11:05 [INFO] riker.phases.phase5_replication: Gene CCL5: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:05 [INFO] riker.phases.phase5_replication: Gene CDKN1A: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:05 [INFO] riker.phases.phase5_replication: Gene IGF1: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:05 [INFO] riker.phases.phase5_replication: Gene MAPK3: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:05 [INFO] riker.phases.phase5_replication: Gene RIPK3: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:05 [INFO] riker.phases.phase5_replication: Gene TIAM1: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:05 [INFO] riker.phases.phase5_replication: Gene EPHA2: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE32323']. Discovery direction: up.
+2026-05-01 22:11:05 [INFO] riker.phases.phase5_replication: Gene ETS2: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:05 [INFO] riker.phases.phase5_replication: Gene GZMB: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:05 [INFO] riker.phases.phase5_replication: Gene IL1B: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:05 [INFO] riker.phases.phase5_replication: Gene IRS2: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:05 [INFO] riker.phases.phase5_replication: Gene ODC1: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:05 [INFO] riker.phases.phase5_replication: Gene PLAUR: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE32323']. Discovery direction: up.
+2026-05-01 22:11:05 [INFO] riker.phases.phase5_replication: Gene PMAIP1: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:05 [INFO] riker.phases.phase5_replication: Gene WEE1: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:05 [INFO] riker.phases.phase5_replication: Gene ASCL2: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:05 [INFO] riker.phases.phase5_replication: Gene CXCL1: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:05 [INFO] riker.phases.phase5_replication: Gene CXCL2: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:05 [INFO] riker.phases.phase5_replication: Gene CXCL5: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:05 [INFO] riker.phases.phase5_replication: Gene GDF15: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:05 [INFO] riker.phases.phase5_replication: Gene MMP1: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:05 [INFO] riker.phases.phase5_replication: Gene PSAT1: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:05 [INFO] riker.phases.phase5_replication: Gene REG1A: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:05 [INFO] riker.phases.phase5_replication: Gene CDH3: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:05 [INFO] riker.phases.phase5_replication: Gene CLDN1: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:05 [INFO] riker.phases.phase5_replication: Gene CXCL8: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:05 [INFO] riker.phases.phase5_replication: Gene DPEP1: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:05 [INFO] riker.phases.phase5_replication: Gene INHBA: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:05 [INFO] riker.phases.phase5_replication: Gene MMP3: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:05 [INFO] riker.phases.phase5_replication: Gene MMP7: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:05 [INFO] riker.phases.phase5_replication: Gene CASP9: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:05 [INFO] riker.phases.phase5_replication: Gene ERRFI1: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE32323']. Discovery direction: up.
+2026-05-01 22:11:05 [INFO] riker.phases.phase5_replication: Gene FOS: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE32323', 'GSE39582']. Discovery direction: up.
+2026-05-01 22:11:05 [INFO] riker.phases.phase5_replication: Gene HLA-A: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE37364', 'GSE39582']. Discovery direction: up.
+2026-05-01 22:11:05 [INFO] riker.phases.phase5_replication: Gene HLA-B: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE37364', 'GSE39582']. Discovery direction: up.
+2026-05-01 22:11:05 [INFO] riker.phases.phase5_replication: Gene IFNGR1: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:05 [INFO] riker.phases.phase5_replication: Gene JAK1: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE32323']. Discovery direction: up.
+2026-05-01 22:11:05 [INFO] riker.phases.phase5_replication: Gene KDM6A: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:05 [INFO] riker.phases.phase5_replication: Gene TGFBR2: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:05 [INFO] riker.phases.phase5_replication: Gene B2M: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:05 [INFO] riker.phases.phase5_replication: Gene CD8A: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:05 [INFO] riker.phases.phase5_replication: Gene CSF1R: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:05 [INFO] riker.phases.phase5_replication: Gene GADD45A: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene GZMA: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene IL1R1: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene JAK2: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene SATB2: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene ADAM17: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene CHEK2: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene MMP14: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene POLD1: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene UMPS: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene BCL2L1: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene CCNB1: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene E2F3: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene EPHB2: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene PTTG1: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene TIMP1: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene TOP2A: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene TTK: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene GSTP1: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene PALB2: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene PDGFRB: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene PLK1: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene TAP1: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene TCF7: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene ZNRF3: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene AKT2: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene CD4: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE39582']. Discovery direction: down.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene DKK3: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene DKK4: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene DVL3: survived — Same-tissue replication: 1/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene IL17A: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE32323', 'GSE39582']. Discovery direction: up.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene IRS1: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene ALCAM: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene BUB1B: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene CCNA2: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene CCNE2: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene EPHB3: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene FANCA: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene GLS: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE32323', 'GSE37364']. Discovery direction: up.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene LEF1: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene MKI67: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene MRE11: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene PKM: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE32323']. Discovery direction: up.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene PMS1: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene RRM1: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene TNFRSF10A: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene AURKA: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene DUSP4: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene FOXM1: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene MET: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene MYC: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene SLC7A11: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene SOX9: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene AXIN2: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene ETV4: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene LGR5: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene MMP11: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene RNF43: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene SCD: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene SPP1: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene SQLE: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene TGFBI: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene WNT2: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene ABCG2: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene ANPEP: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene CDKN2B: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene CXCL12: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene NR1H4: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene SLC26A3: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene ACVR2A: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene CD3E: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene KRAS: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene EGFR: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene PTGS2: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene SMC3: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene STAT1: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene TIMP3: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene TSC1: survived — Same-tissue replication: 1/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene CXCL10: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene IDO1: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene IL6ST: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene JUN: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene LGR4: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene PLCG1: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene PTEN: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene FOXO1: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene GADD45B: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene PDGFRA: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene SMAD2: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene TEK: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene ANGPT2: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene CDK1: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene DNMT3B: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene E2F1: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene H2AX: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene MSH6: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene NOTCH3: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene NTHL1: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene PCNA: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene PTPN11: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene SPARC: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene WNT11: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene BLM: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene BUB1: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene CCND1: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene CHEK1: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene EZH2: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene SLC2A1: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene ABCB1: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene ALDH1A1: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene APC: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene BCL2: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene BMP2: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene CLDN7: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene DCLK1: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene DPYD: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene GPA33: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene KLF4: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene KRT20: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene RSPO2: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene ZEB2: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene FABP1: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene FGFR2: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene IL6R: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene MUC2: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene SFRP1: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene UGT1A1: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene ABCC1: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene BIRC5: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene BRCA2: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene CCNE1: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene FASN: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene JAG2: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene PHGDH: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene SFRP4: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene SRM: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene WNT5A: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene CDC20: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene CDK4: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene EPHB4: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene NKD2: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene SKP2: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene SOX4: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene BRCA1: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene EXO1: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene FOXA2: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene SHH: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene VEGFA: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene CDA: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene DDR2: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene EPAS1: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene FAS: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene PPARD: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene SMAD4: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene SMAD7: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene TET2: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene VDR: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene BRD4: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE32323']. Discovery direction: up.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene HRAS: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE32323']. Discovery direction: up.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene PIK3R2: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene TP53BP1: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene BMP7: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE39582']. Discovery direction: up.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene CSNK2A1: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene IL23A: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene LDHA: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene RAD51: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene PLA2G2A: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene POLE: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene RAD21: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene TWIST1: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene TYMP: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene IDH2: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene NTRK2: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene SNAI2: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE39582']. Discovery direction: down.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene BAK1: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene CXCR4: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:06 [INFO] riker.phases.phase5_replication: Gene DLL1: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Gene ETS1: survived — Same-tissue replication: 1/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Gene PRF1: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE39582']. Discovery direction: down.
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Gene CD44: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Gene CDC25A: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Gene CDKN2A: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Gene CTNNB1: eliminated — Significant opposite direction in same-tissue dataset(s): ['GSE32323', 'GSE39582']. Discovery direction: up.
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Gene IGF2R: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Gene IL6: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Gene MSH2: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Gene PFKFB3: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Gene PTGES: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Gene SERPINE1: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Gene CD40: survived — Same-tissue replication: 0/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Gene CXCL9: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Gene DKK2: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Gene FANCD2: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Gene ITGA5: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Gene TAP2: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Gene ATR: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Gene CDK8: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Gene HDAC2: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Gene NKD1: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Gene POT1: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Gene PTK2: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Gene SLC1A5: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Gene SMARCA4: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Gene SMC1A: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Gene TOP1: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Gene ACLY: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Gene CDK2: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Gene DNMT1: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Gene FGFR4: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Gene RHEB: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Gene TNFRSF10B: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Gene MMP13: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Gene MTAP: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Gene RAD51C: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Gene RB1: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Gene TGFB2: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Gene AXIN1: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Gene DNMT3A: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Gene NBN: survived — Same-tissue replication: 3/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Gene RELA: survived — Same-tissue replication: 2/3 concordant. Cross-tissue: 0/0 concordant.
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Cluster 0: replicated (6/6 survived, 0 eliminated)
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Cluster 1: partially_replicated (7/9 survived, 2 eliminated)
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Cluster 2: replicated (8/8 survived, 0 eliminated)
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Cluster 3: replicated (7/7 survived, 0 eliminated)
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Cluster 4: failed (4/9 survived, 5 eliminated)
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Cluster 5: replicated (8/8 survived, 0 eliminated)
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Cluster 7: replicated (5/5 survived, 0 eliminated)
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Cluster 8: replicated (8/8 survived, 0 eliminated)
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Cluster 9: replicated (7/7 survived, 0 eliminated)
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Cluster 10: partially_replicated (5/7 survived, 2 eliminated)
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Cluster 12: partially_replicated (12/14 survived, 2 eliminated)
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Cluster 13: replicated (7/7 survived, 0 eliminated)
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Cluster 14: replicated (10/10 survived, 0 eliminated)
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Cluster 15: replicated (6/6 survived, 0 eliminated)
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Cluster 16: replicated (3/3 survived, 0 eliminated)
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Cluster 17: replicated (6/6 survived, 0 eliminated)
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Cluster 18: replicated (7/7 survived, 0 eliminated)
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Cluster 19: replicated (5/5 survived, 0 eliminated)
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Cluster 21: replicated (12/12 survived, 0 eliminated)
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Cluster 22: replicated (6/6 survived, 0 eliminated)
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Cluster 23: replicated (13/13 survived, 0 eliminated)
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Cluster 24: replicated (6/6 survived, 0 eliminated)
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Cluster 25: replicated (10/10 survived, 0 eliminated)
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Cluster 26: replicated (6/6 survived, 0 eliminated)
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Cluster 27: replicated (5/5 survived, 0 eliminated)
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Cluster 28: replicated (9/9 survived, 0 eliminated)
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Cluster 30: partially_replicated (2/4 survived, 2 eliminated)
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Cluster 31: partially_replicated (4/5 survived, 1 eliminated)
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Cluster 32: replicated (5/5 survived, 0 eliminated)
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Cluster 33: partially_replicated (2/3 survived, 1 eliminated)
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Cluster 34: partially_replicated (4/5 survived, 1 eliminated)
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Cluster 36: partially_replicated (9/10 survived, 1 eliminated)
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Cluster 38: replicated (6/6 survived, 0 eliminated)
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Cluster 39: replicated (10/10 survived, 0 eliminated)
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Cluster 40: replicated (6/6 survived, 0 eliminated)
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Cluster 41: replicated (5/5 survived, 0 eliminated)
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Cluster 42: replicated (4/4 survived, 0 eliminated)
+2026-05-01 22:11:07 [INFO] riker.phases.phase5_replication: Phase 5 complete: 245 survived, 17 eliminated, 0 insufficient data.
+2026-05-01 22:11:07 [INFO] riker.io.outputs: Phase 5 verdicts: /home/kai001/riker-engine/disease_days/2026-05-02_crc_v0332/curated/phase5_verdicts.csv
+2026-05-01 22:11:07 [INFO] riker: ============================================================
+2026-05-01 22:11:07 [INFO] riker: PHASE 6: Effect Size Meta-Analysis
+2026-05-01 22:11:07 [INFO] riker: ============================================================
+2026-05-01 22:11:07 [INFO] riker.phases.phase6_meta: Phase 6: Computing meta-analysis for 245 surviving genes.
+2026-05-01 22:11:07 [INFO] riker.phases.phase6_meta: Phase 6 complete: 245 genes analyzed, 219 significant (random effects), 131 high heterogeneity.
+2026-05-01 22:11:07 [INFO] riker.io.outputs: Phase 6 meta-analysis: /home/kai001/riker-engine/disease_days/2026-05-02_crc_v0332/curated/phase6_meta_analysis.csv
+2026-05-01 22:11:07 [INFO] riker: ============================================================
+2026-05-01 22:11:07 [INFO] riker: WRITING FINAL OUTPUTS
+2026-05-01 22:11:07 [INFO] riker: ============================================================
+2026-05-01 22:11:07 [INFO] riker.io.outputs: QC report: /home/kai001/riker-engine/disease_days/2026-05-02_crc_v0332/curated/qc_report.json
+2026-05-01 22:11:08 [INFO] riker.io.outputs: Pipeline summary: /home/kai001/riker-engine/disease_days/2026-05-02_crc_v0332/curated/pipeline_summary.json
+2026-05-01 22:11:08 [INFO] riker: ============================================================
+2026-05-01 22:11:08 [INFO] riker: PIPELINE COMPLETE: CRC
+2026-05-01 22:11:08 [INFO] riker: QC Report: 4 passed, 0 warnings, 0 critical. Pipeline OK.
+2026-05-01 22:11:08 [INFO] riker: Output: /home/kai001/riker-engine/disease_days/2026-05-02_crc_v0332/curated
+2026-05-01 22:11:08 [INFO] riker: ============================================================
