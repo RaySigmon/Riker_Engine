@@ -1,0 +1,10 @@
+=== Environment Snapshot — Psoriasis Disease Day 2026-05-03 ===
+Linux raspberrypi 6.12.75+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.75-1+rpt1 (2026-03-11) aarch64 GNU/Linux
+Python 3.13.5
+riker 0.3.3.2
+               total        used        free      shared  buff/cache   available
+Mem:           7.9Gi       2.8Gi       3.1Gi       342Mi       2.2Gi       5.0Gi
+/dev/mmcblk0p2  117G   36G   77G  33% /
+git_commit: 7d638b00370bc867015265f601847ecc6880d875
+git_branch: main
+date: 2026-05-03T13:54:12Z
