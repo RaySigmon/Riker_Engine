@@ -1,0 +1,390 @@
+gene,cluster_id,status,discovery_direction,n_same_tissue_concordant,n_same_tissue_discordant,n_cross_tissue_concordant,reason
+ATP2B1,0,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+EPDR1,0,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+FSTL5,0,survived,down,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+MAP1B,0,eliminated,down,1,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE15222']. Discovery direction: down.
+NEGR1,0,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+ROBO2,0,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+SCG3,0,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+TMEM132D,0,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+ATP6V0E2,1,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+ETV1,1,eliminated,down,1,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE15222']. Discovery direction: down.
+HACL1,1,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+LINGO1,1,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+MDH2,1,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+NRXN1,1,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+RELN,1,eliminated,down,1,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE15222']. Discovery direction: down.
+ALDH1A2,2,survived,up,0,0,0,Same-tissue replication: 0/2 concordant. Cross-tissue: 0/0 concordant.
+BLNK,2,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+GRK5,2,eliminated,down,1,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE15222']. Discovery direction: down.
+RHPN2,2,survived,up,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+SLC24A4,2,survived,up,0,0,0,Same-tissue replication: 0/2 concordant. Cross-tissue: 0/0 concordant.
+SUMF1,2,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+AGAP1,3,eliminated,down,1,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE15222']. Discovery direction: down.
+EXOC4,3,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+MAGI2,3,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+MTMR2,3,eliminated,down,1,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE15222']. Discovery direction: down.
+RAD23B,3,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+RAPGEF2,3,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+ROBO1,3,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+SDK1,3,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+ZNF689,3,eliminated,down,1,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE15222']. Discovery direction: down.
+CDK18,4,eliminated,down,1,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE15222']. Discovery direction: down.
+HCN1,4,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+LILRA5,4,eliminated,down,1,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE15222']. Discovery direction: down.
+MLLT3,4,survived,down,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+SNX18,4,survived,down,0,0,0,Same-tissue replication: 0/2 concordant. Cross-tissue: 0/0 concordant.
+TKFC,4,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+TMEM163,4,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+VTI1A,4,eliminated,down,0,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE15222']. Discovery direction: down.
+WDR81,4,eliminated,down,1,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE15222']. Discovery direction: down.
+ICE1,5,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+MS4A3,5,survived,down,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+OSBP2,5,survived,up,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+PIWIL1,5,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+POLR2G,5,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+SLC25A19,5,eliminated,up,1,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE5281']. Discovery direction: up.
+TAFA5,5,eliminated,down,1,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE15222']. Discovery direction: down.
+WNT3,5,eliminated,down,0,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE15222']. Discovery direction: down.
+ADAM17,6,survived,down,1,0,0,Same-tissue replication: 1/1 concordant. Cross-tissue: 0/0 concordant.
+MS4A6E,6,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+NKPD1,6,eliminated,up,0,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE15222']. Discovery direction: up.
+RASGEF1C,6,eliminated,up,0,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE5281']. Discovery direction: up.
+TMEM132C,6,eliminated,down,1,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE15222']. Discovery direction: down.
+CDCA7,7,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+MACROD2,7,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+NTRK2,7,eliminated,up,1,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE15222']. Discovery direction: up.
+PTPRD,7,survived,down,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+ADARB2,8,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+CLU,8,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+CR1,8,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+MAF,8,survived,up,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+NGFR,8,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+SLC12A4,8,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+SYK,8,survived,up,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+ZBTB16,8,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+FOXO1,9,survived,up,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+GALNT15,9,survived,up,1,0,0,Same-tissue replication: 1/1 concordant. Cross-tissue: 0/0 concordant.
+GSN,9,survived,up,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+HSPB2,9,survived,up,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+ISYNA1,9,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+MSN,9,survived,up,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+SMARCC1,9,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+TRIOBP,9,survived,up,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+C1QTNF4,10,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+H4C8,10,eliminated,down,1,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE15222']. Discovery direction: down.
+IMMP2L,10,eliminated,up,0,2,0,"Significant opposite direction in same-tissue dataset(s): ['GSE5281', 'GSE15222']. Discovery direction: up."
+KLHL29,10,survived,up,0,0,0,Same-tissue replication: 0/1 concordant. Cross-tissue: 0/0 concordant.
+MYO16,10,eliminated,up,0,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE15222']. Discovery direction: up.
+RHOH,10,eliminated,down,1,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE15222']. Discovery direction: down.
+ARHGAP45,11,survived,up,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+C4A,11,survived,up,1,0,0,Same-tissue replication: 1/1 concordant. Cross-tissue: 0/0 concordant.
+FARP1,11,survived,up,0,0,0,Same-tissue replication: 0/2 concordant. Cross-tissue: 0/0 concordant.
+HPR,11,survived,up,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+INPP5D,11,survived,up,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+OARD1,11,eliminated,up,0,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE5281']. Discovery direction: up.
+PILRA,11,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+SEMA3F,11,survived,up,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+TRPS1,11,survived,up,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+TUSC1,11,eliminated,up,0,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE5281']. Discovery direction: up.
+ZNF652,11,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+ASAH1,12,eliminated,up,0,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE15222']. Discovery direction: up.
+DEDD,12,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+GPR141,12,survived,down,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+MMP12,12,survived,up,0,0,0,Same-tissue replication: 0/2 concordant. Cross-tissue: 0/0 concordant.
+SHARPIN,12,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+CR1L,13,survived,up,0,0,0,Same-tissue replication: 0/2 concordant. Cross-tissue: 0/0 concordant.
+MGMT,13,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+PGM5,13,survived,down,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+CFAP46,14,survived,up,0,0,0,Same-tissue replication: 0/1 concordant. Cross-tissue: 0/0 concordant.
+ERBB3,14,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+MAD1L1,14,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+AFF3,15,survived,up,0,0,0,Same-tissue replication: 0/2 concordant. Cross-tissue: 0/0 concordant.
+ARMH3,15,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+BANK1,15,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+BCAR3,15,survived,up,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+DOCK4,15,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+GATAD2A,15,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+HBEGF,15,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+NLRC5,15,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+RABEP2,15,survived,up,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+RAPSN,15,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+SLC26A1,15,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+TARDBP,15,eliminated,up,1,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE5281']. Discovery direction: up.
+ZCWPW1,15,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+ADGRL2,16,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+AP2A2,16,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+C12orf42,16,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+CSMD1,16,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+DCHS2,16,survived,down,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+FOXP2,16,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+PFDN1,16,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+YTHDC2,16,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+BORCS5,17,survived,down,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+ENO3,17,eliminated,down,0,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE15222']. Discovery direction: down.
+GABRA2,17,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+LINGO2,17,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+RABEP1,17,survived,down,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+SMARCA4,17,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+TMEM41B,17,survived,down,1,0,0,Same-tissue replication: 1/1 concordant. Cross-tissue: 0/0 concordant.
+CTNNA2,18,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+FAR2,18,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+GABRG3,18,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+NPY,18,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+OLFM3,18,survived,down,1,0,0,Same-tissue replication: 1/1 concordant. Cross-tissue: 0/0 concordant.
+PTPRN2,18,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+SYNGR4,18,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+CYCS,19,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+FABP6,19,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+GRM8,19,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+JAZF1,19,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+PDS5B,19,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+CS,20,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+FARSA,20,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+HABP4,20,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+ICA1,20,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+KCNH1,20,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+KCNN2,20,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+NDUFS3,20,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+PDHA1,20,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+PDHB,20,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+SMARCA2,20,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+SPATS2,20,eliminated,down,1,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE15222']. Discovery direction: down.
+SPCS1,20,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+TOMM40,20,survived,down,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+AKAP6,21,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+DHRS11,21,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+DNAJC6,21,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+KCNK4,21,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+LRFN2,21,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+ANK3,22,survived,down,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+ANKH,22,eliminated,down,1,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE15222']. Discovery direction: down.
+CYRIA,22,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+DLG2,22,survived,down,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+DNM1,22,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+ENOPH1,22,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+GRIK2,22,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+KRAS,22,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+PSMC3,22,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+RUFY3,22,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+STMN4,22,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+CACNA2D3,23,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+CDH13,23,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+CHRM3,23,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+MEF2C,23,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+RIMBP2,23,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+SERPINI1,23,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+SYN2,23,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+ANO1,24,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+CADM2,24,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+CUL3,24,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+DGKI,24,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+IPO7,24,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+PLEKHA1,24,eliminated,down,1,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE15222']. Discovery direction: down.
+PSEN2,24,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+STXBP6,24,survived,down,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+CLASRP,25,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+MIR646HG,25,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+PRPF31,25,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+SPTB,25,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+SULT1A3,25,survived,up,1,0,0,Same-tissue replication: 1/1 concordant. Cross-tissue: 0/0 concordant.
+ATL3,26,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+MAF1,26,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+PLEKHG1,26,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+RBMS3,26,survived,up,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+SPPL2A,26,survived,up,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+COL6A3,27,survived,up,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+HLA-DRA,27,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+NUPR1,27,survived,up,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+PLXNB1,27,survived,up,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+SLC52A3,27,eliminated,up,1,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE5281']. Discovery direction: up.
+ABCA8,28,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+DBI,28,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+DOCK1,28,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+ECHDC3,28,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+IGFBP5,28,survived,up,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+NOTCH1,28,survived,up,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+PLCG2,28,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+PRKD3,28,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+SEPTIN10,28,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+AFF1,29,survived,up,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+AK4,29,survived,up,1,0,0,Same-tissue replication: 1/1 concordant. Cross-tissue: 0/0 concordant.
+APOC1,29,survived,up,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+CTSH,29,survived,up,1,0,0,Same-tissue replication: 1/1 concordant. Cross-tissue: 0/0 concordant.
+FERMT2,29,survived,up,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+IQCK,29,survived,up,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+PTPN6,29,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+SNX29,29,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+ADAMTS2,31,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+ASB3,31,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+LIN9,31,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+PLEC,31,survived,up,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+PRDX1,31,eliminated,up,1,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE5281']. Discovery direction: up.
+SORT1,31,eliminated,up,1,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE5281']. Discovery direction: up.
+TSPAN14,31,survived,up,0,0,0,Same-tissue replication: 0/2 concordant. Cross-tissue: 0/0 concordant.
+BIN1,32,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+CDKAL1,32,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+NDUFA10,32,eliminated,up,0,2,0,"Significant opposite direction in same-tissue dataset(s): ['GSE5281', 'GSE15222']. Discovery direction: up."
+PCSK5,32,survived,up,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+SLC2A4RG,32,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+AMPH,33,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+DACH2,33,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+DLAT,33,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+LRRC4C,33,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+NDUFV1,33,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+RAB27B,33,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+SLC2A13,33,survived,down,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+CNGB1,34,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+DAGLA,34,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+DLGAP2,34,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+DOC2A,34,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+HOMER1,34,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+THSD7A,34,survived,down,1,0,0,Same-tissue replication: 1/1 concordant. Cross-tissue: 0/0 concordant.
+NCK2,35,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+NDUFA13,35,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+NECAB1,35,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+NPM3,35,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+SLIT2,35,survived,down,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+BCKDK,36,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+COX7C,36,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+HS3ST1,36,eliminated,down,1,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE15222']. Discovery direction: down.
+HS3ST5,36,eliminated,down,1,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE15222']. Discovery direction: down.
+MRPL37,36,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+PDE4D,36,eliminated,down,1,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE15222']. Discovery direction: down.
+TENM2,36,survived,down,1,0,0,Same-tissue replication: 1/1 concordant. Cross-tissue: 0/0 concordant.
+TRAPPC6A,36,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+APH1B,37,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+CYYR1,37,survived,up,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+DAXX,37,eliminated,up,1,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE5281']. Discovery direction: up.
+EGFLAM,37,survived,up,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+FRAT2,37,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+MAP4K4,37,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+TIMP2,37,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+TSHZ2,37,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+ZIC5,37,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+CEACAM19,38,survived,up,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+EED,38,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+ITPK1,38,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+MINDY2,38,survived,up,0,0,0,Same-tissue replication: 0/1 concordant. Cross-tissue: 0/0 concordant.
+NME8,38,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+PAK2,38,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+RPS6KA2,38,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+SLC22A23,38,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+ZNF462,38,survived,up,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+ATP1B1,39,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+CNTNAP2,39,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+GRIA2,39,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+NRXN3,39,survived,down,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+RBFOX1,39,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+SV2B,39,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+ATP6V1A,40,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+ATP6V1B2,40,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+NRN1,40,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+NSF,40,survived,down,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+PAK1,40,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+RPH3A,40,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+RTN1,40,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+SYT1,40,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+TAGLN3,40,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+VGF,40,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+ABCA1,41,survived,up,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+BCL3,41,survived,up,1,0,0,Same-tissue replication: 1/1 concordant. Cross-tissue: 0/0 concordant.
+CNN2,41,survived,up,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+LAPTM5,41,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+LILRB2,41,survived,up,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+PHYHD1,41,survived,up,1,0,0,Same-tissue replication: 1/1 concordant. Cross-tissue: 0/0 concordant.
+PYGL,41,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+TREM2,41,survived,up,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+ADAMTS1,42,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+FOXF1,42,survived,up,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+ITGB2,42,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+KCNN3,42,survived,up,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+LTBP1,42,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+SCARA3,42,survived,up,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+YAP1,42,survived,up,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+AHCYL1,43,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+CD2AP,43,survived,up,0,0,0,Same-tissue replication: 0/2 concordant. Cross-tissue: 0/0 concordant.
+FANCD2,43,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+FBXW10,43,insufficient_data,up,0,0,0,No replication data available for this gene.
+IDUA,43,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+PDE10A,43,survived,up,0,0,0,Same-tissue replication: 0/2 concordant. Cross-tissue: 0/0 concordant.
+SCIMP,43,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+STAU1,43,eliminated,up,1,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE5281']. Discovery direction: up.
+TULP3,43,survived,up,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+HSPA2,44,survived,up,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+NFIC,44,survived,up,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+PRDX6,44,survived,up,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+PREX1,44,survived,up,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+STC1,44,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+TENT5A,44,survived,up,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+FBXL7,45,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+FCER1G,45,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+HLA-DRB1,45,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+LAIR1,45,survived,up,0,0,0,Same-tissue replication: 0/1 concordant. Cross-tissue: 0/0 concordant.
+MLPH,45,survived,up,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+MS4A4A,45,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+MS4A6A,45,survived,up,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+NECTIN2,45,survived,up,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+TBXAS1,45,eliminated,up,1,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE5281']. Discovery direction: up.
+AHNAK,46,survived,up,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+ANTXR1,46,survived,up,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+LAMA4,46,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+MYO1D,46,eliminated,up,0,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE15222']. Discovery direction: up.
+PTPRC,46,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+PWWP2A,46,eliminated,up,0,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE15222']. Discovery direction: up.
+ANAPC1,47,survived,down,0,0,0,Same-tissue replication: 0/1 concordant. Cross-tissue: 0/0 concordant.
+CDH7,47,eliminated,down,1,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE15222']. Discovery direction: down.
+DPP6,47,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+GEMIN7,47,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+LINC03122,47,survived,down,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+MAP2,47,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+RAB3A,47,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+SYT7,47,survived,down,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+TSPOAP1,47,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+WDR88,47,survived,down,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+ATP5PO,48,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+CYB561,48,eliminated,down,1,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE15222']. Discovery direction: down.
+DDB1,48,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+GAPDH,48,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+PCM1,48,eliminated,down,1,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE15222']. Discovery direction: down.
+SORL1,48,survived,down,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+APP,49,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+CHID1,49,eliminated,down,1,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE15222']. Discovery direction: down.
+COX6B1,49,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+MSRA,49,survived,down,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+NTM,49,eliminated,down,1,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE15222']. Discovery direction: down.
+SEC61G,49,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+YWHAQ,49,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+SLC25A11,50,survived,down,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+UNC5CL,50,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+ZNRF4,50,survived,up,0,0,0,Same-tissue replication: 0/2 concordant. Cross-tissue: 0/0 concordant.
+ABCA7,52,eliminated,up,0,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE15222']. Discovery direction: up.
+ABI3,52,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+APOE,52,survived,up,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+CD33,52,eliminated,up,1,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE5281']. Discovery direction: up.
+EGFR,52,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+FBXO32,52,survived,up,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+FLNB,52,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+IQGAP2,52,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+NCKAP5,52,survived,up,0,0,0,Same-tissue replication: 0/1 concordant. Cross-tissue: 0/0 concordant.
+RBCK1,52,eliminated,up,0,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE5281']. Discovery direction: up.
+CABLES1,53,survived,up,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+CELF1,53,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+CHST12,53,survived,up,2,0,0,Same-tissue replication: 2/2 concordant. Cross-tissue: 0/0 concordant.
+DSG2,53,eliminated,up,0,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE15222']. Discovery direction: up.
+FBP1,53,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+FTH1P5,53,survived,up,0,0,0,Same-tissue replication: 0/1 concordant. Cross-tissue: 0/0 concordant.
+GRN,53,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+ROR2,53,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+RORA,53,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+SPI1,53,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+TMEM94,53,survived,up,1,0,0,Same-tissue replication: 1/1 concordant. Cross-tissue: 0/0 concordant.
+TNIP1,53,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+TPCN1,53,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+ARIH2,54,eliminated,down,1,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE15222']. Discovery direction: down.
+CST4,54,survived,down,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+PUM3,54,survived,up,1,0,0,Same-tissue replication: 1/2 concordant. Cross-tissue: 0/0 concordant.
+SLC14A2,54,eliminated,down,0,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE15222']. Discovery direction: down.
+ARID4B,55,eliminated,up,1,1,0,Significant opposite direction in same-tissue dataset(s): ['GSE5281']. Discovery direction: up.
+ARL17B,55,survived,up,0,0,0,Same-tissue replication: 0/1 concordant. Cross-tissue: 0/0 concordant.
+EFNA5,55,survived,up,0,0,0,Same-tissue replication: 0/2 concordant. Cross-tissue: 0/0 concordant.
