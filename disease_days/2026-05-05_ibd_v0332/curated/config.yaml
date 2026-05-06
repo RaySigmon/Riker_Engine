@@ -1,0 +1,78 @@
+# IBD Curated Disease Day — 2026-05-05
+# SOP v1.0.3 compliant, engine v0.3.3.2
+condition: IBD
+seed_genes: ../../../data/seeds/ibd_open_targets_genes.csv
+symbol_column: symbol
+hgnc_path: ../../../data/hgnc/hgnc_complete_set.txt
+output_dir: .
+
+datasets:
+  - id: GSE75214
+    series_matrix: ../../../data/geo/ibd/GSE75214_series_matrix.txt.gz
+    platform: ../../../data/platforms/GPL6244.annot
+    role: discovery
+    tissue: colon
+    phenotype_field: Sample_characteristics_ch1
+    case_values: ["disease: cd", "disease: crohn", "disease: ulcerative colitis"]
+    control_values: ["disease: control"]
+
+  - id: GSE16879
+    series_matrix: ../../../data/geo/ibd/GSE16879_series_matrix.txt.gz
+    platform: ../../../data/platforms/GPL570.annot
+    role: discovery
+    tissue: colon
+    phenotype_field: Sample_characteristics_ch1
+    case_values: ["disease: cd", "disease: uc"]
+    control_values: ["disease: control"]
+
+  - id: GSE59071
+    series_matrix: ../../../data/geo/ibd/GSE59071_series_matrix.txt.gz
+    platform: ../../../data/platforms/GPL6244.annot
+    role: discovery
+    tissue: colon
+    phenotype_field: Sample_characteristics_ch1
+    case_values: ["disease: crohn", "disease: ulcerative colitis"]
+    control_values: ["disease: control"]
+
+  - id: GSE87466
+    series_matrix: ../../../data/geo/ibd/GSE87466_series_matrix.txt.gz
+    platform: ../../../data/platforms/GPL13158.annot
+    role: replication
+    tissue: colon
+    phenotype_field: Sample_characteristics_ch1
+    case_values: ["disease: ulcerative colitis"]
+    control_values: ["disease: normal"]
+
+  - id: GSE38713
+    series_matrix: ../../../data/geo/ibd/GSE38713_series_matrix.txt.gz
+    platform: ../../../data/platforms/GPL570.annot
+    role: replication
+    tissue: colon
+    phenotype_field: Sample_source_name_ch1
+    case_values: ["uc patient"]
+    control_values: ["non-inflammatory control"]
+
+  - id: GSE36807
+    series_matrix: ../../../data/geo/ibd/GSE36807_series_matrix.txt.gz
+    platform: ../../../data/platforms/GPL570.annot
+    role: replication
+    tissue: colon
+    phenotype_field: Sample_characteristics_ch1
+    case_values: ["diagnosis: crohn", "diagnosis: ulcerative colitis"]
+    control_values: ["diagnosis: healthy control"]
+
+phase1:
+  p_threshold: 0.05
+  min_datasets: 2
+
+phase3:
+  n_neighbors: [10, 15, 30]
+  seeds: [42, 123, 456, 789, 1024]
+  min_cluster_size: 5
+  min_samples: 3
+
+phase4:
+  n_permutations: 10000
+  seed: 42
+
+random_seed: 42

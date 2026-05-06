@@ -1,0 +1,1 @@
+riker run disease_days/2026-05-05_ibd_v0332/curated/config.yaml 2>&1 | tee disease_days/2026-05-05_ibd_v0332/curated/run.log
