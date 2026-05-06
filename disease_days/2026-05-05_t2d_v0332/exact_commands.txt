@@ -1,0 +1,2 @@
+riker run disease_days/2026-05-05_t2d_v0332/curated/config.yaml 2>&1 | tee disease_days/2026-05-05_t2d_v0332/curated/run.log
+riker run disease_days/2026-05-05_t2d_v0332/blind_pc/config.yaml 2>&1 | tee disease_days/2026-05-05_t2d_v0332/blind_pc/run.log

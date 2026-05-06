@@ -1,0 +1,9 @@
+gene,cluster_id,status,discovery_direction,n_same_tissue_concordant,n_same_tissue_discordant,n_cross_tissue_concordant,reason
+ABCC8,0,survived,down,0,0,0,Same-tissue replication: 0/1 concordant. Cross-tissue: 0/0 concordant.
+CACNA1D,0,survived,down,0,0,0,Same-tissue replication: 0/1 concordant. Cross-tissue: 0/0 concordant.
+CASR,0,survived,down,0,0,0,Same-tissue replication: 0/1 concordant. Cross-tissue: 0/0 concordant.
+LRFN2,0,survived,down,0,0,0,Same-tissue replication: 0/1 concordant. Cross-tissue: 0/0 concordant.
+OTULINL,0,survived,down,0,0,0,Same-tissue replication: 0/1 concordant. Cross-tissue: 0/0 concordant.
+RASGRP1,0,survived,down,0,0,0,Same-tissue replication: 0/1 concordant. Cross-tissue: 0/0 concordant.
+RNF6,0,survived,down,0,0,0,Same-tissue replication: 0/1 concordant. Cross-tissue: 0/0 concordant.
+SLC2A2,0,survived,down,1,0,0,Same-tissue replication: 1/1 concordant. Cross-tissue: 0/0 concordant.

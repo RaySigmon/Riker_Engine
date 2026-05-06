@@ -1,0 +1,60 @@
+# T2D Curated Disease Day — 2026-05-05
+# SOP v1.0.3 compliant, engine v0.3.3.2
+condition: T2D
+seed_genes: ../../../data/seeds/t2d_open_targets_genes.csv
+symbol_column: symbol
+hgnc_path: ../../../data/hgnc/hgnc_complete_set.txt
+output_dir: .
+
+datasets:
+  - id: GSE41762
+    series_matrix: ../../../data/geo/t2d/GSE41762_series_matrix.txt.gz
+    platform: ../../../data/platforms/GPL6244.annot
+    role: discovery
+    tissue: islet
+    phenotype_field: Sample_characteristics_ch1
+    case_values: ["status: diabetic donor"]
+    control_values: ["status: non-diabetic donor"]
+
+  - id: GSE25724
+    series_matrix: ../../../data/geo/t2d/GSE25724_series_matrix.txt.gz
+    platform: ../../../data/platforms/GPL96.annot
+    role: discovery
+    tissue: islet
+    phenotype_field: Sample_characteristics_ch1
+    case_values: ["disease state: type 2 diabetes"]
+    control_values: ["disease state: non-diabetic"]
+
+  - id: GSE20966
+    series_matrix: ../../../data/geo/t2d/GSE20966_series_matrix.txt.gz
+    platform: ../../../data/platforms/GPL1352.annot
+    role: discovery
+    tissue: islet
+    phenotype_field: Sample_characteristics_ch1
+    case_values: ["disease: type 2 diabetes"]
+    control_values: ["disease: non-diabetic control"]
+
+  - id: GSE86468
+    series_matrix: ../../../data/geo/t2d/GSE86468_reconstructed_series_matrix.txt.gz
+    platform: ../../../data/mappings/ensembl_to_symbol.txt
+    role: replication
+    tissue: islet
+    phenotype_field: Sample_characteristics_ch1
+    case_values: ["disease: type 2 diabetic"]
+    control_values: ["disease: non-diabetic"]
+
+phase1:
+  p_threshold: 0.05
+  min_datasets: 2
+
+phase3:
+  n_neighbors: [10, 15, 30]
+  seeds: [42, 123, 456, 789, 1024]
+  min_cluster_size: 5
+  min_samples: 3
+
+phase4:
+  n_permutations: 10000
+  seed: 42
+
+random_seed: 42
