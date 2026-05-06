@@ -66,8 +66,26 @@ identified the pathological hallmark of T2D from raw expression data across
 This is the engine's strongest blind-mode novel rediscovery: a canonical
 disease gene found without prior hypothesis.
 
-### Tier 3 — Stability profile: PENDING
-Queued to run after BrCa Tier 3 completes (BrCa stability currently running).
+### Tier 3 — 50-run stability profile
+- Wall clock: 14,069 sec (3.9 hours)
+- Runs completed: 50/50 (0 failures)
+- Total unique genes seen: 205
+- Iron-clad (>=90%): 138
+- Borderline (50-89%): 30
+- Stochastic (<50%): 37
+- Iron-clad fraction: 67.3%
+- Pairwise Jaccard median: 0.8514
+- Core gene counts: min=156, max=179, mean=166.0
+
+**IAPP stability: 49/50 runs (98%) — iron-clad.** The engine's headline
+T2D blind rediscovery is rock-solid reproducible.
+
+**Note on lower iron-clad fraction:** T2D's 67.3% iron-clad (vs 86-94% for
+other diseases) reflects the weak underlying signal (8% Phase 1 yield, only
+1,545 study genes). With fewer genes passing Phase 1, the consensus clustering
+has less material to work with and more stochastic variance per run. This is
+the expected behavior for the engine's weakest-signal disease — the method
+is honest about where reproducibility degrades.
 
 ---
 
