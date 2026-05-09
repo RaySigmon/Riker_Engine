@@ -96,6 +96,14 @@ The curated result (301/288/284) is the publishable IBD finding. The 3 significa
 - `stability_50run/profiler.log` — profiler execution log
 - `DISEASE_DAY_MANIFEST.md` — this file
 
+## Provenance note — Tier 3 engine_commit field
+
+The `stability_summary.json` records `engine_commit: fab1375` (HEAD at summary write time). The engine code that executed all 50 stability runs is identical to commit `a397083` (the blind-tier run commit) — both are v0.3.3.2 with no engine code modifications between them. Only data files (T2D Tier 3 results) were added between these commits. Verify with: `git diff a397083..fab1375 -- riker/` (empty diff).
+
+This cosmetic mismatch arises because the stability profiler records HEAD at write time, not at run start. Tracked as a v0.4.0 improvement.
+
+---
+
 Per-run outputs (`runs/run_001/` through `runs/run_050/`) are not committed. They are regenerable from the committed config and master seed using:
 ```bash
 python3 scripts/stability_profiling.py disease_days/2026-05-05_ibd_v0332/blind_pc/config.yaml -n 50 --output-dir disease_days/2026-05-05_ibd_v0332/stability_50run
