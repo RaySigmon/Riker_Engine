@@ -240,8 +240,8 @@ def build_additional_file_2():
     ).runs[0].bold = True
 
     doc.add_paragraph(
-        'Meta-analysis was computed using DerSimonian-Laird random-effects estimation (REML fallback '
-        'when k \u2265 3) for genes surviving Phase 5 replication. Genes eliminated at Phase 5 due to '
+        'Meta-analysis was computed using REML (Restricted Maximum Likelihood) random-effects estimation (DerSimonian-Laird fallback '
+        'when REML fails to converge or k < 3) for genes surviving Phase 5 replication. Genes eliminated at Phase 5 due to '
         'significant opposite-direction expression in blood replication cohorts are noted with the '
         'eliminating cohort. This brain-blood directional divergence is consistent with expected '
         'tissue-specific expression for brain mitochondrial genes. RE = random-effects pooled estimate '

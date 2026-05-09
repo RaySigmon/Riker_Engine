@@ -2,7 +2,7 @@
 
 ## Inverse-variance weighted random-effects meta-analysis across three brain discovery cohorts for 41 mitochondrial and energy metabolism cluster genes.
 
-Meta-analysis was computed using DerSimonian-Laird random-effects estimation (REML fallback when k ≥ 3) for genes surviving Phase 5 replication. Genes eliminated at Phase 5 due to significant opposite-direction expression in blood replication cohorts are noted with the eliminating cohort. This brain-blood directional divergence is consistent with expected tissue-specific expression for brain mitochondrial genes. RE = random-effects pooled estimate (log2FC); SE = standard error; 95% CI = RE ± 1.96 × SE; I² = between-study heterogeneity. Mean log2FC = unweighted cross-dataset average from Phase 1, reported for all genes.
+Meta-analysis was computed using REML (Restricted Maximum Likelihood) random-effects estimation (DerSimonian-Laird fallback when REML fails to converge or k < 3) for genes surviving Phase 5 replication. Genes eliminated at Phase 5 due to significant opposite-direction expression in blood replication cohorts are noted with the eliminating cohort. This brain-blood directional divergence is consistent with expected tissue-specific expression for brain mitochondrial genes. RE = random-effects pooled estimate (log2FC); SE = standard error; 95% CI = RE ± 1.96 × SE; I² = between-study heterogeneity. Mean log2FC = unweighted cross-dataset average from Phase 1, reported for all genes.
 
 ### 26-gene mitochondrial/OxPhos core
 

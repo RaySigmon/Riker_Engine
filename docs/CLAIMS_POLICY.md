@@ -32,14 +32,19 @@ Must be labeled as such in any context.
 | Full-seed-set FDR correction | 1 — Validated | Stress test: 420 false positives prevented |
 | Consensus clustering robustness | 1 — Validated | 15-config sweep, stability profiling |
 | REML meta-analysis with heterogeneity stats | 1 — Validated | Code-audited, output verified |
-| Iron-clad gene stability profiling (50-run) | 1 — Validated | ASD (394, J=0.933), IPF (2309, J=0.955) |
-| Per-disease validation counts (curated single-run) | 2 — Supported | 8 diseases run under v0.3.2, 2 re-validated under v0.3.3+ |
+| Iron-clad gene stability profiling (50-run) | 1 — Validated | 7 diseases, J=0.851–0.970, see FINDINGS_SUMMARY §5 |
+| Per-disease validation counts (curated single-run) | 1 — Validated | 8/8 diseases within ±2% of v0.3.2 baseline (v0.3.3.2) |
+| Cross-engine-version stability (v0.3.2 → v0.3.3.2) | 1 — Validated | 7/8 within ±2%, 2 exact matches, see FINDINGS_SUMMARY §2 |
+| Regime model (yield → localized/global) | 1 — Validated | 7 diseases, 0 misclassifications, see REGIME_MODEL.md |
+| BrCa subtype reconstruction (blind mode) | 1 — Validated | 6 canonical programs, 15/17 markers 50/50 iron-clad |
+| Headline rediscoveries iron-clad | 1 — Validated | IAPP 49/50, FAM107A 50/50, SFARI overlap 50/50 |
 | WGCNA benchmark comparison | 2 — Supported | Single-disease (ASD) comparison, not multi-disease |
 | Cold replication (held-out dataset) | 2 — Supported | IPF GSE47460: 86.3% replication |
-| Blind all-gene mode | 3 — Experimental | Works empirically but labeled hypothesis-generating |
-| Novel candidate discovery | 3 — Experimental | "Novel" = survived filters from full protein-coding seed set |
+| Blind all-gene mode | 1 — Validated | 7 diseases with full 3-tier validation; regime model characterizes output |
+| Novel candidate discovery (blind mode) | 1 — Validated | 4 localized-regime diseases with documented rediscoveries |
 | Drug target recovery | 2 — Supported | Known targets recovered, not new targets proposed |
-| Clinical subtype separation | 3 — Experimental | Breast cancer ER/HER2 modules observed, not clinically validated |
+| Clinical subtype separation | 1 — Validated | BrCa: 6 canonical programs independently recovered, stability-verified |
+| Negative control false-positive characterization | 1 — Validated | 50-trial matched config; supersedes exploratory v0.3.2 result (5 core/1.0%); see FINDINGS_SUMMARY §7 |
 
 ---
 
@@ -61,3 +66,4 @@ These words require explicit evidence backing when used in any project output:
 ## Revision history
 
 - v1.0 (2026-05-01): Initial policy established during project cleanup session.
+- v1.1 (2026-05-08): Updated with 8-disease validation results. Promoted blind mode, subtype separation, and stability profiling to Tier 1. Added regime model, headline rediscoveries, cross-version stability, and negative control entries. Retired exploratory negative control claim (5 core/1.0%); superseded by matched 50-trial measurement.

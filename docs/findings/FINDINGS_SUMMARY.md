@@ -209,7 +209,9 @@ IBD Tier 3 `stability_summary.json` records `engine_commit: fab1375` (HEAD at wr
 
 ## 7. Negative Control
 
-**Status:** Running (50 trials, matched ASD-blind config, 500 random genes per trial from full protein-coding genome, no exclusions).
+**Status:** Complete (50 trials, 2026-05-08). Stability profiling of random input pending.
+
+**Historical context:** An exploratory negative control (v0.3.2, April 2026) using a mismatched config (5 datasets, no phase3/phase4 blocks, SFARI genes excluded) produced 5 core genes / 1 meta-significant. The project's own audit (NEGATIVE_CONTROL_SUMMARY.md) flagged this as "exploratory evidence only" and required a matched-config rerun before publication-grade claims. Today's matched measurement (7 datasets, identical phase3/phase4 to ASD blind, no exclusions) supersedes that result. The discrepancy (5 → 11 mean core) is fully explained by the config differences: more datasets increase the Phase 1 pass rate (7.6% → 9.3%), and the 15-config Phase 3 sweep finds more cluster structure than defaults. The artifact is preserved at `results/negative_control/pipeline_summary.json` for provenance.
 
 **Design:** 50 independent random draws of 500 genes from the 19,296 protein-coding genome, each run through the full pipeline with ASD-blind-matched settings (7 datasets, identical phase3/phase4 config). Tests the engine's false positive rate under the null hypothesis of no coordinated disease signal.
 
