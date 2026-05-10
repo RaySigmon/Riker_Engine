@@ -1,0 +1,33 @@
+Riker Engine — Stability Profiling Report
+============================================================
+
+Config: /home/kai001/riker-engine/results/negative_control_matched/stability_test/config.yaml
+Runs attempted: 50
+Runs successful: 50
+Total time: 5664.9s (94.4m)
+
+Core gene counts across runs:
+  Min: 11
+  Max: 13
+  Mean: 13.0
+  Variance: ±1.0 genes (7.7%)
+
+Unique genes seen: 13
+  Iron-clad (>=90% of runs): 13
+  Borderline (50-89%):       0
+  Stochastic (<50%):         0
+
+Iron-clad genes (13):
+  CNN3: 50/50 (100%)
+  HMG20A: 50/50 (100%)
+  JUN: 50/50 (100%)
+  KRT222: 50/50 (100%)
+  NBPF9: 50/50 (100%)
+  NDRG4: 50/50 (100%)
+  NMNAT2: 50/50 (100%)
+  PARP14: 50/50 (100%)
+  PSMG3: 50/50 (100%)
+  RETREG2: 50/50 (100%)
+  SPOCK2: 50/50 (100%)
+  TTC1: 49/50 (98%)
+  UNC80: 49/50 (98%)
