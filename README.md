@@ -82,7 +82,7 @@ The engine independently recovered established IPF biology (MMP1/7/10/13, COL1A1
 
 ### Signal Strength Calibration
 
-The pipeline is calibrated — not biased toward any disease. Weak transcriptomic signals (ASD 11%, T2D 13%) produce small, precise modules (8–35 core genes). Moderate signals (breast cancer 35%, IPF 68%) produce medium-sized sets (152–190 genes). Strong signals (IBD 54%, AD 55%) produce comprehensive modules (304–394 genes). All thresholds are identical across diseases.
+The pipeline is calibrated — not biased toward any disease. Under v0.3.3.2, weak transcriptomic signals (ASD 9%, T2D 8%) produce small, precise modules (8–29 core genes). Moderate signals (BrCa 28%, IPF 23%) produce medium-sized sets (153–186 genes). Strong signals (IBD 44%, CRC 43%) produce comprehensive modules (262–301 genes). All thresholds are identical across diseases. A sharp regime transition between ~28% and ~41% Phase 1 yield separates localized discovery (significant gene clusters) from global characterization (zero significant clusters); see `docs/findings/REGIME_MODEL.md`.
 
 ### Highlights
 
@@ -90,7 +90,7 @@ The pipeline is calibrated — not biased toward any disease. Weak transcriptomi
 - **IPF cold replication**: 86.3% of core genes replicated in a held-out dataset the engine never saw. 52 genes survive every leave-one-out configuration AND cold replication. FAM107A identified as a novel candidate with zero prior IPF literature.
 - **Breast cancer**: The engine independently separated ER biology (ESR1), HER2 biology (ERBB2), and proliferation biology (TOP2A/AURKA) into distinct modules — reconstructing the current clinical subtype classification from raw expression data without being told the subtypes exist.
 - **Alzheimer's**: Found TREM2, APOE, APP, MAPT, CLU, BIN1, CD33. PSEN1 correctly absent (genetic variant, not expression change).
-- **Negative control**: 500 random protein-coding genes produced 5 core genes (1.0% yield), 4 replication survivors (0.8%), and 1 random-effects meta-significant gene (0.2%), indicating low but nonzero false-positive yield. See `results/negative_control/NEGATIVE_CONTROL_SUMMARY.md` for full details and limitations.
+- **Negative control** (matched config, v0.3.3.2): 50 independent trials of 500 random protein-coding genes through the ASD-blind-matched pipeline (7 datasets, identical phase3/phase4 settings) produced a median of 7 meta-significant genes per trial (IQR 4–8). Per-gene attrition rates match real disease input (~9.3% Phase 1 pass rate), confirming the engine's filters are data-coherent. Discrimination operates at the cluster level: random input produces 0–1 significant clusters vs 15–35 for real disease. Stability profiling of random input identified 13 iron-clad genes, of which 8 are brain-enriched genes with real differential expression in ASD data and 4 are known technical artifacts (CNV regions, probe issues). See `docs/findings/FINDINGS_SUMMARY.md` §7 for full analysis. *Note: supersedes the earlier exploratory negative control (v0.3.2, mismatched config, 5 core / 1.0%) which used different datasets and default phase3/phase4 settings.*
 
 ## WGCNA Benchmark
 
