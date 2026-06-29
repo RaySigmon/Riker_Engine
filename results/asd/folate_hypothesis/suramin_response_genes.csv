@@ -1,0 +1,122 @@
+gene,CDR_domain,metabolite_or_pathway,role,direction_predicted_in_ASD
+ADA,purines,adenosine/inosine,adenosine deaminase — converts adenosine to inosine,up
+ADA2,purines,adenosine,adenosine deaminase 2,up
+ADSL,purines,de novo purine synthesis,adenylosuccinate lyase,down
+ADSS1,purines,de novo purine synthesis,adenylosuccinate synthase 1,down
+ADSS2,purines,de novo purine synthesis,adenylosuccinate synthase 2,down
+AK1,purines,AMP/ADP interconversion,adenylate kinase 1,variable
+AK2,purines,AMP/ADP interconversion,adenylate kinase 2 (mitochondrial),variable
+AMPD1,purines,AMP deamination,AMP deaminase 1,up
+AMPD2,purines,AMP deamination,AMP deaminase 2,up
+APRT,purines,purine salvage,adenine phosphoribosyltransferase,up
+ATIC,purines,de novo purine synthesis,AICAR transformylase (folate-dependent),down
+ENTPD1,purines,extracellular ATP/ADP hydrolysis,CD39 — ectonucleotidase,variable
+ENTPD2,purines,extracellular ATP/ADP hydrolysis,ectonucleotidase,variable
+ENTPD5,purines,nucleotide hydrolysis,ectonucleotidase (ER),variable
+ENTPD6,purines,nucleotide hydrolysis (GDP/UTP),ectonucleotidase,variable
+GMPR,purines,GMP salvage/recycling,GMP reductase,up
+GMPR2,purines,GMP salvage/recycling,GMP reductase 2,up
+GMPS,purines,GMP synthesis,GMP synthetase,down
+GART,purines,de novo purine synthesis (folate-dependent),phosphoribosylglycinamide formyltransferase,down
+HPRT1,purines,purine salvage,hypoxanthine-guanine phosphoribosyltransferase,up
+IMPDH1,purines,GMP synthesis,IMP dehydrogenase 1,variable
+IMPDH2,purines,GMP synthesis,IMP dehydrogenase 2,variable
+NME1,purines,nucleotide kinase,nucleoside diphosphate kinase,variable
+NME2,purines,nucleotide kinase,nucleoside diphosphate kinase,variable
+NME4,purines,nucleotide kinase (mitochondrial),nucleoside diphosphate kinase,variable
+NT5C2,purines,nucleotide dephosphorylation,5-prime nucleotidase,up
+NT5E,purines,extracellular AMP to adenosine,CD73 — 5-prime ecto-nucleotidase,up
+NT5M,purines,mitochondrial nucleotide metabolism,mitochondrial 5-prime nucleotidase,variable
+PNP,purines,purine degradation (inosine/guanosine),purine nucleoside phosphorylase,up
+PPAT,purines,de novo purine synthesis (first step),PRPP amidotransferase,down
+XDH,purines,purine degradation (xanthine/uric acid),xanthine dehydrogenase/oxidase,up
+DCTD,pyrimidines,dCMP deamination,dCMP deaminase,variable
+DPYD,pyrimidines,pyrimidine degradation,dihydropyrimidine dehydrogenase,up
+DPYS,pyrimidines,pyrimidine degradation,dihydropyrimidinase,variable
+DHODH,pyrimidines,de novo pyrimidine synthesis,dihydroorotate dehydrogenase (mito),down
+TYMS,pyrimidines,thymidylate synthesis (folate-dependent),thymidylate synthase,down
+UMPS,pyrimidines,UMP synthesis,UMP synthase,down
+UCK2,pyrimidines,pyrimidine salvage,uridine-cytidine kinase 2,up
+UPP1,pyrimidines,uridine phosphorolysis,uridine phosphorylase,up
+CERS1,sphingolipids,ceramide synthesis (C18),ceramide synthase 1 (brain-enriched),up
+CERS2,sphingolipids,ceramide synthesis (C22-C24),ceramide synthase 2,up
+CERS4,sphingolipids,ceramide synthesis (C18-C20),ceramide synthase 4,up
+CERS5,sphingolipids,ceramide synthesis (C16),ceramide synthase 5,up
+CERS6,sphingolipids,ceramide synthesis (C14-C16),ceramide synthase 6,up
+SMPD1,sphingolipids,sphingomyelin → ceramide,acid sphingomyelinase,up
+SMPD2,sphingolipids,sphingomyelin → ceramide,neutral sphingomyelinase,up
+SMPD3,sphingolipids,sphingomyelin → ceramide,neutral sphingomyelinase 2,up
+SPHK1,sphingolipids,sphingosine → S1P,sphingosine kinase 1,variable
+SPHK2,sphingolipids,sphingosine → S1P,sphingosine kinase 2,variable
+SGPL1,sphingolipids,S1P degradation,sphingosine-1-phosphate lyase,down
+ASAH1,sphingolipids,ceramide → sphingosine,acid ceramidase,variable
+ASAH2,sphingolipids,ceramide → sphingosine,neutral ceramidase,variable
+DEGS1,sphingolipids,dihydroceramide → ceramide,dihydroceramide desaturase,up
+UGCG,sphingolipids,glucosylceramide synthesis,UDP-glucose ceramide glucosyltransferase,up
+GALC,sphingolipids,galactocerebroside degradation,galactosylceramidase,variable
+GBA1,sphingolipids,glucosylceramide degradation,glucocerebrosidase,variable
+LPCAT1,phospholipids,PC remodeling (Lands cycle),lysophosphatidylcholine acyltransferase 1,variable
+LPCAT2,phospholipids,PC remodeling,lysophosphatidylcholine acyltransferase 2,variable
+LPCAT3,phospholipids,PC remodeling,lysophosphatidylcholine acyltransferase 3,variable
+LPCAT4,phospholipids,PC/PE remodeling,lysophosphatidylcholine acyltransferase 4,variable
+PLA2G4A,phospholipids,phospholipid → arachidonate release,cytosolic phospholipase A2,up
+PLA2G6,phospholipids,phospholipid remodeling,calcium-independent PLA2,variable
+PLA2G7,phospholipids,PAF hydrolysis,lipoprotein-associated PLA2,variable
+PLA2G15,phospholipids,phospholipid degradation,lysosomal PLA2,variable
+AGPAT1,phospholipids,lysophosphatidic acid acylation,acylglycerophosphate acyltransferase 1,variable
+AGPAT2,phospholipids,lysophosphatidic acid acylation,acylglycerophosphate acyltransferase 2,variable
+LPIN1,phospholipids,phosphatidic acid → diacylglycerol,lipin 1,variable
+CHKA,phospholipids,phosphatidylcholine synthesis,choline kinase alpha,variable
+CHKB,phospholipids,phosphatidylcholine synthesis,choline kinase beta,variable
+PCYT1A,phospholipids,CDP-choline synthesis,phosphocholine cytidylyltransferase,variable
+PEMT,phospholipids,PC synthesis via methylation (SAM-dependent),phosphatidylethanolamine N-methyltransferase,down
+FAR1,phospholipids,plasmalogen synthesis,fatty acyl-CoA reductase 1,variable
+AGPS,phospholipids,plasmalogen synthesis,alkylglycerone phosphate synthase,variable
+GNPAT,phospholipids,plasmalogen synthesis (peroxisomal),glyceronephosphate O-acyltransferase,variable
+ST3GAL5,gangliosides,GM3 synthesis,ST3 beta-galactoside alpha-2,3-sialyltransferase 5,up
+ST8SIA1,gangliosides,GD3 synthesis,ST8 alpha-N-acetyl-neuraminide alpha-2,8-sialyltransferase 1,up
+B4GALNT1,gangliosides,GM2/GD2 synthesis,beta-1,4-N-acetylgalactosaminyltransferase 1,up
+B3GALT4,gangliosides,ganglioside elongation,beta-1,3-galactosyltransferase 4,variable
+HEXA,gangliosides,GM2 degradation,hexosaminidase A,variable
+HEXB,gangliosides,GM2 degradation,hexosaminidase B,variable
+NEU1,gangliosides,sialic acid removal,neuraminidase 1,variable
+NEU3,gangliosides,ganglioside degradation,neuraminidase 3,variable
+PTGS1,eicosanoids,prostaglandin synthesis (constitutive),cyclooxygenase 1 (COX-1),variable
+PTGS2,eicosanoids,prostaglandin synthesis (inducible),cyclooxygenase 2 (COX-2),up
+ALOX5,eicosanoids,leukotriene synthesis,5-lipoxygenase,up
+ALOX12,eicosanoids,12-HETE synthesis,12-lipoxygenase,variable
+ALOX15,eicosanoids,lipoxin synthesis/15-HETE,15-lipoxygenase,variable
+ALOX15B,eicosanoids,15-HETE synthesis,15-lipoxygenase type 2,variable
+TBXAS1,eicosanoids,thromboxane synthesis,thromboxane A synthase,variable
+PTGIS,eicosanoids,prostacyclin synthesis,prostacyclin synthase,variable
+PTGES,eicosanoids,PGE2 synthesis,prostaglandin E synthase (microsomal),up
+PTGES2,eicosanoids,PGE2 synthesis,prostaglandin E synthase 2,variable
+HPGDS,eicosanoids,PGD2 synthesis,hematopoietic prostaglandin D synthase,variable
+PTGDS,eicosanoids,PGD2 synthesis,prostaglandin D2 synthase (brain),variable
+IDO1,microbiome_related,tryptophan → kynurenine,indoleamine 2,3-dioxygenase 1,up
+IDO2,microbiome_related,tryptophan → kynurenine,indoleamine 2,3-dioxygenase 2,variable
+TDO2,microbiome_related,tryptophan → kynurenine (hepatic),tryptophan 2,3-dioxygenase,variable
+KMO,microbiome_related,kynurenine → 3-hydroxykynurenine,kynurenine 3-monooxygenase,variable
+KYNU,microbiome_related,kynurenine pathway,kynureninase,variable
+KYAT1,microbiome_related,kynurenine → kynurenic acid,kynurenine aminotransferase 1,variable
+KYAT3,microbiome_related,kynurenine → kynurenic acid,kynurenine aminotransferase 3,variable
+SULT1A1,microbiome_related,p-cresol sulfation,sulfotransferase 1A1,variable
+SULT1B1,microbiome_related,xenobiotic sulfation,sulfotransferase 1B1,variable
+SLC6A19,microbiome_related,tryptophan transport,neutral amino acid transporter,variable
+GSS,redox_one_carbon,glutathione synthesis,glutathione synthetase,down
+GCLC,redox_one_carbon,glutathione synthesis (rate-limiting),glutamate-cysteine ligase catalytic,down
+GCLM,redox_one_carbon,glutathione synthesis (modifier),glutamate-cysteine ligase modifier,down
+GSR,redox_one_carbon,GSSG → GSH recycling,glutathione reductase,variable
+GPX1,redox_one_carbon,GSH-dependent peroxide reduction,glutathione peroxidase 1,variable
+GPX4,redox_one_carbon,lipid peroxide reduction,glutathione peroxidase 4,variable
+MAT1A,redox_one_carbon,methionine → SAM (liver),methionine adenosyltransferase 1A,variable
+MAT2A,redox_one_carbon,methionine → SAM (extrahepatic),methionine adenosyltransferase 2A,variable
+MAT2B,redox_one_carbon,MAT2A regulation → SAM synthesis,methionine adenosyltransferase 2B regulatory,up
+AHCY,redox_one_carbon,SAH → homocysteine,S-adenosylhomocysteine hydrolase,variable
+MTR,redox_one_carbon,homocysteine → methionine (B12-dependent),methionine synthase,variable
+MTRR,redox_one_carbon,MTR regeneration,methionine synthase reductase,variable
+CBS,redox_one_carbon,homocysteine → cystathionine (transsulfuration),cystathionine beta-synthase,variable
+CTH,redox_one_carbon,cystathionine → cysteine,cystathionine gamma-lyase,variable
+MTHFR,redox_one_carbon,5,10-mTHF → 5-MTHF,methylenetetrahydrofolate reductase,variable
+SHMT1,redox_one_carbon,serine → glycine + 5,10-mTHF,serine hydroxymethyltransferase 1,variable
+SHMT2,redox_one_carbon,serine → glycine + 5,10-mTHF (mito),serine hydroxymethyltransferase 2,variable

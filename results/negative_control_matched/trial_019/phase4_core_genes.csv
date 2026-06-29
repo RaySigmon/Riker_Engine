@@ -1,0 +1,5 @@
+gene,cluster_id,max_level_survived,mean_log2fc_sig,direction
+DOK1,1,3,0.509805998347024,up
+NPAS3,1,2,0.3087010008871882,up
+SBF2,1,4,0.22849746929813364,up
+SLC16A3,1,4,1.0205165548423332,up

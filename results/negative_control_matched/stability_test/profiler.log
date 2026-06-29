@@ -1,0 +1,325 @@
+Stability Profiling: negative_control_stability
+Config: /home/kai001/riker-engine/results/negative_control_matched/stability_test/config.yaml
+Runs: 50
+Output: /home/kai001/riker-engine/results/negative_control_matched/stability_test/stability_50run
+
+============================================================
+RUN 1/50
+Output: /home/kai001/riker-engine/results/negative_control_matched/stability_test/stability_50run/runs/run_001
+============================================================
+  Run 1: 13 core genes in 99.4s
+
+============================================================
+RUN 2/50
+Output: /home/kai001/riker-engine/results/negative_control_matched/stability_test/stability_50run/runs/run_002
+============================================================
+  Run 2: 13 core genes in 95.4s
+
+============================================================
+RUN 3/50
+Output: /home/kai001/riker-engine/results/negative_control_matched/stability_test/stability_50run/runs/run_003
+============================================================
+  Run 3: 13 core genes in 105.0s
+
+============================================================
+RUN 4/50
+Output: /home/kai001/riker-engine/results/negative_control_matched/stability_test/stability_50run/runs/run_004
+============================================================
+  Run 4: 13 core genes in 112.5s
+
+============================================================
+RUN 5/50
+Output: /home/kai001/riker-engine/results/negative_control_matched/stability_test/stability_50run/runs/run_005
+============================================================
+  Run 5: 13 core genes in 114.5s
+
+============================================================
+RUN 6/50
+Output: /home/kai001/riker-engine/results/negative_control_matched/stability_test/stability_50run/runs/run_006
+============================================================
+  Run 6: 13 core genes in 113.8s
+
+============================================================
+RUN 7/50
+Output: /home/kai001/riker-engine/results/negative_control_matched/stability_test/stability_50run/runs/run_007
+============================================================
+  Run 7: 13 core genes in 114.1s
+
+============================================================
+RUN 8/50
+Output: /home/kai001/riker-engine/results/negative_control_matched/stability_test/stability_50run/runs/run_008
+============================================================
+  Run 8: 13 core genes in 112.9s
+
+============================================================
+RUN 9/50
+Output: /home/kai001/riker-engine/results/negative_control_matched/stability_test/stability_50run/runs/run_009
+============================================================
+  Run 9: 13 core genes in 114.9s
+
+============================================================
+RUN 10/50
+Output: /home/kai001/riker-engine/results/negative_control_matched/stability_test/stability_50run/runs/run_010
+============================================================
+  Run 10: 13 core genes in 113.4s
+
+============================================================
+RUN 11/50
+Output: /home/kai001/riker-engine/results/negative_control_matched/stability_test/stability_50run/runs/run_011
+============================================================
+  Run 11: 13 core genes in 114.3s
+
+============================================================
+RUN 12/50
+Output: /home/kai001/riker-engine/results/negative_control_matched/stability_test/stability_50run/runs/run_012
+============================================================
+  Run 12: 11 core genes in 116.1s
+
+============================================================
+RUN 13/50
+Output: /home/kai001/riker-engine/results/negative_control_matched/stability_test/stability_50run/runs/run_013
+============================================================
+  Run 13: 13 core genes in 115.3s
+
+============================================================
+RUN 14/50
+Output: /home/kai001/riker-engine/results/negative_control_matched/stability_test/stability_50run/runs/run_014
+============================================================
+  Run 14: 13 core genes in 115.0s
+
+============================================================
+RUN 15/50
+Output: /home/kai001/riker-engine/results/negative_control_matched/stability_test/stability_50run/runs/run_015
+============================================================
+  Run 15: 13 core genes in 114.7s
+
+============================================================
+RUN 16/50
+Output: /home/kai001/riker-engine/results/negative_control_matched/stability_test/stability_50run/runs/run_016
+============================================================
+  Run 16: 13 core genes in 112.9s
+
+============================================================
+RUN 17/50
+Output: /home/kai001/riker-engine/results/negative_control_matched/stability_test/stability_50run/runs/run_017
+============================================================
+  Run 17: 13 core genes in 113.4s
+
+============================================================
+RUN 18/50
+Output: /home/kai001/riker-engine/results/negative_control_matched/stability_test/stability_50run/runs/run_018
+============================================================
+  Run 18: 13 core genes in 115.2s
+
+============================================================
+RUN 19/50
+Output: /home/kai001/riker-engine/results/negative_control_matched/stability_test/stability_50run/runs/run_019
+============================================================
+  Run 19: 13 core genes in 115.5s
+
+============================================================
+RUN 20/50
+Output: /home/kai001/riker-engine/results/negative_control_matched/stability_test/stability_50run/runs/run_020
+============================================================
+  Run 20: 13 core genes in 109.3s
+
+============================================================
+RUN 21/50
+Output: /home/kai001/riker-engine/results/negative_control_matched/stability_test/stability_50run/runs/run_021
+============================================================
+  Run 21: 13 core genes in 111.4s
+
+============================================================
+RUN 22/50
+Output: /home/kai001/riker-engine/results/negative_control_matched/stability_test/stability_50run/runs/run_022
+============================================================
+  Run 22: 13 core genes in 112.3s
+
+============================================================
+RUN 23/50
+Output: /home/kai001/riker-engine/results/negative_control_matched/stability_test/stability_50run/runs/run_023
+============================================================
+  Run 23: 13 core genes in 110.9s
+
+============================================================
+RUN 24/50
+Output: /home/kai001/riker-engine/results/negative_control_matched/stability_test/stability_50run/runs/run_024
+============================================================
+  Run 24: 13 core genes in 113.1s
+
+============================================================
+RUN 25/50
+Output: /home/kai001/riker-engine/results/negative_control_matched/stability_test/stability_50run/runs/run_025
+============================================================
+  Run 25: 13 core genes in 111.7s
+
+============================================================
+RUN 26/50
+Output: /home/kai001/riker-engine/results/negative_control_matched/stability_test/stability_50run/runs/run_026
+============================================================
+  Run 26: 13 core genes in 114.8s
+
+============================================================
+RUN 27/50
+Output: /home/kai001/riker-engine/results/negative_control_matched/stability_test/stability_50run/runs/run_027
+============================================================
+  Run 27: 13 core genes in 114.5s
+
+============================================================
+RUN 28/50
+Output: /home/kai001/riker-engine/results/negative_control_matched/stability_test/stability_50run/runs/run_028
+============================================================
+  Run 28: 13 core genes in 114.9s
+
+============================================================
+RUN 29/50
+Output: /home/kai001/riker-engine/results/negative_control_matched/stability_test/stability_50run/runs/run_029
+============================================================
+  Run 29: 13 core genes in 117.0s
+
+============================================================
+RUN 30/50
+Output: /home/kai001/riker-engine/results/negative_control_matched/stability_test/stability_50run/runs/run_030
+============================================================
+  Run 30: 13 core genes in 115.0s
+
+============================================================
+RUN 31/50
+Output: /home/kai001/riker-engine/results/negative_control_matched/stability_test/stability_50run/runs/run_031
+============================================================
+  Run 31: 13 core genes in 111.3s
+
+============================================================
+RUN 32/50
+Output: /home/kai001/riker-engine/results/negative_control_matched/stability_test/stability_50run/runs/run_032
+============================================================
+  Run 32: 13 core genes in 111.8s
+
+============================================================
+RUN 33/50
+Output: /home/kai001/riker-engine/results/negative_control_matched/stability_test/stability_50run/runs/run_033
+============================================================
+  Run 33: 13 core genes in 112.9s
+
+============================================================
+RUN 34/50
+Output: /home/kai001/riker-engine/results/negative_control_matched/stability_test/stability_50run/runs/run_034
+============================================================
+  Run 34: 13 core genes in 117.7s
+
+============================================================
+RUN 35/50
+Output: /home/kai001/riker-engine/results/negative_control_matched/stability_test/stability_50run/runs/run_035
+============================================================
+  Run 35: 13 core genes in 115.5s
+
+============================================================
+RUN 36/50
+Output: /home/kai001/riker-engine/results/negative_control_matched/stability_test/stability_50run/runs/run_036
+============================================================
+  Run 36: 13 core genes in 114.1s
+
+============================================================
+RUN 37/50
+Output: /home/kai001/riker-engine/results/negative_control_matched/stability_test/stability_50run/runs/run_037
+============================================================
+  Run 37: 13 core genes in 115.4s
+
+============================================================
+RUN 38/50
+Output: /home/kai001/riker-engine/results/negative_control_matched/stability_test/stability_50run/runs/run_038
+============================================================
+  Run 38: 13 core genes in 116.4s
+
+============================================================
+RUN 39/50
+Output: /home/kai001/riker-engine/results/negative_control_matched/stability_test/stability_50run/runs/run_039
+============================================================
+  Run 39: 13 core genes in 114.4s
+
+============================================================
+RUN 40/50
+Output: /home/kai001/riker-engine/results/negative_control_matched/stability_test/stability_50run/runs/run_040
+============================================================
+  Run 40: 13 core genes in 111.6s
+
+============================================================
+RUN 41/50
+Output: /home/kai001/riker-engine/results/negative_control_matched/stability_test/stability_50run/runs/run_041
+============================================================
+  Run 41: 13 core genes in 113.0s
+
+============================================================
+RUN 42/50
+Output: /home/kai001/riker-engine/results/negative_control_matched/stability_test/stability_50run/runs/run_042
+============================================================
+  Run 42: 13 core genes in 111.4s
+
+============================================================
+RUN 43/50
+Output: /home/kai001/riker-engine/results/negative_control_matched/stability_test/stability_50run/runs/run_043
+============================================================
+  Run 43: 13 core genes in 111.1s
+
+============================================================
+RUN 44/50
+Output: /home/kai001/riker-engine/results/negative_control_matched/stability_test/stability_50run/runs/run_044
+============================================================
+  Run 44: 13 core genes in 115.8s
+
+============================================================
+RUN 45/50
+Output: /home/kai001/riker-engine/results/negative_control_matched/stability_test/stability_50run/runs/run_045
+============================================================
+  Run 45: 13 core genes in 116.6s
+
+============================================================
+RUN 46/50
+Output: /home/kai001/riker-engine/results/negative_control_matched/stability_test/stability_50run/runs/run_046
+============================================================
+  Run 46: 13 core genes in 115.7s
+
+============================================================
+RUN 47/50
+Output: /home/kai001/riker-engine/results/negative_control_matched/stability_test/stability_50run/runs/run_047
+============================================================
+  Run 47: 13 core genes in 116.5s
+
+============================================================
+RUN 48/50
+Output: /home/kai001/riker-engine/results/negative_control_matched/stability_test/stability_50run/runs/run_048
+============================================================
+  Run 48: 13 core genes in 115.1s
+
+============================================================
+RUN 49/50
+Output: /home/kai001/riker-engine/results/negative_control_matched/stability_test/stability_50run/runs/run_049
+============================================================
+  Run 49: 13 core genes in 119.6s
+
+============================================================
+RUN 50/50
+Output: /home/kai001/riker-engine/results/negative_control_matched/stability_test/stability_50run/runs/run_050
+============================================================
+  Run 50: 13 core genes in 116.0s
+
+============================================================
+STABILITY PROFILING COMPLETE
+============================================================
+Successful runs: 50/50
+Core genes: 11–13 (mean 13.0)
+Unique genes seen: 13
+  Iron-clad (>=90%): 13
+  Borderline (50-89%): 0
+  Stochastic (<50%): 0
+Pairwise Jaccard: median=1.000 [1.000–1.000]
+
+Results: /home/kai001/riker-engine/results/negative_control_matched/stability_test/stability_50run/
+  stability_scores.csv
+  stability_pairwise_jaccard.csv
+  stability_summary.json
+  run_summary.csv
+  stability_report.txt
+
+Cleaning up individual run outputs...
+Done. Use --keep-runs to preserve individual run outputs.

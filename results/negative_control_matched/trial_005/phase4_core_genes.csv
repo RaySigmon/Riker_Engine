@@ -1,0 +1,5 @@
+gene,cluster_id,max_level_survived,mean_log2fc_sig,direction
+MRPL22,2,4,-0.1943443117888768,down
+PTH2R,2,4,-0.7807750994895828,down
+SNAP25,2,4,-0.45084993522007544,down
+UQCRC2,2,3,-0.39301786787663495,down

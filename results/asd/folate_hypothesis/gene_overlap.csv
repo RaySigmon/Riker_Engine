@@ -1,0 +1,84 @@
+gene,category,in_ironclad,in_any_class,stability_class,appearance_count,appearance_rate,direction,cluster_id,random_effect,random_p,mean_log2fc
+ABCC1,folate-related (broader),False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+ABCC3,folate-related (broader),False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+ABCC5,folate-related (broader),False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+ADAT1,SAM cycle,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+ADORA1,purinergic/CDR,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+ADORA2A,purinergic/CDR,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+ADORA2B,purinergic/CDR,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+ADORA3,purinergic/CDR,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+AHCY,methylation,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+AICDA,folate-related (broader),False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+ALDH1L1,one-carbon core,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+ALDH1L2,one-carbon core,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+AMT,one-carbon core,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+ATIC,folate-related (broader),False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+BHMT,methylation,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+CBS,methylation,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+CTH,methylation,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+DHFR,one-carbon core,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+DHFR2,one-carbon core,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+DLD,folate-related (broader),False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+DNMT1,methylation,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+DNMT3A,methylation,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+DNMT3B,methylation,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+ENTPD1,purinergic/CDR,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+ENTPD2,purinergic/CDR,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+ENTPD3,purinergic/CDR,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+ENTPD4,purinergic/CDR,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+ENTPD5,purinergic/CDR,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+ENTPD6,purinergic/CDR,True,True,iron-clad,50,1.0000,up,174,-0.22506440140459247,0.002057061761135553,0.04545947396596558
+ENTPD7,purinergic/CDR,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+ENTPD8,purinergic/CDR,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+FOLR1,folate transport,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+FOLR2,folate transport,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+FOLR3,folate transport,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+FPGS,folate-related (broader),False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+FTCD,one-carbon core,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+GART,folate-related (broader),False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+GCSH,folate-related (broader),False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+GGH,folate-related (broader),False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+GLDC,folate-related (broader),False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+GNMT,methylation,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+MAT1A,one-carbon core,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+MAT2A,one-carbon core,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+MAT2B,one-carbon core,True,True,iron-clad,50,1.0000,up,131,N/A,N/A,0.12987738450444533
+METTL14,SAM cycle,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+METTL3,SAM cycle,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+MTHFD1,one-carbon core,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+MTHFD1L,one-carbon core,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+MTHFD2,one-carbon core,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+MTHFD2L,one-carbon core,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+MTHFR,one-carbon core,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+MTHFS,folate-related (broader),False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+MTR,one-carbon core,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+MTRR,one-carbon core,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+NT5E,purinergic/CDR,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+P2RX1,purinergic/CDR,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+P2RX2,purinergic/CDR,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+P2RX3,purinergic/CDR,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+P2RX4,purinergic/CDR,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+P2RX5,purinergic/CDR,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+P2RX6,purinergic/CDR,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+P2RX7,purinergic/CDR,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+P2RY1,purinergic/CDR,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+P2RY10,purinergic/CDR,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+P2RY11,purinergic/CDR,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+P2RY12,purinergic/CDR,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+P2RY13,purinergic/CDR,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+P2RY14,purinergic/CDR,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+P2RY2,purinergic/CDR,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+P2RY4,purinergic/CDR,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+P2RY6,purinergic/CDR,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+P2RY8,purinergic/CDR,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+PANX1,purinergic/CDR,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+PANX2,purinergic/CDR,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+PCFT,folate-related (broader),False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+PPAT,folate-related (broader),False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+RFC1,folate-related (broader),False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+SHMT1,one-carbon core,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+SHMT2,one-carbon core,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+SLC19A1,folate transport,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+SLC25A32,folate-related (broader),False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+SLC46A1,folate transport,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+TYMS,one-carbon core,False,False,not found,N/A,N/A,N/A,N/A,N/A,N/A,N/A

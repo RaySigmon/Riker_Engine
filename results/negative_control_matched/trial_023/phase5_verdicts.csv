@@ -1,0 +1,17 @@
+gene,cluster_id,status,discovery_direction,n_same_tissue_concordant,n_same_tissue_discordant,n_cross_tissue_concordant,reason
+HMG20A,0,survived,down,0,0,1,Same-tissue replication: 0/1 concordant. Cross-tissue: 1/3 concordant.
+ME3,0,survived,down,0,0,2,Same-tissue replication: 0/1 concordant. Cross-tissue: 2/3 concordant.
+NTHL1,0,survived,down,1,0,3,Same-tissue replication: 1/1 concordant. Cross-tissue: 3/3 concordant.
+NTN4,0,survived,down,0,0,2,Same-tissue replication: 0/1 concordant. Cross-tissue: 2/2 concordant.
+RPH3A,0,survived,down,1,0,1,Same-tissue replication: 1/1 concordant. Cross-tissue: 1/2 concordant.
+RWDD2B,0,survived,down,0,0,3,Same-tissue replication: 0/1 concordant. Cross-tissue: 3/3 concordant.
+SERGEF,0,survived,down,1,0,1,Same-tissue replication: 1/1 concordant. Cross-tissue: 1/3 concordant.
+CD14,1,survived,up,0,0,2,Same-tissue replication: 0/1 concordant. Cross-tissue: 2/3 concordant.
+MAPKAPK3,1,survived,up,0,0,1,Same-tissue replication: 0/1 concordant. Cross-tissue: 1/3 concordant.
+SP110,1,survived,up,0,0,1,Same-tissue replication: 0/1 concordant. Cross-tissue: 1/3 concordant.
+WSCD1,1,survived,up,0,0,1,Same-tissue replication: 0/1 concordant. Cross-tissue: 1/2 concordant.
+CD84,3,survived,up,1,0,1,Same-tissue replication: 1/1 concordant. Cross-tissue: 1/3 concordant.
+FAM111A,3,survived,up,1,0,1,Same-tissue replication: 1/1 concordant. Cross-tissue: 1/3 concordant.
+LIMS1,3,survived,up,1,0,2,Same-tissue replication: 1/1 concordant. Cross-tissue: 2/3 concordant.
+RPL36,3,survived,up,1,0,1,Same-tissue replication: 1/1 concordant. Cross-tissue: 1/3 concordant.
+SBF2,3,survived,up,1,0,2,Same-tissue replication: 1/1 concordant. Cross-tissue: 2/3 concordant.

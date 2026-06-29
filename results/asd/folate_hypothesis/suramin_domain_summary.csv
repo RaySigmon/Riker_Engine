@@ -1,0 +1,9 @@
+domain,n_genes,n_hits,expected,fold,p,enriched,dir_match,dir_mismatch,dir_undetermined,dir_pct
+eicosanoids,12,0,0.2256,0.0,0.9999999999999999,no,0,0,0,0
+gangliosides,8,0,0.1504,0.0,1.0,no,0,0,0,0
+microbiome_related,10,1,0.188,5.319148936170213,0.17290257885912366,no,0,0,1,0
+phospholipids,18,1,0.3384,2.955082742316785,0.2894870185603657,no,0,0,1,0
+purines,31,4,0.5828,6.863417982155114,0.0025894336195735126,YES,2,0,2,100.0
+pyrimidines,8,0,0.1504,0.0,1.0,no,0,0,0,0
+redox_one_carbon,17,1,0.3196,3.128911138923655,0.27586163573681793,no,1,0,0,100.0
+sphingolipids,17,0,0.3196,0.0,1.0,no,0,0,0,0

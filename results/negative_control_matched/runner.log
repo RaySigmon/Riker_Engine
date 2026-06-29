@@ -1,0 +1,100 @@
+START trial 1/50 at 2026-05-08 15:15:35
+DONE  trial 1 in 114s — status=OK, p1=44, p4_core=14, p6_sig=4
+START trial 2/50 at 2026-05-08 15:17:28
+DONE  trial 2 in 110s — status=OK, p1=45, p4_core=15, p6_sig=13
+START trial 3/50 at 2026-05-08 15:19:18
+DONE  trial 3 in 103s — status=OK, p1=29, p4_core=4, p6_sig=1
+START trial 4/50 at 2026-05-08 15:21:01
+DONE  trial 4 in 101s — status=OK, p1=50, p4_core=11, p6_sig=7
+START trial 5/50 at 2026-05-08 15:22:42
+DONE  trial 5 in 100s — status=OK, p1=37, p4_core=4, p6_sig=0
+START trial 6/50 at 2026-05-08 15:24:23
+DONE  trial 6 in 102s — status=OK, p1=49, p4_core=13, p6_sig=10
+START trial 7/50 at 2026-05-08 15:26:04
+DONE  trial 7 in 101s — status=OK, p1=43, p4_core=11, p6_sig=7
+START trial 8/50 at 2026-05-08 15:27:45
+DONE  trial 8 in 101s — status=OK, p1=50, p4_core=10, p6_sig=4
+START trial 9/50 at 2026-05-08 15:29:26
+DONE  trial 9 in 101s — status=OK, p1=45, p4_core=9, p6_sig=5
+START trial 10/50 at 2026-05-08 15:31:07
+DONE  trial 10 in 102s — status=OK, p1=48, p4_core=14, p6_sig=4
+START trial 11/50 at 2026-05-08 15:32:49
+DONE  trial 11 in 101s — status=OK, p1=41, p4_core=16, p6_sig=11
+START trial 12/50 at 2026-05-08 15:34:30
+DONE  trial 12 in 101s — status=OK, p1=46, p4_core=14, p6_sig=9
+START trial 13/50 at 2026-05-08 15:36:11
+DONE  trial 13 in 102s — status=OK, p1=49, p4_core=15, p6_sig=8
+START trial 14/50 at 2026-05-08 15:37:53
+DONE  trial 14 in 102s — status=OK, p1=56, p4_core=8, p6_sig=4
+START trial 15/50 at 2026-05-08 15:39:36
+DONE  trial 15 in 102s — status=OK, p1=48, p4_core=9, p6_sig=7
+START trial 16/50 at 2026-05-08 15:41:18
+DONE  trial 16 in 101s — status=OK, p1=50, p4_core=19, p6_sig=10
+START trial 17/50 at 2026-05-08 15:42:59
+DONE  trial 17 in 99s — status=OK, p1=41, p4_core=4, p6_sig=1
+START trial 18/50 at 2026-05-08 15:44:38
+DONE  trial 18 in 101s — status=OK, p1=56, p4_core=15, p6_sig=7
+START trial 19/50 at 2026-05-08 15:46:20
+DONE  trial 19 in 101s — status=OK, p1=31, p4_core=4, p6_sig=4
+START trial 20/50 at 2026-05-08 15:48:00
+DONE  trial 20 in 101s — status=OK, p1=52, p4_core=8, p6_sig=4
+START trial 21/50 at 2026-05-08 15:49:41
+DONE  trial 21 in 103s — status=OK, p1=50, p4_core=13, p6_sig=5
+START trial 22/50 at 2026-05-08 15:51:24
+DONE  trial 22 in 99s — status=OK, p1=48, p4_core=14, p6_sig=10
+START trial 23/50 at 2026-05-08 15:53:03
+DONE  trial 23 in 102s — status=OK, p1=52, p4_core=16, p6_sig=10
+START trial 24/50 at 2026-05-08 15:54:46
+DONE  trial 24 in 103s — status=OK, p1=61, p4_core=13, p6_sig=5
+START trial 25/50 at 2026-05-08 15:56:28
+DONE  trial 25 in 102s — status=OK, p1=45, p4_core=13, p6_sig=6
+START trial 26/50 at 2026-05-08 15:58:10
+DONE  trial 26 in 102s — status=OK, p1=47, p4_core=8, p6_sig=4
+START trial 27/50 at 2026-05-08 15:59:52
+DONE  trial 27 in 99s — status=OK, p1=49, p4_core=13, p6_sig=11
+START trial 28/50 at 2026-05-08 16:01:31
+DONE  trial 28 in 100s — status=OK, p1=46, p4_core=11, p6_sig=2
+START trial 29/50 at 2026-05-08 16:03:11
+DONE  trial 29 in 99s — status=OK, p1=42, p4_core=12, p6_sig=6
+START trial 30/50 at 2026-05-08 16:04:50
+DONE  trial 30 in 101s — status=OK, p1=55, p4_core=15, p6_sig=11
+START trial 31/50 at 2026-05-08 16:06:31
+DONE  trial 31 in 100s — status=OK, p1=38, p4_core=14, p6_sig=11
+START trial 32/50 at 2026-05-08 16:08:11
+DONE  trial 32 in 103s — status=OK, p1=42, p4_core=10, p6_sig=4
+START trial 33/50 at 2026-05-08 16:09:53
+DONE  trial 33 in 109s — status=OK, p1=46, p4_core=13, p6_sig=8
+START trial 34/50 at 2026-05-08 16:11:42
+DONE  trial 34 in 104s — status=OK, p1=41, p4_core=13, p6_sig=7
+START trial 35/50 at 2026-05-08 16:13:26
+DONE  trial 35 in 103s — status=OK, p1=50, p4_core=16, p6_sig=9
+START trial 36/50 at 2026-05-08 16:15:09
+DONE  trial 36 in 102s — status=OK, p1=51, p4_core=14, p6_sig=8
+START trial 37/50 at 2026-05-08 16:16:51
+DONE  trial 37 in 101s — status=OK, p1=41, p4_core=12, p6_sig=7
+START trial 38/50 at 2026-05-08 16:18:33
+DONE  trial 38 in 101s — status=OK, p1=46, p4_core=3, p6_sig=1
+START trial 39/50 at 2026-05-08 16:20:13
+DONE  trial 39 in 102s — status=OK, p1=49, p4_core=11, p6_sig=8
+START trial 40/50 at 2026-05-08 16:21:55
+DONE  trial 40 in 102s — status=OK, p1=55, p4_core=13, p6_sig=7
+START trial 41/50 at 2026-05-08 16:23:37
+DONE  trial 41 in 103s — status=OK, p1=62, p4_core=13, p6_sig=8
+START trial 42/50 at 2026-05-08 16:25:20
+DONE  trial 42 in 99s — status=OK, p1=46, p4_core=13, p6_sig=8
+START trial 43/50 at 2026-05-08 16:26:59
+DONE  trial 43 in 100s — status=OK, p1=52, p4_core=15, p6_sig=10
+START trial 44/50 at 2026-05-08 16:28:40
+DONE  trial 44 in 101s — status=OK, p1=45, p4_core=9, p6_sig=5
+START trial 45/50 at 2026-05-08 16:30:21
+DONE  trial 45 in 98s — status=OK, p1=40, p4_core=12, p6_sig=5
+START trial 46/50 at 2026-05-08 16:31:59
+DONE  trial 46 in 100s — status=OK, p1=40, p4_core=8, p6_sig=4
+START trial 47/50 at 2026-05-08 16:33:39
+DONE  trial 47 in 100s — status=OK, p1=47, p4_core=12, p6_sig=7
+START trial 48/50 at 2026-05-08 16:35:18
+DONE  trial 48 in 100s — status=OK, p1=44, p4_core=4, p6_sig=1
+START trial 49/50 at 2026-05-08 16:36:59
+DONE  trial 49 in 100s — status=OK, p1=31, p4_core=4, p6_sig=3
+START trial 50/50 at 2026-05-08 16:38:39
+DONE  trial 50 in 101s — status=OK, p1=48, p4_core=10, p6_sig=5

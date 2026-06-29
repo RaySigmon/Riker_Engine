@@ -1,0 +1,13 @@
+gene,cluster_id,status,discovery_direction,n_same_tissue_concordant,n_same_tissue_discordant,n_cross_tissue_concordant,reason
+NGFR,0,survived,up,0,0,0,Same-tissue replication: 0/1 concordant. Cross-tissue: 0/2 concordant.
+RPL36,0,survived,up,1,0,1,Same-tissue replication: 1/1 concordant. Cross-tissue: 1/3 concordant.
+S100A10,0,survived,up,1,0,2,Same-tissue replication: 1/1 concordant. Cross-tissue: 2/3 concordant.
+TIPARP,0,survived,up,0,0,1,Same-tissue replication: 0/1 concordant. Cross-tissue: 1/3 concordant.
+TRAM2,0,survived,up,1,0,1,Same-tissue replication: 1/1 concordant. Cross-tissue: 1/3 concordant.
+UBTD1,0,survived,up,1,0,2,Same-tissue replication: 1/1 concordant. Cross-tissue: 2/3 concordant.
+YAP1,0,survived,up,1,0,0,Same-tissue replication: 1/1 concordant. Cross-tissue: 0/2 concordant.
+FH,2,survived,down,0,0,2,Same-tissue replication: 0/1 concordant. Cross-tissue: 2/3 concordant.
+KCNS2,2,survived,down,1,0,1,Same-tissue replication: 1/1 concordant. Cross-tissue: 1/2 concordant.
+NAE1,2,survived,down,0,0,1,Same-tissue replication: 0/1 concordant. Cross-tissue: 1/3 concordant.
+PARP2,2,survived,up,1,0,1,Same-tissue replication: 1/1 concordant. Cross-tissue: 1/3 concordant.
+SLC25A27,2,survived,down,0,0,2,Same-tissue replication: 0/1 concordant. Cross-tissue: 2/2 concordant.

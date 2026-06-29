@@ -1,0 +1,5 @@
+gene,cluster_id,max_level_survived,mean_log2fc_sig,direction
+HMG20A,2,4,-0.22884080848995758,down
+PREPL,2,3,-0.5714639695147601,down
+SH3GL2,2,4,-0.7496461082052472,down
+TTC13,2,3,-0.2632727615990831,down

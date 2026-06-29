@@ -1,0 +1,60 @@
+gene,category,annotation,direction,cluster_id,appearance_rate,appearance_count,in_seed_list,random_effect,random_p,mean_log2fc
+C1QB,1_Complement,,up,53,1.0,50,no,N/A,N/A,1.2419780277641732
+C1QC,1_Complement,,up,70,1.0,50,no,N/A,N/A,0.9826890784487089
+B2M,2_MHC_Antigen_presentation,,up,47,1.0,50,no,N/A,N/A,0.7073031081328951
+HSPA5,2_MHC_Antigen_presentation,,up,171,1.0,50,no,0.4863766420148895,0.05287718704111549,0.6721930727006488
+C1QB,9_Microglia_Neuroinflammation,,up,53,1.0,50,no,N/A,N/A,1.2419780277641732
+C1QC,9_Microglia_Neuroinflammation,,up,70,1.0,50,no,N/A,N/A,0.9826890784487089
+TRAF3IP2,Additional_immune_function,NF-kB/IL-17 signaling adaptor (Act1),up,94,1.0,50,no,0.6452008943771543,0.012275210628581211,0.7410217508290377
+STAT4,Additional_immune_function,Th1 differentiation transcription factor,down,21,1.0,50,no,N/A,N/A,-0.7575707254129714
+MCL1,Additional_immune_function,"Anti-apoptotic BCL2 family, immune cell survival",up,68,1.0,50,no,0.5109213316793185,0.0026535292457075025,0.5001134507050479
+CD84,Additional_immune_function,"SLAM family receptor, immune cell adhesion",up,171,1.0,50,no,N/A,N/A,0.5509844205519027
+CD14,Additional_immune_function,"LPS co-receptor, innate immunity (monocyte/macrophage marker)",up,118,1.0,50,no,0.9668963291983044,4.6967138567025055e-05,1.1477238826406753
+BST2,Additional_immune_function,"Tetherin/CD317, antiviral innate immunity",up,117,1.0,50,no,0.7831728805083126,1.0193429592671041e-05,0.8618405843978599
+LAPTM5,Additional_immune_function,"Lysosomal protein, B/T cell signaling",up,117,1.0,50,no,0.8873981817931323,0.0010728354013991531,0.9794614741212201
+LYN,Additional_immune_function,"Src family kinase, B-cell receptor signaling",up,104,1.0,50,no,0.6730331029038609,0.00017213759356775885,0.9178880358934803
+SP110,Additional_immune_function,"Interferon-induced nuclear body protein, innate immunity",up,104,1.0,50,no,0.783156264143241,0.006647337817150641,0.8950186882162559
+IRF8,Additional_immune_function,"Interferon regulatory factor 8, myeloid/DC differentiation",up,20,1.0,50,no,0.5971711696319159,0.0293170230302643,0.6559084880114144
+IFITM3,Additional_immune_function,"Interferon-induced transmembrane protein 3, antiviral",up,53,1.0,50,no,0.8655877224711545,1.257948277473013e-05,1.0752152689345922
+GBP2,Additional_immune_function,"Guanylate-binding protein 2, interferon-induced innate immunity",up,53,1.0,50,no,N/A,N/A,1.0918681026386914
+CYBA,Additional_immune_function,"p22phox, NADPH oxidase subunit, respiratory burst",up,118,1.0,50,no,0.7760028114234009,0.001493693690726622,0.8712628167693591
+SRGN,Additional_immune_function,"Serglycin, immune cell granule proteoglycan",up,44,1.0,50,no,N/A,N/A,0.9915227039483142
+PIK3AP1,Additional_immune_function,"PI3K adaptor (BCAP), B-cell/TLR signaling",up,110,1.0,50,no,N/A,N/A,0.953136840672439
+PARP9,Additional_immune_function,"ADP-ribosyltransferase, interferon response",up,70,1.0,50,no,N/A,N/A,0.8872580623238547
+UBE2L6,Additional_immune_function,"ISG15 conjugation, interferon response",up,59,1.0,50,no,N/A,N/A,0.48313692622570237
+DOK1,Additional_immune_function,"Downstream of kinase 1, immune signaling",up,59,1.0,50,no,0.47653429267899966,0.006961827833409475,0.509805998347024
+MAPKAPK2,Additional_immune_function,"p38 MAPK substrate, inflammatory cytokine regulation",up,59,1.0,50,no,0.4851413515576027,0.14095058644365926,0.4883339900103964
+MAPKAPK3,Additional_immune_function,"p38 MAPK substrate, inflammatory signaling",up,13,1.0,50,no,0.520544181342987,0.0027452943019813493,0.7311594422895263
+PELI3,Additional_immune_function,"Pellino E3 ubiquitin ligase, TLR/IL-1R signaling",down,136,1.0,50,no,-0.4837826254585935,0.010895512547158315,-0.38914076473007836
+NFE2L2,Additional_immune_function,"NRF2, oxidative stress/inflammatory response",up,49,1.0,50,no,N/A,N/A,0.5918654191296433
+TIMP1,Additional_immune_function,"Tissue inhibitor of metalloproteinases, inflammation",up,53,1.0,50,no,1.1720372466929423,0.0022782742303123216,1.2910273915413155
+CDKN1A,Additional_immune_function,"p21, cell cycle but also immune cell differentiation",up,53,1.0,50,no,N/A,N/A,1.3171104542010474
+CXCL16,Additional_immune_function,"Chemokine, immune cell recruitment",up,110,1.0,50,no,0.7855515194968731,3.503666047549158e-05,0.9764846260139954
+S100A8,Additional_immune_function,"Calprotectin subunit (S100A8/A9), alarmin/DAMP",up,34,1.0,50,no,N/A,N/A,1.0868930479508583
+S100A10,Additional_immune_function,"Annexin A2 ligand, macrophage function",up,34,1.0,50,no,N/A,N/A,0.9743986319127096
+ANXA5,Additional_immune_function,"Annexin A5, anti-inflammatory/phagocytic clearance",up,47,1.0,50,no,0.49696925571227896,0.0032611639731672626,0.6777530568798231
+JUN,Additional_immune_function,"AP-1 transcription factor, cytokine gene regulation",up,171,1.0,50,no,0.5832455427948346,1.5926432056428533e-05,0.8364571547687726
+SLA,Additional_immune_function,"Src-like adaptor, T-cell receptor signaling",up,64,1.0,50,no,N/A,N/A,0.6587424625623977
+THEMIS,Additional_immune_function,T-cell selection/signaling in thymus,down,166,1.0,50,no,N/A,N/A,-0.3145959378898618
+GADD45B,Additional_immune_function,"Stress response, NF-kB/JNK immune pathway crosstalk",up,10,1.0,50,no,N/A,N/A,0.9788752058400059
+DNAJB1,Additional_immune_function,"HSP40 co-chaperone, stress/immune response",up,34,1.0,50,no,N/A,N/A,1.1009004077606257
+CTSH,Additional_immune_function,"Cathepsin H, antigen processing",up,13,1.0,50,no,0.5060873673507265,6.04247692527262e-07,0.6927910475824574
+RFX5,Additional_immune_function,"RFX complex, MHC-II transcription regulation",up,132,1.0,50,no,N/A,N/A,0.11792183028653695
+RHBDF2,Additional_immune_function,"iRhom2, ADAM17/TNF-alpha shedding regulator",up,70,1.0,50,no,N/A,N/A,0.823578189508833
+MPZL1,Additional_immune_function,"Myelin protein zero-like 1, immune cell migration",up,75,1.0,50,no,N/A,N/A,0.43711193659064546
+TXNIP,Additional_immune_function,"Thioredoxin-interacting protein, NLRP3 inflammasome activator",up,47,1.0,50,no,0.6462779581206142,0.0226363864014716,0.7214544982694329
+HSPD1,Additional_immune_function,"HSP60, mitochondrial but also DAMP/immune activator",up,20,1.0,50,no,N/A,N/A,0.6412061539203403
+TOX,Additional_immune_function,T-cell exhaustion transcription factor,up,132,1.0,50,no,-0.23946801809675253,0.3996444927870755,0.10389571651146816
+VIM,Additional_immune_function,"Vimentin, expressed in immune cells, DAMP",up,10,1.0,50,no,0.9556439542913666,0.018460414225545407,1.0546074237330838
+MSN,Additional_immune_function,"Moesin, immune cell migration/structure",up,117,1.0,50,no,0.8530995309473993,0.002248236346662451,1.0410114232284824
+ABCA1,Additional_immune_function,"Cholesterol efflux, macrophage function",up,117,1.0,50,no,0.9213153337205513,0.004067132252480333,1.0303962813488823
+NQO1,Additional_immune_function,"NAD(P)H quinone oxidoreductase, NRF2-regulated detox/inflammation",up,53,1.0,50,no,1.0434680244661934,0.0003865901237807156,1.2106474696273166
+ELF1,Additional_immune_function,"ETS transcription factor, lymphoid gene regulation",up,32,1.0,50,no,N/A,N/A,0.5847911392275088
+FERMT2,Additional_immune_function,"Kindlin-2, integrin activation in immune cells",up,103,1.0,50,no,N/A,N/A,0.7512721128195037
+NFKBIZ,Additional_immune_function,"IkBzeta, NF-kB signaling modulator",up,33,0.98,49,no,N/A,N/A,0.7049222103039999
+PSME2,Additional_immune_function,"Proteasome activator, MHC-I antigen processing",up,13,0.96,48,no,N/A,N/A,0.6445849969985433
+RFXANK,Additional_immune_function,"RFX complex, MHC-II transcription regulation",up,57,0.96,48,no,0.3596185585364646,0.020386587302528777,0.5088781786193805
+PARP14,Additional_immune_function,"ADP-ribosyltransferase, IL-4/STAT6 signaling",up,19,0.94,47,no,N/A,N/A,0.6142375235893048
+BIRC3,Additional_immune_function,"cIAP2, NF-kB signaling, TNF pathway",up,19,0.94,47,no,N/A,N/A,0.6460018931797167
+PTAFR,Additional_immune_function,"Platelet-activating factor receptor, inflammation",up,19,0.94,47,no,0.6336956340990194,2.5835386941987375e-05,0.640669942324903
+CEBPD,Additional_immune_function,"C/EBPdelta, inflammatory gene transcription",up,9,0.92,46,no,N/A,N/A,0.9232671110491425

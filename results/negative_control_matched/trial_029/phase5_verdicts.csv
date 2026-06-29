@@ -1,0 +1,13 @@
+gene,cluster_id,status,discovery_direction,n_same_tissue_concordant,n_same_tissue_discordant,n_cross_tissue_concordant,reason
+ASB13,0,survived,down,0,0,1,Same-tissue replication: 0/1 concordant. Cross-tissue: 1/3 concordant.
+ENTPD6,0,survived,down,1,0,1,Same-tissue replication: 1/1 concordant. Cross-tissue: 1/3 concordant.
+LRRC20,0,survived,down,0,0,3,Same-tissue replication: 0/1 concordant. Cross-tissue: 3/3 concordant.
+NFS1,0,survived,down,0,0,3,Same-tissue replication: 0/1 concordant. Cross-tissue: 3/3 concordant.
+SLC25A27,0,survived,down,0,0,2,Same-tissue replication: 0/1 concordant. Cross-tissue: 2/2 concordant.
+UQCRC2,0,survived,down,0,0,2,Same-tissue replication: 0/1 concordant. Cross-tissue: 2/3 concordant.
+ZGPAT,0,survived,up,0,0,2,Same-tissue replication: 0/1 concordant. Cross-tissue: 2/3 concordant.
+H2BC21,1,survived,up,1,0,3,Same-tissue replication: 1/1 concordant. Cross-tissue: 3/3 concordant.
+HSPA1A,1,eliminated,up,0,1,1,Significant opposite direction in same-tissue dataset(s): ['GSE102741']. Discovery direction: up.
+SH3GLB1,1,survived,up,1,0,1,Same-tissue replication: 1/1 concordant. Cross-tissue: 1/3 concordant.
+SLC16A3,1,survived,up,0,0,2,Same-tissue replication: 0/1 concordant. Cross-tissue: 2/3 concordant.
+TENT5A,1,survived,up,0,0,1,Same-tissue replication: 0/1 concordant. Cross-tissue: 1/3 concordant.

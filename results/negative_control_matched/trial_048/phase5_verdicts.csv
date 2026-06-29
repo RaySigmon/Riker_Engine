@@ -1,0 +1,5 @@
+gene,cluster_id,status,discovery_direction,n_same_tissue_concordant,n_same_tissue_discordant,n_cross_tissue_concordant,reason
+FAHD2B,0,survived,up,1,0,1,Same-tissue replication: 1/1 concordant. Cross-tissue: 1/2 concordant.
+LYRM9,0,survived,down,0,0,2,Same-tissue replication: 0/1 concordant. Cross-tissue: 2/3 concordant.
+MTRES1,0,survived,down,0,0,1,Same-tissue replication: 0/1 concordant. Cross-tissue: 1/3 concordant.
+PRPF19,0,survived,down,1,0,1,Same-tissue replication: 1/1 concordant. Cross-tissue: 1/3 concordant.

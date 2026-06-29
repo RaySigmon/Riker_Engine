@@ -1,0 +1,98 @@
+condition: negative_control
+datasets:
+- case_values:
+  - 'disease status: autism'
+  control_values:
+  - 'disease status: control'
+  id: GSE28521
+  phenotype_field: Sample_characteristics_ch1
+  platform: /home/kai001/riker-engine/data/platforms/GPL6883.annot
+  role: discovery
+  series_matrix: /home/kai001/riker-engine/data/geo/asd/GSE28521_series_matrix.txt.gz
+  tissue: brain
+- case_values:
+  - 'diagnosis: autism'
+  control_values:
+  - 'diagnosis: control'
+  id: GSE28475
+  phenotype_field: Sample_characteristics_ch1
+  platform: /home/kai001/riker-engine/data/platforms/GPL6883.annot
+  role: discovery
+  series_matrix: /home/kai001/riker-engine/data/geo/asd/GSE28475-GPL6883_series_matrix.txt.gz
+  tissue: brain
+- case_values:
+  - 'diagnosis: asd'
+  control_values:
+  - 'diagnosis: ctl'
+  id: GSE64018
+  phenotype_field: Sample_characteristics_ch1
+  platform: /home/kai001/riker-engine/data/mappings/ensembl_to_symbol.txt
+  role: discovery
+  series_matrix: /home/kai001/riker-engine/data/geo/asd/GSE64018_reconstructed_series_matrix.txt.gz
+  tissue: brain
+- case_values:
+  - 'disease status: autism spectrum disorder'
+  control_values:
+  - 'disease status: healthy control'
+  id: GSE102741
+  phenotype_field: Sample_characteristics_ch1
+  platform: /home/kai001/riker-engine/data/mappings/ensembl_to_symbol.txt
+  role: replication
+  series_matrix: /home/kai001/riker-engine/data/geo/asd/GSE102741_reconstructed_series_matrix.txt.gz
+  tissue: brain
+- case_values:
+  - 'diagnosis: autism'
+  - 'diagnosis: pdd-nos'
+  - 'diagnosis: asperger'
+  control_values:
+  - 'diagnosis: control'
+  id: GSE18123
+  phenotype_field: Sample_characteristics_ch1
+  platform: /home/kai001/riker-engine/data/platforms/GPL6244.annot
+  role: replication
+  series_matrix: /home/kai001/riker-engine/data/geo/asd/GSE18123-GPL6244_series_matrix.txt.gz
+  tissue: blood
+- case_values:
+  - 'disease: autism spectrum disorder'
+  control_values:
+  - 'disease: nonaustistic control'
+  id: GSE26415
+  phenotype_field: Sample_characteristics_ch1
+  platform: /home/kai001/riker-engine/data/platforms/GPL6480.annot
+  role: replication
+  series_matrix: /home/kai001/riker-engine/data/geo/asd/GSE26415_series_matrix.txt.gz
+  tissue: blood
+- case_values:
+  - 'dx (diagnosis): asd'
+  control_values:
+  - 'dx (diagnosis): control'
+  id: GSE42133
+  phenotype_field: Sample_characteristics_ch1
+  platform: /home/kai001/riker-engine/data/platforms/GPL10558.annot
+  role: replication
+  series_matrix: /home/kai001/riker-engine/data/geo/asd/GSE42133_series_matrix.txt.gz
+  tissue: blood
+hgnc_path: /home/kai001/riker-engine/data/hgnc/hgnc_complete_set.txt
+output_dir: /home/kai001/riker-engine/results/negative_control_matched/trial_039
+phase1:
+  min_datasets: 2
+  p_threshold: 0.05
+phase3:
+  min_cluster_size: 5
+  min_samples: 3
+  n_neighbors:
+  - 10
+  - 15
+  - 30
+  seeds:
+  - 42
+  - 123
+  - 456
+  - 789
+  - 1024
+phase4:
+  n_permutations: 10000
+  seed: 42
+random_seed: 42
+seed_genes: /home/kai001/riker-engine/data/seeds/negative_control_trials/trial_039.csv
+symbol_column: symbol

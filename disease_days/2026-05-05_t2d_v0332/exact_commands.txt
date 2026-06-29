@@ -1,2 +1,7 @@
 riker run disease_days/2026-05-05_t2d_v0332/curated/config.yaml 2>&1 | tee disease_days/2026-05-05_t2d_v0332/curated/run.log
 riker run disease_days/2026-05-05_t2d_v0332/blind_pc/config.yaml 2>&1 | tee disease_days/2026-05-05_t2d_v0332/blind_pc/run.log
+nohup python3 scripts/stability_profiling.py \
+  disease_days/2026-05-05_t2d_v0332/blind_pc/config.yaml \
+  -n 50 --master-seed 42 --keep-runs \
+  --output-dir disease_days/2026-05-05_t2d_v0332/stability_50run \
+  > disease_days/2026-05-05_t2d_v0332/stability_50run/profiler.log 2>&1 &

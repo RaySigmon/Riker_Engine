@@ -1,0 +1,8 @@
+gene,CDR_domain,metabolite,role,predicted_direction,observed_direction,log2FC,cluster,match
+ENTPD6,purines,nucleotide hydrolysis (GDP/UTP),ectonucleotidase,variable,up,0.04545947396596558,174,undetermined
+GMPR2,purines,GMP salvage/recycling,GMP reductase 2,up,up,0.12077998543521318,115,MATCH
+KYAT3,microbiome_related,kynurenine → kynurenic acid,kynurenine aminotransferase 3,variable,down,-0.13723157588165247,138,undetermined
+LPCAT4,phospholipids,PC/PE remodeling,lysophosphatidylcholine acyltransferase 4,variable,down,-0.08674649331465704,177,undetermined
+MAT2B,redox_one_carbon,MAT2A regulation → SAM synthesis,methionine adenosyltransferase 2B regulatory,up,up,0.12987738450444533,131,MATCH
+NME4,purines,nucleotide kinase (mitochondrial),nucleoside diphosphate kinase,variable,up,0.37098020219892014,74,undetermined
+PNP,purines,purine degradation (inosine/guanosine),purine nucleoside phosphorylase,up,up,0.9351798081040412,118,MATCH

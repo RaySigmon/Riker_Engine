@@ -1,0 +1,32 @@
+{
+  "package_version": "0.3.3.2",
+  "code_version": "f9c175f7d31c0174382a07a93c8a3b265fb5f84e",
+  "condition": "negative_control",
+  "seed_genes": "/home/kai001/riker-engine/data/seeds/negative_control_trials/trial_041.csv",
+  "n_datasets_discovery": 3,
+  "n_datasets_replication": 4,
+  "phase1_study_genes": 62,
+  "phase4_core_genes": 13,
+  "phase4_significant_clusters": 1,
+  "phase5_survived": 12,
+  "phase5_eliminated": 1,
+  "phase6_genes_analyzed": 12,
+  "phase6_significant_random_effects": 8,
+  "phase6_significant_random": 8,
+  "qc_status": "PASSED",
+  "locked_core_genes": [
+    "BBS7",
+    "BST2",
+    "CDKN1A",
+    "MAPKAPK2",
+    "NFE2L2",
+    "NMNAT2",
+    "SERP1",
+    "SH3GLB1",
+    "SLC2A5",
+    "TOPBP1",
+    "VRK1",
+    "WSCD1",
+    "YBX3"
+  ]
+}

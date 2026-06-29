@@ -1,0 +1,9 @@
+gene,cluster_id,status,discovery_direction,n_same_tissue_concordant,n_same_tissue_discordant,n_cross_tissue_concordant,reason
+DDAH2,0,survived,up,1,0,1,Same-tissue replication: 1/1 concordant. Cross-tissue: 1/3 concordant.
+INPP5D,0,survived,up,0,0,3,Same-tissue replication: 0/1 concordant. Cross-tissue: 3/3 concordant.
+SOX4,0,survived,up,0,0,3,Same-tissue replication: 0/1 concordant. Cross-tissue: 3/3 concordant.
+ATP1A1,1,survived,down,1,0,1,Same-tissue replication: 1/1 concordant. Cross-tissue: 1/3 concordant.
+GLMN,1,survived,down,0,0,0,Same-tissue replication: 0/1 concordant. Cross-tissue: 0/2 concordant.
+RIOK1,1,survived,down,0,0,1,Same-tissue replication: 0/1 concordant. Cross-tissue: 1/3 concordant.
+SCN1B,1,survived,down,1,0,2,Same-tissue replication: 1/1 concordant. Cross-tissue: 2/2 concordant.
+SPINT2,1,survived,down,1,0,1,Same-tissue replication: 1/1 concordant. Cross-tissue: 1/3 concordant.

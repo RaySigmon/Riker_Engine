@@ -1,0 +1,212 @@
+2026-05-08 16:35:19 [INFO] riker.config: Config loaded: condition=negative_control, 3 discovery + 4 replication datasets.
+2026-05-08 16:35:19 [INFO] riker: ============================================================
+2026-05-08 16:35:19 [INFO] riker: PHASE 1: Cross-Referencing
+2026-05-08 16:35:19 [INFO] riker: ============================================================
+2026-05-08 16:35:20 [INFO] riker.ingestion.gene_db: Loading HGNC data from /home/kai001/riker-engine/data/hgnc/hgnc_complete_set.txt...
+2026-05-08 16:35:26 [INFO] riker.ingestion.gene_db: HGNC resolver loaded: 44981 approved symbols, 57613 aliases/previous symbols mapped.
+2026-05-08 16:35:26 [INFO] riker.ingestion.gene_db: Loaded 500 seed genes from /home/kai001/riker-engine/data/seeds/negative_control_trials/trial_048.csv. 0 symbols remapped via HGNC.
+2026-05-08 16:35:26 [INFO] riker: Loaded 500 seed genes.
+2026-05-08 16:35:26 [INFO] riker: Loading dataset: GSE28521
+2026-05-08 16:35:28 [WARNING] riker.ingestion.geo_parser: GSE28521: 1631 probe(s) have >5% NaN cells after parsing. Probe IDs: ['ILMN_1651492', 'ILMN_1651544', 'ILMN_1651684', 'ILMN_1651692', 'ILMN_1651767', 'ILMN_1651776', 'ILMN_1651817', 'ILMN_1651838', 'ILMN_1652006', 'ILMN_1652017'] (and more). Check data quality.
+2026-05-08 16:35:30 [INFO] riker.ingestion.geo_parser: Probe-to-gene mapping: 10285 mapped, 508 unmapped, 9143 unique genes.
+2026-05-08 16:35:30 [INFO] riker: Loading dataset: GSE28475
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM703758 value 'tissue: brain | assay: ivt | heat treatment: heating at 95c for 0 min |' did not match any case (['diagnosis: autism']) or control (['diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM703759 value 'tissue: brain | assay: ivt | heat treatment: heating at 95c for 10 min |' did not match any case (['diagnosis: autism']) or control (['diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM703760 value 'tissue: brain | assay: ivt | heat treatment: heating at 95c for 30 min |' did not match any case (['diagnosis: autism']) or control (['diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM703761 value 'tissue: brain | assay: ivt | heat treatment: heating at 95c for 60 min |' did not match any case (['diagnosis: autism']) or control (['diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM703762 value 'tissue: stratagene universal reference pooled rna | assay: ivt | heat treatment: heating at 95c for 0 min |' did not match any case (['diagnosis: autism']) or control (['diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM703763 value 'tissue: stratagene universal reference pooled rna | assay: ivt | heat treatment: heating at 95c for 10 min |' did not match any case (['diagnosis: autism']) or control (['diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM703764 value 'tissue: stratagene universal reference pooled rna | assay: ivt | heat treatment: heating at 95c for 30 min |' did not match any case (['diagnosis: autism']) or control (['diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM703765 value 'tissue: stratagene universal reference pooled rna | assay: ivt | heat treatment: heating at 95c for 60 min |' did not match any case (['diagnosis: autism']) or control (['diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM703766 value 'tissue: 25% brain 75% pooled | assay: ivt |  |' did not match any case (['diagnosis: autism']) or control (['diagnosis: control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:135: UserWarning: Sample GSM703767 value 'tissue: 75% brain 25% pooled | assay: ivt |  |' did not match any case (['diagnosis: autism']) or control (['diagnosis: control']) values.
+  pheno = extractor.extract(
+2026-05-08 16:35:39 [INFO] riker.ingestion.geo_parser: Probe-to-gene mapping: 22735 mapped, 1791 unmapped, 17533 unique genes.
+2026-05-08 16:35:39 [WARNING] riker.ingestion.normalizer: Clamping 94 negative values to 0 (background subtraction artifacts in raw intensity data).
+2026-05-08 16:35:39 [INFO] riker.ingestion.normalizer: Applied log2(x+1) transformation (after clamping). Median: 178.21 -> 7.49
+2026-05-08 16:35:39 [INFO] riker: Loading dataset: GSE64018
+2026-05-08 16:35:42 [INFO] riker.ingestion.geo_parser: Probe-to-gene mapping: 13917 mapped, 689 unmapped, 13917 unique genes.
+2026-05-08 16:35:42 [INFO] riker.phases.phase1_crossref: Dataset GSE28521: 210/500 seed genes detected (42.0%).
+2026-05-08 16:35:42 [INFO] riker.phases.phase1_crossref: Dataset GSE28475: 433/500 seed genes detected (86.6%).
+2026-05-08 16:35:42 [INFO] riker.phases.phase1_crossref: Dataset GSE64018: 312/500 seed genes detected (62.4%).
+2026-05-08 16:35:43 [INFO] riker.phases.phase1_crossref: Phase 1 complete: 44 study genes from 500 seed genes (p < 0.05 in >= 2 datasets).
+2026-05-08 16:35:43 [INFO] riker.io.outputs: Phase 1 summary: /home/kai001/riker-engine/results/negative_control_matched/trial_048/phase1_study_genes.csv
+2026-05-08 16:35:43 [INFO] riker: ============================================================
+2026-05-08 16:35:43 [INFO] riker: PHASE 2: Pathway Mapping
+2026-05-08 16:35:43 [INFO] riker: ============================================================
+2026-05-08 16:35:43 [WARNING] riker: No pathway data configured. Using expression features only.
+2026-05-08 16:35:43 [INFO] riker.phases.phase2_pathways: Pathway filter: 0 -> 0 pathways (min_study=3, max_total=500, min_frac=0.02).
+2026-05-08 16:35:43 [INFO] riker.phases.phase2_pathways: Phase 2 complete: 44 genes × 5 features (0 pathway + 5 expression features).
+2026-05-08 16:35:43 [INFO] riker.io.outputs: Phase 2 feature matrix: /home/kai001/riker-engine/results/negative_control_matched/trial_048/phase2_feature_matrix.csv (44 genes x 5 features)
+2026-05-08 16:35:43 [INFO] riker: ============================================================
+2026-05-08 16:35:43 [INFO] riker: PHASE 3: Consensus Clustering
+2026-05-08 16:35:43 [INFO] riker: ============================================================
+2026-05-08 16:35:53 [INFO] riker.phases.phase3_clustering: Running 15 UMAP+HDBSCAN configurations (3 n_neighbors × 5 seeds)...
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/home/kai001/.local/lib/python3.13/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+2026-05-08 16:36:05 [INFO] riker.phases.phase3_clustering: Phase 3 complete: 3 clusters, 0 noise genes from 15 configurations.
+2026-05-08 16:36:05 [INFO] riker.io.outputs: Phase 3 cluster assignments: /home/kai001/riker-engine/results/negative_control_matched/trial_048/phase3_cluster_assignments.csv (3 clusters, 0 noise)
+2026-05-08 16:36:05 [INFO] riker: ============================================================
+2026-05-08 16:36:05 [INFO] riker: PHASE 4: Robustness Testing
+2026-05-08 16:36:05 [INFO] riker: ============================================================
+2026-05-08 16:36:06 [INFO] riker.phases.phase4_robustness: Cluster 0: permutation p=0.9981, Bonferroni p=1.0000 (not significant)
+2026-05-08 16:36:06 [INFO] riker.phases.phase4_robustness: Cluster 1: permutation p=0.0001, Bonferroni p=0.0003 (SIGNIFICANT)
+2026-05-08 16:36:06 [INFO] riker.phases.phase4_robustness: Cluster 2: permutation p=0.5960, Bonferroni p=1.0000 (not significant)
+2026-05-08 16:36:06 [INFO] riker.phases.phase4_robustness: Cluster 0 sensitivity: L1=26, L2=4, L3=16, L4=6 | dissolution=None | core=4
+2026-05-08 16:36:06 [INFO] riker.phases.phase4_robustness: Cluster 1 sensitivity: L1=6, L2=1, L3=6, L4=3 | dissolution=2 | core=1
+2026-05-08 16:36:06 [INFO] riker.phases.phase4_robustness: Cluster 2 sensitivity: L1=12, L2=1, L3=1, L4=0 | dissolution=2 | core=1
+2026-05-08 16:36:06 [INFO] riker.phases.phase4_robustness: Cluster 0 LOO: min_retention=0.04 (FRAGILE)
+2026-05-08 16:36:06 [INFO] riker.phases.phase4_robustness: Cluster 1 LOO: min_retention=0.17 (FRAGILE)
+2026-05-08 16:36:06 [INFO] riker.phases.phase4_robustness: Cluster 2 LOO: min_retention=0.08 (FRAGILE)
+2026-05-08 16:36:06 [INFO] riker.phases.phase4_robustness: Cluster 1: 1 Level 2 survivors < 3 minimum. No core genes.
+2026-05-08 16:36:06 [INFO] riker.phases.phase4_robustness: Cluster 2: 1 Level 2 survivors < 3 minimum. No core genes.
+2026-05-08 16:36:06 [INFO] riker.phases.phase4_robustness: Identified 4 core genes across all clusters.
+2026-05-08 16:36:06 [INFO] riker.phases.phase4_robustness: Phase 4 complete: 1 significant clusters, 0 LOO-stable clusters, 4 core genes.
+2026-05-08 16:36:07 [INFO] riker.io.outputs: Phase 4 core genes: /home/kai001/riker-engine/results/negative_control_matched/trial_048/phase4_core_genes.csv
+2026-05-08 16:36:07 [INFO] riker.io.outputs: Phase 4 all levels: /home/kai001/riker-engine/results/negative_control_matched/trial_048/phase4_all_levels.csv (44 genes)
+2026-05-08 16:36:07 [INFO] riker: ============================================================
+2026-05-08 16:36:07 [INFO] riker: PHASE 5: Independent Replication
+2026-05-08 16:36:07 [INFO] riker: ============================================================
+2026-05-08 16:36:07 [INFO] riker: Loading replication dataset: GSE102741
+2026-05-08 16:36:15 [INFO] riker.ingestion.geo_parser: Probe-to-gene mapping: 37347 mapped, 20312 unmapped, 37346 unique genes.
+2026-05-08 16:36:15 [INFO] riker: Loading replication dataset: GSE18123
+2026-05-08 16:36:32 [INFO] riker.ingestion.geo_parser: Probe-to-gene mapping: 22195 mapped, 11102 unmapped, 19978 unique genes.
+2026-05-08 16:36:32 [INFO] riker: Loading replication dataset: GSE26415
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM648315 value 'disease: nonaustistic | cell type: human blood leukocytes | sample type: healthy women who had children with asd (asdmo) | sample id: 3329' did not match any case (['disease: autism spectrum disorder']) or control (['disease: nonaustistic control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM648317 value 'disease: nonaustistic | cell type: human blood leukocytes | sample type: healthy women who had children with asd (asdmo) | sample id: 3330' did not match any case (['disease: autism spectrum disorder']) or control (['disease: nonaustistic control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM648321 value 'disease: nonaustistic | cell type: human blood leukocytes | sample type: healthy women who had children with asd (asdmo) | sample id: 3327' did not match any case (['disease: autism spectrum disorder']) or control (['disease: nonaustistic control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM648327 value 'disease: nonaustistic | cell type: human blood leukocytes | sample type: healthy women who had children with asd (asdmo) | sample id: 3333' did not match any case (['disease: autism spectrum disorder']) or control (['disease: nonaustistic control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM648333 value 'disease: nonaustistic | cell type: human blood leukocytes | sample type: healthy women who had children with asd (asdmo) | sample id: 3612' did not match any case (['disease: autism spectrum disorder']) or control (['disease: nonaustistic control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM648363 value 'disease: nonaustistic | cell type: human blood leukocytes | sample type: healthy women who had children with asd (asdmo) | sample id: 3613' did not match any case (['disease: autism spectrum disorder']) or control (['disease: nonaustistic control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM648365 value 'disease: nonaustistic | cell type: human blood leukocytes | sample type: healthy women who had children with asd (asdmo) | sample id: 3618' did not match any case (['disease: autism spectrum disorder']) or control (['disease: nonaustistic control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM648369 value 'disease: nonaustistic | cell type: human blood leukocytes | sample type: healthy women who had children with asd (asdmo) | sample id: 3620' did not match any case (['disease: autism spectrum disorder']) or control (['disease: nonaustistic control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM648371 value 'disease: nonaustistic | cell type: human blood leukocytes | sample type: healthy women who had children with asd (asdmo) | sample id: 3621' did not match any case (['disease: autism spectrum disorder']) or control (['disease: nonaustistic control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM648379 value 'disease: nonaustistic | cell type: human blood leukocytes | sample type: healthy women who had children with asd (asdmo) | sample id: 3625' did not match any case (['disease: autism spectrum disorder']) or control (['disease: nonaustistic control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM648383 value 'disease: nonaustistic | cell type: human blood leukocytes | sample type: healthy women who had children with asd (asdmo) | sample id: 3830' did not match any case (['disease: autism spectrum disorder']) or control (['disease: nonaustistic control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM648387 value 'disease: nonaustistic | cell type: human blood leukocytes | sample type: healthy women who had children with asd (asdmo) | sample id: 3832' did not match any case (['disease: autism spectrum disorder']) or control (['disease: nonaustistic control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM648389 value 'disease: nonaustistic | cell type: human blood leukocytes | sample type: healthy women who had children with asd (asdmo) | sample id: 3833' did not match any case (['disease: autism spectrum disorder']) or control (['disease: nonaustistic control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM648391 value 'disease: nonaustistic | cell type: human blood leukocytes | sample type: healthy women who had children with asd (asdmo) | sample id: 3834' did not match any case (['disease: autism spectrum disorder']) or control (['disease: nonaustistic control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM648393 value 'disease: nonaustistic | cell type: human blood leukocytes | sample type: healthy women who had children with asd (asdmo) | sample id: 3835' did not match any case (['disease: autism spectrum disorder']) or control (['disease: nonaustistic control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM648395 value 'disease: nonaustistic | cell type: human blood leukocytes | sample type: healthy women who had children with asd (asdmo) | sample id: 3836' did not match any case (['disease: autism spectrum disorder']) or control (['disease: nonaustistic control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM648397 value 'disease: nonaustistic | cell type: human blood leukocytes | sample type: healthy women who had children with asd (asdmo) | sample id: 3837' did not match any case (['disease: autism spectrum disorder']) or control (['disease: nonaustistic control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM648399 value 'disease: nonaustistic | cell type: human blood leukocytes | sample type: healthy women who had children with asd (asdmo) | sample id: 3838' did not match any case (['disease: autism spectrum disorder']) or control (['disease: nonaustistic control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM648402 value 'disease: nonaustistic | cell type: human blood leukocytes | sample type: healthy women who had children with asd (asdmo) | sample id: 3839' did not match any case (['disease: autism spectrum disorder']) or control (['disease: nonaustistic control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM648406 value 'disease: nonaustistic | cell type: human blood leukocytes | sample type: healthy women who had children with asd (asdmo) | sample id: 3840' did not match any case (['disease: autism spectrum disorder']) or control (['disease: nonaustistic control']) values.
+  pheno = extractor.extract(
+/home/kai001/riker-engine/riker/cli.py:302: UserWarning: Sample GSM648409 value 'disease: nonaustistic | cell type: human blood leukocytes | sample type: healthy women who had children with asd (asdmo) | sample id: 3841' did not match any case (['disease: autism spectrum disorder']) or control (['disease: nonaustistic control']) values.
+  pheno = extractor.extract(
+2026-05-08 16:36:38 [INFO] riker.ingestion.geo_parser: Probe-to-gene mapping: 15894 mapped, 3300 unmapped, 11191 unique genes.
+2026-05-08 16:36:38 [INFO] riker: Loading replication dataset: GSE42133
+2026-05-08 16:36:58 [INFO] riker.ingestion.geo_parser: Probe-to-gene mapping: 31266 mapped, 16057 unmapped, 20735 unique genes.
+2026-05-08 16:36:58 [INFO] riker.phases.phase5_replication: Phase 5: Testing 4 pre-specified core genes in 4 replication datasets.
+2026-05-08 16:36:58 [INFO] riker.phases.phase5_replication: Gene FAHD2B: survived — Same-tissue replication: 1/1 concordant. Cross-tissue: 1/2 concordant.
+2026-05-08 16:36:58 [INFO] riker.phases.phase5_replication: Gene LYRM9: survived — Same-tissue replication: 0/1 concordant. Cross-tissue: 2/3 concordant.
+2026-05-08 16:36:58 [INFO] riker.phases.phase5_replication: Gene MTRES1: survived — Same-tissue replication: 0/1 concordant. Cross-tissue: 1/3 concordant.
+2026-05-08 16:36:58 [INFO] riker.phases.phase5_replication: Gene PRPF19: survived — Same-tissue replication: 1/1 concordant. Cross-tissue: 1/3 concordant.
+2026-05-08 16:36:58 [INFO] riker.phases.phase5_replication: Cluster 0: replicated (4/4 survived, 0 eliminated)
+2026-05-08 16:36:58 [INFO] riker.phases.phase5_replication: Phase 5 complete: 4 survived, 0 eliminated, 0 insufficient data.
+2026-05-08 16:36:58 [INFO] riker.io.outputs: Phase 5 verdicts: /home/kai001/riker-engine/results/negative_control_matched/trial_048/phase5_verdicts.csv
+2026-05-08 16:36:58 [INFO] riker: ============================================================
+2026-05-08 16:36:58 [INFO] riker: PHASE 6: Effect Size Meta-Analysis
+2026-05-08 16:36:58 [INFO] riker: ============================================================
+2026-05-08 16:36:58 [INFO] riker.phases.phase6_meta: Phase 6: Computing meta-analysis for 4 surviving genes.
+2026-05-08 16:36:58 [INFO] riker.phases.phase6_meta: Phase 6 complete: 4 genes analyzed, 1 significant (random effects), 2 high heterogeneity.
+2026-05-08 16:36:58 [INFO] riker.io.outputs: Phase 6 meta-analysis: /home/kai001/riker-engine/results/negative_control_matched/trial_048/phase6_meta_analysis.csv
+2026-05-08 16:36:58 [INFO] riker: ============================================================
+2026-05-08 16:36:58 [INFO] riker: WRITING FINAL OUTPUTS
+2026-05-08 16:36:58 [INFO] riker: ============================================================
+2026-05-08 16:36:58 [INFO] riker.io.outputs: QC report: /home/kai001/riker-engine/results/negative_control_matched/trial_048/qc_report.json
+2026-05-08 16:36:58 [INFO] riker.io.outputs: Pipeline summary: /home/kai001/riker-engine/results/negative_control_matched/trial_048/pipeline_summary.json
+2026-05-08 16:36:58 [INFO] riker: ============================================================
+2026-05-08 16:36:58 [INFO] riker: PIPELINE COMPLETE: negative_control
+2026-05-08 16:36:58 [INFO] riker: QC Report: 4 passed, 0 warnings, 0 critical. Pipeline OK.
+2026-05-08 16:36:58 [INFO] riker: Output: /home/kai001/riker-engine/results/negative_control_matched/trial_048
+2026-05-08 16:36:58 [INFO] riker: ============================================================

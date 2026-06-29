@@ -1,0 +1,5 @@
+gene,cluster_id,max_level_survived,mean_log2fc_sig,direction
+NOMO1,2,4,-0.3278333573059786,down
+PHYH,2,4,-0.29500516105148056,down
+SEZ6L2,2,4,-0.4820854248276607,down
+TBC1D4,2,4,-0.38461684325176426,down

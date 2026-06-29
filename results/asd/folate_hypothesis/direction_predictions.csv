@@ -1,0 +1,22 @@
+gene,category,predicted_direction,observed_direction,match,appearance_rate,stability_class,rationale
+ENTPD6,purinergic/CDR,down,up,MISMATCH,1.0000,iron-clad,"Purine nucleotide metabolism; reduced folate impairs de novo purine synthesis, leading to altered purinergic signaling"
+MAT2B,one-carbon core,up,up,MATCH,1.0000,iron-clad,SAM synthesis enzyme; compensatory upregulation to maintain methylation capacity under folate restriction
+ATP5F1A,mitochondrial (folate-linked),down,up,MISMATCH,1.0000,iron-clad,Complex V subunit; mitochondrial dysfunction cascade
+COX7A1,mitochondrial (folate-linked),down,down,MATCH,0.9400,iron-clad,Complex IV; promoter methylation-sensitive
+FH,mitochondrial (folate-linked),down,up,MISMATCH,1.0000,iron-clad,TCA cycle fumarase; mitochondrial metabolic disruption
+GLS2,mitochondrial (folate-linked),down,down,MATCH,1.0000,iron-clad,Mitochondrial glutaminase; glutamate feeds serine biosynthesis which feeds one-carbon cycle; chronic insufficiency may downregulate
+GOT1,mitochondrial (folate-linked),down,down,MATCH,1.0000,iron-clad,Cytoplasmic aspartate aminotransferase; linked to purine synthesis pathway
+GOT2,mitochondrial (folate-linked),down,up,MISMATCH,1.0000,iron-clad,Mitochondrial aspartate aminotransferase; malate-aspartate shuttle
+IDH3A,mitochondrial (folate-linked),down,down,MATCH,1.0000,iron-clad,TCA cycle enzyme; mitochondrial dysfunction from impaired one-carbon metabolism
+IDH3B,mitochondrial (folate-linked),down,up,MISMATCH,1.0000,iron-clad,TCA cycle enzyme; co-regulated with IDH3A
+IDH3G,mitochondrial (folate-linked),down,up,MISMATCH,1.0000,iron-clad,TCA cycle enzyme; co-regulated with IDH3A
+KYAT3,mitochondrial (folate-linked),down,down,MATCH,1.0000,iron-clad,Kynurenine aminotransferase; tryptophan metabolism intersection with folate
+ME3,mitochondrial (folate-linked),down,up,MISMATCH,1.0000,iron-clad,Mitochondrial malic enzyme; TCA-linked
+MRPL2,mitochondrial (folate-linked),down,up,MISMATCH,1.0000,iron-clad,Mitochondrial ribosome; requires rRNA methylation for function
+NDUFAF5,mitochondrial (folate-linked),down,down,MATCH,0.9000,iron-clad,Complex I assembly; methylation-sensitive regulation
+NFS1,mitochondrial (folate-linked),down,down,MATCH,1.0000,iron-clad,"Fe-S cluster assembly depends on cysteine from transsulfuration pathway (CBS/CTH), which is downstream of one-carbon metabolism; folate insufficiency impairs transsulfuration"
+OGDHL,mitochondrial (folate-linked),down,down,MATCH,1.0000,iron-clad,"TCA cycle; oxoglutarate dehydrogenase-like, alpha-KG metabolism"
+SDHA,mitochondrial (folate-linked),down,down,MATCH,1.0000,iron-clad,Complex II; methylation-sensitive promoter
+SLC25A12,mitochondrial (folate-linked),down,down,MATCH,0.9600,iron-clad,Aralar/AGC1; mitochondrial aspartate export for nucleotide synthesis impaired by folate insufficiency
+SLC25A3,mitochondrial (folate-linked),down,up,MISMATCH,1.0000,iron-clad,Mitochondrial phosphate carrier; energy metabolism disruption
+UQCRC1,mitochondrial (folate-linked),down,down,MATCH,1.0000,iron-clad,Complex III requires Fe-S centers; impaired one-carbon metabolism reduces Fe-S cluster availability

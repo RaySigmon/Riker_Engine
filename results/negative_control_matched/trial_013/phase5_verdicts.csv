@@ -1,0 +1,16 @@
+gene,cluster_id,status,discovery_direction,n_same_tissue_concordant,n_same_tissue_discordant,n_cross_tissue_concordant,reason
+CACHD1,0,survived,up,1,0,2,Same-tissue replication: 1/1 concordant. Cross-tissue: 2/2 concordant.
+NEK6,0,survived,up,1,0,2,Same-tissue replication: 1/1 concordant. Cross-tissue: 2/3 concordant.
+PIK3AP1,0,survived,up,0,0,2,Same-tissue replication: 0/1 concordant. Cross-tissue: 2/3 concordant.
+PLOD1,0,survived,up,1,0,1,Same-tissue replication: 1/1 concordant. Cross-tissue: 1/3 concordant.
+RPL12,0,survived,up,1,0,2,Same-tissue replication: 1/1 concordant. Cross-tissue: 2/3 concordant.
+ASB13,2,survived,down,0,0,1,Same-tissue replication: 0/1 concordant. Cross-tissue: 1/3 concordant.
+CDCA5,2,survived,down,1,0,2,Same-tissue replication: 1/1 concordant. Cross-tissue: 2/2 concordant.
+EMC1,2,survived,down,0,0,1,Same-tissue replication: 0/1 concordant. Cross-tissue: 1/3 concordant.
+LPCAT4,2,survived,down,1,0,3,Same-tissue replication: 1/1 concordant. Cross-tissue: 3/3 concordant.
+MRPL22,2,survived,down,0,0,2,Same-tissue replication: 0/1 concordant. Cross-tissue: 2/3 concordant.
+SNX14,2,survived,down,0,0,2,Same-tissue replication: 0/1 concordant. Cross-tissue: 2/3 concordant.
+VDAC3,2,survived,down,0,0,1,Same-tissue replication: 0/1 concordant. Cross-tissue: 1/3 concordant.
+GALNT17,3,survived,down,1,0,2,Same-tissue replication: 1/1 concordant. Cross-tissue: 2/2 concordant.
+GPI,3,survived,down,0,0,1,Same-tissue replication: 0/1 concordant. Cross-tissue: 1/3 concordant.
+NPTN,3,survived,down,1,0,2,Same-tissue replication: 1/1 concordant. Cross-tissue: 2/3 concordant.

@@ -1,0 +1,28 @@
+{
+  "package_version": "0.3.3.2",
+  "code_version": "f9c175f7d31c0174382a07a93c8a3b265fb5f84e",
+  "condition": "negative_control",
+  "seed_genes": "/home/kai001/riker-engine/data/seeds/negative_control_trials/trial_015.csv",
+  "n_datasets_discovery": 3,
+  "n_datasets_replication": 4,
+  "phase1_study_genes": 48,
+  "phase4_core_genes": 9,
+  "phase4_significant_clusters": 1,
+  "phase5_survived": 9,
+  "phase5_eliminated": 0,
+  "phase6_genes_analyzed": 9,
+  "phase6_significant_random_effects": 7,
+  "phase6_significant_random": 7,
+  "qc_status": "PASSED",
+  "locked_core_genes": [
+    "ANAPC5",
+    "CNN3",
+    "DYNLT1",
+    "FAM81A",
+    "FERMT2",
+    "INPP5D",
+    "POMGNT2",
+    "PRR14",
+    "SERGEF"
+  ]
+}

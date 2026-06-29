@@ -1,0 +1,89 @@
+=== STABILITY TEST COMPLETE ===
+Sat May  9 05:02:41 PM CDT 2026
+{
+  "n_runs": 50,
+  "config": "/home/kai001/riker-engine/results/negative_control_matched/stability_test/config.yaml",
+  "total_genes_seen": 13,
+  "iron_clad": {
+    "count": 13,
+    "fraction": 100.0,
+    "threshold": 0.9
+  },
+  "borderline": {
+    "count": 0,
+    "threshold_low": 0.5,
+    "threshold_high": 0.89
+  },
+  "stochastic": {
+    "count": 0,
+    "threshold": 0.49
+  },
+  "pairwise_jaccard": {
+    "median": 1.0,
+    "p25": 1.0,
+    "p75": 1.0,
+    "min": 0.8462,
+    "max": 1.0,
+    "n_pairs": 1225
+  },
+  "core_gene_counts": {
+    "min": 11,
+    "max": 13,
+    "mean": 13.0
+  },
+  "per_run_runtime_seconds": [
+    99.4,
+    95.4,
+    105.0,
+    112.5,
+    114.5,
+    113.8,
+    114.1,
+    112.9,
+    114.9,
+    113.4,
+    114.3,
+    116.1,
+    115.3,
+    115.0,
+    114.7,
+    112.9,
+    113.4,
+    115.2,
+    115.5,
+    109.3,
+    111.4,
+    112.3,
+    110.9,
+    113.1,
+    111.7,
+    114.8,
+    114.5,
+    114.9,
+    117.0,
+    115.0,
+    111.3,
+    111.8,
+    112.9,
+    117.7,
+    115.5,
+    114.1,
+    115.4,
+    116.4,
+    114.4,
+    111.6,
+    113.0,
+    111.4,
+    111.1,
+    115.8,
+    116.6,
+    115.7,
+    116.5,
+    115.1,
+    119.6,
+    116.0
+  ],
+  "total_wall_time_seconds": 5664.9,
+  "engine_version": "0.3.3.2",
+  "engine_commit": "427a4ca4d18ead525507a8b5c1366e2c423765f5"
+}
